@@ -8,9 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * mybatis-plus配置
- * 如果需要多租户、数据权限
- * 直接进行扩展就好了
+ * mybatis-plus配置 如果需要多租户、数据权限 直接进行扩展就好了
+ *
  * @author shichenyang
  */
 @ComponentScan("cn.yt4j.data")

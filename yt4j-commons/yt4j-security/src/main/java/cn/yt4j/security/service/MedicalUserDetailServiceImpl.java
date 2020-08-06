@@ -13,15 +13,17 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 @Service
 public class MedicalUserDetailServiceImpl implements UserDetailsService {
-    private final RedisTemplate<String, Yt4jUser> redisTemplate;
 
-    @Override
-    public UserDetails loadUserByUsername(String s) {
-        if (redisTemplate.hasKey(s)) {
-            Yt4jUser vo = redisTemplate.opsForValue().get(s);
-            return vo;
-        }
-        return null;
+	private final RedisTemplate<String, Yt4jUser> redisTemplate;
 
-    }
+	@Override
+	public UserDetails loadUserByUsername(String s) {
+		if (redisTemplate.hasKey(s)) {
+			Yt4jUser vo = redisTemplate.opsForValue().get(s);
+			return vo;
+		}
+		return null;
+
+	}
+
 }

@@ -7,20 +7,21 @@ import cn.yt4j.core.enums.IMessageStatus;
  */
 public class Yt4jException extends RuntimeException {
 
-    private IMessageStatus messageStatus;
+	private IMessageStatus messageStatus;
 
-    public Yt4jException() {
-    }
+	public Yt4jException() {
+	}
 
-    public Yt4jException(String message) {
-        super(message);
-    }
+	public Yt4jException(String message) {
+		super(message);
+	}
 
-    public Yt4jException(IMessageStatus messageStatus) {
-        this.messageStatus = messageStatus;
-    }
+	public Yt4jException(IMessageStatus messageStatus) {
+		this.messageStatus = messageStatus;
+	}
 
-    public IMessageStatus getMessageStatus() {
-        return messageStatus;
-    }
+	public IMessageStatus getMessageStatus() {
+		return messageStatus;
+	}
+
 }

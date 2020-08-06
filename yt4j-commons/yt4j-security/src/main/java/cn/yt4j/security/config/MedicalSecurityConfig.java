@@ -28,96 +28,79 @@ import java.util.Map;
 @EnableWebSecurity
 public class MedicalSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
-    @Autowired
-    private UserDetailsService userDetailsService;
-    @Autowired
-    private PasswordEncoder encoder;
-    @Autowired
-    private JwtAuthFilterProperty jwtAuthFilterProperty;
+	@Autowired
+	private JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
 
-    @SneakyThrows
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) {
-        auth
-                .userDetailsService(userDetailsService)
-                .passwordEncoder(encoder);
-    }
+	@Autowired
+	private UserDetailsService userDetailsService;
 
-    @SneakyThrows
-    @Override
-    public void configure(WebSecurity web) {
+	@Autowired
+	private PasswordEncoder encoder;
 
-        web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**")
-                .antMatchers("/user/login")
-                .antMatchers("/user/logout")
-                .antMatchers("/user/sso")
-                .antMatchers("/user/getUserPhone")
-                .antMatchers("/city/**")
-                .antMatchers("/user/getDoctName")
-                .antMatchers("/dict/**")
-                .antMatchers("/outpatinfo/selectAll")
-                .antMatchers("/io/upload")
-                .antMatchers("/io/download")
-                .antMatchers("/dept/**")
-                .antMatchers("/js/**.js")
-                .antMatchers("/css/fonts/**.ttf")
-                .antMatchers("/css/fonts/**.woff")
-                .antMatchers("/img/**.png")
-                .antMatchers("/css/**.css")
-                .antMatchers("/plugins/**.exe")
-                .antMatchers("/doc.html/**")
-                .antMatchers("/v2/api-docs")
-                .antMatchers("/swagger-resources/**")
-                .antMatchers("/webjars/**");
+	@Autowired
+	private JwtAuthFilterProperty jwtAuthFilterProperty;
 
-        if (!jwtAuthFilterProperty.getExcludeUrl().isEmpty()){
-            String [] excludeUrl=jwtAuthFilterProperty.getExcludeUrl().split(",");
-            for (String item:excludeUrl){
-                web.ignoring().antMatchers(item);
-            }
-        }
-    }
+	@SneakyThrows
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) {
+		auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
+	}
 
-    /**
-     * HTTP请求安全处理
-     * token请求授权
-     *
-     * @param http .
-     * @throws Exception .
-     */
-    @SneakyThrows
-    @Override
-    protected void configure(HttpSecurity http) {
+	@SneakyThrows
+	@Override
+	public void configure(WebSecurity web) {
 
-        http.csrf().disable()
-                //未授权处理
-                .exceptionHandling().authenticationEntryPoint((request, response, authException) -> {
-            log.error("{}", authException.getMessage());
+		web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**").antMatchers("/user/login").antMatchers("/user/logout")
+				.antMatchers("/user/sso").antMatchers("/user/getUserPhone").antMatchers("/city/**")
+				.antMatchers("/user/getDoctName").antMatchers("/dict/**").antMatchers("/outpatinfo/selectAll")
+				.antMatchers("/io/upload").antMatchers("/io/download").antMatchers("/dept/**").antMatchers("/js/**.js")
+				.antMatchers("/css/fonts/**.ttf").antMatchers("/css/fonts/**.woff").antMatchers("/img/**.png")
+				.antMatchers("/css/**.css").antMatchers("/plugins/**.exe").antMatchers("/doc.html/**")
+				.antMatchers("/v2/api-docs").antMatchers("/swagger-resources/**").antMatchers("/webjars/**");
 
-            Map<String,Object> result = new HashMap();
-            result.put("code",401);
-            result.put("message","未经授权");
-            response.setContentType("application/json;charset=utf-8");
-            response.setHeader("Access-Control-Allow-Origin", "*");
-            response.setStatus(HttpStatus.OK.value());
-            ObjectMapper mapper = new ObjectMapper();
-            response.getWriter().print(mapper.writeValueAsString(result));
-        })
+		if (!jwtAuthFilterProperty.getExcludeUrl().isEmpty()) {
+			String[] excludeUrl = jwtAuthFilterProperty.getExcludeUrl().split(",");
+			for (String item : excludeUrl) {
+				web.ignoring().antMatchers(item);
+			}
+		}
+	}
 
-                // 基于token，所以不需要session
-                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and().authorizeRequests()
-                // 除上面外的所有请求全部需要鉴权认证
-                .anyRequest().authenticated();
-        // 添加JWT filter
-        //将token验证添加在密码验证前面
-        http.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+	/**
+	 * HTTP请求安全处理 token请求授权
+	 * @param http .
+	 * @throws Exception .
+	 */
+	@SneakyThrows
+	@Override
+	protected void configure(HttpSecurity http) {
 
-        // 禁用缓存
-        http.headers().cacheControl();
-    }
+		http.csrf().disable()
+				// 未授权处理
+				.exceptionHandling().authenticationEntryPoint((request, response, authException) -> {
+					log.error("{}", authException.getMessage());
 
+					Map<String, Object> result = new HashMap();
+					result.put("code", 401);
+					result.put("message", "未经授权");
+					response.setContentType("application/json;charset=utf-8");
+					response.setHeader("Access-Control-Allow-Origin", "*");
+					response.setStatus(HttpStatus.OK.value());
+					ObjectMapper mapper = new ObjectMapper();
+					response.getWriter().print(mapper.writeValueAsString(result));
+				})
+
+				// 基于token，所以不需要session
+				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+				.authorizeRequests()
+				// 除上面外的所有请求全部需要鉴权认证
+				.anyRequest().authenticated();
+		// 添加JWT filter
+		// 将token验证添加在密码验证前面
+		http.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+
+		// 禁用缓存
+		http.headers().cacheControl();
+	}
 
 }

@@ -1,6 +1,5 @@
 package cn.yt4j.web.handler;
 
-
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.exception.Yt4jException;
 import lombok.extern.slf4j.Slf4j;

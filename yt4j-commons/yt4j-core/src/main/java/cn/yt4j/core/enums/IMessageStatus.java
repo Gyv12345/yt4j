@@ -5,15 +5,16 @@ package cn.yt4j.core.enums;
  */
 public interface IMessageStatus {
 
-    /**
-     *  返回code
-     * @return
-     */
-    int getStatus();
+	/**
+	 * 返回code
+	 * @return
+	 */
+	int getStatus();
 
-    /**
-     * 返回信息
-     * @return
-     */
-    String getMessage();
+	/**
+	 * 返回信息
+	 * @return
+	 */
+	String getMessage();
+
 }

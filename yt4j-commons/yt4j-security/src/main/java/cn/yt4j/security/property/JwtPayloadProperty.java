@@ -12,25 +12,29 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "yt4j.jwt.payload")
 public class JwtPayloadProperty {
 
-    /**
-     * user secret
-     */
-    private String secret = "simple";
-    /**
-     * issuer
-     */
-    private String issuer = "simple-security-jwt";
-    /**
-     * audience
-     */
-    private String audience = "foo";
-    /**
-     * expirationMinute default 30 day
-     */
-    private int expirationMinute = 30 * 24 * 60 * 60;
-    /**
-     * NotBefore default 15 minute
-     */
-    private int notBeforeMinute = 15;
+	/**
+	 * user secret
+	 */
+	private String secret = "simple";
+
+	/**
+	 * issuer
+	 */
+	private String issuer = "simple-security-jwt";
+
+	/**
+	 * audience
+	 */
+	private String audience = "foo";
+
+	/**
+	 * expirationMinute default 30 day
+	 */
+	private int expirationMinute = 30 * 24 * 60 * 60;
+
+	/**
+	 * NotBefore default 15 minute
+	 */
+	private int notBeforeMinute = 15;
 
 }

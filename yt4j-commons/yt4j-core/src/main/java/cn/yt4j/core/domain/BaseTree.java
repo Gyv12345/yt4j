@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author gyv12345@163.com
  */
 @Data
@@ -19,22 +18,23 @@ import java.util.List;
 @AllArgsConstructor
 public class BaseTree implements Serializable {
 
-    private static final long serialVersionUID = -6535556067013322117L;
+	private static final long serialVersionUID = -6535556067013322117L;
 
-    @JsonSerialize(using= ToStringSerializer.class)
-    public Long id;
+	@JsonSerialize(using = ToStringSerializer.class)
+	public Long id;
 
-    @JsonSerialize(using= ToStringSerializer.class)
-    public Long parentId;
+	@JsonSerialize(using = ToStringSerializer.class)
+	public Long parentId;
 
-    public List<BaseTree> children=new ArrayList<>();
+	public List<BaseTree> children = new ArrayList<>();
 
-    public void add(BaseTree node) {
-        children.add(node);
-    }
+	public void add(BaseTree node) {
+		children.add(node);
+	}
 
-    public BaseTree(Long id, Long parentId) {
-        this.id = id;
-        this.parentId = parentId;
-    }
+	public BaseTree(Long id, Long parentId) {
+		this.id = id;
+		this.parentId = parentId;
+	}
+
 }
