@@ -6,7 +6,7 @@
     <groupId>cn.yt4j</groupId>
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <artifactId>yt4j-dependencies</artifactId>
 
