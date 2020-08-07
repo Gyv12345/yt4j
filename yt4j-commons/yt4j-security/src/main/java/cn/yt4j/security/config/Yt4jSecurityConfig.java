@@ -21,7 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
- * @author shichenyang
+ * @author gyv12345@163.com
  */
 @Configuration
 @AllArgsConstructor

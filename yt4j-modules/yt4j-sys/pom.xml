@@ -17,6 +17,26 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.yt4j</groupId>
+            <artifactId>yt4j-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.yt4j</groupId>
+            <artifactId>yt4j-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.yt4j</groupId>
+            <artifactId>yt4j-data</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.yt4j</groupId>
+            <artifactId>yt4j-web</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

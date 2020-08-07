@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @author shichenyang
+ * @author gyv12345@163.com
  */
 @AllArgsConstructor
 @Component

@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 /**
- * @author shichenyang
+ * @author gyv12345@163.com
  */
 @AllArgsConstructor
 @Service

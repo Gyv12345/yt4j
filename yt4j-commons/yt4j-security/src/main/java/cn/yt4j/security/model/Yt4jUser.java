@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 /**
- * @author shichenyang
+ * @author gyv12345@163.com
  */
 public class Yt4jUser extends User implements Serializable {
 

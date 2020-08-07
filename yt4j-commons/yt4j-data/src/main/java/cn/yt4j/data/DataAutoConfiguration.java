@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * mybatis-plus配置 如果需要多租户、数据权限 直接进行扩展就好了
  *
- * @author shichenyang
+ * @author gyv12345@163.com
  */
 @ComponentScan("cn.yt4j.data")
 @Configuration

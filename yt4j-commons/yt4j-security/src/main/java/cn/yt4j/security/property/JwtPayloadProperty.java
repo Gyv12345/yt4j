@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * @author shichenyang
+ * @author gyv12345@163.com
  */
 @Component
 @Data

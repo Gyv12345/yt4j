@@ -22,7 +22,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
- * @author shichenyang
+ * @author gyv12345@163.com
  */
 @Configuration
 @ComponentScan("cn.yt4j.security")
