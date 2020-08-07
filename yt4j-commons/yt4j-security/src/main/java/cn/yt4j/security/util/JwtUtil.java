@@ -6,7 +6,6 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -68,15 +67,15 @@ public class JwtUtil {
 
 	/**
 	 * 生成令牌
-	 * @param userId .
+	 * @param username .
 	 * @return .
 	 */
-	public String generateToken(String userId) {
+	public String generateToken(String username) {
 		return Jwts.builder()
 				// jwt签发者
 				.setIssuer(jwtPayloadProperty.getIssuer())
 				// jwt所面向的用户
-				.setSubject(userId)
+				.setSubject(username)
 				// 接收jwt的一方
 				.setAudience(jwtPayloadProperty.getAudience())
 				.setExpiration(

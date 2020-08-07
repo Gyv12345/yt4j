@@ -15,17 +15,17 @@ public class JwtPayloadProperty {
 	/**
 	 * user secret
 	 */
-	private String secret = "simple";
+	private String secret = "yt4j";
 
 	/**
 	 * issuer
 	 */
-	private String issuer = "simple-security-jwt";
+	private String issuer = "yt4j.cn";
 
 	/**
 	 * audience
 	 */
-	private String audience = "foo";
+	private String audience = "vip";
 
 	/**
 	 * expirationMinute default 30 day
