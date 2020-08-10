@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  */
 @AllArgsConstructor
 @Service
-public class MedicalUserDetailServiceImpl implements UserDetailsService {
+public class Yt4jUserDetailServiceImpl implements UserDetailsService {
 
 	private final RedisTemplate<String, Yt4jUser> redisTemplate;
 
