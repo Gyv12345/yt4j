@@ -11,7 +11,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 @UtilityClass
 public class SecurityUtil {
 
-
 	public Authentication getAuthentication() {
 		return SecurityContextHolder.getContext().getAuthentication();
 	}

@@ -30,15 +30,13 @@ public class Yt4jUserDetailServiceImpl implements UserDetailsService {
 
 			List<GrantedAuthority> authorities = new ArrayList<>();
 
-			authorities.addAll(vo.getRoles().stream()
-					.map(item -> new SimpleGrantedAuthority(item))
-					.collect(Collectors.toList()));
+			authorities.addAll(
+					vo.getRoles().stream().map(item -> new SimpleGrantedAuthority(item)).collect(Collectors.toList()));
 
-			authorities.addAll(vo.getMenus().stream()
-					.map(item -> new SimpleGrantedAuthority(item))
-					.collect(Collectors.toList()));
+			authorities.addAll(
+					vo.getMenus().stream().map(item -> new SimpleGrantedAuthority(item)).collect(Collectors.toList()));
 
-			Yt4jUser user=new Yt4jUser(vo.getUsername(),vo.getPassword(),authorities,vo.getId());
+			Yt4jUser user = new Yt4jUser(vo.getUsername(), vo.getPassword(), authorities, vo.getId());
 			return user;
 		}
 		return null;

@@ -8,15 +8,16 @@ import java.util.List;
 /**
  * 角色(SysRole)表数据库访问层
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2020-08-10 08:43:34
  */
 public interface SysRoleDao extends BaseMapper<SysRole> {
-    /**
-     * 获取用户所有角色信息
-     * @param id
-     * @return
-     */
-    List<String> listByUserId(Long id);
+
+	/**
+	 * 获取用户所有角色信息
+	 * @param id
+	 * @return
+	 */
+	List<String> listByUserId(Long id);
 
 }

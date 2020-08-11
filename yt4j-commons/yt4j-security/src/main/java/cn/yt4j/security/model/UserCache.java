@@ -6,22 +6,23 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @author gyv12
+ * @author gyv12345@163.com
  */
 @Data
 public class UserCache implements Serializable {
-    private static final long serialVersionUID = 5164200545222533394L;
 
-    private Long id;
+	private static final long serialVersionUID = 5164200545222533394L;
 
-    private String username;
+	private Long id;
 
-    private String password;
+	private String username;
 
-    private String nickName;
+	private String password;
 
-    private List<String> roles;
+	private String nickName;
 
-    private List<String> menus;
+	private List<String> roles;
+
+	private List<String> menus;
 
 }

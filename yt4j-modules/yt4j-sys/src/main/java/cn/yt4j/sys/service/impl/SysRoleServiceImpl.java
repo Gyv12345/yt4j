@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
  * 角色(SysRole)表服务实现类
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2020-08-10 08:43:34
  */
 @Service("sysRoleService")

@@ -36,11 +36,11 @@ public class Yt4jSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	private final PasswordEncoder encoder;
 
- 	private final JwtAuthFilterProperty jwtAuthFilterProperty;
+	private final JwtAuthFilterProperty jwtAuthFilterProperty;
 
- 	private final RestfulAccessDeniedHandler restfulAccessDeniedHandler;
+	private final RestfulAccessDeniedHandler restfulAccessDeniedHandler;
 
- 	private final RestAuthenticationEntryPoint restAuthenticationEntryPoint;
+	private final RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
 	@SneakyThrows
 	@Override
@@ -59,32 +59,21 @@ public class Yt4jSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http
 				.authorizeRequests();
-		//不需要保护的资源路径允许访问
+		// 不需要保护的资源路径允许访问
 		for (String url : jwtAuthFilterProperty.getIgnoredUrl()) {
 			registry.antMatchers(url).permitAll();
 		}
-		//允许跨域请求的OPTIONS请求
-		registry.antMatchers(HttpMethod.OPTIONS)
-				.permitAll();
+		// 允许跨域请求的OPTIONS请求
+		registry.antMatchers(HttpMethod.OPTIONS).permitAll();
 		// 任何请求需要身份认证
-		registry.and()
-				.authorizeRequests()
-				.anyRequest()
-				.authenticated()
+		registry.and().authorizeRequests().anyRequest().authenticated()
 				// 关闭跨站请求防护及不使用session
-				.and()
-				.csrf()
-				.disable()
-				.sessionManagement()
-				.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+				.and().csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				// 自定义权限拒绝处理类
-				.and()
-				.exceptionHandling()
-				.accessDeniedHandler(restfulAccessDeniedHandler)
+				.and().exceptionHandling().accessDeniedHandler(restfulAccessDeniedHandler)
 				.authenticationEntryPoint(restAuthenticationEntryPoint)
 				// 自定义权限拦截器JWT过滤器
-				.and()
-				.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+				.and().addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 
 }

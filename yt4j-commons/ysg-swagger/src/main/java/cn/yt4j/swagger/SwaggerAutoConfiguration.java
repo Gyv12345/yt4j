@@ -1,7 +1,6 @@
 
 package cn.yt4j.swagger;
 
-
 import io.swagger.annotations.Api;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -15,22 +14,16 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * @author shichenyang
- * swagger配置
+ * @author shichenyang swagger配置
  */
 @EnableSwagger2
 @ConditionalOnProperty(name = "yt4j.swagger.enabled", matchIfMissing = true)
 public class SwaggerAutoConfiguration {
 
-    @Bean
-    public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(ApiInfo.DEFAULT)
-                .select()
-                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
-                .paths(PathSelectors.any())
-                .build();
-    }
-
+	@Bean
+	public Docket api() {
+		return new Docket(DocumentationType.SWAGGER_2).apiInfo(ApiInfo.DEFAULT).select()
+				.apis(RequestHandlerSelectors.withClassAnnotation(Api.class)).paths(PathSelectors.any()).build();
+	}
 
 }

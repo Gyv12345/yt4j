@@ -9,7 +9,7 @@ import lombok.ToString;
 /**
  * (SysUserRole)表实体类
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2020-08-10 08:44:10
  */
 @ApiModel(value = "SysUserRole对象", description = "")
@@ -18,9 +18,8 @@ import lombok.ToString;
 @ToString
 public class SysUserRole extends Model<SysUserRole> {
 
-    private Long userId;
+	private Long userId;
 
-    private Long roleId;
-
+	private Long roleId;
 
 }

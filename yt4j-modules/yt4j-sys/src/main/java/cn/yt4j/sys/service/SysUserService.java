@@ -8,15 +8,16 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 用户(SysUser)表服务接口
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2020-08-07 17:11:44
  */
 public interface SysUserService extends IService<SysUser> {
 
-    /**
-     * 登录
-     * @param dto
-     * @return
-     */
-    String login(UserDTO dto);
+	/**
+	 * 登录
+	 * @param dto
+	 * @return
+	 */
+	String login(UserDTO dto);
+
 }

@@ -26,74 +26,71 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("sysUser")
-public class SysUserController{
-    /**
-     * 服务对象
-     */
-    private final SysUserService sysUserService;
+public class SysUserController {
 
-    @ApiOperation("登录")
-    @PostMapping("login")
-    public R<String> login(@RequestBody @Valid UserDTO dto){
-        return R.ok(this.sysUserService.login(dto));
-    }
+	/**
+	 * 服务对象
+	 */
+	private final SysUserService sysUserService;
 
-    /**
-     * 分页查询所有数据
-     *
-     * @param page    分页对象
-     * @param sysUser 查询实体
-     * @return 所有数据
-     */
-    @ApiOperation("查询")
-    @PreAuthorize("hasRole('USER')")
-    @GetMapping("list")
-    public R<Page<SysUser>> selectAll(Page<SysUser> page, SysUser sysUser) {
-        return R.ok(this.sysUserService.page(page, new QueryWrapper<>(sysUser)));
-    }
+	@ApiOperation("登录")
+	@PostMapping("login")
+	public R<String> login(@RequestBody @Valid UserDTO dto) {
+		return R.ok(this.sysUserService.login(dto));
+	}
 
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
-    @ApiOperation("查询")
-    @GetMapping("get/{id}")
-    public R selectOne(@PathVariable Serializable id) {
-        return R.ok(this.sysUserService.getById(id));
-    }
+	/**
+	 * 分页查询所有数据
+	 * @param page 分页对象
+	 * @param sysUser 查询实体
+	 * @return 所有数据
+	 */
+	@ApiOperation("查询")
+	@PreAuthorize("hasRole('USER')")
+	@GetMapping("list")
+	public R<Page<SysUser>> selectAll(Page<SysUser> page, SysUser sysUser) {
+		return R.ok(this.sysUserService.page(page, new QueryWrapper<>(sysUser)));
+	}
 
-    /**
-     * 新增数据
-     *
-     * @param sysUser 实体对象
-     * @return 新增结果
-     */
-    @PostMapping("insert")
-    public R insert(@RequestBody SysUser sysUser) {
-        return R.ok(this.sysUserService.save(sysUser));
-    }
+	/**
+	 * 通过主键查询单条数据
+	 * @param id 主键
+	 * @return 单条数据
+	 */
+	@ApiOperation("查询")
+	@GetMapping("get/{id}")
+	public R selectOne(@PathVariable Serializable id) {
+		return R.ok(this.sysUserService.getById(id));
+	}
 
-    /**
-     * 修改数据
-     *
-     * @param sysUser 实体对象
-     * @return 修改结果
-     */
-    @PutMapping("update")
-    public R update(@RequestBody SysUser sysUser) {
-        return R.ok(this.sysUserService.updateById(sysUser));
-    }
+	/**
+	 * 新增数据
+	 * @param sysUser 实体对象
+	 * @return 新增结果
+	 */
+	@PostMapping("insert")
+	public R insert(@RequestBody SysUser sysUser) {
+		return R.ok(this.sysUserService.save(sysUser));
+	}
 
-    /**
-     * 删除数据
-     *
-     * @param idList 主键结合
-     * @return 删除结果
-     */
-    @DeleteMapping("delete")
-    public R delete(@RequestParam("idList") List<Long> idList) {
-        return R.ok(this.sysUserService.removeByIds(idList));
-    }
+	/**
+	 * 修改数据
+	 * @param sysUser 实体对象
+	 * @return 修改结果
+	 */
+	@PutMapping("update")
+	public R update(@RequestBody SysUser sysUser) {
+		return R.ok(this.sysUserService.updateById(sysUser));
+	}
+
+	/**
+	 * 删除数据
+	 * @param idList 主键结合
+	 * @return 删除结果
+	 */
+	@DeleteMapping("delete")
+	public R delete(@RequestParam("idList") List<Long> idList) {
+		return R.ok(this.sysUserService.removeByIds(idList));
+	}
+
 }

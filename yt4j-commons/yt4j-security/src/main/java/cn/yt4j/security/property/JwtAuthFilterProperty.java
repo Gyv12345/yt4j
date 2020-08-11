@@ -16,19 +16,19 @@ import java.util.List;
 @ConfigurationProperties(prefix = "yt4j.jwt.filter")
 public class JwtAuthFilterProperty {
 
-    /**
-     * request header key
-     */
-    private String header = HttpHeaders.AUTHORIZATION;
+	/**
+	 * request header key
+	 */
+	private String header = HttpHeaders.AUTHORIZATION;
 
-    /**
-     * request header value start
-     */
-    private String tokenHead = "Bearer ";
+	/**
+	 * request header value start
+	 */
+	private String tokenHead = "Bearer ";
 
-    /**
-     * exclude url
-     */
-    private List<String> ignoredUrl = new ArrayList<>();
+	/**
+	 * exclude url
+	 */
+	private List<String> ignoredUrl = new ArrayList<>();
 
 }

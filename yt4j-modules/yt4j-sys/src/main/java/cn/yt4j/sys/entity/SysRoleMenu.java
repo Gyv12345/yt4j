@@ -10,7 +10,7 @@ import lombok.ToString;
 /**
  * 角色权限(SysRoleMenu)表实体类
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2020-08-10 08:44:09
  */
 @ApiModel(value = "SysRoleMenu对象", description = "角色权限")
@@ -19,11 +19,10 @@ import lombok.ToString;
 @ToString
 public class SysRoleMenu extends Model<SysRoleMenu> {
 
-    @ApiModelProperty(value = "角色ID", example = "1")
-    private Long roleId;
+	@ApiModelProperty(value = "角色ID", example = "1")
+	private Long roleId;
 
-    @ApiModelProperty(value = "权限ID", example = "1")
-    private Long menuId;
-
+	@ApiModelProperty(value = "权限ID", example = "1")
+	private Long menuId;
 
 }

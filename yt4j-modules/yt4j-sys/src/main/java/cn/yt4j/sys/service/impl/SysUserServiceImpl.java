@@ -23,50 +23,54 @@ import java.util.concurrent.TimeUnit;
 /**
  * 用户(SysUser)表服务实现类
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2020-08-07 17:11:45
  */
 @AllArgsConstructor
 @Service("sysUserService")
 public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> implements SysUserService {
 
-    private final PasswordEncoder encoder;
+	private final PasswordEncoder encoder;
 
-    private final JwtUtil jwtUtil;
+	private final JwtUtil jwtUtil;
 
-    private final RedisTemplate<String, UserCache> redisTemplate;
+	private final RedisTemplate<String, UserCache> redisTemplate;
 
-    private final SysRoleDao sysRoleDao;
+	private final SysRoleDao sysRoleDao;
 
-    private final SysMenuDao sysMenuDao;
+	private final SysMenuDao sysMenuDao;
 
-    @Override
-    public String login(UserDTO dto) {
-        SysUser user = this.baseMapper.selectOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, dto.getUsername()));
-        if (ObjectUtil.isNull(user)) {
-            throw new BadCredentialsException("无此用户");
-        } else {
-            //通过密码编码器比较密码
-            if (encoder.matches(dto.getPassword(), user.getPassword())) {
-                //登录成功，创建token，我们需要在这里返回userDetail内容，包含权限信息,并将其放入redis，通过redis跨项目共享
-                String token = jwtUtil.generateToken(user.getUsername());
+	@Override
+	public String login(UserDTO dto) {
+		SysUser user = this.baseMapper
+				.selectOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, dto.getUsername()));
+		if (ObjectUtil.isNull(user)) {
+			throw new BadCredentialsException("无此用户");
+		}
+		else {
+			// 通过密码编码器比较密码
+			if (encoder.matches(dto.getPassword(), user.getPassword())) {
+				// 登录成功，创建token，我们需要在这里返回userDetail内容，包含权限信息,并将其放入redis，通过redis跨项目共享
+				String token = jwtUtil.generateToken(user.getUsername());
 
-                if (redisTemplate.hasKey(user.getUsername())) {
-                    redisTemplate.delete(user.getUsername());
-                }
+				if (redisTemplate.hasKey(user.getUsername())) {
+					redisTemplate.delete(user.getUsername());
+				}
 
-                UserCache cache = new UserCache();
-                cache.setId(user.getId());
-                BeanUtils.copyProperties(user, cache);
-                cache.setRoles(sysRoleDao.listByUserId(user.getId()));
-                cache.setMenus(sysMenuDao.listByUserId(user.getId()));
+				UserCache cache = new UserCache();
+				cache.setId(user.getId());
+				BeanUtils.copyProperties(user, cache);
+				cache.setRoles(sysRoleDao.listByUserId(user.getId()));
+				cache.setMenus(sysMenuDao.listByUserId(user.getId()));
 
-                redisTemplate.opsForValue().set(user.getUsername(), cache, 30L, TimeUnit.DAYS);
+				redisTemplate.opsForValue().set(user.getUsername(), cache, 30L, TimeUnit.DAYS);
 
-                return token;
-            } else {
-                throw new BadCredentialsException("用户或密码错误");
-            }
-        }
-    }
+				return token;
+			}
+			else {
+				throw new BadCredentialsException("用户或密码错误");
+			}
+		}
+	}
+
 }

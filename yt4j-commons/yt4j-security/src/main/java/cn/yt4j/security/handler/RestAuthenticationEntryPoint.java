@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
 /**
  * 未登录登录失败
+ *
  * @author gyv12345@163.com
  */
 @Slf4j
@@ -25,16 +25,18 @@ import java.io.IOException;
 @Component
 public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-    private final ObjectMapper objectMapper;
+	private final ObjectMapper objectMapper;
 
-    @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Cache-Control","no-cache");
-        response.setCharacterEncoding("UTF-8");
-        response.setContentType("application/json");
-        response.setStatus(HttpStatus.OK.value());
-        response.getWriter().println(objectMapper.writeValueAsString(R.failed(MessageStatus.LOGIN_FAILED)));
-        response.getWriter().flush();
-    }
+	@Override
+	public void commence(HttpServletRequest request, HttpServletResponse response,
+			AuthenticationException authException) throws IOException, ServletException {
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Cache-Control", "no-cache");
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json");
+		response.setStatus(HttpStatus.OK.value());
+		response.getWriter().println(objectMapper.writeValueAsString(R.failed(MessageStatus.LOGIN_FAILED)));
+		response.getWriter().flush();
+	}
+
 }

@@ -7,11 +7,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootTest
 public class SysTest {
-    @Autowired
-    private PasswordEncoder encoder;
 
-    @Test
-    public void password(){
-        System.out.println(encoder.encode("123456"));
-    }
+	@Autowired
+	private PasswordEncoder encoder;
+
+	@Test
+	public void password() {
+		System.out.println(encoder.encode("123456"));
+	}
+
 }
