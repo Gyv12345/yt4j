@@ -65,6 +65,7 @@ public class GlobalExceptionHandlerResolver {
 		return R.failed(fieldErrors.get(0).getDefaultMessage());
 	}
 
+
 	/**
 	 * 自定义异常.
 	 * @param e the e

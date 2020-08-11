@@ -14,6 +14,7 @@
         <module>yt4j-web</module>
         <module>yt4j-data</module>
         <module>yt4j-security</module>
+        <module>ysg-swagger</module>
     </modules>
 
     <artifactId>yt4j-commons</artifactId>

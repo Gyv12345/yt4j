@@ -68,6 +68,11 @@
                 <artifactId>yt4j-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.yt4j</groupId>
+                <artifactId>ysg-swagger</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

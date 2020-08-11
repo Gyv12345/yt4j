@@ -4,6 +4,7 @@ import cn.yt4j.core.domain.R;
 import cn.yt4j.core.enums.MessageStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -19,6 +20,7 @@ import java.io.IOException;
  * 未登录登录失败
  * @author gyv12345@163.com
  */
+@Slf4j
 @AllArgsConstructor
 @Component
 public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
@@ -32,7 +34,7 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
         response.setStatus(HttpStatus.OK.value());
-        response.getWriter().println(objectMapper.writeValueAsString(R.failed(MessageStatus.FAILED)));
+        response.getWriter().println(objectMapper.writeValueAsString(R.failed(MessageStatus.LOGIN_FAILED)));
         response.getWriter().flush();
     }
 }

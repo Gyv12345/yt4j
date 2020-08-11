@@ -2,14 +2,17 @@ package cn.yt4j.sys.controller;
 
 import cn.yt4j.core.domain.R;
 import cn.yt4j.sys.entity.SysUser;
+import cn.yt4j.sys.entity.dto.UserDTO;
 import cn.yt4j.sys.service.SysUserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
 
@@ -19,7 +22,7 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-08-07 17:11:45
  */
-@Api(tags = "")
+@Api(tags = "用户")
 @AllArgsConstructor
 @RestController
 @RequestMapping("sysUser")
@@ -29,6 +32,12 @@ public class SysUserController{
      */
     private final SysUserService sysUserService;
 
+    @ApiOperation("登录")
+    @PostMapping("login")
+    public R<String> login(@RequestBody @Valid UserDTO dto){
+        return R.ok(this.sysUserService.login(dto));
+    }
+
     /**
      * 分页查询所有数据
      *
@@ -37,6 +46,7 @@ public class SysUserController{
      * @return 所有数据
      */
     @ApiOperation("查询")
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("list")
     public R<Page<SysUser>> selectAll(Page<SysUser> page, SysUser sysUser) {
         return R.ok(this.sysUserService.page(page, new QueryWrapper<>(sysUser)));

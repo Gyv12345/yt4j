@@ -1,5 +1,6 @@
 package cn.yt4j.security.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,30 +19,10 @@ public class Yt4jUser extends User implements Serializable {
 	@Getter
 	private Long id;
 
-	@Getter
-	@Setter
-	private String realName;
-
-	@Getter
-	private Long positionId;
-
-	@Getter
-	private String deptCode;
-
-	@Getter
-	private String deptName;
-
-	@Getter
-	private Integer level;
-
-	public Yt4jUser(String username, String password, Collection<? extends GrantedAuthority> authorities, Long id,
-			Long positionId, String deptCode, String deptName, Integer level) {
+	@JsonCreator
+	public Yt4jUser(String username, String password, Collection<? extends GrantedAuthority> authorities, Long id) {
 		super(username, password, authorities);
 		this.id = id;
-		this.positionId = positionId;
-		this.deptCode = deptCode;
-		this.deptName = deptName;
-		this.level = level;
 	}
 
 }

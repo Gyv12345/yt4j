@@ -32,7 +32,7 @@ public class RestfulAccessDeniedHandler implements AccessDeniedHandler{
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
         response.setStatus(HttpStatus.OK.value());
-        response.getWriter().println(objectMapper.writeValueAsString(R.failed(MessageStatus.FAILED)));
+        response.getWriter().println(objectMapper.writeValueAsString(R.failed(MessageStatus.ACCESS_FAILED)));
         response.getWriter().flush();
     }
 }

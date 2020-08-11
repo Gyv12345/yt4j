@@ -1,6 +1,8 @@
 package cn.yt4j.sys.service;
 
+import cn.yt4j.security.model.Yt4jUser;
 import cn.yt4j.sys.entity.SysUser;
+import cn.yt4j.sys.entity.dto.UserDTO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,4 +13,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface SysUserService extends IService<SysUser> {
 
+    /**
+     * 登录
+     * @param dto
+     * @return
+     */
+    String login(UserDTO dto);
 }
