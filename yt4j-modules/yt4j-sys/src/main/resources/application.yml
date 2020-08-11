@@ -22,7 +22,6 @@ yt4j:
         - /**/*.ico
         - /webjars/springfox-swagger-ui/**
         - /actuator/**
-        - /druid/**
         - /sysUser/login
   swagger:
-    enable: true
+    enabled: true
