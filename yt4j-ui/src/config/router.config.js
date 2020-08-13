@@ -89,6 +89,13 @@ export const asyncRouterMap = [
             meta: { title: '查询表格', keepAlive: true, permission: [ 'table' ] }
           },
           {
+            path: '/list/query-list',
+            name: 'QueryList',
+            hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
+            component: () => import('@/views/list/QueryList'),
+            meta: { title: '查询表格', keepAlive: true, permission: [ 'table' ] }
+          },
+          {
             path: '/list/basic-list',
             name: 'BasicList',
             component: () => import('@/views/list/BasicList'),

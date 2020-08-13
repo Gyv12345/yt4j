@@ -17,6 +17,7 @@
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
     </resultMap>
+
     <select id="listByUserId" resultType="java.lang.String">
         select  t1.code from sys_menu t1
         inner join sys_role_menu t2 on t1.id=t2.menu_id

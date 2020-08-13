@@ -9,7 +9,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -46,7 +45,6 @@ public class SysUserController {
 	 * @return 所有数据
 	 */
 	@ApiOperation("查询")
-	@PreAuthorize("hasRole('USER')")
 	@GetMapping("list")
 	public R<Page<SysUser>> selectAll(Page<SysUser> page, SysUser sysUser) {
 		return R.ok(this.sysUserService.page(page, new QueryWrapper<>(sysUser)));

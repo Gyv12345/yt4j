@@ -483,6 +483,17 @@ const userNav = (options) => {
       'component': 'TableList'
     },
     {
+      'name': 'query-list',
+      'parentId': 10010,
+      'id': 1011,
+      'path': '/list/query-list/',
+      'meta': {
+        'title': '查询表格',
+        'show': true
+      },
+      'component': 'QueryList'
+    },
+    {
       'name': 'basic-list',
       'parentId': 10010,
       'id': 10012,

@@ -12,7 +12,11 @@ import java.util.List;
  * @since 2020-08-10 08:43:33
  */
 public interface SysMenuDao extends BaseMapper<SysMenu> {
-
+	/**
+	 * 获取权限
+	 * @param id
+	 * @return
+	 */
 	List<String> listByUserId(Long id);
 
 }
