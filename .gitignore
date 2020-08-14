@@ -1,2 +1,4 @@
 /yt4j-cloud.iml
 /.idea
+/yt4j-ui/yarn.lock
+/*/*/target
