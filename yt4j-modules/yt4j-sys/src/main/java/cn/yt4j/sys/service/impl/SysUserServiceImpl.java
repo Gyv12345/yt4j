@@ -39,75 +39,78 @@ import java.util.stream.Collectors;
 @Service("sysUserService")
 public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> implements SysUserService {
 
-    private final PasswordEncoder encoder;
+	private final PasswordEncoder encoder;
 
-    private final JwtUtil jwtUtil;
+	private final JwtUtil jwtUtil;
 
-    private final RedisTemplate<String, UserCache> redisTemplate;
+	private final RedisTemplate<String, UserCache> redisTemplate;
 
-    private final SysRoleDao sysRoleDao;
+	private final SysRoleDao sysRoleDao;
 
-    private final SysMenuDao sysMenuDao;
+	private final SysMenuDao sysMenuDao;
 
-    @Override
-    public String login(UserDTO dto) {
+	@Override
+	public String login(UserDTO dto) {
 
+		SysUser user = this.baseMapper
+				.selectOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, dto.getUsername()));
+		if (ObjectUtil.isNull(user)) {
+			throw new BadCredentialsException("无此用户");
+		}
+		else {
+			// 通过密码编码器比较密码
+			if (encoder.matches(dto.getPassword(), user.getPassword())) {
+				// 登录成功，创建token，我们需要在这里返回userDetail内容，包含权限信息,并将其放入redis，通过redis跨项目共享
+				String token = jwtUtil.generateToken(user.getUsername());
 
-        SysUser user = this.baseMapper
-                .selectOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, dto.getUsername()));
-        if (ObjectUtil.isNull(user)) {
-            throw new BadCredentialsException("无此用户");
-        } else {
-            // 通过密码编码器比较密码
-            if (encoder.matches(dto.getPassword(), user.getPassword())) {
-                // 登录成功，创建token，我们需要在这里返回userDetail内容，包含权限信息,并将其放入redis，通过redis跨项目共享
-                String token = jwtUtil.generateToken(user.getUsername());
+				if (redisTemplate.hasKey(user.getUsername())) {
+					redisTemplate.delete(user.getUsername());
+				}
 
-                if (redisTemplate.hasKey(user.getUsername())) {
-                    redisTemplate.delete(user.getUsername());
-                }
+				UserCache cache = new UserCache();
+				cache.setId(user.getId());
+				BeanUtils.copyProperties(user, cache);
+				cache.setRoles(sysRoleDao.listByUserId(user.getId()));
+				cache.setMenus(sysMenuDao.listByUserId(user.getId()));
 
-                UserCache cache = new UserCache();
-                cache.setId(user.getId());
-                BeanUtils.copyProperties(user, cache);
-                cache.setRoles(sysRoleDao.listByUserId(user.getId()));
-                cache.setMenus(sysMenuDao.listByUserId(user.getId()));
+				redisTemplate.opsForValue().set(user.getUsername(), cache, 30L, TimeUnit.DAYS);
 
-                redisTemplate.opsForValue().set(user.getUsername(), cache, 30L, TimeUnit.DAYS);
+				return token;
+			}
+			else {
+				throw new BadCredentialsException("用户或密码错误");
+			}
+		}
+	}
 
-                return token;
-            } else {
-                throw new BadCredentialsException("用户或密码错误");
-            }
-        }
-    }
+	@Override
+	public UserInfo getInfo(Long id) {
+		UserInfo userInfo = new UserInfo();
+		Role role = new Role();
+		List<Permissions> permissionsList = new ArrayList<>();
 
-    @Override
-    public UserInfo getInfo(Long id) {
-        UserInfo userInfo = new UserInfo();
-        Role role = new Role();
-        List<Permissions> permissionsList = new ArrayList<>();
+		SysUser user = this.baseMapper.selectById(id);
+		List<SysMenu> menus = this.sysMenuDao.listMenuByUserId(id);
+		menus.forEach(sysMenu -> {
+			Permissions permissions = new Permissions();
+			permissions.setPermissionName(sysMenu.getPermission());
+			permissions.setActionEntitySet(this.sysMenuDao
+					.selectList(Wrappers.<SysMenu>query().lambda().eq(SysMenu::getParentId, sysMenu.getId())).stream()
+					.map(menu -> {
+						ActionEntitySet set = new ActionEntitySet();
+						set.setAction(menu.getPermission());
+						set.setDescribe(menu.getTitle());
+						set.setDefaultCheck(false);
+						return set;
+					}).collect(Collectors.toList()));
+			permissionsList.add(permissions);
+		});
+		userInfo.setName(user.getNickName());
+		userInfo.setAvatar(user.getAvatar());
+		role.setPermissions(permissionsList);
 
-        SysUser user = this.baseMapper.selectById(id);
-        List<SysMenu> menus = this.sysMenuDao.listMenuByUserId(id);
-        menus.forEach(sysMenu -> {
-            Permissions permissions = new Permissions();
-            permissions.setPermissionName(sysMenu.getPermission());
-            permissions.setActionEntitySet(this.sysMenuDao.selectList(Wrappers.<SysMenu>query().lambda().eq(SysMenu::getParentId, sysMenu.getId())).stream().map(menu -> {
-                ActionEntitySet set = new ActionEntitySet();
-                set.setAction(menu.getPermission());
-                set.setDescribe(menu.getTitle());
-                set.setDefaultCheck(false);
-                return set;
-            }).collect(Collectors.toList()));
-            permissionsList.add(permissions);
-        });
-        userInfo.setName(user.getNickName());
-        userInfo.setAvatar(user.getAvatar());
-        role.setPermissions(permissionsList);
-
-        userInfo.setRole(role);
-        return userInfo;
-    }
+		userInfo.setRole(role);
+		return userInfo;
+	}
 
 }

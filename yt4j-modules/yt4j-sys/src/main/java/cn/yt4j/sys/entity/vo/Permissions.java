@@ -2,25 +2,29 @@ package cn.yt4j.sys.entity.vo;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
- * @author gyv12
+ * @author gyv12345@163.com
  */
 @Data
-public class Permissions {
+public class Permissions implements Serializable {
 
-    private String roleId;
+	private static final long serialVersionUID = -8213313529146703872L;
 
-    private String permissionId;
+	private String roleId;
 
-    private String permissionName;
+	private String permissionId;
 
-    private String actions;
+	private String permissionName;
 
-    private List<ActionEntitySet> actionEntitySet;
+	private String actions;
 
-    private String actionList;
+	private List<ActionEntitySet> actionEntitySet;
 
-    private String dataAccess;
+	private String actionList;
+
+	private String dataAccess;
+
 }

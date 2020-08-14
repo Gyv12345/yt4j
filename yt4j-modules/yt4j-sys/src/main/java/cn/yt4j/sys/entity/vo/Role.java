@@ -6,26 +6,27 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @author gyv12
+ * @author gyv12345@163.com
  */
 @Data
 public class Role implements Serializable {
 
-    private static final long serialVersionUID = 8333219920882065467L;
-    private String id;
+	private static final long serialVersionUID = 8333219920882065467L;
 
-    private String name;
+	private String id;
 
-    private String describe;
+	private String name;
 
-    private int status;
+	private String describe;
 
-    private String creatorId;
+	private int status;
 
-    private int createTime;
+	private String creatorId;
 
-    private int deleted;
+	private int createTime;
 
-    private List<Permissions> permissions;
+	private int deleted;
+
+	private List<Permissions> permissions;
 
 }

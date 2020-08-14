@@ -9,11 +9,13 @@ import java.io.Serializable;
  */
 @Data
 public class UserInfo implements Serializable {
-    private static final long serialVersionUID = -7219556137655994917L;
 
-    private String name;
+	private static final long serialVersionUID = -7219556137655994917L;
 
-    private String avatar;
+	private String name;
 
-    private Role role;
+	private String avatar;
+
+	private Role role;
+
 }

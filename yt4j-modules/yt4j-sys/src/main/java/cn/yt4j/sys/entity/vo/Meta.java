@@ -7,23 +7,26 @@ import java.util.List;
 
 /**
  * 元数据
- * @author gyv12
+ *
+ * @author gyv12345@163.com
  */
 @Data
 public class Meta implements Serializable {
-    private static final long serialVersionUID = -872474557893915444L;
 
-    private String title;
+	private static final long serialVersionUID = -872474557893915444L;
 
-    private String icon;
+	private String title;
 
-    private String target;
+	private String icon;
 
-    private List<String> permission;
+	private String target;
 
-    private Boolean hiddenHeaderContent;
+	private List<String> permission;
 
-    private Boolean hideChildren;
+	private Boolean hiddenHeaderContent;
 
-    private Boolean show;
+	private Boolean hideChildren;
+
+	private Boolean show;
+
 }

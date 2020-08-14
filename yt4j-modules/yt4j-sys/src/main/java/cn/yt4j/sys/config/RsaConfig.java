@@ -8,16 +8,18 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 非对称加密
- * @author gyv12
+ *
+ * @author gyv12345@163.com
  */
 @Configuration
 public class RsaConfig {
 
-    @Value("${yt4j.rsa.private-key}")
-    private String privateKey;
+	@Value("${yt4j.rsa.private-key}")
+	private String privateKey;
 
-    @Bean
-    public RSA create(){
-        return new RSA(StrUtil.cleanBlank(privateKey), null);
-    }
+	@Bean
+	public RSA create() {
+		return new RSA(StrUtil.cleanBlank(privateKey), null);
+	}
+
 }
