@@ -6,12 +6,12 @@
         <id property="id" column="id"/>
         <result property="type" column="type"/>
         <result property="parentId" column="parent_id"/>
-        <result property="name" column="name"/>
+        <result property="label" column="label"/>
         <result property="title" column="title"/>
         <result property="permission" column="permission"/>
         <result property="icon" column="icon"/>
-        <result property="level" column="level"/>
-        <result property="order" column="order"/>
+        <result property="levelNo" column="level_no"/>
+        <result property="orderNo" column="order_no"/>
         <result property="hidden" column="hidden"/>
         <result property="path" column="path"/>
         <result property="component" column="component"/>
@@ -31,7 +31,7 @@
         inner join sys_role_menu t2 on t1.id=t2.menu_id
         inner join sys_user_role t3 on t2.role_id=t3.role_id
         where t3.user_id=#{id}
-        and t1.type=2
+        and t1.type in (1,2)
     </select>
 
 

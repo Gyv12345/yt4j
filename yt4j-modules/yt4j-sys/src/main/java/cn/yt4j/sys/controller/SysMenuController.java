@@ -1,7 +1,9 @@
 package cn.yt4j.sys.controller;
 
 import cn.yt4j.core.domain.R;
+import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.entity.SysMenu;
+import cn.yt4j.sys.entity.vo.Route;
 import cn.yt4j.sys.service.SysMenuService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -29,6 +31,12 @@ public class SysMenuController {
 	 * 服务对象
 	 */
 	private final SysMenuService sysMenuService;
+
+	@GetMapping("nav")
+	public R<List<Route>> nav(){
+
+		return R.ok(this.sysMenuService.nav(SecurityUtil.getUser().getId()));
+	}
 
 	/**
 	 * 分页查询所有数据

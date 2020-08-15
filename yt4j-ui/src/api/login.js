@@ -10,7 +10,7 @@ const userApi = {
   SendSmsErr: '/account/sms_err',
   // get my info
   UserInfo: '/sysUser/info',
-  UserMenu: '/user/nav'
+  UserMenu: '/sysMenu/nav'
 }
 
 /**
@@ -51,6 +51,7 @@ export function getInfo () {
 }
 
 export function getCurrentUserNav () {
+  console.log('进入请求后台路由数据')
   return request({
     url: userApi.UserMenu,
     method: 'get'

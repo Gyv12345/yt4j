@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 /**
  * 资源权限(SysMenu)表实体类
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2020-08-14 15:29:53
  */
 @ApiModel(value = "SysMenu对象", description = "资源权限")

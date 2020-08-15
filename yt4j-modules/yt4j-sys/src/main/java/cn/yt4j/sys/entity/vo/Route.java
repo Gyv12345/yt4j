@@ -40,6 +40,11 @@ public class Route implements Serializable {
 	private String name;
 
 	/**
+	 * 组件
+	 */
+	private String component;
+
+	/**
 	 * 元数据
 	 */
 	private Meta meta;

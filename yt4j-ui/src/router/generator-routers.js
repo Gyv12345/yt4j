@@ -80,10 +80,11 @@ const rootRouter = {
  * @returns {Promise<Router>}
  */
 export const generatorDynamicRouter = (token) => {
+  console.log('进入动态路由生成')
   return new Promise((resolve, reject) => {
     loginService.getCurrentUserNav(token).then(res => {
       console.log('res', res)
-      const { result } = res
+      const { result } = res.result
       const menuNav = []
       const childrenNav = []
       //      后端数据, 根级树数组,  根级 PID

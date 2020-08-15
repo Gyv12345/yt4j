@@ -18,9 +18,8 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <!-- 因为和spring cloud alibaba整合，2.2.1版本支持版本为2.2.5和Hoxton.SR3 -->
-        <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
-        <api-boot.version>2.3.0.RELEASE</api-boot.version>
+
+        <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
         <spring.checkstyle.version>0.0.22</spring.checkstyle.version>
     </properties>
 

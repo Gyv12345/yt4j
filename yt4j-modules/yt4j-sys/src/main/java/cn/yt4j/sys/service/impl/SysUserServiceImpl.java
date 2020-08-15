@@ -55,7 +55,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 		SysUser user = this.baseMapper
 				.selectOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, dto.getUsername()));
 		if (ObjectUtil.isNull(user)) {
-			throw new BadCredentialsException("无此用户");
+			throw new BadCredentialsException("用户名或密码错误");
 		}
 		else {
 			// 通过密码编码器比较密码
@@ -78,17 +78,19 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 				return token;
 			}
 			else {
-				throw new BadCredentialsException("用户或密码错误");
+				throw new BadCredentialsException("用户名或密码错误");
 			}
 		}
 	}
 
 	@Override
 	public UserInfo getInfo(Long id) {
+		//创建最终返回对象
 		UserInfo userInfo = new UserInfo();
 		Role role = new Role();
 		List<Permissions> permissionsList = new ArrayList<>();
 
+		//查询用户，查询用户的菜单，获取菜单下按钮权限
 		SysUser user = this.baseMapper.selectById(id);
 		List<SysMenu> menus = this.sysMenuDao.listMenuByUserId(id);
 		menus.forEach(sysMenu -> {
@@ -105,10 +107,11 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 					}).collect(Collectors.toList()));
 			permissionsList.add(permissions);
 		});
+
+		//拼装
 		userInfo.setName(user.getNickName());
 		userInfo.setAvatar(user.getAvatar());
 		role.setPermissions(permissionsList);
-
 		userInfo.setRole(role);
 		return userInfo;
 	}
