@@ -95,6 +95,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 		List<SysMenu> menus = this.sysMenuDao.listMenuByUserId(id);
 		menus.forEach(sysMenu -> {
 			Permissions permissions = new Permissions();
+			permissions.setPermissionId(sysMenu.getPermission());
 			permissions.setPermissionName(sysMenu.getPermission());
 			permissions.setActionEntitySet(this.sysMenuDao
 					.selectList(Wrappers.<SysMenu>query().lambda().eq(SysMenu::getParentId, sysMenu.getId())).stream()

@@ -1,5 +1,6 @@
 package cn.yt4j.sys.controller;
 
+import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.sys.entity.SysDept;
 import cn.yt4j.sys.service.SysDeptService;
@@ -38,7 +39,7 @@ public class SysDeptController {
 	 */
 	@ApiOperation("分页查询")
 	@GetMapping
-	public R<Page<SysDept>> selectAll(Page<SysDept> page, SysDept sysDept) {
+	public R<PageResult<SysDept>> selectAll(Page<SysDept> page, SysDept sysDept) {
 		return R.ok(this.sysDeptService.page(page, new QueryWrapper<>(sysDept)));
 	}
 

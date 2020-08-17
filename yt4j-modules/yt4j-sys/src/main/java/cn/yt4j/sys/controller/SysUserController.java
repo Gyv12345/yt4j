@@ -4,6 +4,7 @@ import cn.hutool.core.util.HexUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.asymmetric.RSA;
+import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.entity.SysUser;
@@ -63,7 +64,7 @@ public class SysUserController {
 	 */
 	@ApiOperation("查询")
 	@GetMapping("list")
-	public R<Page<SysUser>> selectAll(Page<SysUser> page, SysUser sysUser) {
+	public R<PageResult<SysUser>> selectAll(Page<SysUser> page, SysUser sysUser) {
 		return R.ok(this.sysUserService.page(page, new QueryWrapper<>(sysUser)));
 	}
 

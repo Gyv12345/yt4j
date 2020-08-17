@@ -29,7 +29,7 @@ function hasPermission (permission, route) {
  * @returns {*}
  */
 // eslint-disable-next-line
-function hasRole(roles, route) {
+function hasRole (roles, route) {
   if (route.meta && route.meta.roles) {
     return route.meta.roles.includes(roles.id)
   } else {
@@ -67,6 +67,7 @@ const permission = {
       return new Promise(resolve => {
         const { roles } = data
         const accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
+        console.log('accessedRouters:' + JSON.stringify(accessedRouters))
         commit('SET_ROUTERS', accessedRouters)
         resolve()
       })

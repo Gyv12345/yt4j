@@ -1,5 +1,6 @@
 package cn.yt4j.sys.controller;
 
+import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.entity.SysMenu;
@@ -46,7 +47,7 @@ public class SysMenuController {
 	 */
 	@ApiOperation("分页查询")
 	@GetMapping
-	public R<Page<SysMenu>> selectAll(Page<SysMenu> page, SysMenu sysMenu) {
+	public R<PageResult<SysMenu>> selectAll(Page<SysMenu> page, SysMenu sysMenu) {
 		return R.ok(this.sysMenuService.page(page, new QueryWrapper<>(sysMenu)));
 	}
 

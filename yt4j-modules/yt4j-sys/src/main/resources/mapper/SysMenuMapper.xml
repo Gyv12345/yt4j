@@ -27,7 +27,7 @@
     </select>
 
     <select id="listMenuByUserId" resultType="cn.yt4j.sys.entity.SysMenu">
-          select  t1.id,t1.permission from sys_menu t1
+          select  t1.* from sys_menu t1
         inner join sys_role_menu t2 on t1.id=t2.menu_id
         inner join sys_user_role t3 on t2.role_id=t3.role_id
         where t3.user_id=#{id}

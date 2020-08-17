@@ -1,5 +1,6 @@
 package cn.yt4j.sys.controller;
 
+import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.sys.entity.SysRole;
 import cn.yt4j.sys.service.SysRoleService;
@@ -38,7 +39,7 @@ public class SysRoleController {
 	 */
 	@ApiOperation("分页查询")
 	@GetMapping
-	public R<Page<SysRole>> selectAll(Page<SysRole> page, SysRole sysRole) {
+	public R<PageResult<SysRole>> selectAll(Page<SysRole> page, SysRole sysRole) {
 		return R.ok(this.sysRoleService.page(page, new QueryWrapper<>(sysRole)));
 	}
 

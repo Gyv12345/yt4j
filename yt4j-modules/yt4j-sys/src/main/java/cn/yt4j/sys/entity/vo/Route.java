@@ -44,6 +44,8 @@ public class Route implements Serializable {
 	 */
 	private String component;
 
+	private String path;
+
 	/**
 	 * 元数据
 	 */
