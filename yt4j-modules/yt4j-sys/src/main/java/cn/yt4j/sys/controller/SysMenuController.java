@@ -2,6 +2,7 @@ package cn.yt4j.sys.controller;
 
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
+import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.entity.SysMenu;
 import cn.yt4j.sys.entity.vo.Route;
@@ -40,14 +41,13 @@ public class SysMenuController {
 
 	/**
 	 * 分页查询所有数据
-	 * @param page 分页对象
 	 * @param sysMenu 查询实体
 	 * @return 所有数据
 	 */
 	@ApiOperation("分页查询")
 	@GetMapping
-	public R<PageResult<SysMenu>> selectAll(Page<SysMenu> page, SysMenu sysMenu) {
-		return R.ok(this.sysMenuService.page(page, new QueryWrapper<>(sysMenu)));
+	public R<PageResult<SysMenu>> selectAll(SysMenu sysMenu) {
+		return R.ok(this.sysMenuService.page(PageUtil.page(), new QueryWrapper<>(sysMenu)));
 	}
 
 	/**

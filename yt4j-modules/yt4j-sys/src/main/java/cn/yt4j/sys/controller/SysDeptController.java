@@ -2,6 +2,7 @@ package cn.yt4j.sys.controller;
 
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
+import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.sys.entity.SysDept;
 import cn.yt4j.sys.service.SysDeptService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -33,14 +34,13 @@ public class SysDeptController {
 
 	/**
 	 * 分页查询所有数据
-	 * @param page 分页对象
 	 * @param sysDept 查询实体
 	 * @return 所有数据
 	 */
 	@ApiOperation("分页查询")
 	@GetMapping
-	public R<PageResult<SysDept>> selectAll(Page<SysDept> page, SysDept sysDept) {
-		return R.ok(this.sysDeptService.page(page, new QueryWrapper<>(sysDept)));
+	public R<PageResult<SysDept>> selectAll(SysDept sysDept) {
+		return R.ok(this.sysDeptService.page(PageUtil.page(), new QueryWrapper<>(sysDept)));
 	}
 
 	/**

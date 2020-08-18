@@ -105,7 +105,7 @@ public class SysUserController {
 	 * @return 删除结果
 	 */
 	@DeleteMapping("delete")
-	public R delete(@RequestParam("idList") List<Long> idList) {
+	public R delete(@RequestParam("idList") @RequestBody List<Long> idList) {
 		return R.ok(this.sysUserService.removeByIds(idList));
 	}
 

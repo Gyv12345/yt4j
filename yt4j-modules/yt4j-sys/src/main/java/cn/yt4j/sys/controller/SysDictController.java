@@ -2,6 +2,7 @@ package cn.yt4j.sys.controller;
 
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
+import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.sys.entity.SysDict;
 import cn.yt4j.sys.service.SysDictService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -33,14 +34,13 @@ public class SysDictController {
 
 	/**
 	 * 分页查询所有数据
-	 * @param page 分页对象
 	 * @param sysDict 查询实体
 	 * @return 所有数据
 	 */
 	@ApiOperation("分页查询")
 	@GetMapping
-	public  R<PageResult<SysDict>> selectAll(Page<SysDict> page, SysDict sysDict) {
-		return R.ok(this.sysDictService.page(page, new QueryWrapper<>(sysDict)));
+	public  R<PageResult<SysDict>> selectAll(SysDict sysDict) {
+		return R.ok(this.sysDictService.page(PageUtil.page(), new QueryWrapper<>(sysDict)));
 	}
 
 	/**
