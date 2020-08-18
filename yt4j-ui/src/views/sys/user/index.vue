@@ -4,10 +4,10 @@
       <s-table
         ref="table"
         size="default"
+        :rowKey="(record) => record.id"
         :columns="columns"
         :data="loadData"
         :alert="true"
-        :rowSelection="rowSelection"
         showPagination="auto"
       >
         <span slot="serial" slot-scope="text, record, index">
@@ -20,8 +20,8 @@
           <ellipsis :length="4" tooltip>{{ text }}</ellipsis>
         </span>
 
-        <span slot="action" slot-scope="text, record">
-          <a :href="record.data.id">编辑{{ text }}</a>
+        <span slot="action" slot-scope="">
+          <a>编辑</a>
           <a-divider type="vertical"/>
           <a-dropdown>
             <a class="ant-dropdown-link">
@@ -81,8 +81,11 @@ export default {
         },
         {
           title: '更新时间',
-          dataIndex: 'updateTime',
-          sorter: true
+          dataIndex: 'updateTime'
+        },
+        {
+          title: '操作',
+          scopedSlots: { customRender: 'action' }
         }
       ],
       // 查询条件参数

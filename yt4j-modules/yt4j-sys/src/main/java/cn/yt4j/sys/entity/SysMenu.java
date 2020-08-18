@@ -24,50 +24,50 @@ import java.time.LocalDateTime;
 @ToString
 public class SysMenu extends Model<SysMenu> {
 
-	@ApiModelProperty(value = "id", example = "1")
+	@ApiModelProperty(value = "id")
 	@TableId(value = "id", type = IdType.AUTO)
 	private Long id;
 
-	@ApiModelProperty(value = "类型 1系统 2菜单 3按钮", example = "1")
+	@ApiModelProperty(value = "类型 1系统 2菜单 3按钮")
 	private Short type;
 
-	@ApiModelProperty(value = "父级ID", example = "1")
+	@ApiModelProperty(value = "父级ID")
 	private Long parentId;
 
-	@ApiModelProperty(value = "路由名称 不能重复", example = "1")
+	@ApiModelProperty(value = "路由名称 不能重复")
 	private String label;
 
-	@ApiModelProperty(value = "路由标题", example = "1")
+	@ApiModelProperty(value = "路由标题")
 	private String title;
 
-	@ApiModelProperty(value = "权限标识", example = "1")
+	@ApiModelProperty(value = "权限标识")
 	private String permission;
 
-	@ApiModelProperty(value = "图标", example = "1")
+	@ApiModelProperty(value = "图标")
 	private String icon;
 
-	@ApiModelProperty(value = "所有父级", example = "1")
+	@ApiModelProperty(value = "所有父级")
 	private String levelNo;
 
-	@ApiModelProperty(value = "排序", example = "1")
+	@ApiModelProperty(value = "排序")
 	private Integer orderNo;
 
-	@ApiModelProperty(value = "是否显示在左侧", example = "1")
+	@ApiModelProperty(value = "是否显示在左侧")
 	private Boolean hidden = true;
 
-	@ApiModelProperty(value = "请求地址", example = "1")
+	@ApiModelProperty(value = "请求地址")
 	private String path;
 
-	@ApiModelProperty(value = "组件地址", example = "1")
+	@ApiModelProperty(value = "组件地址")
 	private String component;
 
-	@ApiModelProperty(value = "保持不变", example = "1")
+	@ApiModelProperty(value = "保持不变")
 	private Boolean keepalive = true;
 
-	@ApiModelProperty(value = "创建时间", example = "1")
+	@ApiModelProperty(value = "创建时间")
 	private LocalDateTime createTime;
 
-	@ApiModelProperty(value = "修改时间", example = "1")
+	@ApiModelProperty(value = "修改时间")
 	private LocalDateTime updateTime;
 
 	/**

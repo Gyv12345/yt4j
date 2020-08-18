@@ -19,10 +19,10 @@ import lombok.ToString;
 @ToString
 public class SysRoleMenu extends Model<SysRoleMenu> {
 
-	@ApiModelProperty(value = "角色ID", example = "1")
+	@ApiModelProperty(value = "角色ID")
 	private Long roleId;
 
-	@ApiModelProperty(value = "权限ID", example = "1")
+	@ApiModelProperty(value = "权限ID")
 	private Long menuId;
 
 }

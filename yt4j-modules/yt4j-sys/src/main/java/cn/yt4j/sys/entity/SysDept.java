@@ -24,38 +24,38 @@ import java.time.LocalDateTime;
 @ToString
 public class SysDept extends Model<SysDept> {
 
-	@ApiModelProperty(value = "id", example = "1")
+	@ApiModelProperty(value = "id")
 	@TableId(value = "id", type = IdType.AUTO)
 	private Long id;
 
-	@ApiModelProperty(value = "父级ID", example = "1")
+	@ApiModelProperty(value = "父级ID")
 	private Long parentId;
 
-	@ApiModelProperty(value = "部门名称", example = "1")
+	@ApiModelProperty(value = "部门名称")
 	private String name;
 
-	@ApiModelProperty(value = "部门编码", example = "1")
+	@ApiModelProperty(value = "部门编码")
 	private String code;
 
-	@ApiModelProperty(value = "层级", example = "1")
+	@ApiModelProperty(value = "层级")
 	private String level;
 
-	@ApiModelProperty(value = "部门电话", example = "1")
+	@ApiModelProperty(value = "部门电话")
 	private String telephone;
 
-	@ApiModelProperty(value = "部门描述", example = "1")
+	@ApiModelProperty(value = "部门描述")
 	private String remark;
 
-	@ApiModelProperty(value = "部门位置", example = "1")
+	@ApiModelProperty(value = "部门位置")
 	private String location;
 
-	@ApiModelProperty(value = "状态", example = "1")
+	@ApiModelProperty(value = "状态")
 	private Integer state;
 
-	@ApiModelProperty(value = "创建时间", example = "1")
+	@ApiModelProperty(value = "创建时间")
 	private LocalDateTime createTime;
 
-	@ApiModelProperty(value = "修改时间", example = "1")
+	@ApiModelProperty(value = "修改时间")
 	private LocalDateTime updateTime;
 
 	/**

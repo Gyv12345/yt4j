@@ -24,32 +24,32 @@ import java.time.LocalDateTime;
 @ToString
 public class SysDict extends Model<SysDict> {
 
-	@ApiModelProperty(value = "id", example = "1")
+	@ApiModelProperty(value = "id")
 	@TableId(value = "id", type = IdType.AUTO)
 	private Long id;
 
-	@ApiModelProperty(value = "字典关键字", example = "1")
+	@ApiModelProperty(value = "字典关键字")
 	private String code;
 
-	@ApiModelProperty(value = "字典名称", example = "1")
+	@ApiModelProperty(value = "字典名称")
 	private String name;
 
-	@ApiModelProperty(value = "字典值", example = "1")
+	@ApiModelProperty(value = "字典值")
 	private String value;
 
-	@ApiModelProperty(value = "父字典", example = "1")
+	@ApiModelProperty(value = "父字典")
 	private Long parentId;
 
-	@ApiModelProperty(value = "状态", example = "1")
+	@ApiModelProperty(value = "状态")
 	private Integer state;
 
-	@ApiModelProperty(value = "用户类型 0 系统 1 用户", example = "1")
+	@ApiModelProperty(value = "用户类型 0 系统 1 用户")
 	private Integer type;
 
-	@ApiModelProperty(value = "创建时间", example = "1")
+	@ApiModelProperty(value = "创建时间")
 	private LocalDateTime createTime;
 
-	@ApiModelProperty(value = "修改时间", example = "1")
+	@ApiModelProperty(value = "修改时间")
 	private LocalDateTime updateTime;
 
 	/**

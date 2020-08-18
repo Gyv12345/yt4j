@@ -33,24 +33,19 @@ public class PageResult<T> implements Serializable {
     /**
      * 总记录数
      */
-    private Long totalRows = 0L;
+    private Long totalCount = 0L;
 
     /**
      * 结果集
      */
     private List<T> data;
 
-    /**
-     * 分页彩虹
-     */
-    private int[] rainbow;
-
     public PageResult() {
     }
 
     public PageResult(Page<T> page) {
         this.setData(page.getRecords());
-        this.setTotalRows(page.getTotal());
+        this.setTotalCount(page.getTotal());
         this.setPageNo(page.getCurrent());
         this.setPageSize(page.getSize());
         this.setTotalPage(page.getPages());
@@ -59,7 +54,7 @@ public class PageResult<T> implements Serializable {
 
     public PageResult(Page page, List<T> t) {
         this.setData(t);
-        this.setTotalRows(page.getTotal());
+        this.setTotalCount(page.getTotal());
         this.setPageNo(page.getCurrent());
         this.setPageSize(page.getSize());
         this.setTotalPage(page.getPages());

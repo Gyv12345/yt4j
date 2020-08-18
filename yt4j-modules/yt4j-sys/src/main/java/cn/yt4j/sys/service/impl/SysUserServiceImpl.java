@@ -117,4 +117,10 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 		return userInfo;
 	}
 
+	@Override
+	public List<SysUser> page(SysUser user) {
+
+		return null;
+	}
+
 }

@@ -10,6 +10,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -24,42 +25,42 @@ import java.util.Date;
 @ToString
 public class SysUser extends Model<SysUser> {
 
-	@ApiModelProperty(value = "id", example = "1")
+	@ApiModelProperty(value = "id")
 	@TableId(value = "id", type = IdType.AUTO)
 	private Long id;
 
-	@ApiModelProperty(value = "昵称", example = "1")
+	@ApiModelProperty(value = "昵称")
 	private String nickName;
 
-	@ApiModelProperty(value = "用户名", example = "1")
+	@ApiModelProperty(value = "用户名")
 	private String username;
 
-	@ApiModelProperty(value = "密码", example = "1")
+	@ApiModelProperty(value = "密码")
 	private String password;
 
-	@ApiModelProperty(value = "身份证号", example = "1")
+	@ApiModelProperty(value = "身份证号")
 	private String idCard;
 
-	@ApiModelProperty(value = "头像", example = "1")
+	@ApiModelProperty(value = "头像")
 	private String avatar;
 
-	@ApiModelProperty(value = "性别", example = "1")
+	@ApiModelProperty(value = "性别")
 	private Integer sex;
 
-	@ApiModelProperty(value = "电子邮箱", example = "1")
+	@ApiModelProperty(value = "电子邮箱")
 	private String email;
 
-	@ApiModelProperty(value = "手机号", example = "1")
+	@ApiModelProperty(value = "手机号")
 	private String phone;
 
-	@ApiModelProperty(value = "状态", example = "1")
+	@ApiModelProperty(value = "状态")
 	private Integer state;
 
-	@ApiModelProperty(value = "创建时间", example = "1")
-	private Date createTime;
+	@ApiModelProperty(value = "创建时间")
+	private LocalDateTime createTime;
 
-	@ApiModelProperty(value = "修改时间", example = "1")
-	private Date updateTime;
+	@ApiModelProperty(value = "修改时间")
+	private LocalDateTime updateTime;
 
 	/**
 	 * 获取主键值

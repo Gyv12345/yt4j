@@ -6,6 +6,8 @@ import cn.yt4j.sys.entity.dto.UserDTO;
 import cn.yt4j.sys.entity.vo.UserInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * 用户(SysUser)表服务接口
  *
@@ -27,5 +29,12 @@ public interface SysUserService extends IService<SysUser> {
 	 * @return
 	 */
 	UserInfo getInfo(Long id);
+
+	/**
+	 * 分页查询
+	 * @param user
+	 * @return
+	 */
+	List<SysUser> page(SysUser user);
 
 }

@@ -24,26 +24,26 @@ import java.time.LocalDateTime;
 @ToString
 public class SysRole extends Model<SysRole> {
 
-	@ApiModelProperty(value = "id", example = "1")
+	@ApiModelProperty(value = "id")
 	@TableId(value = "id", type = IdType.AUTO)
 	private Long id;
 
-	@ApiModelProperty(value = "角色名称", example = "1")
+	@ApiModelProperty(value = "角色名称")
 	private String name;
 
-	@ApiModelProperty(value = "角色标识", example = "1")
+	@ApiModelProperty(value = "角色标识")
 	private String code;
 
-	@ApiModelProperty(value = "角色权限等级 1部门及下属部门所有信息 2本部门 3本人", example = "1")
+	@ApiModelProperty(value = "角色权限等级 1部门及下属部门所有信息 2本部门 3本人")
 	private Integer level;
 
-	@ApiModelProperty(value = "状态", example = "1")
+	@ApiModelProperty(value = "状态")
 	private Integer state;
 
-	@ApiModelProperty(value = "创建时间", example = "1")
+	@ApiModelProperty(value = "创建时间")
 	private LocalDateTime createTime;
 
-	@ApiModelProperty(value = "修改时间", example = "1")
+	@ApiModelProperty(value = "修改时间")
 	private LocalDateTime updateTime;
 
 	/**
