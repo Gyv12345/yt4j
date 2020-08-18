@@ -13,11 +13,12 @@ import java.util.List;
  * @since 2020-08-10 08:43:33
  */
 public interface SysMenuService extends IService<SysMenu> {
-    /**
-     * 查询用户菜单
-     * @param id 用户ID
-     * @return
-     */
-    List<Route> nav(Long id);
+
+	/**
+	 * 查询用户菜单
+	 * @param id 用户ID
+	 * @return
+	 */
+	List<Route> nav(Long id);
 
 }

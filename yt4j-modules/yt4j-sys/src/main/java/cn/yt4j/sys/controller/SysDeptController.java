@@ -1,5 +1,6 @@
 package cn.yt4j.sys.controller;
 
+import cn.yt4j.core.domain.BaseTree;
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
@@ -31,6 +32,12 @@ public class SysDeptController {
 	 * 服务对象
 	 */
 	private final SysDeptService sysDeptService;
+
+	@ApiOperation("机构树")
+	@GetMapping("tree")
+	public R<List<BaseTree>> treeDept() {
+		return R.ok(this.sysDeptService.treeDept());
+	}
 
 	/**
 	 * 分页查询所有数据

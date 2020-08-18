@@ -41,9 +41,9 @@ public class R<T> implements Serializable {
 		return result(null, HttpStatus.OK.value(), message);
 	}
 
-	public static <T> R<PageResult<T>> ok(Page<T> page){
-		PageResult<T> result=new PageResult<>(page);
-		return  result(result, HttpStatus.OK.value(), "查询成功");
+	public static <T> R<PageResult<T>> ok(Page<T> page) {
+		PageResult<T> result = new PageResult<>(page);
+		return result(result, HttpStatus.OK.value(), "查询成功");
 
 	}
 

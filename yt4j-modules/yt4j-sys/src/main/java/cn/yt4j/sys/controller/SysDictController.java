@@ -39,7 +39,7 @@ public class SysDictController {
 	 */
 	@ApiOperation("分页查询")
 	@GetMapping
-	public  R<PageResult<SysDict>> selectAll(SysDict sysDict) {
+	public R<PageResult<SysDict>> selectAll(SysDict sysDict) {
 		return R.ok(this.sysDictService.page(PageUtil.page(), new QueryWrapper<>(sysDict)));
 	}
 

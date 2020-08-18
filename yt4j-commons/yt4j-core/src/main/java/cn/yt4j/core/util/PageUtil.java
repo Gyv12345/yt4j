@@ -12,29 +12,30 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class PageUtil {
 
-    private static final String PAGE_SIZE = "pageSize";
+	private static final String PAGE_SIZE = "pageSize";
 
-    private static final String PAGE_NO = "pageNo";
+	private static final String PAGE_NO = "pageNo";
 
-    public static <T> Page<T> page() {
+	public static <T> Page<T> page() {
 
-        int pageSize = 10;
-        int pageNo = 1;
-        HttpServletRequest request = ((ServletRequestAttributes) (RequestContextHolder.currentRequestAttributes())).getRequest();
+		int pageSize = 10;
+		int pageNo = 1;
+		HttpServletRequest request = ((ServletRequestAttributes) (RequestContextHolder.currentRequestAttributes()))
+				.getRequest();
 
-        //每页条数
-        String pageSizeString = request.getParameter(PAGE_SIZE);
-        if (ObjectUtil.isNotEmpty(pageSizeString)) {
-            pageSize = Integer.parseInt(pageSizeString);
-        }
+		// 每页条数
+		String pageSizeString = request.getParameter(PAGE_SIZE);
+		if (ObjectUtil.isNotEmpty(pageSizeString)) {
+			pageSize = Integer.parseInt(pageSizeString);
+		}
 
-        //第几页
-        String pageNoString = request.getParameter(PAGE_NO);
-        if (ObjectUtil.isNotEmpty(pageNoString)) {
-            pageNo = Integer.parseInt(pageNoString);
-        }
+		// 第几页
+		String pageNoString = request.getParameter(PAGE_NO);
+		if (ObjectUtil.isNotEmpty(pageNoString)) {
+			pageNo = Integer.parseInt(pageNoString);
+		}
 
-        return new Page<>(pageNo, pageSize);
-    }
+		return new Page<>(pageNo, pageSize);
+	}
 
 }

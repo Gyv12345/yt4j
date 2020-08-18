@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 基本树，基本上可以满足树了
+ *
  * @author gyv12345@163.com
  */
 @Data
@@ -26,15 +28,18 @@ public class BaseTree implements Serializable {
 	@JsonSerialize(using = ToStringSerializer.class)
 	public Long parentId;
 
+	private String name;
+
 	public List<BaseTree> children = new ArrayList<>();
 
 	public void add(BaseTree node) {
 		children.add(node);
 	}
 
-	public BaseTree(Long id, Long parentId) {
+	public BaseTree(Long id, Long parentId, String name) {
 		this.id = id;
 		this.parentId = parentId;
+		this.name = name;
 	}
 
 }

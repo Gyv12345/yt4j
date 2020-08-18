@@ -85,12 +85,12 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 
 	@Override
 	public UserInfo getInfo(Long id) {
-		//创建最终返回对象
+		// 创建最终返回对象
 		UserInfo userInfo = new UserInfo();
 		Role role = new Role();
 		List<Permissions> permissionsList = new ArrayList<>();
 
-		//查询用户，查询用户的菜单，获取菜单下按钮权限
+		// 查询用户，查询用户的菜单，获取菜单下按钮权限
 		SysUser user = this.baseMapper.selectById(id);
 		List<SysMenu> menus = this.sysMenuDao.listMenuByUserId(id);
 		menus.forEach(sysMenu -> {
@@ -109,7 +109,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 			permissionsList.add(permissions);
 		});
 
-		//拼装
+		// 拼装
 		userInfo.setName(user.getNickName());
 		userInfo.setAvatar(user.getAvatar());
 		role.setPermissions(permissionsList);

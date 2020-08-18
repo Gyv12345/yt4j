@@ -35,7 +35,7 @@ public class SysMenuController {
 	private final SysMenuService sysMenuService;
 
 	@GetMapping("nav")
-	public R<List<Route>> nav(){
+	public R<List<Route>> nav() {
 		return R.ok(this.sysMenuService.nav(SecurityUtil.getUser().getId()));
 	}
 
