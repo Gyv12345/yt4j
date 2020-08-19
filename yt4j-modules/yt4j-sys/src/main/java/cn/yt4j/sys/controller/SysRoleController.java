@@ -3,8 +3,10 @@ package cn.yt4j.sys.controller;
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
+import cn.yt4j.sys.entity.SysDictItem;
 import cn.yt4j.sys.entity.SysRole;
 import cn.yt4j.sys.entity.dto.RoleMenuDTO;
+import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.service.SysRoleService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
@@ -36,6 +38,12 @@ public class SysRoleController {
 	@GetMapping("get/menus/{id}")
 	public R<List<Long>> getMenuIds(@PathVariable Long id) {
 		return R.ok(this.sysRoleService.listMenuIds(id));
+	}
+
+	@ApiOperation("角色下拉菜单")
+	@GetMapping("select")
+	public R<List<DictVO>> dropDown(){
+		return R.ok(this.sysRoleService.dropDown());
 	}
 
 	@ApiOperation("设置权限")

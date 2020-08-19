@@ -2,6 +2,7 @@ package cn.yt4j.sys.service;
 
 import cn.yt4j.sys.entity.SysRole;
 import cn.yt4j.sys.entity.dto.RoleMenuDTO;
+import cn.yt4j.sys.entity.vo.DictVO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
@@ -27,5 +28,11 @@ public interface SysRoleService extends IService<SysRole> {
 	 * @return
 	 */
 	List<Long> listMenuIds(Long id);
+
+	/**
+	 *
+	 * @return
+	 */
+	List<DictVO> dropDown();
 
 }

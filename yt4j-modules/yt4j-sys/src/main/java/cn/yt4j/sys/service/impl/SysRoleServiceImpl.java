@@ -5,9 +5,11 @@ import cn.yt4j.sys.dao.SysRoleMenuDao;
 import cn.yt4j.sys.entity.SysRole;
 import cn.yt4j.sys.entity.SysRoleMenu;
 import cn.yt4j.sys.entity.dto.RoleMenuDTO;
+import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.service.SysRoleService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,11 +23,11 @@ import java.util.stream.Collectors;
  * @author gyv12345@163.com
  * @since 2020-08-10 08:43:34
  */
+@AllArgsConstructor
 @Service("sysRoleService")
 public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRole> implements SysRoleService {
 
-	@Autowired
-	private SysRoleMenuDao sysRoleMenuDao;
+	private final SysRoleMenuDao sysRoleMenuDao;
 
 	@Override
 	public Boolean setting(RoleMenuDTO dto) {
@@ -40,6 +42,16 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRole> impleme
 	public List<Long> listMenuIds(Long id) {
 		return this.sysRoleMenuDao.selectList(Wrappers.<SysRoleMenu>query().lambda().eq(SysRoleMenu::getRoleId, id))
 				.stream().map(SysRoleMenu::getMenuId).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<DictVO> dropDown() {
+		return this.baseMapper.selectList(null).stream().map(sysRole->{
+			DictVO vo=new DictVO();
+			vo.setLabel(sysRole.getName());
+			vo.setValue(String.valueOf(sysRole.getId()));
+			return vo;
+		}).collect(Collectors.toList());
 	}
 
 }

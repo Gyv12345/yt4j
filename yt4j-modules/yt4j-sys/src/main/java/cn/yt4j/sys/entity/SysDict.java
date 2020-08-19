@@ -37,18 +37,8 @@ public class SysDict extends Model<SysDict> {
 	@ApiModelProperty(value = "字典名称")
 	private String name;
 
-	@ApiModelProperty(value = "字典值")
-	private String value;
-
-	@ApiModelProperty(value = "父字典")
-	private Long parentId;
-
 	@ApiModelProperty(value = "状态")
 	private Integer state;
-
-	@ApiModelProperty(value = "用户类型 0 系统 1 用户")
-	private Integer type;
-
 	@ApiModelProperty(value = "创建时间")
 	private LocalDateTime createTime;
 

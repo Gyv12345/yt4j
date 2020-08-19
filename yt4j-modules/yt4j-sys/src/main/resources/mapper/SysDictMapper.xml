@@ -6,10 +6,7 @@
         <id property="id" column="id"/>
         <result property="code" column="code"/>
         <result property="name" column="name"/>
-        <result property="value" column="value"/>
-        <result property="parentId" column="parent_id"/>
         <result property="state" column="state"/>
-        <result property="type" column="type"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
     </resultMap>

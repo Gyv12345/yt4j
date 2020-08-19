@@ -5,6 +5,7 @@ import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.sys.entity.SysDict;
 import cn.yt4j.sys.entity.SysDictItem;
+import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.service.SysDictService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 字典(SysDict)表控制层
@@ -35,8 +37,13 @@ public class SysDictController {
 
 	@ApiOperation("远程字典")
 	@GetMapping("remote/{code}")
-	public R<List<SysDictItem>> listByCode(@PathVariable String code) {
-		return R.ok(this.sysDictService.listByCode(code));
+	public R<List<DictVO>> listByCode(@PathVariable String code) {
+		return R.ok(this.sysDictService.listByCode(code).stream().map(sysDictItem -> {
+			DictVO vo=new DictVO();
+			vo.setLabel(sysDictItem.getLabel());
+			vo.setValue(sysDictItem.getValue());
+			return vo;
+		}).collect(Collectors.toList()));
 	}
 
 	/**
