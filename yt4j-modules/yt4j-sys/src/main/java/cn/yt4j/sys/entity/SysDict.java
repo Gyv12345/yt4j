@@ -1,6 +1,7 @@
 package cn.yt4j.sys.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import io.swagger.annotations.ApiModel;
@@ -9,8 +10,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * 字典(SysDict)表实体类
@@ -51,6 +54,10 @@ public class SysDict extends Model<SysDict> {
 
 	@ApiModelProperty(value = "修改时间")
 	private LocalDateTime updateTime;
+
+	@NotNull
+	@TableField(exist = false)
+	private List<SysDictItem> items;
 
 	/**
 	 * 获取主键值

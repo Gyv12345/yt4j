@@ -9,6 +9,7 @@ import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.entity.SysUser;
+import cn.yt4j.sys.entity.dto.PasswordDTO;
 import cn.yt4j.sys.entity.dto.UserDTO;
 import cn.yt4j.sys.entity.vo.UserInfo;
 import cn.yt4j.sys.service.SysUserService;
@@ -49,6 +50,14 @@ public class SysUserController {
 	public R<String> login(@RequestBody @Valid UserDTO dto) {
 		dto.setPassword(rsa.decryptStr(dto.getPassword(), KeyType.PrivateKey));
 		return R.ok(this.sysUserService.login(dto), "登录成功");
+	}
+
+	@ApiOperation("修改密码")
+	@PostMapping("update/password")
+	public R<Boolean> updatePassword(@RequestBody @Valid PasswordDTO dto){
+		dto.setOldPwd(rsa.decryptStr(dto.getOldPwd(), KeyType.PrivateKey));
+		dto.setNewPwd(rsa.decryptStr(dto.getNewPwd(), KeyType.PrivateKey));
+		return R.ok(this.sysUserService.updatePassword(dto));
 	}
 
 	@ApiOperation("获取用户信息")

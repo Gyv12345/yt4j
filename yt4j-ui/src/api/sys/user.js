@@ -1,7 +1,7 @@
 import request from '@/utils/request'
 
 const api = {
-  list: '/sysUser/list'
+  list: '/sys/user/list'
 }
 
 export function list (parameter) {

@@ -14,7 +14,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * @author shichenyang swagger配置
+ * @author gyv123452163.com swagger配置
  */
 @EnableSwagger2
 @ConditionalOnProperty(name = "yt4j.swagger.enabled", matchIfMissing = true)

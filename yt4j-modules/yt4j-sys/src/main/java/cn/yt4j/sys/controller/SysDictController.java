@@ -4,6 +4,7 @@ import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.sys.entity.SysDict;
+import cn.yt4j.sys.entity.SysDictItem;
 import cn.yt4j.sys.service.SysDictService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -24,13 +25,19 @@ import java.util.List;
 @Api(tags = " 字典")
 @AllArgsConstructor
 @RestController
-@RequestMapping("sysDict")
+@RequestMapping("sys/dict")
 public class SysDictController {
 
 	/**
 	 * 服务对象
 	 */
 	private final SysDictService sysDictService;
+
+	@ApiOperation("远程字典")
+	@GetMapping("remote/{code}")
+	public R<List<SysDictItem>> listByCode(@PathVariable String code) {
+		return R.ok(this.sysDictService.listByCode(code));
+	}
 
 	/**
 	 * 分页查询所有数据
@@ -83,7 +90,7 @@ public class SysDictController {
 	 */
 	@ApiOperation("删除")
 	@DeleteMapping
-	public R delete(@RequestParam("idList") List<Long> idList) {
+	public R delete(@RequestParam("idList") @RequestBody List<Long> idList) {
 		return R.ok(this.sysDictService.removeByIds(idList));
 	}
 

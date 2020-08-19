@@ -1,13 +1,16 @@
 package cn.yt4j.sys.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
+import cn.yt4j.core.exception.Yt4jException;
 import cn.yt4j.security.model.UserCache;
 import cn.yt4j.security.util.JwtUtil;
+import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.dao.SysMenuDao;
 import cn.yt4j.sys.dao.SysRoleDao;
 import cn.yt4j.sys.dao.SysUserDao;
 import cn.yt4j.sys.entity.SysMenu;
 import cn.yt4j.sys.entity.SysUser;
+import cn.yt4j.sys.entity.dto.PasswordDTO;
 import cn.yt4j.sys.entity.dto.UserDTO;
 import cn.yt4j.sys.entity.vo.ActionEntitySet;
 import cn.yt4j.sys.entity.vo.Permissions;
@@ -20,7 +23,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
+
+import static cn.yt4j.core.enums.MessageStatus.PASSWORD_FAILED;
 
 /**
  * 用户(SysUser)表服务实现类
@@ -81,6 +85,18 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 				throw new BadCredentialsException("用户名或密码错误");
 			}
 		}
+	}
+
+	@Override
+	public Boolean updatePassword(PasswordDTO dto) {
+		SysUser user = this.baseMapper
+				.selectById( SecurityUtil.getUser().getId());
+		if (encoder.matches(dto.getOldPwd(), user.getPassword())) {
+			user.setPassword(encoder.encode(dto.getNewPwd()));
+			this.baseMapper.updateById(user);
+			return Boolean.TRUE;
+		}
+		throw new Yt4jException(PASSWORD_FAILED);
 	}
 
 	@Override

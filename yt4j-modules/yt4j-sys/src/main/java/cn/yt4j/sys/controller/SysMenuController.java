@@ -90,7 +90,7 @@ public class SysMenuController {
 	 */
 	@ApiOperation("删除")
 	@DeleteMapping
-	public R delete(@RequestParam("idList") List<Long> idList) {
+	public R delete(@RequestParam("idList") @RequestBody List<Long> idList) {
 		return R.ok(this.sysMenuService.removeByIds(idList));
 	}
 
