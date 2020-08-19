@@ -59,7 +59,7 @@ public class SysUser extends Model<SysUser> {
 	private String phone;
 
 	@ApiModelProperty(value = "状态")
-	private Integer state;
+	private Boolean state;
 
 	@ApiModelProperty(value = "创建时间")
 	private LocalDateTime createTime;

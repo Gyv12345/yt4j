@@ -1,7 +1,7 @@
 import request from '@/utils/request'
 
 const userApi = {
-  Login: '/sysUser/login',
+  Login: '/sys/user/login',
   Logout: '/auth/logout',
   ForgePassword: '/auth/forge-password',
   Register: '/auth/register',
@@ -9,8 +9,8 @@ const userApi = {
   SendSms: '/account/sms',
   SendSmsErr: '/account/sms_err',
   // get my info
-  UserInfo: '/sysUser/info',
-  UserMenu: '/sysMenu/nav'
+  UserInfo: '/sys/user/info',
+  UserMenu: '/sys/menu/nav'
 }
 
 /**

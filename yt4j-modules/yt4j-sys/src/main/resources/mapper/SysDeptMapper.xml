@@ -5,12 +5,8 @@
     <resultMap type="cn.yt4j.sys.entity.SysDept" id="SysDeptMap">
         <id property="id" column="id"/>
         <result property="parentId" column="parent_id"/>
-        <result property="name" column="name"/>
-        <result property="code" column="code"/>
-        <result property="level" column="level"/>
-        <result property="telephone" column="telephone"/>
-        <result property="remark" column="remark"/>
-        <result property="location" column="location"/>
+        <result property="label" column="label"/>
+        <result property="orderNo" column="orderNo"/>
         <result property="state" column="state"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>

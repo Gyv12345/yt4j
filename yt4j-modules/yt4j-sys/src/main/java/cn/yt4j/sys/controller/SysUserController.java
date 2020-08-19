@@ -1,7 +1,5 @@
 package cn.yt4j.sys.controller;
 
-import cn.hutool.core.util.HexUtil;
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.asymmetric.RSA;
 import cn.yt4j.core.domain.PageResult;
@@ -14,17 +12,12 @@ import cn.yt4j.sys.entity.dto.UserDTO;
 import cn.yt4j.sys.entity.vo.UserInfo;
 import cn.yt4j.sys.service.SysUserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.io.Serializable;
-import java.util.List;
 
 /**
  * 用户(SysUser)表控制层
@@ -71,7 +64,7 @@ public class SysUserController {
 	 * @param sysUser 查询实体
 	 * @return 所有数据
 	 */
-	@ApiOperation("列表 查询条件只需要用户名模糊查询即可")
+	@ApiOperation("列表 ")
 	@GetMapping("list")
 	public R<PageResult<SysUser>> selectAll(SysUser sysUser) {
 		return R.ok(this.sysUserService.page(PageUtil.page(), new QueryWrapper<>(sysUser)));
@@ -84,8 +77,8 @@ public class SysUserController {
 	 */
 	@ApiOperation("按ID返回用户")
 	@GetMapping("get/{id}")
-	public R<SysUser> selectOne(@PathVariable Serializable id) {
-		return R.ok(this.sysUserService.getById(id));
+	public R<SysUser> selectOne(@PathVariable Long id) {
+		return R.ok(this.sysUserService.one(id));
 	}
 
 	/**
@@ -93,10 +86,10 @@ public class SysUserController {
 	 * @param sysUser 实体对象
 	 * @return 新增结果
 	 */
-	@ApiOperation("添加 只需要添加【用户名、昵称、手机号头像上传不需要】")
+	@ApiOperation("添加 ")
 	@PostMapping("insert")
 	public R insert(@RequestBody SysUser sysUser) {
-		return R.ok(this.sysUserService.save(sysUser));
+		return R.ok(this.sysUserService.insert(sysUser));
 	}
 
 	/**
@@ -104,10 +97,10 @@ public class SysUserController {
 	 * @param sysUser 实体对象
 	 * @return 修改结果
 	 */
-	@ApiOperation("添加 只需要添加【用户名、昵称、手机号头像上传不需要】")
+	@ApiOperation("修改 ")
 	@PutMapping("update")
 	public R update(@RequestBody SysUser sysUser) {
-		return R.ok(this.sysUserService.updateById(sysUser));
+		return R.ok(this.sysUserService.update(sysUser));
 	}
 
 	/**

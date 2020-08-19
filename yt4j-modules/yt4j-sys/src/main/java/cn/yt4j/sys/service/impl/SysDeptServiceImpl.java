@@ -29,7 +29,7 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptDao, SysDept> impleme
 					BaseTree tree = new BaseTree();
 					tree.setId(sysDept.getId());
 					tree.setParentId(sysDept.getParentId());
-					tree.setName(sysDept.getName());
+					tree.setName(sysDept.getLabel());
 					return tree;
 				}).collect(Collectors.toList()), 0L);
 	}

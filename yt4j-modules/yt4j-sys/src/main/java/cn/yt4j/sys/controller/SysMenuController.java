@@ -5,6 +5,7 @@ import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.entity.SysMenu;
+import cn.yt4j.sys.entity.vo.MenuTreeVO;
 import cn.yt4j.sys.entity.vo.Route;
 import cn.yt4j.sys.service.SysMenuService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -40,6 +41,12 @@ public class SysMenuController {
 		return R.ok(this.sysMenuService.nav(SecurityUtil.getUser().getId()));
 	}
 
+	@ApiOperation("菜单树")
+	@GetMapping("menuTree")
+	public R<List<MenuTreeVO>> menuTree() {
+		return R.ok(this.sysMenuService.menuTree());
+	}
+
 	/**
 	 * 分页查询所有数据
 	 * @param sysMenu 查询实体
@@ -58,7 +65,7 @@ public class SysMenuController {
 	 */
 	@ApiOperation("获取单个")
 	@GetMapping("{id}")
-	public R selectOne(@PathVariable Serializable id) {
+	public R<SysMenu> selectOne(@PathVariable Serializable id) {
 		return R.ok(this.sysMenuService.getById(id));
 	}
 

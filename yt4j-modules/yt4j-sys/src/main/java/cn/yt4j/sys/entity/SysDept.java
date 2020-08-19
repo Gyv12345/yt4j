@@ -32,22 +32,10 @@ public class SysDept extends Model<SysDept> {
 	private Long parentId;
 
 	@ApiModelProperty(value = "部门名称")
-	private String name;
+	private String label;
 
-	@ApiModelProperty(value = "部门编码")
-	private String code;
-
-	@ApiModelProperty(value = "层级")
-	private String level;
-
-	@ApiModelProperty(value = "部门电话")
-	private String telephone;
-
-	@ApiModelProperty(value = "部门描述")
-	private String remark;
-
-	@ApiModelProperty(value = "部门位置")
-	private String location;
+	@ApiModelProperty(value = "排序")
+	private Integer orderNo;
 
 	@ApiModelProperty(value = "状态")
 	private Integer state;

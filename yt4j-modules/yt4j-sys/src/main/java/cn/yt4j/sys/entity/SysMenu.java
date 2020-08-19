@@ -46,14 +46,11 @@ public class SysMenu extends Model<SysMenu> {
 	@ApiModelProperty(value = "图标")
 	private String icon;
 
-	@ApiModelProperty(value = "所有父级")
-	private String levelNo;
-
 	@ApiModelProperty(value = "排序")
 	private Integer orderNo;
 
 	@ApiModelProperty(value = "是否显示在左侧")
-	private Boolean hidden = true;
+	private Boolean hidden;
 
 	@ApiModelProperty(value = "请求地址")
 	private String path;
@@ -61,8 +58,8 @@ public class SysMenu extends Model<SysMenu> {
 	@ApiModelProperty(value = "组件地址")
 	private String component;
 
-	@ApiModelProperty(value = "保持不变")
-	private Boolean keepalive = true;
+	@ApiModelProperty(value = "缓存")
+	private Boolean keepalive;
 
 	@ApiModelProperty(value = "创建时间")
 	private LocalDateTime createTime;

@@ -8,8 +8,10 @@ import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.dao.SysMenuDao;
 import cn.yt4j.sys.dao.SysRoleDao;
 import cn.yt4j.sys.dao.SysUserDao;
+import cn.yt4j.sys.dao.SysUserRoleDao;
 import cn.yt4j.sys.entity.SysMenu;
 import cn.yt4j.sys.entity.SysUser;
+import cn.yt4j.sys.entity.SysUserRole;
 import cn.yt4j.sys.entity.dto.PasswordDTO;
 import cn.yt4j.sys.entity.dto.UserDTO;
 import cn.yt4j.sys.entity.vo.ActionEntitySet;
@@ -17,6 +19,7 @@ import cn.yt4j.sys.entity.vo.Permissions;
 import cn.yt4j.sys.entity.vo.Role;
 import cn.yt4j.sys.entity.vo.UserInfo;
 import cn.yt4j.sys.service.SysUserService;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
@@ -49,13 +52,14 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 
 	private final RedisTemplate<String, UserCache> redisTemplate;
 
+	private final SysUserRoleDao sysUserRoleDao;
+
 	private final SysRoleDao sysRoleDao;
 
 	private final SysMenuDao sysMenuDao;
 
 	@Override
 	public String login(UserDTO dto) {
-
 		SysUser user = this.baseMapper
 				.selectOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, dto.getUsername()));
 		if (ObjectUtil.isNull(user)) {
@@ -130,6 +134,36 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 		role.setPermissions(permissionsList);
 		userInfo.setRole(role);
 		return userInfo;
+	}
+
+	@Override
+	public Boolean insert(SysUser user) {
+		user.setPassword(encoder.encode("123456"));
+		user.setState(true);
+		this.baseMapper.insert(user);
+		if (ObjectUtil.isNotNull(user.getRoleIds())) {
+			this.sysUserRoleDao.batchAdd(user.getId(), user.getRoleIds());
+		}
+		return Boolean.TRUE;
+	}
+
+	@Override
+	public Boolean update(SysUser user) {
+		this.sysUserRoleDao.delete(new LambdaQueryWrapper<SysUserRole>().eq(SysUserRole::getUserId, user.getId()));
+		if (ObjectUtil.isNotNull(user.getRoleIds())) {
+			this.sysUserRoleDao.batchAdd(user.getId(), user.getRoleIds());
+		}
+		this.baseMapper.updateById(user);
+		return Boolean.TRUE;
+	}
+
+	@Override
+	public SysUser one(Long id) {
+		SysUser user = this.baseMapper.selectById(id);
+		user.setRoleIds(
+				this.sysUserRoleDao.selectList(new LambdaQueryWrapper<SysUserRole>().eq(SysUserRole::getUserId, id))
+						.stream().map(SysUserRole::getRoleId).collect(Collectors.toList()));
+		return user;
 	}
 
 	@Override

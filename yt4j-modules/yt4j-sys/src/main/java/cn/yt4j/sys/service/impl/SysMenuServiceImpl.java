@@ -1,7 +1,9 @@
 package cn.yt4j.sys.service.impl;
 
+import cn.yt4j.core.util.TreeUtil;
 import cn.yt4j.sys.dao.SysMenuDao;
 import cn.yt4j.sys.entity.SysMenu;
+import cn.yt4j.sys.entity.vo.MenuTreeVO;
 import cn.yt4j.sys.entity.vo.Meta;
 import cn.yt4j.sys.entity.vo.Route;
 import cn.yt4j.sys.service.SysMenuService;
@@ -40,6 +42,17 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenu> impleme
 			route.setMeta(meta);
 			return route;
 		}).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<MenuTreeVO> menuTree() {
+		return TreeUtil.buildByRecursive(
+				Optional.ofNullable(this.baseMapper.selectList(null)).orElse(null).stream().map(sysMenu -> {
+					MenuTreeVO vo = new MenuTreeVO(sysMenu.getId(), sysMenu.getParentId(), sysMenu.getTitle(),
+							sysMenu.getTitle(), sysMenu.getIcon(), sysMenu.getOrderNo(), sysMenu.getPath(),
+							sysMenu.getComponent());
+					return vo;
+				}).collect(Collectors.toList()), 0L);
 	}
 
 }

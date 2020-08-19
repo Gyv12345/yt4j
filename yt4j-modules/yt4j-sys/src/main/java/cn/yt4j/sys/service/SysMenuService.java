@@ -1,6 +1,7 @@
 package cn.yt4j.sys.service;
 
 import cn.yt4j.sys.entity.SysMenu;
+import cn.yt4j.sys.entity.vo.MenuTreeVO;
 import cn.yt4j.sys.entity.vo.Route;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -20,5 +21,11 @@ public interface SysMenuService extends IService<SysMenu> {
 	 * @return
 	 */
 	List<Route> nav(Long id);
+
+	/**
+	 * 获取菜单树形列表
+	 * @return
+	 */
+	List<MenuTreeVO> menuTree();
 
 }

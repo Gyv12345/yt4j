@@ -10,7 +10,6 @@
         <result property="title" column="title"/>
         <result property="permission" column="permission"/>
         <result property="icon" column="icon"/>
-        <result property="levelNo" column="level_no"/>
         <result property="orderNo" column="order_no"/>
         <result property="hidden" column="hidden"/>
         <result property="path" column="path"/>

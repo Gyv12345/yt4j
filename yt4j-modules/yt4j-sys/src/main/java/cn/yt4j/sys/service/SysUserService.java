@@ -1,6 +1,7 @@
 package cn.yt4j.sys.service;
 
 import cn.yt4j.security.model.Yt4jUser;
+import cn.yt4j.sys.entity.SysRole;
 import cn.yt4j.sys.entity.SysUser;
 import cn.yt4j.sys.entity.dto.PasswordDTO;
 import cn.yt4j.sys.entity.dto.UserDTO;
@@ -37,6 +38,27 @@ public interface SysUserService extends IService<SysUser> {
 	 * @return
 	 */
 	UserInfo getInfo(Long id);
+
+	/**
+	 * 添加用户
+	 * @param user
+	 * @return
+	 */
+	Boolean insert(SysUser user);
+
+	/**
+	 * 修改用户
+	 * @param user
+	 * @return
+	 */
+	Boolean update(SysUser user);
+
+	/**
+	 * 获取一个
+	 * @param id
+	 * @return
+	 */
+	SysUser one(Long id);
 
 	/**
 	 * 分页查询
