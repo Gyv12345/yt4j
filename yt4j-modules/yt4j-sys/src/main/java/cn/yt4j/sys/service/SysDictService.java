@@ -13,21 +13,20 @@ import java.util.List;
  * @since 2020-08-10 08:43:32
  */
 public interface SysDictService extends IService<SysDict> {
-    /**
-     * 添加
-     * @param dict
-     * @return
-     */
-    Boolean insert(SysDict dict);
 
-    /**
-     * 修改
-     * @param dict
-     * @return
-     */
-    Boolean update(SysDict dict);
+	/**
+	 * 添加
+	 * @param dict
+	 * @return
+	 */
+	Boolean insert(SysDict dict);
 
-
+	/**
+	 * 修改
+	 * @param dict
+	 * @return
+	 */
+	Boolean update(SysDict dict);
 
 	/**
 	 * 远程字典

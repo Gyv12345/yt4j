@@ -13,10 +13,12 @@ import java.util.List;
  * @since 2020-08-18 16:44:07
  */
 public interface SysDictItemDao extends BaseMapper<SysDictItem> {
-    /**
-     * 批量添加
-     * @param items
-     * @return
-     */
-    int batchInsert(@Param("items") List<SysDictItem> items);
+
+	/**
+	 * 批量添加
+	 * @param items
+	 * @return
+	 */
+	int batchInsert(@Param("items") List<SysDictItem> items);
+
 }

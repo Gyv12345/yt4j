@@ -4,6 +4,7 @@
 
     <resultMap type="cn.yt4j.sys.entity.SysUser" id="UserMap">
         <id property="id" column="id"/>
+        <result property="deptId" column="dept_id"/>
         <result property="nickName" column="nick_name"/>
         <result property="username" column="username"/>
         <result property="password" column="password"/>

@@ -7,7 +7,6 @@ import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.sys.entity.SysDept;
 import cn.yt4j.sys.service.SysDeptService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -25,7 +24,7 @@ import java.util.List;
 @Api(tags = " 部门")
 @AllArgsConstructor
 @RestController
-@RequestMapping("sysDept")
+@RequestMapping("sys/dept")
 public class SysDeptController {
 
 	/**
@@ -56,8 +55,8 @@ public class SysDeptController {
 	 * @return 单条数据
 	 */
 	@ApiOperation("获取单个")
-	@GetMapping("{id}")
-	public R selectOne(@PathVariable Serializable id) {
+	@GetMapping("get/{id}")
+	public R<SysDept> selectOne(@PathVariable Serializable id) {
 		return R.ok(this.sysDeptService.getById(id));
 	}
 
@@ -67,7 +66,7 @@ public class SysDeptController {
 	 * @return 新增结果
 	 */
 	@ApiOperation("添加")
-	@PostMapping
+	@PostMapping("insert")
 	public R insert(@RequestBody SysDept sysDept) {
 		return R.ok(this.sysDeptService.save(sysDept));
 	}
@@ -78,20 +77,20 @@ public class SysDeptController {
 	 * @return 修改结果
 	 */
 	@ApiOperation("修改")
-	@PutMapping
+	@PutMapping("update")
 	public R update(@RequestBody SysDept sysDept) {
 		return R.ok(this.sysDeptService.updateById(sysDept));
 	}
 
 	/**
 	 * 删除数据
-	 * @param idList 主键结合
+	 * @param id 主键结合
 	 * @return 删除结果
 	 */
 	@ApiOperation("删除")
-	@DeleteMapping
-	public R delete(@RequestParam("idList") @RequestBody List<Long> idList) {
-		return R.ok(this.sysDeptService.removeByIds(idList));
+	@DeleteMapping("delete/{id}")
+	public R delete(@PathVariable Long id) {
+		return R.ok(this.sysDeptService.removeById(id));
 	}
 
 }

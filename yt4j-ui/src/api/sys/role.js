@@ -1,11 +1,11 @@
 import request from '@/utils/request'
 
 const api = {
-  list: '/sys/user/list',
-  get: '/sys/user/get/',
-  save: '/sys/user/insert',
-  update: '/sys/user/update',
-  del: 'sys/user/delete'
+  list: '/sys/role/list',
+  get: '/sys/role/get/',
+  save: '/sys/role/insert',
+  update: '/sys/role/update',
+  del: 'sys/role/delete/'
 }
 
 // 分页查询
@@ -26,26 +26,25 @@ export function get (id) {
 }
 
 // 修改
-export function save (user) {
+export function save (role) {
   return request({
     url: api.save,
     method: 'post',
-    data: user
+    data: role
   })
 }
 // 修改
-export function update (user) {
+export function update (role) {
   return request({
     url: api.update,
     method: 'put',
-    data: user
+    data: role
   })
 }
 
-export function del (ids) {
+export function del (id) {
   return request({
-    url: api.del,
-    method: 'delete',
-    data: ids
+    url: api.del + id,
+    method: 'delete'
   })
 }

@@ -35,7 +35,7 @@ import java.util.List;
 @AllArgsConstructor
 @Api(tags = "用户")
 @RestController
-@RequestMapping("sysUser")
+@RequestMapping("sys/user")
 public class SysUserController {
 
 	/**
@@ -54,7 +54,7 @@ public class SysUserController {
 
 	@ApiOperation("修改密码")
 	@PostMapping("update/password")
-	public R<Boolean> updatePassword(@RequestBody @Valid PasswordDTO dto){
+	public R<Boolean> updatePassword(@RequestBody @Valid PasswordDTO dto) {
 		dto.setOldPwd(rsa.decryptStr(dto.getOldPwd(), KeyType.PrivateKey));
 		dto.setNewPwd(rsa.decryptStr(dto.getNewPwd(), KeyType.PrivateKey));
 		return R.ok(this.sysUserService.updatePassword(dto));
@@ -71,7 +71,7 @@ public class SysUserController {
 	 * @param sysUser 查询实体
 	 * @return 所有数据
 	 */
-	@ApiOperation("查询")
+	@ApiOperation("列表 查询条件只需要用户名模糊查询即可")
 	@GetMapping("list")
 	public R<PageResult<SysUser>> selectAll(SysUser sysUser) {
 		return R.ok(this.sysUserService.page(PageUtil.page(), new QueryWrapper<>(sysUser)));
@@ -82,9 +82,9 @@ public class SysUserController {
 	 * @param id 主键
 	 * @return 单条数据
 	 */
-	@ApiOperation("查询")
+	@ApiOperation("按ID返回用户")
 	@GetMapping("get/{id}")
-	public R selectOne(@PathVariable Serializable id) {
+	public R<SysUser> selectOne(@PathVariable Serializable id) {
 		return R.ok(this.sysUserService.getById(id));
 	}
 
@@ -93,6 +93,7 @@ public class SysUserController {
 	 * @param sysUser 实体对象
 	 * @return 新增结果
 	 */
+	@ApiOperation("添加 只需要添加【用户名、昵称、手机号头像上传不需要】")
 	@PostMapping("insert")
 	public R insert(@RequestBody SysUser sysUser) {
 		return R.ok(this.sysUserService.save(sysUser));
@@ -103,6 +104,7 @@ public class SysUserController {
 	 * @param sysUser 实体对象
 	 * @return 修改结果
 	 */
+	@ApiOperation("添加 只需要添加【用户名、昵称、手机号头像上传不需要】")
 	@PutMapping("update")
 	public R update(@RequestBody SysUser sysUser) {
 		return R.ok(this.sysUserService.updateById(sysUser));
@@ -110,12 +112,13 @@ public class SysUserController {
 
 	/**
 	 * 删除数据
-	 * @param idList 主键结合
+	 * @param id 主键结合
 	 * @return 删除结果
 	 */
-	@DeleteMapping("delete")
-	public R delete(@RequestParam("idList") @RequestBody List<Long> idList) {
-		return R.ok(this.sysUserService.removeByIds(idList));
+	@ApiOperation("删除")
+	@DeleteMapping("delete/{id}")
+	public R delete(@PathVariable Long id) {
+		return R.ok(this.sysUserService.removeById(id));
 	}
 
 }

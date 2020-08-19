@@ -57,7 +57,7 @@ public class SysDictController {
 	 */
 	@ApiOperation("获取单个")
 	@GetMapping("{id}")
-	public R selectOne(@PathVariable Serializable id) {
+	public R<SysDict> selectOne(@PathVariable Serializable id) {
 		return R.ok(this.sysDictService.getById(id));
 	}
 
@@ -67,7 +67,7 @@ public class SysDictController {
 	 * @return 新增结果
 	 */
 	@ApiOperation("添加")
-	@PostMapping
+	@PostMapping("insert")
 	public R insert(@RequestBody SysDict sysDict) {
 		return R.ok(this.sysDictService.save(sysDict));
 	}
@@ -78,20 +78,20 @@ public class SysDictController {
 	 * @return 修改结果
 	 */
 	@ApiOperation("修改")
-	@PutMapping
+	@PutMapping("update")
 	public R update(@RequestBody SysDict sysDict) {
 		return R.ok(this.sysDictService.updateById(sysDict));
 	}
 
 	/**
 	 * 删除数据
-	 * @param idList 主键结合
+	 * @param id 主键结合
 	 * @return 删除结果
 	 */
 	@ApiOperation("删除")
-	@DeleteMapping
-	public R delete(@RequestParam("idList") @RequestBody List<Long> idList) {
-		return R.ok(this.sysDictService.removeByIds(idList));
+	@DeleteMapping("delete/{id}")
+	public R delete(@PathVariable Long id) {
+		return R.ok(this.sysDictService.removeById(id));
 	}
 
 }

@@ -24,22 +24,22 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictDao, SysDict> impleme
 
 	private final SysDictItemDao sysDictItemDao;
 
-    @Override
-    public Boolean insert(SysDict dict) {
-        this.baseMapper.insert(dict);
-        this.sysDictItemDao.batchInsert(dict.getItems());
-        return Boolean.TRUE;
-    }
+	@Override
+	public Boolean insert(SysDict dict) {
+		this.baseMapper.insert(dict);
+		this.sysDictItemDao.batchInsert(dict.getItems());
+		return Boolean.TRUE;
+	}
 
-    @Override
-    public Boolean update(SysDict dict) {
-        this.baseMapper.updateById(dict);
-        this.sysDictItemDao.delete(Wrappers.<SysDictItem>query().lambda().eq(SysDictItem::getCode,dict.getCode()));
-        this.sysDictItemDao.batchInsert(dict.getItems());
-        return Boolean.TRUE;
-    }
+	@Override
+	public Boolean update(SysDict dict) {
+		this.baseMapper.updateById(dict);
+		this.sysDictItemDao.delete(Wrappers.<SysDictItem>query().lambda().eq(SysDictItem::getCode, dict.getCode()));
+		this.sysDictItemDao.batchInsert(dict.getItems());
+		return Boolean.TRUE;
+	}
 
-    @Override
+	@Override
 	public List<SysDictItem> listByCode(String code) {
 		return sysDictItemDao.selectList(Wrappers.<SysDictItem>query().lambda().eq(SysDictItem::getCode, code));
 	}

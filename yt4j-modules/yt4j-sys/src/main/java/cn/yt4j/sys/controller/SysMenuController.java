@@ -26,7 +26,7 @@ import java.util.List;
 @Api(tags = " 资源权限")
 @AllArgsConstructor
 @RestController
-@RequestMapping("sysMenu")
+@RequestMapping("sys/menu")
 public class SysMenuController {
 
 	/**
@@ -34,6 +34,7 @@ public class SysMenuController {
 	 */
 	private final SysMenuService sysMenuService;
 
+	@ApiOperation("动态路由，动态菜单")
 	@GetMapping("nav")
 	public R<List<Route>> nav() {
 		return R.ok(this.sysMenuService.nav(SecurityUtil.getUser().getId()));
@@ -45,7 +46,7 @@ public class SysMenuController {
 	 * @return 所有数据
 	 */
 	@ApiOperation("分页查询")
-	@GetMapping
+	@GetMapping("list")
 	public R<PageResult<SysMenu>> selectAll(SysMenu sysMenu) {
 		return R.ok(this.sysMenuService.page(PageUtil.page(), new QueryWrapper<>(sysMenu)));
 	}
@@ -67,7 +68,7 @@ public class SysMenuController {
 	 * @return 新增结果
 	 */
 	@ApiOperation("添加")
-	@PostMapping
+	@PostMapping("insert")
 	public R insert(@RequestBody SysMenu sysMenu) {
 		return R.ok(this.sysMenuService.save(sysMenu));
 	}
@@ -78,20 +79,20 @@ public class SysMenuController {
 	 * @return 修改结果
 	 */
 	@ApiOperation("修改")
-	@PutMapping
+	@PutMapping("update")
 	public R update(@RequestBody SysMenu sysMenu) {
 		return R.ok(this.sysMenuService.updateById(sysMenu));
 	}
 
 	/**
 	 * 删除数据
-	 * @param idList 主键结合
+	 * @param id 主键结合
 	 * @return 删除结果
 	 */
 	@ApiOperation("删除")
-	@DeleteMapping
-	public R delete(@RequestParam("idList") @RequestBody List<Long> idList) {
-		return R.ok(this.sysMenuService.removeByIds(idList));
+	@DeleteMapping("delete/{id}")
+	public R delete(@PathVariable Long id) {
+		return R.ok(this.sysMenuService.removeById(id));
 	}
 
 }

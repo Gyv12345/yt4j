@@ -6,4 +6,11 @@
         <result property="roleId" column="role_id"/>
         <result property="menuId" column="menu_id"/>
     </resultMap>
+    <insert id="batchAdd">
+        insert into sys_role_menu (role_id，menu_id)
+        values
+        <foreach collection="menuIds" item="menu" open="(" close=")" separator=",">
+            #{roleId},#{menu}
+        </foreach>
+    </insert>
 </mapper>

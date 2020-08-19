@@ -89,8 +89,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 
 	@Override
 	public Boolean updatePassword(PasswordDTO dto) {
-		SysUser user = this.baseMapper
-				.selectById( SecurityUtil.getUser().getId());
+		SysUser user = this.baseMapper.selectById(SecurityUtil.getUser().getId());
 		if (encoder.matches(dto.getOldPwd(), user.getPassword())) {
 			user.setPassword(encoder.encode(dto.getNewPwd()));
 			this.baseMapper.updateById(user);

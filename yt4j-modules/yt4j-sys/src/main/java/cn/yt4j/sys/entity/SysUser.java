@@ -1,6 +1,7 @@
 package cn.yt4j.sys.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import io.swagger.annotations.ApiModel;
@@ -12,6 +13,7 @@ import lombok.ToString;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 用户(SysUser)表实体类
@@ -28,6 +30,9 @@ public class SysUser extends Model<SysUser> {
 	@ApiModelProperty(value = "id")
 	@TableId(value = "id", type = IdType.AUTO)
 	private Long id;
+
+	@ApiModelProperty(value = "部门ID")
+	private Long deptId;
 
 	@ApiModelProperty(value = "昵称")
 	private String nickName;
@@ -61,6 +66,10 @@ public class SysUser extends Model<SysUser> {
 
 	@ApiModelProperty(value = "修改时间")
 	private LocalDateTime updateTime;
+
+	@ApiModelProperty(value = "角色Id")
+	@TableField(exist = false)
+	private List<Long> roleIds;
 
 	/**
 	 * 获取主键值
