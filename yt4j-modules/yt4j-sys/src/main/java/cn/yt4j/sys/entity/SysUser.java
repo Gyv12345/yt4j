@@ -1,5 +1,7 @@
 package cn.yt4j.sys.entity;
 
+import cn.yt4j.core.sensitive.Sensitive;
+import cn.yt4j.core.sensitive.SensitiveTypeEnum;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -43,6 +45,7 @@ public class SysUser extends Model<SysUser> {
 	@ApiModelProperty(value = "密码")
 	private String password;
 
+	@Sensitive(type = SensitiveTypeEnum.ID_CARD)
 	@ApiModelProperty(value = "身份证号")
 	private String idCard;
 
@@ -52,9 +55,11 @@ public class SysUser extends Model<SysUser> {
 	@ApiModelProperty(value = "性别")
 	private Integer sex;
 
+	@Sensitive(type = SensitiveTypeEnum.EMAIL)
 	@ApiModelProperty(value = "电子邮箱")
 	private String email;
 
+	@Sensitive(type = SensitiveTypeEnum.MOBILE_PHONE)
 	@ApiModelProperty(value = "手机号")
 	private String phone;
 
