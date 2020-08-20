@@ -6,5 +6,7 @@ services:
     image: yt4j-sys
     container_name: yt4j-sys
     restart: always
+    networks:
+      - yt4j
     ports:
       - 9999:9999
