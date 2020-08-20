@@ -5,8 +5,9 @@ spring:
     username: shichenyang
     password: '!Shijie123456'
   redis:
-    host: 10.10.11.2
+    host: 39.99.213.137
     database: 2
+    port: 8848
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
