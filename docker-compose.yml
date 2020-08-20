@@ -1,6 +1,6 @@
 version: "3"
 services:
-  ysg-ticket:
+  yt4j-sys:
     build:
       context: ./yt4j-modules/yt4j-sys
     image: yt4j-sys
