@@ -1,0 +1,10 @@
+version: "3"
+services:
+  ysg-ticket:
+    build:
+      context: ./yt4j-modules/yt4j-sys
+    image: yt4j-sys
+    container_name: yt4j-sys
+    restart: always
+    ports:
+      - 9999:9999
