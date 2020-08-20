@@ -7,8 +7,10 @@ services:
     container_name: yt4j-sys
     restart: always
     networks:
-      default:
-        external:
-          name: yt4j
+      - yt4j
     ports:
       - 9999:9999
+
+networks:
+  yt4j:
+    external: true
