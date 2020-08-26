@@ -4,11 +4,9 @@ import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.sys.entity.SysDict;
-import cn.yt4j.sys.entity.SysDictItem;
 import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.service.SysDictService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -76,7 +74,7 @@ public class SysDictController {
 	@ApiOperation("添加")
 	@PostMapping("insert")
 	public R insert(@RequestBody SysDict sysDict) {
-		return R.ok(this.sysDictService.save(sysDict));
+		return R.ok(this.sysDictService.insert(sysDict));
 	}
 
 	/**
@@ -87,7 +85,7 @@ public class SysDictController {
 	@ApiOperation("修改")
 	@PutMapping("update")
 	public R update(@RequestBody SysDict sysDict) {
-		return R.ok(this.sysDictService.updateById(sysDict));
+		return R.ok(this.sysDictService.update(sysDict));
 	}
 
 	/**
