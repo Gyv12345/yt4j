@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @author gyv12
+ * @author gyv12345@163.com
  */
 @Data
 @ApiModel(value = "设置角色菜单对象", description = "设置角色菜单")

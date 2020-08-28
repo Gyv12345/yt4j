@@ -71,10 +71,6 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 				// 登录成功，创建token，我们需要在这里返回userDetail内容，包含权限信息,并将其放入redis，通过redis跨项目共享
 				String token = jwtUtil.generateToken(user.getUsername());
 
-				if (redisTemplate.hasKey(user.getUsername())) {
-					redisTemplate.delete(user.getUsername());
-				}
-
 				UserCache cache = new UserCache();
 				cache.setId(user.getId());
 				BeanUtils.copyProperties(user, cache);

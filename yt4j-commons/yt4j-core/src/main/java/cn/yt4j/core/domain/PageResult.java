@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @author gyv12
+ * @author gyv12345@163.com
  * @param <T>
  */
 @Data
@@ -23,7 +23,7 @@ public class PageResult<T> implements Serializable {
 	/**
 	 * 每页条数
 	 */
-	private Long pageSize = 20L;
+	private Long pageSize = 10L;
 
 	/**
 	 * 总页数

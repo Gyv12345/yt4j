@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
- * @author gyv123452163.com
+ * @author gyv12345@163.com
  */
 @Data
 public class PasswordDTO implements Serializable {
