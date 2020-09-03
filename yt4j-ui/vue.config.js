@@ -13,7 +13,8 @@ function resolve (dir) {
 function getGitHash () {
   try {
     return GitRevision.version()
-  } catch (e) {}
+  } catch (e) {
+  }
   return 'unknown'
 }
 
@@ -39,6 +40,7 @@ const assetsCDN = {
 
 // vue.config.js
 const vueConfig = {
+  publicPath: process.env.NODE_ENV === 'production' ? '/ui/' : '/',
   configureWebpack: {
     // webpack plugins
     plugins: [
