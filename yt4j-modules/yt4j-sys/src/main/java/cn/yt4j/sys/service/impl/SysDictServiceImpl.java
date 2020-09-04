@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictDao, SysDict> impleme
 
 	private final SysDictItemDao sysDictItemDao;
 
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Boolean insert(SysDict dict) {
 		this.baseMapper.insert(dict);
@@ -31,6 +33,7 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictDao, SysDict> impleme
 		return Boolean.TRUE;
 	}
 
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Boolean update(SysDict dict) {
 		this.baseMapper.updateById(dict);
