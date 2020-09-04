@@ -46,8 +46,8 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRole> impleme
 
 	@Override
 	public List<DictVO> dropDown() {
-		return this.baseMapper.selectList(null).stream().map(sysRole->{
-			DictVO vo=new DictVO();
+		return this.baseMapper.selectList(null).stream().map(sysRole -> {
+			DictVO vo = new DictVO();
 			vo.setLabel(sysRole.getName());
 			vo.setValue(String.valueOf(sysRole.getId()));
 			return vo;

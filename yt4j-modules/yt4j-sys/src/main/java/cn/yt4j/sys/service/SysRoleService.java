@@ -30,7 +30,7 @@ public interface SysRoleService extends IService<SysRole> {
 	List<Long> listMenuIds(Long id);
 
 	/**
-	 *
+	 * 下拉框
 	 * @return
 	 */
 	List<DictVO> dropDown();
