@@ -172,4 +172,13 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 		return null;
 	}
 
+	@Override
+	public Boolean resetPassword(Long id) {
+		SysUser user = new SysUser();
+		user.setId(id);
+		user.setPassword(encoder.encode("123456"));
+		this.baseMapper.updateById(user);
+		return Boolean.TRUE;
+	}
+
 }
