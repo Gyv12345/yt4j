@@ -32,6 +32,11 @@ public class SysDeptController {
 	 */
 	private final SysDeptService sysDeptService;
 
+	/**
+	 * 机构树
+	 * @order 1
+	 * @return
+	 */
 	@ApiOperation("机构树")
 	@GetMapping("tree")
 	public R<List<BaseTree>> treeDept() {
