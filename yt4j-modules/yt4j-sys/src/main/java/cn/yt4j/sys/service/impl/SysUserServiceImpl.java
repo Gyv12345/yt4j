@@ -28,6 +28,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,6 +88,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 		}
 	}
 
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Boolean updatePassword(PasswordDTO dto) {
 		SysUser user = this.baseMapper.selectById(SecurityUtil.getUser().getId());
@@ -132,9 +134,10 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 		return userInfo;
 	}
 
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Boolean insert(SysUser user) {
-		user.setPassword(encoder.encode("123456"));
+		user.setPassword(encoder.encode(user.getPassword()));
 		user.setState(true);
 		this.baseMapper.insert(user);
 		if (ObjectUtil.isNotNull(user.getRoleIds())) {
@@ -143,6 +146,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 		return Boolean.TRUE;
 	}
 
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Boolean update(SysUser user) {
 		this.sysUserRoleDao.delete(new LambdaQueryWrapper<SysUserRole>().eq(SysUserRole::getUserId, user.getId()));

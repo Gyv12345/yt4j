@@ -1,6 +1,5 @@
 package cn.yt4j.core.util;
 
-
 import cn.hutool.core.util.StrUtil;
 
 /**
@@ -13,11 +12,10 @@ public class DesensitizedUtils {
 
 	/**
 	 * 对字符串进行脱敏操作
-	 *
-	 * @param origin          原始字符串
+	 * @param origin 原始字符串
 	 * @param prefixNoMaskLen 左侧需要保留几位明文字段
 	 * @param suffixNoMaskLen 右侧需要保留几位明文字段
-	 * @param maskStr         用于遮罩的字符串, 如'*'
+	 * @param maskStr 用于遮罩的字符串, 如'*'
 	 * @return 脱敏后结果
 	 */
 	public static String desValue(String origin, int prefixNoMaskLen, int suffixNoMaskLen, String maskStr) {
@@ -42,7 +40,6 @@ public class DesensitizedUtils {
 
 	/**
 	 * 【中文姓名】只显示最后一个汉字，其他隐藏为星号，比如：**梦
-	 *
 	 * @param fullName 姓名
 	 * @return 结果
 	 */
@@ -55,7 +52,6 @@ public class DesensitizedUtils {
 
 	/**
 	 * 【身份证号】显示前六位, 四位，其他隐藏。共计18位或者15位，比如：340304*******1234
-	 *
 	 * @param id 身份证号码
 	 * @return 结果
 	 */
@@ -65,7 +61,6 @@ public class DesensitizedUtils {
 
 	/**
 	 * 【固定电话】后四位，其他隐藏，比如 ****1234
-	 *
 	 * @param num 固定电话
 	 * @return 结果
 	 */
@@ -75,7 +70,6 @@ public class DesensitizedUtils {
 
 	/**
 	 * 【手机号码】前三位，后四位，其他隐藏，比如135****6810
-	 *
 	 * @param num 手机号码
 	 * @return 结果
 	 */
@@ -85,7 +79,6 @@ public class DesensitizedUtils {
 
 	/**
 	 * 【地址】只显示到地区，不显示详细地址，比如：北京市海淀区****
-	 *
 	 * @param address 地址
 	 * @return 结果
 	 */
@@ -95,7 +88,6 @@ public class DesensitizedUtils {
 
 	/**
 	 * 【电子邮箱 邮箱前缀仅显示第一个字母，前缀其他隐藏，用星号代替，@及后面的地址显示，比如：d**@126.com
-	 *
 	 * @param email 电子邮箱
 	 * @return 结果
 	 */
@@ -114,7 +106,6 @@ public class DesensitizedUtils {
 
 	/**
 	 * 【银行卡号】前六位，后四位，其他用星号隐藏每位1个星号，比如：622260**********1234
-	 *
 	 * @param cardNum 银行卡号
 	 * @return 结果
 	 */
@@ -124,7 +115,6 @@ public class DesensitizedUtils {
 
 	/**
 	 * 【密码】密码的全部字符都用*代替，比如：******
-	 *
 	 * @param password 密码
 	 * @return 结果
 	 */
@@ -136,9 +126,7 @@ public class DesensitizedUtils {
 	}
 
 	/**
-	 * 【密钥】密钥除了最后三位，全部都用*代替，比如：***xdS
-	 * 脱敏后长度为6，如果明文长度不足三位，则按实际长度显示，剩余位置补*
-	 *
+	 * 【密钥】密钥除了最后三位，全部都用*代替，比如：***xdS 脱敏后长度为6，如果明文长度不足三位，则按实际长度显示，剩余位置补*
 	 * @param key 密钥
 	 * @return 结果
 	 */
@@ -150,13 +138,15 @@ public class DesensitizedUtils {
 		StringBuilder tmpKey = new StringBuilder(desValue(key, 0, 3, "*"));
 		if (tmpKey.length() > viewLength) {
 			return tmpKey.substring(tmpKey.length() - viewLength);
-		} else if (tmpKey.length() < viewLength) {
+		}
+		else if (tmpKey.length() < viewLength) {
 			int buffLength = viewLength - tmpKey.length();
 			for (int i = 0; i < buffLength; i++) {
 				tmpKey.insert(0, "*");
 			}
 			return tmpKey.toString();
-		} else {
+		}
+		else {
 			return tmpKey.toString();
 		}
 	}

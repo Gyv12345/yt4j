@@ -13,6 +13,7 @@ import java.util.List;
  * @since 2020-08-10 08:43:51
  */
 public interface SysDeptService extends IService<SysDept> {
+
 	/**
 	 * 查询部门树
 	 * @return

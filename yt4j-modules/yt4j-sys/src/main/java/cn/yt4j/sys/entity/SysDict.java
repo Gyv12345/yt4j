@@ -39,6 +39,7 @@ public class SysDict extends Model<SysDict> {
 
 	@ApiModelProperty(value = "状态")
 	private Integer state;
+
 	@ApiModelProperty(value = "创建时间")
 	private LocalDateTime createTime;
 

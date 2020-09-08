@@ -41,7 +41,7 @@ public class SysRoleController {
 
 	@ApiOperation("角色下拉菜单")
 	@GetMapping("select")
-	public R<List<DictVO>> dropDown(){
+	public R<List<DictVO>> dropDown() {
 		return R.ok(this.sysRoleService.dropDown());
 	}
 

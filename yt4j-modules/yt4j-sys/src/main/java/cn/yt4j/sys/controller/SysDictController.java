@@ -37,7 +37,7 @@ public class SysDictController {
 	@GetMapping("remote/{code}")
 	public R<List<DictVO>> listByCode(@PathVariable String code) {
 		return R.ok(this.sysDictService.listByCode(code).stream().map(sysDictItem -> {
-			DictVO vo=new DictVO();
+			DictVO vo = new DictVO();
 			vo.setLabel(sysDictItem.getLabel());
 			vo.setValue(sysDictItem.getValue());
 			return vo;
