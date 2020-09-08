@@ -44,7 +44,10 @@ import {
   Statistic,
   Descriptions,
   message,
-  notification
+  notification,
+  tree,
+  TreeSelect,
+  Empty
 } from 'ant-design-vue'
 import Viser from 'viser-vue'
 
@@ -97,6 +100,9 @@ Vue.use(PageHeader)
 Vue.use(Result)
 Vue.use(Statistic)
 Vue.use(Descriptions)
+Vue.use(tree)
+Vue.use(TreeSelect)
+Vue.use(Empty)
 
 Vue.prototype.$confirm = Modal.confirm
 Vue.prototype.$message = message

@@ -13,7 +13,7 @@ export function list (parameter) {
   return request({
     url: api.list,
     method: 'get',
-    param: parameter
+    params: parameter
   })
 }
 
