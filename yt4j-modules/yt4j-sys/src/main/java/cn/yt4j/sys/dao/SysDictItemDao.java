@@ -1,5 +1,6 @@
 package cn.yt4j.sys.dao;
 
+import cn.yt4j.data.batch.Yt4jBatchMapper;
 import cn.yt4j.sys.entity.SysDictItem;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
@@ -12,7 +13,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-08-18 16:44:07
  */
-public interface SysDictItemDao extends BaseMapper<SysDictItem> {
+public interface SysDictItemDao extends Yt4jBatchMapper<SysDictItem> {
 
 	/**
 	 * 批量添加

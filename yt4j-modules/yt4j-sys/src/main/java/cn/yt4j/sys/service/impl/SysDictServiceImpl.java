@@ -29,7 +29,7 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictDao, SysDict> impleme
 	@Override
 	public Boolean insert(SysDict dict) {
 		this.baseMapper.insert(dict);
-		this.sysDictItemDao.batchInsert(dict.getItems());
+		this.sysDictItemDao.batchInsertByMysql(dict.getItems());
 		return Boolean.TRUE;
 	}
 

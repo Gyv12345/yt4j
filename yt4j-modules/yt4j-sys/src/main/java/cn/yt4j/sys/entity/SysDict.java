@@ -27,22 +27,40 @@ import java.util.List;
 @ToString
 public class SysDict extends Model<SysDict> {
 
+	/**
+	 * id
+	 */
 	@ApiModelProperty(value = "id")
 	@TableId(value = "id", type = IdType.AUTO)
 	private Long id;
 
+	/**
+	 * 字典编码
+	 */
 	@ApiModelProperty(value = "字典关键字")
 	private String code;
 
+	/**
+	 * 字典名称
+	 */
 	@ApiModelProperty(value = "字典名称")
 	private String name;
 
+	/**
+	 * 状态
+	 */
 	@ApiModelProperty(value = "状态")
 	private Integer state;
 
+	/**
+	 * 创建时间
+	 */
 	@ApiModelProperty(value = "创建时间")
 	private LocalDateTime createTime;
 
+	/**
+	 * 修改时间
+	 */
 	@ApiModelProperty(value = "修改时间")
 	private LocalDateTime updateTime;
 

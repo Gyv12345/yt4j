@@ -18,7 +18,7 @@
             type="error"
             showIcon
             style="margin-bottom: 24px;"
-            message="账户或密码错误（admin/ant.design )"/>
+            message="账户或密码错误（admin/123456 )"/>
           <a-form-item>
             <a-input
               size="large"
@@ -36,7 +36,7 @@
           <a-form-item>
             <a-input-password
               size="large"
-              placeholder="密码: admin or ant.design"
+              placeholder="密码: 123456"
               v-decorator="[
                 'password',
                 {rules: [{ required: true, message: '请输入密码' }], validateTrigger: 'blur'}

@@ -92,6 +92,12 @@ public class SysUserController {
 		return R.ok(this.sysUserService.insert(sysUser));
 	}
 
+	@ApiOperation("重置用户密码 ")
+	@PostMapping("reset/password/{id}")
+	public R resetPassword(@PathVariable Long id) {
+		return R.ok(this.sysUserService.resetPassword(id));
+	}
+
 	/**
 	 * 修改数据
 	 * @param sysUser 实体对象

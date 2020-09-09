@@ -1,5 +1,6 @@
 package cn.yt4j.data;
 
+import cn.yt4j.data.batch.Yt4jLogicSqlInjector;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
@@ -29,17 +30,12 @@ public class DataAutoConfiguration {
 	public MybatisPlusInterceptor mybatisPlusInterceptor() {
 		MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
 		interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
+		interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
 		return interceptor;
 	}
 
 	@Bean
-	public OptimisticLockerInnerInterceptor optimisticLockerInnerInterceptor() {
-		return new OptimisticLockerInnerInterceptor();
+	public Yt4jLogicSqlInjector injector(){
+		return new Yt4jLogicSqlInjector();
 	}
-
-	@Bean
-	public ConfigurationCustomizer configurationCustomizer() {
-		return configuration -> configuration.setUseDeprecatedExecutor(false);
-	}
-
 }
