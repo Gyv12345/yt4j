@@ -1,70 +1,72 @@
 <template>
-  <a-row :gutter="24">
-    <a-col :md="5" :sm="24">
-      <a-card :bordered="false" :loading="treeLoading">
-        <div v-if="this.orgTree.length > 0">
-          <a-tree
-            style="scroll:true"
-            :treeData="orgTree"
-            v-if="orgTree.length"
-            @select="handleClick"
-            :defaultExpandAll="true"
-            :defaultExpandedKeys="defaultExpandedKeys"
-            :replaceFields="replaceFields"
-          />
-        </div>
-        <div v-else>
-          <a-empty :image="simpleImage" />
-        </div>
-      </a-card>
-    </a-col>
+  <page-header-wrapper>
+    <a-row :gutter="24">
+      <a-col :md="5" :sm="24">
+        <a-card :bordered="false" :loading="treeLoading">
+          <div v-if="this.orgTree.length > 0">
+            <a-tree
+              style="scroll:true"
+              :treeData="orgTree"
+              v-if="orgTree.length"
+              @select="handleClick"
+              :defaultExpandAll="true"
+              :defaultExpandedKeys="defaultExpandedKeys"
+              :replaceFields="replaceFields"
+            />
+          </div>
+          <div v-else>
+            <a-empty :image="simpleImage" />
+          </div>
+        </a-card>
+      </a-col>
 
-    <a-col :md="19" :sm="24">
-      <a-card :bordered="false">
-        <div class="table-page-search-wrapper">
-          <a-form layout="inline">
-            <a-row :gutter="48">
-              <a-col :md="8" :sm="24">
-                <a-form-item label="机构名称">
-                  <a-input v-model="queryParam.label" allow-clear placeholder="请输入机构名称" />
-                </a-form-item>
-              </a-col>
-              <a-col :md="8" :sm="24">
-                <a-button type="primary" @click="$refs.table.refresh(true)">查询</a-button>
-                <a-button style="margin-left: 8px" @click="() => queryParam = {}">重置</a-button>
-              </a-col>
-              <a-col :md="8" :sm="24"></a-col>
-            </a-row>
-          </a-form>
-        </div>
+      <a-col :md="19" :sm="24">
+        <a-card :bordered="false">
+          <div class="table-page-search-wrapper">
+            <a-form layout="inline">
+              <a-row :gutter="48">
+                <a-col :md="8" :sm="24">
+                  <a-form-item label="机构名称">
+                    <a-input v-model="queryParam.label" allow-clear placeholder="请输入机构名称" />
+                  </a-form-item>
+                </a-col>
+                <a-col :md="8" :sm="24">
+                  <a-button type="primary" @click="$refs.table.refresh(true)">查询</a-button>
+                  <a-button style="margin-left: 8px" @click="() => queryParam = {}">重置</a-button>
+                </a-col>
+                <a-col :md="8" :sm="24"></a-col>
+              </a-row>
+            </a-form>
+          </div>
 
-        <div class="table-operator">
-          <a-button type="primary" icon="plus" @click="$refs.addForm.add()">新增机构</a-button>
-        </div>
+          <div class="table-operator">
+            <a-button type="primary" icon="plus" @click="$refs.addForm.add()">新增机构</a-button>
+          </div>
 
-        <s-table
-          ref="table"
-          size="default"
-          :columns="columns"
-          :data="loadData"
-          :alert="true"
-          :rowKey="(record) => record.id"
-          :rowSelection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }"
-        >
-          <span slot="action" slot-scope="text, record">
-            <a @click="$refs.editForm.edit(record)">编辑</a>
-            <a-divider type="vertical" />
-            <a-popconfirm placement="topRight" title="确认删除？" @confirm="() => sysOrgDelete(record)">
-              <a>删除</a>
-            </a-popconfirm>
-          </span>
-        </s-table>
+          <s-table
+            ref="table"
+            size="default"
+            :columns="columns"
+            :data="loadData"
+            :alert="true"
+            :rowKey="(record) => record.id"
+            :rowSelection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }"
+          >
+            <span slot="action" slot-scope="text, record">
+              <a @click="$refs.editForm.edit(record)">编辑</a>
+              <a-divider type="vertical" />
+              <a-popconfirm placement="topRight" title="确认删除？" @confirm="() => sysOrgDelete(record)">
+                <a>删除</a>
+              </a-popconfirm>
+            </span>
+          </s-table>
 
-        <add-form ref="addForm" @ok="handleOk" />
-        <edit-form ref="editForm" @ok="handleOk" />
-      </a-card>
-    </a-col>
-  </a-row>
+          <add-form ref="addForm" @ok="handleOk" />
+          <edit-form ref="editForm" @ok="handleOk" />
+        </a-card>
+      </a-col>
+    </a-row>
+  </page-header-wrapper>
 </template>
 
 <script>

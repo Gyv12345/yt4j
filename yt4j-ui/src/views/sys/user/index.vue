@@ -72,19 +72,21 @@
                 </a>
                 <a-menu slot="overlay">
                   <a-menu-item>
-                    <a href="javascript:;">1st menu item</a>
+                    <a-popconfirm placement="topRight" title="确认重置密码？" @confirm="() => resetPwd(record)">
+                      <a>重置密码</a>
+                    </a-popconfirm>
                   </a-menu-item>
                   <a-menu-item>
-                    <a href="javascript:;">2nd menu item</a>
-                  </a-menu-item>
-                  <a-menu-item>
-                    <a href="javascript:;">3rd menu item</a>
+                    <a-popconfirm placement="topRight" title="确认删除？" @confirm="() => sysUserDelete(record)">
+                      <a>删除</a>
+                    </a-popconfirm>
                   </a-menu-item>
                 </a-menu>
               </a-dropdown>
             </span>
           </s-table>
           <add-form ref="addForm" @ok="handleOk" />
+          <!-- <edit-pwd-form ref="editForm" @ok="handleOk" /> -->
           <!-- <edit-form ref="editForm" @ok="handleOk" />
           <user-role-form ref="userRoleForm" @ok="handleOk"/>
           <user-org-form ref="userOrgForm" @ok="handleOk"/> -->
@@ -104,7 +106,7 @@ import addForm from './addForm'
 // import userRoleForm from './userRoleForm'
 // import userOrgForm from './userOrgForm'
 // api
-import { list } from '@/api/sys/user'
+import { list, password, del } from '@/api/sys/user'
 import { tree } from '@/api/sys/dept'
 
 export default {
@@ -183,8 +185,12 @@ export default {
      * @param e 事件
      */
     handleClick (e) {
-      this.queryParam = {
-        'deptId': Number(e.toString())
+      if (e.length > 0) {
+        this.queryParam = {
+          'deptId': Number(e.toString())
+        }
+      } else {
+        this.queryParam = {}
       }
       this.$refs.table.refresh(true)
     },
@@ -213,6 +219,35 @@ export default {
      */
     handleOk () {
       this.$refs.table.refresh()
+    },
+     /**
+     * 修改密码
+     */
+    resetPwd (record) {
+      password({ id: record.id }).then(res => {
+        if (res.status === 200) {
+          this.$message.success('重置成功')
+          // this.$refs.table.refresh()
+        } else {
+          this.$message.error('重置失败：' + res.message)
+        }
+      })
+    },
+    /**
+     * 删除用户
+     * @param record
+     */
+    sysUserDelete (record) {
+      del(record.id).then((res) => {
+        if (res.status === 200) {
+          this.$message.success('删除成功')
+          this.$refs.table.refresh()
+        } else {
+          this.$message.error('删除失败：' + res.message)
+        }
+      }).catch((err) => {
+        this.$message.error('删除错误：' + err.message)
+      })
     }
   }
 }

@@ -1,8 +1,9 @@
 import request from '@/utils/request'
 
 const api = {
-  tree: '/sys/menu/tree',
-  get: '/sys/menu/get/',
+  tree: '/sys/menu/menuTree',
+  list: '/sys/menu/list',
+  get: '/sys/menu/',
   save: '/sys/menu/insert',
   update: '/sys/menu/update',
   del: 'sys/menu/delete/'
@@ -13,6 +14,15 @@ export function tree () {
   return request({
     url: api.tree,
     method: 'get'
+  })
+}
+
+// 分页查询
+export function list (parameter) {
+  return request({
+    url: api.list,
+    method: 'get',
+    params: parameter
   })
 }
 

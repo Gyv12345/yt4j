@@ -151,7 +151,7 @@
               :wrapperCol="wrapperCol"
               has-feedback
             >
-              <a-input placeholder="请输入电话" v-decorator="['idCard']" />
+              <a-input placeholder="请输入身份证号" v-decorator="['idCard']" />
             </a-form-item>
           </a-form>
         </a-col>
@@ -216,7 +216,7 @@
 </template>
 
 <script>
-  import { save } from '@/api/sys/user'
+  import { save, update } from '@/api/sys/user'
   import { tree, list } from '@/api/sys/dept'
   // import { sysPosList } from '@/api/modular/system/posManage'
   // import moment from 'moment'
@@ -257,7 +257,8 @@
           title: 'name',
           value: 'id'
         },
-        isEdit: false
+        isEdit: false,
+        userId: undefined
       }
     },
     methods: {
@@ -266,9 +267,9 @@
         this.visible = true
         // 获取组织机构数据
         this.getOrgDate()
-        
+
         if (record !== undefined) {
-          this.isEdit = true;
+          this.isEdit = true
           await this.delay()
           this.form.setFieldsValue(
             {
@@ -282,10 +283,16 @@
               deptId: record.deptId
             }
           )
+          this.userId = record.id
+        } else {
+          // 新增
+          this.isEdit = false
+          // 重置id
+          this.userId = undefined
+          // 重置表单
+           this.form.setFieldsValue({})
         }
-    
         // this.getPosList()
-       
       },
       delay: async function (interval) {
         return new Promise((resolve) => setTimeout(resolve, interval))
@@ -331,7 +338,6 @@
        * 选择树机构，初始化机构名称于表单中
        */
       initrOrgName (value) {
-        debugger
         this.form.getFieldDecorator('deptId', {
           initialValue: this.orgList.find(item => value === (item.id + '')).label
         })
@@ -364,27 +370,44 @@
         const { form: { validateFields } } = this
 
         this.confirmLoading = true
-        validateFields((errors, values) => {
+        validateFields(async (errors, values) => {
           if (!errors) {
-            this.JsonReconsitution()
+            // this.JsonReconsitution()
             // values.sysEmpParam['extIds'] = this.sysEmpParamExtList
             // if (this.birthdayString.length > 0) {
             //   values.birthday = this.birthdayString
             // }
             // 部门数据结构重新赋值
             // values.deptId = values.orgId
-            save(values).then((res) => {
-              if (res.status === 200) {
-                this.$message.success('新增成功')
+            if (this.isEdit) {
+              try {
+                values.id = this.userId
+                const res = await update(values)
+                if (res.status === 200) {
+                  this.$message.success('编辑成功')
+                  this.confirmLoading = false
+                  this.$emit('ok', values)
+                  this.handleCancel()
+                } else {
+                  this.$message.error('编辑失败：' + res.message)
+                }
+              } finally {
                 this.confirmLoading = false
-                this.$emit('ok', values)
-                this.handleCancel()
-              } else {
-                this.$message.error('新增失败：' + res.message)
               }
-            }).finally((res) => {
-              this.confirmLoading = false
-            })
+            } else {
+              save(values).then((res) => {
+                if (res.status === 200) {
+                  this.$message.success('新增成功')
+                  this.confirmLoading = false
+                  this.$emit('ok', values)
+                  this.handleCancel()
+                } else {
+                  this.$message.error('新增失败：' + res.message)
+                }
+              }).finally((res) => {
+                this.confirmLoading = false
+              })
+            }
           } else {
             this.confirmLoading = false
           }

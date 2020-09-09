@@ -1,12 +1,12 @@
 import request from '@/utils/request'
 
 const api = {
-  code: '/sys/dict/remote/'
+  remote: '/sys/dict/remote/'
 }
 
 export function remote (code) {
   return request({
-    url: api.del + code,
+    url: api.remote + code,
     method: 'get'
   })
 }
