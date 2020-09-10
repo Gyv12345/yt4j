@@ -55,9 +55,9 @@
             showPagination="auto"
           >
             <span slot="serial" slot-scope="text, record, index">{{ index + 1 }}</span>
-            <span slot="status" slot-scope="text">
+            <!-- <span slot="status" slot-scope="text">
               <a-badge :status="text | statusTypeFilter" :text="text | statusFilter" />
-            </span>
+            </span> -->
             <span slot="description" slot-scope="text">
               <ellipsis :length="4" tooltip>{{ text }}</ellipsis>
             </span>
@@ -147,11 +147,11 @@ export default {
           title: '用户名',
           dataIndex: 'username'
         },
-        {
-          title: '状态',
-          dataIndex: 'state',
-          needTotal: true
-        },
+        // {
+        //   title: '状态',
+        //   dataIndex: 'state',
+        //   needTotal: true
+        // },
         {
           title: '更新时间',
           dataIndex: 'updateTime'

@@ -1,70 +1,72 @@
 <template>
-  <a-card :bordered="false">
-    <div class="table-page-search-wrapper">
-      <a-form layout="inline">
-        <a-row :gutter="48">
-          <a-col :md="8" :sm="24">
-            <a-form-item label="角色名">
-              <a-input v-model="queryParam.name" allow-clear placeholder="请输入角色名" />
-            </a-form-item>
-          </a-col>
-          <a-col :md="8" :sm="24">
-            <a-form-item label="角色标识">
-              <a-input v-model="queryParam.code" allow-clear placeholder="请输入角色标识" />
-            </a-form-item>
-          </a-col>
-          <a-col :md="8" :sm="24">
-            <a-button type="primary" @click="$refs.table.refresh(true)">查询</a-button>
-            <a-button style="margin-left: 8px" @click="() => queryParam = {}">重置</a-button>
-          </a-col>
-        </a-row>
-      </a-form>
-    </div>
-    <div class="table-operator">
-      <a-button type="primary" icon="plus" @click="$refs.editForm.edit()">新增角色</a-button>
-    </div>
-    <s-table
-      ref="table"
-      size="default"
-      :columns="columns"
-      :data="loadData"
-      :alert="true"
-      :rowKey="(record) => record.code"
-      :rowSelection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }"
-    >
-      <span slot="action" slot-scope="text, record">
-        <a @click="$refs.editForm.edit(record)">编辑</a>
-        <a-divider type="vertical" />
-        <a-dropdown>
-          <a class="ant-dropdown-link">
-            更多
-            <a-icon type="down" />
-          </a>
-          <a-menu slot="overlay">
-            <a-menu-item>
-              <a @click="$refs.roleMenuForm.roleMenu(record)">授权菜单</a>
-            </a-menu-item>
-            <a-menu-item>
-              <a-popconfirm
-                placement="topRight"
-                title="确认删除？"
-                @confirm="() => sysRoleDelete(record)"
-              >
-                <a>删除</a>
-              </a-popconfirm>
-            </a-menu-item>
-          </a-menu>
-        </a-dropdown>
-      </span>
-    </s-table>
+  <page-header-wrapper>
+    <a-card :bordered="false">
+      <div class="table-page-search-wrapper">
+        <a-form layout="inline">
+          <a-row :gutter="48">
+            <a-col :md="8" :sm="24">
+              <a-form-item label="角色名">
+                <a-input v-model="queryParam.name" allow-clear placeholder="请输入角色名" />
+              </a-form-item>
+            </a-col>
+            <a-col :md="8" :sm="24">
+              <a-form-item label="角色标识">
+                <a-input v-model="queryParam.code" allow-clear placeholder="请输入角色标识" />
+              </a-form-item>
+            </a-col>
+            <a-col :md="8" :sm="24">
+              <a-button type="primary" @click="$refs.table.refresh(true)">查询</a-button>
+              <a-button style="margin-left: 8px" @click="() => queryParam = {}">重置</a-button>
+            </a-col>
+          </a-row>
+        </a-form>
+      </div>
+      <div class="table-operator">
+        <a-button type="primary" icon="plus" @click="$refs.editForm.edit()">新增角色</a-button>
+      </div>
+      <s-table
+        ref="table"
+        size="default"
+        :columns="columns"
+        :data="loadData"
+        :alert="true"
+        :rowKey="(record) => record.code"
+        :rowSelection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }"
+      >
+        <span slot="action" slot-scope="text, record">
+          <a @click="$refs.editForm.edit(record)">编辑</a>
+          <a-divider type="vertical" />
+          <a-dropdown>
+            <a class="ant-dropdown-link">
+              更多
+              <a-icon type="down" />
+            </a>
+            <a-menu slot="overlay">
+              <a-menu-item>
+                <a @click="$refs.roleMenuForm.roleMenu(record)">授权菜单</a>
+              </a-menu-item>
+              <a-menu-item>
+                <a-popconfirm
+                  placement="topRight"
+                  title="确认删除？"
+                  @confirm="() => sysRoleDelete(record)"
+                >
+                  <a>删除</a>
+                </a-popconfirm>
+              </a-menu-item>
+            </a-menu>
+          </a-dropdown>
+        </span>
+      </s-table>
 
-    <edit-form ref="editForm" @ok="handleOk" />
-    <role-menu-form ref="roleMenuForm" @ok="handleOk"/>
-    <!-- <add-form ref="addForm" @ok="handleOk" />
-    <edit-form ref="editForm" @ok="handleOk" />
-    <role-menu-form ref="roleMenuForm" @ok="handleOk"/>
-    <role-org-form ref="roleOrgForm" @ok="handleOk"/>-->
-  </a-card>
+      <edit-form ref="editForm" @ok="handleOk" />
+      <role-menu-form ref="roleMenuForm" @ok="handleOk"/>
+      <!-- <add-form ref="addForm" @ok="handleOk" />
+      <edit-form ref="editForm" @ok="handleOk" />
+      <role-menu-form ref="roleMenuForm" @ok="handleOk"/>
+      <role-org-form ref="roleOrgForm" @ok="handleOk"/>-->
+    </a-card>
+  </page-header-wrapper>
 </template>
 
 <script>

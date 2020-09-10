@@ -1,57 +1,59 @@
 <template>
-  <a-card :bordered="false">
-    <div class="table-operator">
-      <a-button
-        type="primary"
-        icon="plus"
-        @click="$refs.editForm.edit()"
+  <page-header-wrapper>
+    <a-card :bordered="false">
+      <div class="table-operator">
+        <a-button
+          type="primary"
+          icon="plus"
+          @click="$refs.editForm.edit()"
+        >
+          新增菜单
+        </a-button>
+      </div>
+
+      <!--<div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
+        <i class="anticon anticon-info-circle ant-alert-icon"></i>已选择&nbsp;<a style="font-weight: 600">{{this.selectedRowKeys.length }}</a>项&nbsp;&nbsp;
+        <a style="margin-left: 24px" @click="clearSele()">清空</a>
+      </div>-->
+
+      <a-table
+        ref="table"
+        :rowKey="(record) => record.id"
+        :pagination="false"
+        :defaultExpandAllRows="true"
+        :columns="columns"
+        :dataSource="data"
+        :loading="loading"
+        showPagination="auto"
+        :row-selection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }"
       >
-        新增菜单
-      </a-button>
-    </div>
+        <!--:rowSelection="rowSelectionon"-->
 
-    <!--<div class="ant-alert ant-alert-info" style="margin-bottom: 16px;">
-      <i class="anticon anticon-info-circle ant-alert-icon"></i>已选择&nbsp;<a style="font-weight: 600">{{this.selectedRowKeys.length }}</a>项&nbsp;&nbsp;
-      <a style="margin-left: 24px" @click="clearSele()">清空</a>
-    </div>-->
+        <span slot="type" slot-scope="text">{{ typeFilter(text) }}</span>
 
-    <a-table
-      ref="table"
-      :rowKey="(record) => record.id"
-      :pagination="false"
-      :defaultExpandAllRows="true"
-      :columns="columns"
-      :dataSource="data"
-      :loading="loading"
-      showPagination="auto"
-      :row-selection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }"
-    >
-      <!--:rowSelection="rowSelectionon"-->
+        <span slot="icon" slot-scope="text">
+          <div v-if="text !== null && text.trim() !== ''">
+            <a-icon :type="text" />
+          </div>
+        </span>
 
-      <span slot="type" slot-scope="text">{{ typeFilter(text) }}</span>
-
-      <span slot="icon" slot-scope="text">
-        <div v-if="text !== null && text.trim() !== ''">
-          <a-icon :type="text" />
-        </div>
-      </span>
-
-      <span slot="action" slot-scope="text, record">
-        <template>
-          <a @click="$refs.editForm.edit(record)">编辑</a>
-          <a-divider type="vertical" />
-          <a-popconfirm
-            placement="topRight"
-            title="删除本菜单与下级？"
-            @confirm="() => handleDel(record)"
-          >
-            <a>删除</a>
-          </a-popconfirm>
-        </template>
-      </span>
-    </a-table>
-    <edit-form ref="editForm" @ok="handleOk" />
-  </a-card>
+        <span slot="action" slot-scope="text, record">
+          <template>
+            <a @click="$refs.editForm.edit(record)">编辑</a>
+            <a-divider type="vertical" />
+            <a-popconfirm
+              placement="topRight"
+              title="删除本菜单与下级？"
+              @confirm="() => handleDel(record)"
+            >
+              <a>删除</a>
+            </a-popconfirm>
+          </template>
+        </span>
+      </a-table>
+      <edit-form ref="editForm" @ok="handleOk" />
+    </a-card>
+  </page-header-wrapper>
 </template>
 
 <script>
