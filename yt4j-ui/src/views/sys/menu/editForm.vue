@@ -58,7 +58,7 @@
 
         <a-row :gutter="24">
           <a-col :md="12" :sm="24">
-            <div v-show="pidShow">
+            <div v-if="pidShow">
               <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol" label="父级菜单" has-feedback>
                 <a-tree-select
                   v-decorator="['parentId', {rules: [{ required: true, message: '请选择父级菜单！' }]}]"
@@ -112,7 +112,7 @@
             </div>
           </a-col>
           <a-col :md="12" :sm="24">
-            <div v-show="routerShow">
+            <div v-if="routerShow">
               <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol" hasFeedback>
                 <span slot="label">
                   <a-tooltip title="浏览器显示的URL，例：/menu，对应打开页面为菜单页面">
@@ -126,7 +126,7 @@
                 />
               </a-form-item>
             </div>
-            <div v-show="permissionShow">
+            <div v-if="permissionShow">
               <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol" label="权限标识" hasFeedback>
                 <a-input
                   placeholder="请输入权限标识"
@@ -192,7 +192,7 @@
 
 <script>
 // import { getAppList } from '@/api/modular/system/appManage'
-import { tree, save, get } from '@/api/sys/menu'
+import { tree, save, get, update } from '@/api/sys/menu'
 import IconSelector from '@/components/IconSelector'
 import { remote } from '@/api/sys/dict'
 export default {
@@ -245,7 +245,8 @@ export default {
         key: 'id',
         title: 'name',
         value: 'id'
-      }
+      },
+      menuId: undefined
     }
   },
 
@@ -268,9 +269,9 @@ export default {
       // this.getSysApplist()
       this.sysDictTypeDropDown()
       if (record !== undefined) {
+        this.menuId = record.id
         const res = await get(record.id)
         record = res.result
-        debugger
         // 图标
         this.currentSelectedIcon = record.icon
         // 默认选中菜单项，并初始化
@@ -282,8 +283,8 @@ export default {
         if (record.visible === 'Y') {
           this.visibleDef = true
         }
-        // this.form.getFieldDecorator('weight', { valuePropName: 'checked', initialValue: record.weight.toString() })
-        this.form.getFieldDecorator('hidden', { valuePropName: 'checked', initialValue: this.visibleDef })
+        debugger
+        this.form.getFieldDecorator('hidden', { valuePropName: 'checked', initialValue: record.hidden })
         this.form.getFieldDecorator('icon', { initialValue: record.icon })
         setTimeout(() => {
           // 表单初始化赋值
@@ -292,6 +293,7 @@ export default {
           this.changeApplication(record.application)
         }, 100)
       } else {
+        this.menuId = undefined
         this.currentSelectedIcon = record
          // 默认选中菜单项，并初始化
         this.form.getFieldDecorator('type', { valuePropName: 'checked', initialValue: '1' })
@@ -385,8 +387,8 @@ export default {
         // 前端组件
         this.componentShow = true
         // 权限标识框隐藏，选填，给空值
-        this.permissionShow = false
-        this.permissionRequired = false
+        this.permissionShow = true
+        this.permissionRequired = true
         this.form.getFieldDecorator('permission', { initialValue: '' })
       }
       if (type === '1') {
@@ -407,8 +409,8 @@ export default {
         // 父级选择放开
         this.pidShow = true
         // 权限标识框显示，必填，给空值
-        this.permissionShow = true
-        this.permissionRequired = true
+        // this.permissionShow = true
+        // this.permissionRequired = true
         this.form.getFieldDecorator('permission', { initialValue: '' })
       }
       if (type === '3') {
@@ -464,20 +466,41 @@ export default {
       this.confirmLoading = true
       validateFields((errors, values) => {
         if (!errors) {
-          save(values)
-            .then((res) => {
-              this.confirmLoading = false
-              if (res.success) {
-                this.$message.success('编辑成功')
-                this.$emit('ok', values)
-                this.handleCancel()
-              } else {
-                this.$message.error('编辑失败：' + res.message)
-              }
-            })
-            .finally((res) => {
-              this.confirmLoading = false
-            })
+          if (this.menuId === undefined) {
+            save(values)
+              .then((res) => {
+                this.confirmLoading = false
+                if (res.status === 200) {
+                  this.$message.success('添加成功')
+                  this.$emit('ok', values)
+                  this.handleCancel()
+                } else {
+                  this.$message.error('添加失败：' + res.message)
+                }
+              })
+              .finally((res) => {
+                this.confirmLoading = false
+              })
+          } else {
+            values.id = this.menuId
+            if (values.type === 1) {
+              values.parentId = 0
+            }
+            update(values)
+              .then((res) => {
+                this.confirmLoading = false
+                if (res.status === 200) {
+                  this.$message.success('编辑成功')
+                  this.$emit('ok', values)
+                  this.handleCancel()
+                } else {
+                  this.$message.error('编辑失败：' + res.message)
+                }
+              })
+              .finally((res) => {
+                this.confirmLoading = false
+              })
+          }
         } else {
           this.confirmLoading = false
         }

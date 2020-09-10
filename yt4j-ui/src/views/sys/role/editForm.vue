@@ -31,6 +31,16 @@
             v-decorator="['code', {rules: [{required: true, message: '请输入角色标识！'}]}]"
           />
         </a-form-item>
+        <a-form-item
+          label="授权范围"
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          has-feedback
+        >
+          <a-select style="width: 100%" placeholder="请选择授权范围" v-decorator="['level', {rules: [{ required: true, message: '请选择授权范围！' }]}]" >
+            <a-select-option v-for="(item, index) in dataScopeTypeData" :key="index" :value="item.value">{{ item.label }}</a-select-option>
+          </a-select>
+        </a-form-item>
 
         <!-- <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol" label="排序" has-feedback>
           <a-input-number
@@ -48,6 +58,7 @@
 
 <script>
 import { save, update } from '@/api/sys/role'
+import { remote } from '@/api/sys/dict'
 // import { saveSub } from '@/api/manage'
 export default {
   data () {
@@ -63,7 +74,9 @@ export default {
       visible: false,
       confirmLoading: false,
       form: this.$form.createForm(this),
-      id: undefined
+      id: undefined,
+      // 授权范围数据
+      dataScopeTypeData: []
     }
   },
   methods: {
@@ -72,6 +85,7 @@ export default {
       this.visible = true
       if (record !== undefined) {
         this.id = record.id
+        this.form.getFieldDecorator('level', { initialValue: record.level?.toString() })
         setTimeout(() => {
           this.form.setFieldsValue({
             id: record.id,
@@ -80,10 +94,21 @@ export default {
           })
         }, 100)
       } else {
+        this.form.getFieldDecorator('level', { initialValue: undefined })
         this.id = undefined
       }
+      this.sysDictTypeDropDown()
     },
 
+    /**
+      * 获取字典数据
+      */
+    sysDictTypeDropDown () {
+      // 数据范围
+      remote('data_scope_type').then((res) => {
+        this.dataScopeTypeData = res.result
+      })
+    },
     handleSubmit () {
       const {
         form: { validateFields }

@@ -183,12 +183,46 @@
                 </span>
               </a-tree-select>
             </a-form-item>
-            <!-- <a-form-item v-show="false">
-              <a-input v-decorator="['sysEmpParam.orgName']" />
-            </a-form-item> -->
           </a-form>
         </a-col>
       </a-row>
+      <a-row :gutter="24">
+        <a-col :md="12" :sm="24">
+          <a-form :form="form">
+            <a-form-item
+              label="选择角色"
+              :labelCol="labelCol"
+              :wrapperCol="wrapperCol"
+              @change="handleChange"
+            >
+              <a-select
+                mode="multiple"
+                style="width: 100%"
+                placeholder="请选择角色"
+                v-decorator="['roleIds']"
+              >
+                <a-select-option v-for="item in loadData" :key="item.value" :value="item.value">
+                  {{ item.label }}
+                </a-select-option>
+              </a-select>
+            </a-form-item>
+          </a-form>
+        </a-col>
+      </a-row>
+
+      {{ roleIdValue }}
+      <!-- <a-card>
+        <div>
+          <a-table
+            :row-selection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }"
+            :columns="columns"
+            :dataSource="loadData"
+            :pagination="false"
+            :loading="roleLoading"
+            :rowKey="(record) => record.value"
+          />
+        </div>
+      </a-card> -->
 
       <!-- <a-row :gutter="24">
         <a-col  :md="24" :sm="24">
@@ -216,12 +250,23 @@
 </template>
 
 <script>
-  import { save, update } from '@/api/sys/user'
-  import { tree, list } from '@/api/sys/dept'
+import { save, update, get } from '@/api/sys/user'
+import { tree, list } from '@/api/sys/dept'
+import { listSelect } from '@/api/sys/role'
   // import { sysPosList } from '@/api/modular/system/posManage'
   // import moment from 'moment'
+const columns = [
+  {
+    title: '角色名称',
+    dataIndex: 'label'
+  },
+  {
+    title: '角色标识',
+    dataIndex: 'value'
+  }
+]
 
-  export default {
+export default {
     data () {
       return {
         labelCol: {
@@ -258,7 +303,13 @@
           value: 'id'
         },
         isEdit: false,
-        userId: undefined
+        userId: undefined,
+        // 角色选择列表
+        columns,
+        loadData: [],
+        selectedRowKeys: [], // Check here to configure the default column
+        roleLoading: false,
+        roleIdValue: []
       }
     },
     methods: {
@@ -284,6 +335,8 @@
             }
           )
           this.userId = record.id
+            // 加载已有数据
+          this.sysUserOwnRole(record.id)
         } else {
           // 新增
           this.isEdit = false
@@ -291,7 +344,13 @@
           this.userId = undefined
           // 重置表单
            this.form.setFieldsValue({})
+           this.form.getFieldDecorator('roleIds', { valuePropName: 'checked', initialValue: undefined })
+           this.selectedRowKeys = []
         }
+        // 获取全部列表,无需分页
+        listSelect().then((res) => {
+          this.loadData = res.result
+        })
         // this.getPosList()
       },
       delay: async function (interval) {
@@ -355,7 +414,22 @@
           }
         })
       },
-
+      /**
+        * 获取用户已有角色
+        */
+      sysUserOwnRole (id) {
+        this.roleLoading = true
+        get(id).then((res) => {
+          debugger
+          // 选中多选框
+          this.form.getFieldDecorator('roleIds', { valuePropName: 'checked', initialValue: res.result.roleIds.map(item => item + '') })
+          // this.selectedRowKeys = res.result.roleIds.map(item => item + '')
+          this.roleLoading = false
+        })
+      },
+      handleChange (selectedRowKeys) {
+        this.selectedRowKeys = selectedRowKeys
+      },
       /**
        * 日期需单独转换
        */
@@ -379,6 +453,8 @@
             // }
             // 部门数据结构重新赋值
             // values.deptId = values.orgId
+            // debugger
+            // values.roleIds = this.selectedRowKeys.map(item => Number(item))
             if (this.isEdit) {
               try {
                 values.id = this.userId

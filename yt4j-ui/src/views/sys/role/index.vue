@@ -45,9 +45,6 @@
               <a @click="$refs.roleMenuForm.roleMenu(record)">授权菜单</a>
             </a-menu-item>
             <a-menu-item>
-              <a @click="$refs.roleOrgForm.roleOrg(record)">授权数据</a>
-            </a-menu-item>
-            <a-menu-item>
               <a-popconfirm
                 placement="topRight"
                 title="确认删除？"
@@ -98,7 +95,7 @@
                 dataIndex: 'name'
             },
             {
-                title: '校色标识',
+                title: '角色标识',
                 dataIndex: 'code'
             },
             {

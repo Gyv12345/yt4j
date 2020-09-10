@@ -21,7 +21,7 @@
       </a-col>
       <a-col :md="19" :sm="24">
         <a-card :bordered="false">
-          <div class="table-page-search-wrapper">
+          <!-- <div class="table-page-search-wrapper">
             <a-form layout="inline">
               <a-row :gutter="48">
                 <a-col :md="8" :sm="24">
@@ -41,7 +41,7 @@
                 <a-col :md="8" :sm="24"></a-col>
               </a-row>
             </a-form>
-          </div>
+          </div> -->
           <div class="table-operator">
             <a-button type="primary" icon="plus" @click="$refs.addForm.add()">新增用户</a-button>
           </div>

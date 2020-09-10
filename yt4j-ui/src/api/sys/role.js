@@ -7,7 +7,8 @@ const api = {
   update: '/sys/role/update',
   del: 'sys/role/delete/',
   getMenuByRole: '/sys/role/get/menus/',
-  setMenuByRole: '/sys/role/setting'
+  setMenuByRole: '/sys/role/setting',
+  listSelect: '/sys/role/select'
 }
 
 // 分页查询
@@ -16,6 +17,14 @@ export function list (parameter) {
     url: api.list,
     method: 'get',
     params: parameter
+  })
+}
+
+// 角色下拉菜单
+export function listSelect () {
+  return request({
+    url: api.listSelect,
+    method: 'get'
   })
 }
 

@@ -31,7 +31,7 @@
       <span slot="type" slot-scope="text">{{ typeFilter(text) }}</span>
 
       <span slot="icon" slot-scope="text">
-        <div v-if="text != ''">
+        <div v-if="text !== null && text.trim() !== ''">
           <a-icon :type="text" />
         </div>
       </span>
