@@ -1,15 +1,17 @@
 import request from '@/utils/request'
 
 const api = {
-  list: '/sys/user/list',
-  get: '/sys/user/get/',
-  save: '/sys/user/insert',
-  update: '/sys/user/update',
-  del: 'sys/user/delete/',
-  password: '/sys/user/reset/password/'
+  list: '/sys/dict/item',
+  get: '/sys/dict/item/',
+  save: '/sys/dict/item',
+  update: '/sys/dict/item',
+  del: '/sys/dict/item/'
 }
 
-// 分页查询
+/**
+ * 查询所有字典
+ * 分页
+ */
 export function list (parameter) {
   return request({
     url: api.list,
@@ -26,20 +28,21 @@ export function get (id) {
   })
 }
 
-// 修改
-export function save (user) {
+// 新增
+export function save (dict) {
   return request({
     url: api.save,
     method: 'post',
-    data: user
+    data: dict
   })
 }
+
 // 修改
-export function update (user) {
+export function update (dept) {
   return request({
     url: api.update,
     method: 'put',
-    data: user
+    data: dept
   })
 }
 
@@ -48,13 +51,5 @@ export function del (id) {
   return request({
     url: api.del + id,
     method: 'delete'
-  })
-}
-
-// 重置密码密码
-export function password (id) {
-  return request({
-    url: api.password + id,
-    method: 'post'
   })
 }

@@ -224,7 +224,7 @@ export default {
      * 修改密码
      */
     resetPwd (record) {
-      password({ id: record.id }).then(res => {
+      password(record.id).then(res => {
         if (res.status === 200) {
           this.$message.success('重置成功')
           // this.$refs.table.refresh()
