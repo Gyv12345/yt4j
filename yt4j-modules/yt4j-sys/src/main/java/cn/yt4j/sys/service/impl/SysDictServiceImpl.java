@@ -29,7 +29,6 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictDao, SysDict> impleme
 	@Override
 	public Boolean insert(SysDict dict) {
 		this.baseMapper.insert(dict);
-		this.sysDictItemDao.batchInsertByMysql(dict.getItems());
 		return Boolean.TRUE;
 	}
 
@@ -37,8 +36,6 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictDao, SysDict> impleme
 	@Override
 	public Boolean update(SysDict dict) {
 		this.baseMapper.updateById(dict);
-		this.sysDictItemDao.delete(Wrappers.<SysDictItem>query().lambda().eq(SysDictItem::getCode, dict.getCode()));
-		this.sysDictItemDao.batchInsert(dict.getItems());
 		return Boolean.TRUE;
 	}
 
