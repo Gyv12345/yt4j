@@ -22,10 +22,10 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-09-10 10:29:08
  */
-@Api(tags = " ")
+@Api(tags = "字典项")
 @AllArgsConstructor
 @RestController
-@RequestMapping("sysDictItem")
+@RequestMapping("sys/dict/item")
 public class SysDictItemController {
     /**
      * 服务对象
