@@ -5,7 +5,9 @@ const api = {
   get: '/sys/role/get/',
   save: '/sys/role/insert',
   update: '/sys/role/update',
-  del: 'sys/role/delete/'
+  del: 'sys/role/delete/',
+  getMenuByRole: '/sys/role/get/menus/',
+  setMenuByRole: '/sys/role/setting'
 }
 
 // 分页查询
@@ -13,7 +15,24 @@ export function list (parameter) {
   return request({
     url: api.list,
     method: 'get',
-    param: parameter
+    params: parameter
+  })
+}
+
+// 获取单个角色权限
+export function getMenuByRole (id) {
+  return request({
+    url: api.getMenuByRole + id,
+    method: 'get'
+  })
+}
+
+// 新增
+export function setMenuByRole (data) {
+  return request({
+    url: api.setMenuByRole,
+    method: 'post',
+    data: data
   })
 }
 
@@ -25,7 +44,7 @@ export function get (id) {
   })
 }
 
-// 修改
+// 新增
 export function save (role) {
   return request({
     url: api.save,
@@ -33,6 +52,7 @@ export function save (role) {
     data: role
   })
 }
+
 // 修改
 export function update (role) {
   return request({
@@ -42,6 +62,7 @@ export function update (role) {
   })
 }
 
+// 删除
 export function del (id) {
   return request({
     url: api.del + id,

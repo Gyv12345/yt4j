@@ -5,7 +5,8 @@ const api = {
   get: '/sys/user/get/',
   save: '/sys/user/insert',
   update: '/sys/user/update',
-  del: 'sys/user/delete'
+  del: 'sys/user/delete/',
+  password: '/sys/user/update/password'
 }
 
 // 分页查询
@@ -42,10 +43,19 @@ export function update (user) {
   })
 }
 
-export function del (ids) {
+// 删除
+export function del (id) {
   return request({
-    url: api.del,
-    method: 'delete',
-    data: ids
+    url: api.del + id,
+    method: 'delete'
+  })
+}
+
+// 重置密码密码
+export function password (id) {
+  return request({
+    url: api.password,
+    method: 'put',
+    data: id
   })
 }
