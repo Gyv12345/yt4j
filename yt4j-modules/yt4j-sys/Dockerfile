@@ -15,4 +15,4 @@ EXPOSE 9999
 
 ADD ./target/yt4j-sys.jar ./
 
-CMD sleep 30;java $JAVA_OPTS -jar yt4j-sys.jar
+CMD java $JAVA_OPTS -jar yt4j-sys.jar

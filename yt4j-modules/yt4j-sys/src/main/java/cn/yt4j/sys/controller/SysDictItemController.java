@@ -22,10 +22,10 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-09-10 10:29:08
  */
-@Api(tags = " ")
+@Api(tags = "字典项")
 @AllArgsConstructor
 @RestController
-@RequestMapping("sysDictItem")
+@RequestMapping("sys/dict/item")
 public class SysDictItemController {
     /**
      * 服务对象
@@ -89,12 +89,12 @@ public class SysDictItemController {
     /**
      * 删除数据
      *
-     * @param idList 主键结合
+     * @param id 主键
      * @return 删除结果
      */
     @ApiOperation("删除")
-    @DeleteMapping
-    public R delete(@RequestParam("idList") List<Long> idList) {
-        return R.ok(this.sysDictItemService.removeByIds(idList));
+    @DeleteMapping("delete/{id}")
+    public R delete(@PathVariable Long id) {
+        return R.ok(this.sysDictItemService.removeById(id));
     }
 }
