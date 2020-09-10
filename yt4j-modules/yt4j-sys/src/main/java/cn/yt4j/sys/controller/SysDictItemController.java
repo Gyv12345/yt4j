@@ -89,12 +89,12 @@ public class SysDictItemController {
     /**
      * 删除数据
      *
-     * @param idList 主键结合
+     * @param id 主键
      * @return 删除结果
      */
     @ApiOperation("删除")
-    @DeleteMapping
-    public R delete(@RequestParam("idList") List<Long> idList) {
-        return R.ok(this.sysDictItemService.removeByIds(idList));
+    @DeleteMapping("delete/{id}")
+    public R delete(@PathVariable Long id) {
+        return R.ok(this.sysDictItemService.removeById(id));
     }
 }
