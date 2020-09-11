@@ -46,6 +46,9 @@ public class SysMenu extends Model<SysMenu> {
 	@ApiModelProperty(value = "图标")
 	private String icon;
 
+	@ApiModelProperty(value = "层级")
+	private String layer;
+
 	@ApiModelProperty(value = "排序")
 	private Integer orderNo;
 

@@ -1,8 +1,10 @@
 package cn.yt4j.sys.service.impl;
 
 import cn.yt4j.core.util.TreeUtil;
+import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.dao.SysMenuDao;
 import cn.yt4j.sys.entity.SysMenu;
+import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.entity.vo.MenuTreeVO;
 import cn.yt4j.sys.entity.vo.Meta;
 import cn.yt4j.sys.entity.vo.Route;
@@ -24,8 +26,8 @@ import java.util.stream.Collectors;
 public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenu> implements SysMenuService {
 
 	@Override
-	public List<Route> nav(Long id) {
-		return Optional.ofNullable(this.baseMapper.listMenuByUserId(id)).orElse(null).stream().map(sysMenu -> {
+	public List<Route> nav(Long id,Long applicationId) {
+		return Optional.ofNullable(this.baseMapper.listMenuByUserIdAndApplicationId(id,applicationId)).orElse(null).stream().map(sysMenu -> {
 			Route route = new Route();
 			route.setPath(sysMenu.getPath());
 			route.setId(sysMenu.getId());
@@ -53,6 +55,16 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenu> impleme
 							sysMenu.getComponent());
 					return vo;
 				}).collect(Collectors.toList()), 0L);
+	}
+
+	@Override
+	public List<DictVO> topMenu() {
+		return this.baseMapper.listTopMenu(SecurityUtil.getUser().getId()).stream().map(sysMenu -> {
+			DictVO vo = new DictVO();
+			vo.setLabel(sysMenu.getTitle());
+			vo.setValue(String.valueOf(sysMenu.getId()));
+			return vo;
+		}).collect(Collectors.toList());
 	}
 
 }

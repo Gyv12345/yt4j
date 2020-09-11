@@ -10,6 +10,7 @@
         <result property="title" column="title"/>
         <result property="permission" column="permission"/>
         <result property="icon" column="icon"/>
+        <result property="layer" column="layer"/>
         <result property="orderNo" column="order_no"/>
         <result property="hidden" column="hidden"/>
         <result property="path" column="path"/>
@@ -25,12 +26,27 @@
         where t3.user_id=#{id}
     </select>
 
-    <select id="listMenuByUserId" resultType="cn.yt4j.sys.entity.SysMenu">
+    <select id="listMenuByUserIdAndApplicationId" resultMap="SysMenuMap">
           select  t1.* from sys_menu t1
         inner join sys_role_menu t2 on t1.id=t2.menu_id
         inner join sys_user_role t3 on t2.role_id=t3.role_id
         where t3.user_id=#{id}
-        and t1.type in (1,2)
+        and t1.type =2
+        and t1.layer like concat('%[',#{applicationId},']%')
+    </select>
+
+    <select id="listMenuByUserId" resultMap="SysMenuMap">
+           select  t1.* from sys_menu t1
+        inner join sys_role_menu t2 on t1.id=t2.menu_id
+        inner join sys_user_role t3 on t2.role_id=t3.role_id
+        where t3.user_id=#{id}
+    </select>
+    <select id="listTopMenu" resultMap="SysMenuMap">
+         select  t1.* from sys_menu t1
+        inner join sys_role_menu t2 on t1.id=t2.menu_id
+        inner join sys_user_role t3 on t2.role_id=t3.role_id
+        where t3.user_id=#{id}
+        and t1.type =1
     </select>
 
 

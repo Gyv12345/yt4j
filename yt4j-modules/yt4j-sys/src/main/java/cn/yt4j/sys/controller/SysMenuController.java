@@ -5,6 +5,7 @@ import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.entity.SysMenu;
+import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.entity.vo.MenuTreeVO;
 import cn.yt4j.sys.entity.vo.Route;
 import cn.yt4j.sys.service.SysMenuService;
@@ -29,76 +30,103 @@ import java.util.List;
 @RequestMapping("sys/menu")
 public class SysMenuController {
 
-	/**
-	 * 服务对象
-	 */
-	private final SysMenuService sysMenuService;
+    /**
+     * 服务对象
+     */
+    private final SysMenuService sysMenuService;
 
-	@ApiOperation("动态路由，动态菜单")
-	@GetMapping("nav")
-	public R<List<Route>> nav() {
-		return R.ok(this.sysMenuService.nav(SecurityUtil.getUser().getId()));
-	}
+    /**
+     * 通过应用ID获取菜单
+     *
+     * @param applicationId
+     * @return
+     */
+    @ApiOperation("动态路由，动态菜单")
+    @GetMapping("nav/{id}")
+    public R<List<Route>> nav(@PathVariable("id") Long applicationId) {
+        return R.ok(this.sysMenuService.nav(SecurityUtil.getUser().getId(), applicationId));
+    }
 
-	@ApiOperation("菜单树")
-	@GetMapping("menuTree")
-	public R<List<MenuTreeVO>> menuTree() {
-		return R.ok(this.sysMenuService.menuTree());
-	}
+    /**
+     *
+     * @return
+     */
+    @ApiOperation("获取应用")
+    @GetMapping("top/menu")
+    public R<List<DictVO>> topMenu() {
+        return R.ok(this.sysMenuService.topMenu());
+    }
 
-	/**
-	 * 分页查询所有数据
-	 * @param sysMenu 查询实体
-	 * @return 所有数据
-	 */
-	@ApiOperation("分页查询")
-	@GetMapping("list")
-	public R<PageResult<SysMenu>> selectAll(SysMenu sysMenu) {
-		return R.ok(this.sysMenuService.page(PageUtil.page(), new QueryWrapper<>(sysMenu)));
-	}
+    @ApiOperation("菜单树")
+    @GetMapping("menuTree")
+    public R<List<MenuTreeVO>> menuTree() {
+        return R.ok(this.sysMenuService.menuTree());
+    }
 
-	/**
-	 * 通过主键查询单条数据
-	 * @param id 主键
-	 * @return 单条数据
-	 */
-	@ApiOperation("获取单个")
-	@GetMapping("{id}")
-	public R<SysMenu> selectOne(@PathVariable Serializable id) {
-		return R.ok(this.sysMenuService.getById(id));
-	}
+    /**
+     * 分页查询所有数据
+     *
+     * @param sysMenu 查询实体
+     * @return 所有数据
+     */
+    @ApiOperation("分页查询")
+    @GetMapping("list")
+    public R<PageResult<SysMenu>> selectAll(SysMenu sysMenu) {
+        return R.ok(this.sysMenuService.page(PageUtil.page(), new QueryWrapper<>(sysMenu)));
+    }
 
-	/**
-	 * 新增数据
-	 * @param sysMenu 实体对象
-	 * @return 新增结果
-	 */
-	@ApiOperation("添加")
-	@PostMapping("insert")
-	public R insert(@RequestBody SysMenu sysMenu) {
-		return R.ok(this.sysMenuService.save(sysMenu));
-	}
+    /**
+     * 通过主键查询单条数据
+     *
+     * @param id 主键
+     * @return 单条数据
+     */
+    @ApiOperation("获取单个")
+    @GetMapping("{id}")
+    public R<SysMenu> selectOne(@PathVariable Serializable id) {
+        return R.ok(this.sysMenuService.getById(id));
+    }
 
-	/**
-	 * 修改数据
-	 * @param sysMenu 实体对象
-	 * @return 修改结果
-	 */
-	@ApiOperation("修改")
-	@PutMapping("update")
-	public R update(@RequestBody SysMenu sysMenu) {
-		return R.ok(this.sysMenuService.updateById(sysMenu));
-	}
+    /**
+     * 新增数据
+     *
+     * @param sysMenu 实体对象
+     * @return 新增结果
+     */
+    @ApiOperation("添加")
+    @PostMapping("insert")
+    public R insert(@RequestBody SysMenu sysMenu) {
+        if (sysMenu.getParentId().equals(0L)) {
+            sysMenu.setLayer("[0}");
+        } else {
+            String layer = this.sysMenuService.getById(sysMenu.getParentId()).getLayer();
+            sysMenu.setLayer(layer + "," + "[" + sysMenu.getParentId().intValue() + "]");
+        }
+        return R.ok(this.sysMenuService.save(sysMenu));
+    }
 
-	/**
-	 * 删除数据
-	 * @param id 主键结合
-	 * @return 删除结果
-	 */
-	@ApiOperation("删除")
-	@DeleteMapping("delete/{id}")
-	public R delete(@PathVariable Long id) {
-		return R.ok(this.sysMenuService.removeById(id));
-	}
+    /**
+     * 修改数据
+     *
+     * @param sysMenu 实体对象
+     * @return 修改结果
+     */
+    @ApiOperation("修改")
+    @PutMapping("update")
+    public R update(@RequestBody SysMenu sysMenu) {
+        return R.ok(this.sysMenuService.updateById(sysMenu));
+    }
+
+    /**
+     * 删除数据
+     *
+     * @param id 主键结合
+     * @return 删除结果
+     */
+    @ApiOperation("删除")
+    @DeleteMapping("delete/{id}")
+    public R delete(@PathVariable Long id) {
+        return R.ok(this.sysMenuService.removeById(id));
+    }
 
 }
