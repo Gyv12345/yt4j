@@ -4,10 +4,7 @@ import cn.yt4j.core.util.TreeUtil;
 import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.dao.SysMenuDao;
 import cn.yt4j.sys.entity.SysMenu;
-import cn.yt4j.sys.entity.vo.DictVO;
-import cn.yt4j.sys.entity.vo.MenuTreeVO;
-import cn.yt4j.sys.entity.vo.Meta;
-import cn.yt4j.sys.entity.vo.Route;
+import cn.yt4j.sys.entity.vo.*;
 import cn.yt4j.sys.service.SysMenuService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.collections4.ListUtils;
@@ -58,11 +55,12 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenu> impleme
 	}
 
 	@Override
-	public List<DictVO> topMenu() {
+	public List<TopMenuVO> topMenu() {
 		return this.baseMapper.listTopMenu(SecurityUtil.getUser().getId()).stream().map(sysMenu -> {
-			DictVO vo = new DictVO();
-			vo.setLabel(sysMenu.getTitle());
-			vo.setValue(String.valueOf(sysMenu.getId()));
+			TopMenuVO vo = new TopMenuVO();
+			vo.setTitle(sysMenu.getTitle());
+			vo.setId(sysMenu.getId());
+			vo.setPath(sysMenu.getPath());
 			return vo;
 		}).collect(Collectors.toList());
 	}

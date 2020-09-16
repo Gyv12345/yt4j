@@ -4,6 +4,7 @@ import cn.yt4j.sys.entity.SysMenu;
 import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.entity.vo.MenuTreeVO;
 import cn.yt4j.sys.entity.vo.Route;
+import cn.yt4j.sys.entity.vo.TopMenuVO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
@@ -36,6 +37,6 @@ public interface SysMenuService extends IService<SysMenu> {
      *
      * @return
      */
-    List<DictVO> topMenu();
+    List<TopMenuVO> topMenu();
 
 }
