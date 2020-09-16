@@ -9,16 +9,21 @@ import java.io.Serializable;
 /**
  * 应用信息
  *
- * @author gyv12
+ * @author gyv12345@163.com
  */
 @ApiModel(value = "应用", description = "")
 @Data
 public class TopMenuVO implements Serializable {
-    private static final long serialVersionUID = 8628688151192898733L;
-    @ApiModelProperty("标题")
-    private String title;
-    @ApiModelProperty("Id")
-    private Long id;
-    @ApiModelProperty("路径")
-    private String redirect;
+
+	private static final long serialVersionUID = 8628688151192898733L;
+
+	@ApiModelProperty("标题")
+	private String title;
+
+	@ApiModelProperty("Id")
+	private Long id;
+
+	@ApiModelProperty("路径")
+	private String redirect;
+
 }

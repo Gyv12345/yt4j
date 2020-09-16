@@ -23,24 +23,26 @@ import java.util.stream.Collectors;
 public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenu> implements SysMenuService {
 
 	@Override
-	public List<Route> nav(Long id,Long applicationId) {
-		return Optional.ofNullable(this.baseMapper.listMenuByUserIdAndApplicationId(id,applicationId)).orElse(null).stream().map(sysMenu -> {
-			Route route = new Route();
-			route.setPath(sysMenu.getPath());
-			route.setId(sysMenu.getId());
-			route.setParentId(sysMenu.getParentId());
-			route.setName(sysMenu.getLabel());
-			route.setHidden(sysMenu.getHidden());
-			route.setComponent(sysMenu.getComponent());
-			route.setHideChildrenInMenu(false);
-			Meta meta = new Meta();
-			meta.setIcon(sysMenu.getIcon());
-			meta.setTitle(sysMenu.getTitle());
-			meta.setShow(true);
-			meta.setPermission(Arrays.asList(Optional.ofNullable(sysMenu.getPermission()).orElse(null).split(",")));
-			route.setMeta(meta);
-			return route;
-		}).collect(Collectors.toList());
+	public List<Route> nav(Long id, Long applicationId) {
+		return Optional.ofNullable(this.baseMapper.listMenuByUserIdAndApplicationId(id, applicationId)).orElse(null)
+				.stream().map(sysMenu -> {
+					Route route = new Route();
+					route.setPath(sysMenu.getPath());
+					route.setId(sysMenu.getId());
+					route.setParentId(sysMenu.getParentId());
+					route.setName(sysMenu.getLabel());
+					route.setHidden(sysMenu.getHidden());
+					route.setComponent(sysMenu.getComponent());
+					route.setHideChildrenInMenu(false);
+					Meta meta = new Meta();
+					meta.setIcon(sysMenu.getIcon());
+					meta.setTitle(sysMenu.getTitle());
+					meta.setShow(true);
+					meta.setPermission(
+							Arrays.asList(Optional.ofNullable(sysMenu.getPermission()).orElse(null).split(",")));
+					route.setMeta(meta);
+					return route;
+				}).collect(Collectors.toList());
 	}
 
 	@Override

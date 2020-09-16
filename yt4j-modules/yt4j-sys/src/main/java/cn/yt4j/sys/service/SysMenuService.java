@@ -17,26 +17,23 @@ import java.util.List;
  */
 public interface SysMenuService extends IService<SysMenu> {
 
-    /**
-     * 左侧菜单
-     *
-     * @param id
-     * @param applicationId
-     * @return
-     */
-    List<Route> nav(Long id, Long applicationId);
+	/**
+	 * 左侧菜单
+	 * @param id
+	 * @param applicationId
+	 * @return
+	 */
+	List<Route> nav(Long id, Long applicationId);
 
-    /**
-     * 获取菜单树形列表
-     *
-     * @return
-     */
-    List<MenuTreeVO> menuTree();
+	/**
+	 * 获取菜单树形列表
+	 * @return
+	 */
+	List<MenuTreeVO> menuTree();
 
-    /**
-     *
-     * @return
-     */
-    List<TopMenuVO> topMenu();
+	/**
+	 * @return
+	 */
+	List<TopMenuVO> topMenu();
 
 }
