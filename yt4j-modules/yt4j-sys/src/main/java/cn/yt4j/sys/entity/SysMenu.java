@@ -55,6 +55,9 @@ public class SysMenu extends Model<SysMenu> {
 	@ApiModelProperty(value = "是否显示在左侧")
 	private Boolean hidden;
 
+	@ApiModelProperty("重定向")
+	private String redirect;
+
 	@ApiModelProperty(value = "请求地址")
 	private String path;
 

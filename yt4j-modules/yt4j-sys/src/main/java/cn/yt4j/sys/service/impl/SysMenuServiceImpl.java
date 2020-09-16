@@ -60,7 +60,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenu> impleme
 			TopMenuVO vo = new TopMenuVO();
 			vo.setTitle(sysMenu.getTitle());
 			vo.setId(sysMenu.getId());
-			vo.setPath(sysMenu.getPath());
+			vo.setRedirect(sysMenu.getRedirect());
 			return vo;
 		}).collect(Collectors.toList());
 	}
