@@ -76,6 +76,7 @@ const rootRouter = {
     {
       name: 'dashboard_analysis',
       path: '/dashboard/analysis',
+      hidden: true,
       meta: {
         title: '欢迎页'
       },

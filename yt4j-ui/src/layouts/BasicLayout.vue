@@ -21,9 +21,9 @@
     <setting-drawer :settings="settings" @change="handleSettingChange" />
     <template v-slot:rightContentRender>
       <right-content :top-menu="settings.layout === 'topmenu'" :is-mobile="isMobile" :theme="settings.theme" />
-      <a-select :default-value="applicationList[0].label" style="width: 200px" @change="handleChange">
-        <a-select-option v-for="item in applicationList" :key="item.value">
-          {{ item.label }}
+      <a-select :default-value="applicationList[0].title" style="width: 200px" @change="handleChange">
+        <a-select-option v-for="item in applicationList" :key="item.id">
+          {{ item.title }}
         </a-select-option>
       </a-select>
     </template>

@@ -40,6 +40,7 @@ const assetsCDN = {
 
 // vue.config.js
 const vueConfig = {
+  // 这里是因为的服务器根目录下有东西，所以增加了一个路径，如果能放在服务器下根目录，建议直接注释掉这句话
   publicPath: process.env.NODE_ENV === 'production' ? '/ui/' : '/',
   configureWebpack: {
     // webpack plugins

@@ -7,7 +7,8 @@ import org.apache.ibatis.mapping.MappedStatement;
 import java.sql.SQLException;
 
 /**
- * @author gyv12
+ * 预览过滤器
+ * @author gyv12345@163.com
  */
 public class PreviewInterceptor implements InnerInterceptor {
 
