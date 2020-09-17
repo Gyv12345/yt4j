@@ -1,11 +1,10 @@
 package cn.yt4j.sys.service.impl;
 
 import cn.yt4j.core.util.TreeUtil;
+import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.dao.SysMenuDao;
 import cn.yt4j.sys.entity.SysMenu;
-import cn.yt4j.sys.entity.vo.MenuTreeVO;
-import cn.yt4j.sys.entity.vo.Meta;
-import cn.yt4j.sys.entity.vo.Route;
+import cn.yt4j.sys.entity.vo.*;
 import cn.yt4j.sys.service.SysMenuService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.collections4.ListUtils;
@@ -24,24 +23,26 @@ import java.util.stream.Collectors;
 public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenu> implements SysMenuService {
 
 	@Override
-	public List<Route> nav(Long id) {
-		return Optional.ofNullable(this.baseMapper.listMenuByUserId(id)).orElse(null).stream().map(sysMenu -> {
-			Route route = new Route();
-			route.setPath(sysMenu.getPath());
-			route.setId(sysMenu.getId());
-			route.setParentId(sysMenu.getParentId());
-			route.setName(sysMenu.getLabel());
-			route.setHidden(sysMenu.getHidden());
-			route.setComponent(sysMenu.getComponent());
-			route.setHideChildrenInMenu(false);
-			Meta meta = new Meta();
-			meta.setIcon(sysMenu.getIcon());
-			meta.setTitle(sysMenu.getTitle());
-			meta.setShow(true);
-			meta.setPermission(Arrays.asList(Optional.ofNullable(sysMenu.getPermission()).orElse(null).split(",")));
-			route.setMeta(meta);
-			return route;
-		}).collect(Collectors.toList());
+	public List<Route> nav(Long id, Long applicationId) {
+		return Optional.ofNullable(this.baseMapper.listMenuByUserIdAndApplicationId(id, applicationId)).orElse(null)
+				.stream().map(sysMenu -> {
+					Route route = new Route();
+					route.setPath(sysMenu.getPath());
+					route.setId(sysMenu.getId());
+					route.setParentId(sysMenu.getParentId());
+					route.setName(sysMenu.getLabel());
+					route.setHidden(sysMenu.getHidden());
+					route.setComponent(sysMenu.getComponent());
+					route.setHideChildrenInMenu(false);
+					Meta meta = new Meta();
+					meta.setIcon(sysMenu.getIcon());
+					meta.setTitle(sysMenu.getTitle());
+					meta.setShow(true);
+					meta.setPermission(
+							Arrays.asList(Optional.ofNullable(sysMenu.getPermission()).orElse(null).split(",")));
+					route.setMeta(meta);
+					return route;
+				}).collect(Collectors.toList());
 	}
 
 	@Override
@@ -53,6 +54,17 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenu> impleme
 							sysMenu.getComponent());
 					return vo;
 				}).collect(Collectors.toList()), 0L);
+	}
+
+	@Override
+	public List<TopMenuVO> topMenu() {
+		return this.baseMapper.listTopMenu(SecurityUtil.getUser().getId()).stream().map(sysMenu -> {
+			TopMenuVO vo = new TopMenuVO();
+			vo.setTitle(sysMenu.getTitle());
+			vo.setId(sysMenu.getId());
+			vo.setRedirect(sysMenu.getRedirect());
+			return vo;
+		}).collect(Collectors.toList());
 	}
 
 }

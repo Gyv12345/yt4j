@@ -46,11 +46,17 @@ public class SysMenu extends Model<SysMenu> {
 	@ApiModelProperty(value = "图标")
 	private String icon;
 
+	@ApiModelProperty(value = "层级")
+	private String layer;
+
 	@ApiModelProperty(value = "排序")
 	private Integer orderNo;
 
 	@ApiModelProperty(value = "是否显示在左侧")
 	private Boolean hidden;
+
+	@ApiModelProperty("重定向")
+	private String redirect;
 
 	@ApiModelProperty(value = "请求地址")
 	private String path;

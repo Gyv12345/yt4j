@@ -7,6 +7,7 @@ import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.entity.SysMenu;
 import cn.yt4j.sys.entity.vo.MenuTreeVO;
 import cn.yt4j.sys.entity.vo.Route;
+import cn.yt4j.sys.entity.vo.TopMenuVO;
 import cn.yt4j.sys.service.SysMenuService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
@@ -34,10 +35,24 @@ public class SysMenuController {
 	 */
 	private final SysMenuService sysMenuService;
 
+	/**
+	 * 通过应用ID获取菜单
+	 * @param applicationId
+	 * @return
+	 */
 	@ApiOperation("动态路由，动态菜单")
-	@GetMapping("nav")
-	public R<List<Route>> nav() {
-		return R.ok(this.sysMenuService.nav(SecurityUtil.getUser().getId()));
+	@GetMapping("nav/{id}")
+	public R<List<Route>> nav(@PathVariable("id") Long applicationId) {
+		return R.ok(this.sysMenuService.nav(SecurityUtil.getUser().getId(), applicationId));
+	}
+
+	/**
+	 * @return
+	 */
+	@ApiOperation("获取应用")
+	@GetMapping("top/menu")
+	public R<List<TopMenuVO>> topMenu() {
+		return R.ok(this.sysMenuService.topMenu());
 	}
 
 	@ApiOperation("菜单树")
@@ -76,6 +91,13 @@ public class SysMenuController {
 	@ApiOperation("添加")
 	@PostMapping("insert")
 	public R insert(@RequestBody SysMenu sysMenu) {
+		if (sysMenu.getParentId().equals(0L)) {
+			sysMenu.setLayer("[0}");
+		}
+		else {
+			String layer = this.sysMenuService.getById(sysMenu.getParentId()).getLayer();
+			sysMenu.setLayer(layer + "," + "[" + sysMenu.getParentId().intValue() + "]");
+		}
 		return R.ok(this.sysMenuService.save(sysMenu));
 	}
 

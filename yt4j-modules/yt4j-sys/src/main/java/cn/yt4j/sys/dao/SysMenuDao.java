@@ -2,6 +2,7 @@ package cn.yt4j.sys.dao;
 
 import cn.yt4j.sys.entity.SysMenu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -21,9 +22,24 @@ public interface SysMenuDao extends BaseMapper<SysMenu> {
 	List<String> listByUserId(Long id);
 
 	/**
-	 * 根据用户ID查询菜单
+	 * 查询菜单，不涉及顶级菜单，和按钮
+	 * @param id
+	 * @param applicationId
+	 * @return
+	 */
+	List<SysMenu> listMenuByUserIdAndApplicationId(@Param("id") Long id, @Param("applicationId") Long applicationId);
+
+	/**
+	 * 查询全部权限
+	 * @param id
 	 * @return
 	 */
 	List<SysMenu> listMenuByUserId(Long id);
+
+	/**
+	 * @param id
+	 * @return
+	 */
+	List<SysMenu> listTopMenu(Long id);
 
 }

@@ -1,8 +1,10 @@
 package cn.yt4j.sys.service;
 
 import cn.yt4j.sys.entity.SysMenu;
+import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.entity.vo.MenuTreeVO;
 import cn.yt4j.sys.entity.vo.Route;
+import cn.yt4j.sys.entity.vo.TopMenuVO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
@@ -16,16 +18,22 @@ import java.util.List;
 public interface SysMenuService extends IService<SysMenu> {
 
 	/**
-	 * 查询用户菜单
-	 * @param id 用户ID
+	 * 左侧菜单
+	 * @param id
+	 * @param applicationId
 	 * @return
 	 */
-	List<Route> nav(Long id);
+	List<Route> nav(Long id, Long applicationId);
 
 	/**
 	 * 获取菜单树形列表
 	 * @return
 	 */
 	List<MenuTreeVO> menuTree();
+
+	/**
+	 * @return
+	 */
+	List<TopMenuVO> topMenu();
 
 }
