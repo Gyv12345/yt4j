@@ -21,6 +21,11 @@
     <setting-drawer :settings="settings" @change="handleSettingChange" />
     <template v-slot:rightContentRender>
       <right-content :top-menu="settings.layout === 'topmenu'" :is-mobile="isMobile" :theme="settings.theme" />
+      <a-select :default-value="applicationList[0].label" style="width: 200px" @change="handleChange">
+        <a-select-option v-for="item in applicationList" :key="item.value">
+          {{ item.label }}
+        </a-select-option>
+      </a-select>
     </template>
     <template v-slot:footerRender>
       <global-footer />
@@ -51,6 +56,7 @@ export default {
   },
   data () {
     return {
+      applicationData: [],
       // preview.pro.antdv.com only use.
       isProPreviewSite: process.env.VUE_APP_PREVIEW === 'true' && process.env.NODE_ENV !== 'development',
       // end
@@ -86,7 +92,9 @@ export default {
   computed: {
     ...mapState({
       // 动态主路由
-      mainMenu: state => state.permission.addRouters
+      mainMenu: state => state.permission.addRouters,
+      applicationList: state => state.application.applicationList
+      // applicationCode: state => state.application.code
     })
   },
   created () {
@@ -154,6 +162,28 @@ export default {
     },
     logoRender () {
       return <LogoSvg />
+    },
+    /**
+     * 应用搜索框变更
+     */
+    handleChange (value) {
+      console.log('选择应用的值是：', value)
+      this.$store.dispatch('SetApplicationCode', value)
+      this.$store.dispatch('GenerateRoutes', { applicationCode: value })
+      this.$router.push({ path: '/' })
+    }
+  },
+  watch: {
+    mainMenu: {
+      handler (newValue, oldValue) {
+        if (newValue !== oldValue) {
+          // this.getTicketTypeListByArea(newValue);
+          const routes = newValue.find(item => item.path === '/')
+          this.menus = (routes && routes.children) || []
+          console.log('newValue', newValue)
+          console.log('oldValue', oldValue)
+        }
+      }
     }
   }
 }

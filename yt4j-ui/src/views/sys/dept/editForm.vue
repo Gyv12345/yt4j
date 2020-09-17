@@ -111,7 +111,6 @@
       edit (record) {
         this.visible = true
         this.getOrgTree()
-        debugger
         setTimeout(() => {
           this.form.setFieldsValue(
             {

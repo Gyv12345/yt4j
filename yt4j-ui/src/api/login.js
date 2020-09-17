@@ -50,10 +50,10 @@ export function getInfo () {
   })
 }
 
-export function getCurrentUserNav () {
+export function getCurrentUserNav (id) {
   console.log('进入请求后台路由数据')
   return request({
-    url: userApi.UserMenu,
+    url: userApi.UserMenu + `/${id}`,
     method: 'get'
   })
 }

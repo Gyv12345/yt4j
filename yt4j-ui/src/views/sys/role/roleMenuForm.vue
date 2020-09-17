@@ -120,7 +120,6 @@ export default {
       this.confirmLoading = true
       validateFields((errors, values) => {
         if (!errors) {
-          debugger
           setMenuByRole({ roleId: this.roleEntity.id, menuIds: this.checkedKeys.checked })
             .then((res) => {
               if (res.status === 200) {

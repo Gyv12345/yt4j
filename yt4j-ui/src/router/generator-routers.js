@@ -2,6 +2,7 @@
 import * as loginService from '@/api/login'
 // eslint-disable-next-line
 import { BasicLayout, BlankLayout, PageView, RouteView } from '@/layouts'
+import store from '../store'
 
 // 前端路由表
 const constantRouterComponents = {
@@ -64,14 +65,23 @@ const notFoundRouter = {
 // 根级菜单
 const rootRouter = {
   key: '',
-  name: 'index',
-  path: '',
-  component: 'BasicLayout',
-  redirect: '/dashboard',
+  name: 'BasicLayout',
+  path: '/',
+  component: BasicLayout,
+  redirect: '/dashboard/analysis',
   meta: {
     title: '首页'
   },
-  children: []
+  children: [
+    {
+      name: 'dashboard_analysis',
+      path: '/dashboard/analysis',
+      meta: {
+        title: '欢迎页'
+      },
+      component: () => import('@/views/dashboard/Analysis')
+    }
+  ]
 }
 
 /**
@@ -79,18 +89,23 @@ const rootRouter = {
  * @param token
  * @returns {Promise<Router>}
  */
-export const generatorDynamicRouter = (token) => {
+export const generatorDynamicRouter = (applicationCode) => {
   console.log('进入动态路由生成')
+  const routerRes = Object.assign({}, rootRouter)
   return new Promise((resolve, reject) => {
-    loginService.getCurrentUserNav(token).then(res => {
+    loginService.getCurrentUserNav(applicationCode).then(res => {
       const { result } = res
-      const menuNav = []
-      const childrenNav = []
-      //      后端数据, 根级树数组,  根级 PID
-      listToTree(result, childrenNav, 0)
-      rootRouter.children = childrenNav
-      menuNav.push(rootRouter)
-      const routers = generator(menuNav)
+      // const menuNav = []
+      let childrenNav = []
+      // 后端数据, 根级树数组,  根级 PID
+      // 第三个参数为全局应用参数
+      listToTree(result, childrenNav, store.getters.applicationCode)
+      // rootRouter.children = childrenNav
+      // menuNav = [menuNav, ...childrenNav]
+      childrenNav = generator(childrenNav)
+
+      routerRes.children = [...routerRes.children, ...childrenNav]
+      const routers = [routerRes]
       routers.push(notFoundRouter)
       resolve(routers)
     }).catch(err => {
@@ -160,7 +175,7 @@ export const generator = (routerMap, parent) => {
 const listToTree = (list, tree, parentId) => {
   list.forEach(item => {
     // 判断是否为父级菜单
-    if (item.parentId === parentId) {
+    if (item.parentId === Number(parentId)) {
       const child = {
         ...item,
         key: item.key || item.name,

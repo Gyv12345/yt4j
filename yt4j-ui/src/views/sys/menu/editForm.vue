@@ -283,7 +283,6 @@ export default {
         if (record.visible === 'Y') {
           this.visibleDef = true
         }
-        debugger
         this.form.getFieldDecorator('hidden', { valuePropName: 'checked', initialValue: record.hidden })
         this.form.getFieldDecorator('icon', { initialValue: record.icon })
         setTimeout(() => {
@@ -359,7 +358,6 @@ export default {
     changeApplication (value) {
       console.log(value)
       tree().then((res) => {
-        debugger
         if (res.status === 200) {
           this.form.resetFields(`parentId`, [])
           this.menuTreeData = res.result

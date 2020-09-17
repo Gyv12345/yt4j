@@ -6,7 +6,8 @@ const api = {
   get: '/sys/menu/',
   save: '/sys/menu/insert',
   update: '/sys/menu/update',
-  del: 'sys/menu/delete/'
+  del: 'sys/menu/delete/',
+  getApplication: '/sys/menu/top/menu'
 }
 
 // 查询所有机构,左侧树
@@ -23,6 +24,14 @@ export function list (parameter) {
     url: api.list,
     method: 'get',
     params: parameter
+  })
+}
+
+// 获取应用
+export function getApplication () {
+  return request({
+    url: api.getApplication,
+    method: 'get'
   })
 }
 

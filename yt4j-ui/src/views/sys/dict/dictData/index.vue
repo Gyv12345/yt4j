@@ -138,7 +138,6 @@ export default {
   methods: {
     // 打开此页面首先加载此方法
     index (record) {
-      debugger
       this.visible = true
       this.code = record.code
       // this.queryParam.code = record.code

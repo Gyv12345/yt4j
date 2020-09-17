@@ -420,7 +420,6 @@ export default {
       sysUserOwnRole (id) {
         this.roleLoading = true
         get(id).then((res) => {
-          debugger
           // 选中多选框
           this.form.getFieldDecorator('roleIds', { valuePropName: 'checked', initialValue: res.result.roleIds.map(item => item + '') })
           // this.selectedRowKeys = res.result.roleIds.map(item => item + '')
