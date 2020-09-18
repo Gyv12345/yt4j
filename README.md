@@ -13,7 +13,7 @@
 <p align="center">
  <img src="https://img.shields.io/badge/Yt4j-1.0.1-success.svg" alt="Build Status">
  <img src="https://img.shields.io/badge/antd%20vue%20pro-3.0.0-green.svg" alt="Build Status">
- <img src="https://img.shields.io/badge/spring%20boot-2.3.3-blue" alt="Coverage Status">
+ <img src="https://img.shields.io/badge/spring%20boot-2.3.4-blue" alt="Coverage Status">
 </p>
 
 
@@ -29,9 +29,9 @@
 
 依赖 | 版本
 ---|---
-Spring Boot |  2.3.3.RELEASE 
+Spring Boot |  2.3.4.RELEASE 
 Mybatis Plus | 3.4.0
-hutool | 5.4.1
+hutool | 5.4.2
 
 ## 模块说明
 
