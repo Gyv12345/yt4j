@@ -17,7 +17,7 @@
 </p>
 
 
-- 基于spring boot 2.3.3、jwt的RBAC权限管理系统
+- 基于spring boot 2.3.4、jwt的RBAC权限管理系统
 - 基于ant design pro vue模板，构建前端界面
 - 提供对docker支持
 - 使用smart-doc进行接口文档生成(惊喜的一个项目，直接生成postman的json数据，导入就行)
