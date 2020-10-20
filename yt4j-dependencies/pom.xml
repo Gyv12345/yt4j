@@ -17,6 +17,7 @@
         <easy-excel.version>2.2.6</easy-excel.version>
         <jjwt.version>0.9.1</jjwt.version>
         <jetcache.latest.version>2.6.0</jetcache.latest.version>
+        <jasypt.version>2.1.1</jasypt.version>
     </properties>
 
     <dependencyManagement>
@@ -53,6 +54,12 @@
                 <groupId>com.alicp.jetcache</groupId>
                 <artifactId>jetcache-starter-redis</artifactId>
                 <version>${jetcache.latest.version}</version>
+            </dependency>
+            <!--jasypt配置文件加解密-->
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>${jasypt.version}</version>
             </dependency>
             <!-- 2方库 -->
             <dependency>

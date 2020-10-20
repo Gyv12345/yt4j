@@ -1,10 +1,7 @@
 package cn.yt4j.sys.test;
 
-import cn.hutool.core.util.CharsetUtil;
-import cn.hutool.core.util.StrUtil;
-import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.asymmetric.RSA;
-import org.junit.jupiter.api.Assertions;
+import org.jasypt.encryption.StringEncryptor;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,13 +13,17 @@ public class SysTest {
 	@Autowired
 	private PasswordEncoder encoder;
 
+
 	@Test
 	public void password() {
 		System.out.println(encoder.encode("123456"));
 	}
 
+
 	@Test
 	public void rsa() {
+
+
 		RSA rsa = new RSA();
 
 		// 获得私钥

@@ -3,7 +3,7 @@ spring:
     url: jdbc:mysql://rm-8vb6qoj0m6hmw9925go.mysql.zhangbei.rds.aliyuncs.com:3306/yt4j?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf-8&autoReconnect=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: shichenyang
-    password: '!Shijie123456'
+    password: ENC(TOwx34XGDU5MZuBsaAur7ouBL5mlDd9z)
   redis:
     host: 39.99.213.137
     database: 2
@@ -36,3 +36,7 @@ yt4j:
     public-key: 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCaM2N1vMupralzJItx3Y4AftJVh78I8LNuUGuKqMF1YHiwYBHrvZXpzEuRmtTArSaPOlywVt2obC2Ft8ruIDw7Xfpt5SiY1Y7aCONT/DRGGsUEal6jGgTzxiUKTyfyF4wr+0vd7IeiTD/iqg4Oqm3+WsKm7ZWozUG6scG5798YqwIDAQAB'
 server:
   port: 9999
+
+jasypt:
+  encryptor:
+    password: yt4j
