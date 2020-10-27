@@ -31,7 +31,7 @@
 ---|---
 Spring Boot |  2.3.4.RELEASE 
 Mybatis Plus | 3.4.0
-hutool | 5.4.2
+hutool | 5.4.6
 
 ## 模块说明
 
