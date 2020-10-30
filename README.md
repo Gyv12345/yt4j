@@ -29,7 +29,7 @@
 
 依赖 | 版本
 ---|---
-Spring Boot |  2.3.4.RELEASE 
+Spring Boot |  2.3.5.RELEASE 
 Mybatis Plus | 3.4.0
 hutool | 5.4.6
 
