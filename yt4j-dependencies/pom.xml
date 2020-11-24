@@ -11,9 +11,9 @@
     <artifactId>yt4j-dependencies</artifactId>
 
     <properties>
-        <mybatis-plus.version>3.4.0</mybatis-plus.version>
+        <mybatis-plus.version>3.4.1</mybatis-plus.version>
         <hutool.version>5.4.7</hutool.version>
-        <knife4j.version>2.0.2</knife4j.version>
+        <knife4j.version>3.0.2</knife4j.version>
         <easy-excel.version>2.2.6</easy-excel.version>
         <jjwt.version>0.9.1</jjwt.version>
         <jetcache.latest.version>2.6.0</jetcache.latest.version>

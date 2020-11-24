@@ -5,7 +5,7 @@ const api = {
   get: '/sys/dict/item/',
   save: '/sys/dict/item',
   update: '/sys/dict/item',
-  del: '/sys/dict/item/'
+  del: '/sys/dict/item/delete/'
 }
 
 /**

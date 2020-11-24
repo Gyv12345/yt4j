@@ -45,6 +45,13 @@ public class SysUserController {
 		return R.ok(this.sysUserService.login(dto), "登录成功");
 	}
 
+	@ApiOperation("退出")
+	@GetMapping("logout")
+	public R logout(){
+		// todo 删除数据库内容
+		return R.ok();
+	}
+
 	@ApiOperation("修改密码")
 	@PostMapping("update/password")
 	public R<Boolean> updatePassword(@RequestBody @Valid PasswordDTO dto) {
