@@ -13,6 +13,14 @@ public class SysTest {
 	@Autowired
 	private PasswordEncoder encoder;
 
+	@Autowired
+	StringEncryptor stringEncryptor;
+
+	@Test
+	public void encode(){
+		System.out.println(stringEncryptor.encrypt("root"));
+	}
+
 
 	@Test
 	public void password() {

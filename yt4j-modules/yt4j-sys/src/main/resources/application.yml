@@ -1,13 +1,11 @@
 spring:
   datasource:
-    url: jdbc:mysql://rm-8vb6qoj0m6hmw9925go.mysql.zhangbei.rds.aliyuncs.com:3306/yt4j?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf-8&autoReconnect=true
+    url: jdbc:mysql://yt4j-mysql:3306/yt4j?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf-8&autoReconnect=true
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: shichenyang
-    password: ENC(TOwx34XGDU5MZuBsaAur7ouBL5mlDd9z)
+    username: root
+    password: ENC(J4sCVXaoXyijS3Vf6vCqng==) #root
   redis:
-    host: 39.99.213.137
-    database: 2
-    port: 8848
+    host: yt4j-redis
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
