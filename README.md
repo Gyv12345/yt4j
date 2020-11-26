@@ -49,10 +49,18 @@ yt4j
 
 ```
 
+## 本机部署
+本机部署，需要设置一下本地host
+```
+127.0.0.1 yt4j-mysql
+127.0.0.1 yt4j-redis
+```
+## 是否预览
 ```
 在 yt4j-data DataAutoConfiguration 中有是否预览的设置，这个设置主要是防止演示环境被人删除数据
 在本地开发的话，可以将之除去
 //增加预览过滤器，增删改操作直接不成功
 interceptor.addInnerInterceptor(new PreviewInterceptor(false));
 ```
-
+## yt4j的密码用了rsa加密
+配套的前端内有公钥进行加密，所以如果想要使用swagger测试的话，登录哪里注意去掉解密
