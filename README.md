@@ -49,3 +49,10 @@ yt4j
 
 ```
 
+```
+在 yt4j-data DataAutoConfiguration 中有是否预览的设置，这个设置主要是防止演示环境被人删除数据
+在本地开发的话，可以将之除去
+//增加预览过滤器，增删改操作直接不成功
+interceptor.addInnerInterceptor(new PreviewInterceptor(false));
+```
+
