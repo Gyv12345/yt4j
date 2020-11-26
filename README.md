@@ -64,3 +64,6 @@ interceptor.addInnerInterceptor(new PreviewInterceptor(false));
 ```
 ## yt4j的密码用了rsa加密
 配套的前端内有公钥进行加密，所以如果想要使用swagger测试的话，登录哪里注意去掉解密
+
+## 配套easycode模板 
+be808005d676a73e01d515ca4692b50d 7天有效
