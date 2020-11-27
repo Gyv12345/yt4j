@@ -13,7 +13,7 @@
 <p align="center">
  <img src="https://img.shields.io/badge/Yt4j-1.0.1-success.svg" alt="Build Status">
  <img src="https://img.shields.io/badge/antd%20vue%20pro-3.0.0-green.svg" alt="Build Status">
- <img src="https://img.shields.io/badge/spring%20boot-2.3.4-blue" alt="Coverage Status">
+ <img src="https://img.shields.io/badge/spring%20boot-2.4.0-blue" alt="Coverage Status">
 </p>
 
 
@@ -29,7 +29,7 @@
 依赖 | 版本
 ---|---
 Spring Boot |  2.4.0
-Mybatis Plus | 3.4.0
+Mybatis Plus | 3.4.1
 hutool | 5.4.7
 
 ## 模块说明
@@ -49,8 +49,8 @@ yt4j
 
 ```
 
-## 本机部署
-本机部署，需要设置一下本地host
+## 部署
+部署的时候，需要设置一下host
 ```
 127.0.0.1 yt4j-mysql
 127.0.0.1 yt4j-redis
