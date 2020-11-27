@@ -1,5 +1,6 @@
 package cn.yt4j.sys.test;
 
+import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.asymmetric.RSA;
 import org.jasypt.encryption.StringEncryptor;
 import org.junit.jupiter.api.Test;
@@ -40,6 +41,11 @@ public class SysTest {
 		// 获得公钥
 		System.out.println(rsa.getPublicKeyBase64());
 		rsa.getPublicKeyBase64();
+
+
+		RSA rsa1=new RSA(null,"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCaM2N1vMupralzJItx3Y4AftJVh78I8LNuUGuKqMF1YHiwYBHrvZXpzEuRmtTArSaPOlywVt2obC2Ft8ruIDw7Xfpt5SiY1Y7aCONT/DRGGsUEal6jGgTzxiUKTyfyF4wr+0vd7IeiTD/iqg4Oqm3+WsKm7ZWozUG6scG5798YqwIDAQAB");
+		String mima=  rsa1.encryptStr("123456", KeyType.PublicKey);
+		System.out.println(mima);
 
 		//// 公钥加密，私钥解密
 		// byte[] encrypt = rsa.encrypt(StrUtil.bytes("我是一段测试aaaa",
