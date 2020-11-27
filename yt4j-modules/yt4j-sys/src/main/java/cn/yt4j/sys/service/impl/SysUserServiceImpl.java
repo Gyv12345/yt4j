@@ -88,6 +88,11 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 		}
 	}
 
+	@Override
+	public void logout() {
+		redisTemplate.opsForValue().getOperations().delete(SecurityUtil.getUser().getUsername());
+	}
+
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Boolean updatePassword(PasswordDTO dto) {

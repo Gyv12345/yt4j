@@ -25,6 +25,8 @@ public interface SysUserService extends IService<SysUser> {
 	 */
 	String login(UserDTO dto);
 
+	void logout();
+
 	/**
 	 * 修改密码
 	 * @param dto

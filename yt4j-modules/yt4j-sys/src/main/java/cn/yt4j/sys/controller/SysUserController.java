@@ -48,8 +48,8 @@ public class SysUserController {
 	@ApiOperation("退出")
 	@GetMapping("logout")
 	public R logout(){
-		// todo 删除数据库内容
-		return R.ok();
+		this.sysUserService.logout();
+		return R.ok("退出成功");
 	}
 
 	@ApiOperation("修改密码")
