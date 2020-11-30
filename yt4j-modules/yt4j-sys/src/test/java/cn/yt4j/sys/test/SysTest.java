@@ -19,13 +19,13 @@ public class SysTest {
 
 	@Test
 	public void encode(){
-		System.out.println(stringEncryptor.encrypt("root"));
+		System.out.println(stringEncryptor.encrypt("1234232123"));
 	}
 
 
 	@Test
 	public void password() {
-		System.out.println(encoder.encode("123456"));
+		System.out.println(encoder.encode(""));
 	}
 
 
