@@ -8,29 +8,15 @@ spring:
     host: 39.99.213.137
     port: 8848
     database: 2
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 yt4j:
   jwt:
     filter:
       ignored-url:
-        - /doc.html
-        - /swagger-ui.html
-        - /swagger-resources/**
-        - /swagger/**
-        - /**/v2/api-docs
-        - /**/*.js
-        - /**/*.css
-        - /**/*.png
-        - /**/*.ico
-        - /webjars/springfox-swagger-ui/**
-        - /actuator/**
         - /sys/user/login
       header: 'Access-Token'
       token-head: ''
   swagger:
-    enabled: true
+    enabled: false
 server:
   port: 9999
 
