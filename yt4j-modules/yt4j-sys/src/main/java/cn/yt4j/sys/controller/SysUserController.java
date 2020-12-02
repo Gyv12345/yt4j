@@ -99,6 +99,11 @@ public class SysUserController {
 		return R.ok(this.sysUserService.insert(sysUser));
 	}
 
+	/**
+	 * 重置用户密码
+	 * @param id 用户ID
+	 * @return
+	 */
 	@ApiOperation("重置用户密码 ")
 	@PostMapping("reset/password/{id}")
 	public R resetPassword(@PathVariable Long id) {
