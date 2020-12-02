@@ -13,14 +13,12 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 public class SysUserTest {
-
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -40,7 +38,6 @@ public class SysUserTest {
                 .andReturn();
         String content= result.getResponse().getContentAsString();
         System.out.println(content);
-
     }
 
     @Test
@@ -48,6 +45,7 @@ public class SysUserTest {
         SysUser user = new SysUser();
 
         user.setUsername("test1989");
+        user.setPassword("123456");
         String url = "/sys/user/insert";
          mvc.perform(post(url).header("Access-Token","eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJ5dDRqLmNuIiwic3ViIjoiYWRtaW4iLCJhdWQiOiJ2aXAiLCJleHAiOjE2MDc3Njk2MjQsIm5iZiI6MTYwNjg2NzU0NywiaWF0IjoxNjA2ODY4NDQ3fQ.7S8iTqKxObnMTqQzd0mqkznI1aOyhsQz9If_tlnAfPpHtGBgS2quttxy2BiMTDj0vA0Cc9-5Cin3Uejo9pne4A").content(objectMapper.writeValueAsString(user)).contentType(MediaType.APPLICATION_JSON))
                  .andExpect(jsonPath("$.status").value("200"));

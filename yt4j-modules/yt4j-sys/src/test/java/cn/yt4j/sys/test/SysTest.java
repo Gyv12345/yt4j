@@ -17,18 +17,25 @@ public class SysTest {
 	@Autowired
 	StringEncryptor stringEncryptor;
 
+	/**
+	 * 配置文件中数据库密码加密
+	 */
 	@Test
 	public void encode(){
 		System.out.println(stringEncryptor.encrypt("1234232123"));
 	}
 
-
+	/**
+	 * 数据库里的用户密码家加密
+	 */
 	@Test
 	public void password() {
 		System.out.println(encoder.encode(""));
 	}
 
-
+	/**
+	 * 前端登录时用户密码加密
+	 */
 	@Test
 	public void rsa() {
 
