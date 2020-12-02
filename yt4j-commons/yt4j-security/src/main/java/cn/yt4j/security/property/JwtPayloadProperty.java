@@ -15,7 +15,7 @@ public class JwtPayloadProperty {
 	/**
 	 * user secret
 	 */
-	private String secret = "yt4j";
+	private String secret = "1cd58e58fb1fb97d9fc9faf2587b3254fb08d74b77e38231b4b5e18df8ee6ffc";
 
 	/**
 	 * issuer

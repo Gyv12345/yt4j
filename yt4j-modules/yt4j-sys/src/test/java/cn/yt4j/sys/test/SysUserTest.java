@@ -47,7 +47,7 @@ public class SysUserTest {
         user.setUsername("test1989");
         user.setPassword("123456");
         String url = "/sys/user/insert";
-         mvc.perform(post(url).header("Access-Token","eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJ5dDRqLmNuIiwic3ViIjoiYWRtaW4iLCJhdWQiOiJ2aXAiLCJleHAiOjE2MDc3Njk2MjQsIm5iZiI6MTYwNjg2NzU0NywiaWF0IjoxNjA2ODY4NDQ3fQ.7S8iTqKxObnMTqQzd0mqkznI1aOyhsQz9If_tlnAfPpHtGBgS2quttxy2BiMTDj0vA0Cc9-5Cin3Uejo9pne4A").content(objectMapper.writeValueAsString(user)).contentType(MediaType.APPLICATION_JSON))
+         mvc.perform(post(url).header("Access-Token","eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJ5dDRqLmNuIiwic3ViIjoiYWRtaW4iLCJhdWQiOiJ2aXAiLCJleHAiOjE2MDc3OTI1MTksIm5iZiI6MTYwNjg5MDQ0MSwiaWF0IjoxNjA2ODkxMzQxfQ.oQosW7f0AovH5MDDQBi2xn6FxJJkYxsODKSJglvs4gW0l0PXaEBBkCQJfFUfnYwGbQOCXzvU4rUO4tTPO0DMKQ").content(objectMapper.writeValueAsString(user)).contentType(MediaType.APPLICATION_JSON))
                  .andExpect(jsonPath("$.status").value("200"));
     }
 

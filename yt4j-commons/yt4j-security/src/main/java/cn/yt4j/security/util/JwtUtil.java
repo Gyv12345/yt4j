@@ -4,16 +4,19 @@ import cn.yt4j.security.property.JwtPayloadProperty;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import javax.crypto.spec.SecretKeySpec;
+import javax.xml.bind.DatatypeConverter;
+import java.security.Key;
 import java.util.Date;
 
 /**
  * @author gyv12345@163.com
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Component
 @Slf4j
 public class JwtUtil {
@@ -26,7 +29,7 @@ public class JwtUtil {
 	 * @return 数据声明
 	 */
 	private Claims getClaimsFromToken(String token) {
-		return Jwts.parser().setSigningKey(jwtPayloadProperty.getSecret()).parseClaimsJws(token).getBody();
+		return Jwts.parserBuilder().setSigningKey(DatatypeConverter.parseBase64Binary(jwtPayloadProperty.getSecret())).build().parseClaimsJws(token).getBody();
 	}
 
 	/**
@@ -71,6 +74,9 @@ public class JwtUtil {
 	 * @return .
 	 */
 	public String generateToken(String username) {
+		SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
+		byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(jwtPayloadProperty.getSecret());
+		Key key = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
 		return Jwts.builder()
 				// jwt签发者
 				.setIssuer(jwtPayloadProperty.getIssuer())
@@ -82,7 +88,7 @@ public class JwtUtil {
 						new Date(System.currentTimeMillis() + jwtPayloadProperty.getExpirationMinute() * 60 * 1000))
 				.setNotBefore(
 						new Date(System.currentTimeMillis() - jwtPayloadProperty.getNotBeforeMinute() * 60 * 1000))
-				.setIssuedAt(new Date()).signWith(SignatureAlgorithm.HS512, jwtPayloadProperty.getSecret()).compact();
+				.setIssuedAt(new Date()).signWith(key).compact();
 	}
 
 }

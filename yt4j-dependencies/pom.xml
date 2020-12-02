@@ -15,7 +15,7 @@
         <hutool.version>5.4.7</hutool.version>
         <knife4j.version>3.0.2</knife4j.version>
         <easy-excel.version>2.2.6</easy-excel.version>
-        <jjwt.version>0.9.1</jjwt.version>
+        <jjwt.version>0.11.2</jjwt.version>
         <jetcache.latest.version>2.6.0</jetcache.latest.version>
         <jasypt.version>2.1.1</jasypt.version>
     </properties>
@@ -47,8 +47,20 @@
             </dependency>
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
-                <artifactId>jjwt</artifactId>
+                <artifactId>jjwt-api</artifactId>
                 <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>${jjwt.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId> <!-- or jjwt-gson if Gson is preferred -->
+                <version>${jjwt.version}</version>
+                <scope>runtime</scope>
             </dependency>
             <dependency>
                 <groupId>com.alicp.jetcache</groupId>
