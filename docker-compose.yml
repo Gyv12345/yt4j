@@ -1,5 +1,24 @@
 version: "3"
 services:
+  yt4j-mysql:
+    build:
+      context: ./db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+    container_name: yt4j-mysql
+    image: yt4j-mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - ./yt4j-mysql:/var/lib/mysql
+    command: --lower_case_table_names=1
+  yt4j-redis:
+    container_name: yt4j-redis
+    image: redis
+    restart: always
+    ports:
+      - 6379:6379
   yt4j-sys:
     build:
       context: ./yt4j-modules/yt4j-sys
@@ -10,7 +29,5 @@ services:
       - yt4j
     ports:
       - 9999:9999
-
-networks:
-  yt4j:
-    external: true
+    depends_on:
+      - yt4j-mysql

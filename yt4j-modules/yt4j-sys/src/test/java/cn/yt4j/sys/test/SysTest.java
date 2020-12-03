@@ -51,7 +51,7 @@ public class SysTest {
 
 
 		RSA rsa1=new RSA(null,"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCaM2N1vMupralzJItx3Y4AftJVh78I8LNuUGuKqMF1YHiwYBHrvZXpzEuRmtTArSaPOlywVt2obC2Ft8ruIDw7Xfpt5SiY1Y7aCONT/DRGGsUEal6jGgTzxiUKTyfyF4wr+0vd7IeiTD/iqg4Oqm3+WsKm7ZWozUG6scG5798YqwIDAQAB");
-		String mima=  rsa1.encryptStr("123456", KeyType.PublicKey);
+		String mima=  rsa1.encryptBcd("123456", KeyType.PublicKey);
 		System.out.println(mima);
 
 		//// 公钥加密，私钥解密
