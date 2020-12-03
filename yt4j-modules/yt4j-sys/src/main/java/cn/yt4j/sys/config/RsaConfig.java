@@ -5,6 +5,8 @@ import cn.hutool.crypto.asymmetric.RSA;
 import lombok.SneakyThrows;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.util.ResourceUtils;
 
 import java.io.*;
@@ -20,8 +22,8 @@ public class RsaConfig {
     @SneakyThrows
     @Bean
     public RSA create() {
-        File file = ResourceUtils.getFile("classpath:rsaKey/private.key");
-        InputStream inputStream = new FileInputStream(file);
+        Resource resource = new ClassPathResource("rsaKey/private.key");
+        InputStream inputStream = new FileInputStream(resource.getFile());
 
         String privateKey = getStringFromInputStream(inputStream);
         return new RSA(StrUtil.cleanBlank(privateKey), null);
