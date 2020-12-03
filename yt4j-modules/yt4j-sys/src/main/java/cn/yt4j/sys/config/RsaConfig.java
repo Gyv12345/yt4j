@@ -6,10 +6,11 @@ import lombok.SneakyThrows;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.util.ResourceUtils;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 /**
  * 非对称加密
@@ -22,10 +23,9 @@ public class RsaConfig {
     @SneakyThrows
     @Bean
     public RSA create() {
-        Resource resource = new ClassPathResource("rsaKey/private.key");
-        InputStream inputStream = new FileInputStream(resource.getFile());
+        ClassPathResource resource = new ClassPathResource("rsaKey/private.key");
 
-        String privateKey = getStringFromInputStream(inputStream);
+        String privateKey = getStringFromInputStream(resource.getInputStream());
         return new RSA(StrUtil.cleanBlank(privateKey), null);
     }
 
