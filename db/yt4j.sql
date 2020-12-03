@@ -36,9 +36,11 @@ CREATE TABLE `sys_dept`  (
 -- ----------------------------
 -- Records of sys_dept
 -- ----------------------------
+begin;
 INSERT INTO `sys_dept` VALUES (1, 0, '总部', 1, NULL, '2020-08-19 16:24:53', NULL);
 INSERT INTO `sys_dept` VALUES (2, 1, '洛阳分部', 2, NULL, '2020-08-19 16:25:15', '2020-08-19 16:26:25');
 INSERT INTO `sys_dept` VALUES (4, 1, '郑州分部', 2, NULL, '2020-09-06 11:13:48', '2020-09-06 11:46:56');
+commit ;
 
 -- ----------------------------
 -- Table structure for sys_dict
@@ -57,13 +59,14 @@ CREATE TABLE `sys_dict`  (
 -- ----------------------------
 -- Records of sys_dict
 -- ----------------------------
+begin ;
 INSERT INTO `sys_dict` VALUES (1, 'data_scop', '数据权限', NULL, '2020-08-19 17:13:46', NULL);
 INSERT INTO `sys_dict` VALUES (2, 'system_active', '通用状态', NULL, '2020-08-20 09:14:10', NULL);
 INSERT INTO `sys_dict` VALUES (9, 'menu_level', '菜单级别', NULL, '2020-09-08 17:36:53', NULL);
 INSERT INTO `sys_dict` VALUES (10, 'data_scope_type', '角色权限等级', NULL, '2020-09-10 10:40:08', NULL);
 INSERT INTO `sys_dict` VALUES (11, 'test1234', '测试数据2', NULL, '2020-09-17 10:52:28', '2020-09-17 10:52:28');
 INSERT INTO `sys_dict` VALUES (12, 'test_data', '测试数据444', NULL, '2020-09-17 10:52:58', '2020-09-17 10:52:58');
-
+commit ;
 -- ----------------------------
 -- Table structure for sys_dict_item
 -- ----------------------------
@@ -81,6 +84,7 @@ CREATE TABLE `sys_dict_item`  (
 -- ----------------------------
 -- Records of sys_dict_item
 -- ----------------------------
+begin ;
 INSERT INTO `sys_dict_item` VALUES (1, 'data_scop', '本级及子集', '1', '2020-08-19 17:15:36', NULL);
 INSERT INTO `sys_dict_item` VALUES (2, 'data_scop', '本级', '2', '2020-08-19 17:15:45', NULL);
 INSERT INTO `sys_dict_item` VALUES (3, 'data_scop', '自己', '3', '2020-08-19 17:15:54', NULL);
@@ -95,7 +99,7 @@ INSERT INTO `sys_dict_item` VALUES (21, 'data_scope_type', '本人', '3', '2020-
 INSERT INTO `sys_dict_item` VALUES (22, 'test_data2', '测试item2', '2', '2020-09-10 16:24:12', '2020-09-10 16:25:43');
 INSERT INTO `sys_dict_item` VALUES (23, 'test_data', 'item1', '1', '2020-09-10 16:26:15', NULL);
 INSERT INTO `sys_dict_item` VALUES (24, 'test_data', 'item2', '2', '2020-09-10 16:26:20', NULL);
-
+commit ;
 -- ----------------------------
 -- Table structure for sys_menu
 -- ----------------------------
@@ -123,6 +127,7 @@ CREATE TABLE `sys_menu`  (
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
+begin ;
 INSERT INTO `sys_menu` VALUES (1, 1, 0, 'System', '基础系统', 'sys_system', 'heat-map', '[0]', 1, 0, '/dashboard/workplace', '/', 'RouteView', 1, '2020-08-11 13:43:54', '2020-09-11 14:14:05');
 INSERT INTO `sys_menu` VALUES (2, 1, 0, 'dashboard', '仪表盘', 'dashboard', NULL, '[0]', 1, 0, '/dashboard/workplace', '', 'RouteView', 1, '2020-08-14 15:39:33', '2020-09-21 11:46:39');
 INSERT INTO `sys_menu` VALUES (3, 2, 2, 'workplace', '工作台', 'workplace', NULL, '[0],[2]', 1, 0, NULL, NULL, 'Workplace', 1, '2020-08-14 15:42:57', '2020-09-16 09:18:29');
@@ -138,7 +143,7 @@ INSERT INTO `sys_menu` VALUES (12, 2, 11, 'test_01', '测试菜单一级1', ' te
 INSERT INTO `sys_menu` VALUES (13, 2, 12, 'test_1_1', '测试菜单二级', ' test_2', 'fast-forward', '[0],[11],[12]', 100, 1, NULL, ' /bbb', 'list/TableList', NULL, '2020-09-10 09:00:57', '2020-09-17 09:04:05');
 INSERT INTO `sys_menu` VALUES (14, 1, 13, 'test_1_1_1', '测试按钮', ' 434', NULL, '[0],[11],[12],[13]', 100, 1, NULL, ' 3434', 'PageView', NULL, '2020-09-10 09:03:41', '2020-09-11 11:51:29');
 INSERT INTO `sys_menu` VALUES (15, 3, 13, 'test21', '测试按钮2', '  12', NULL, '[0],[11],[12],[13]', 100, 1, NULL, NULL, ' 12', NULL, '2020-09-10 09:13:02', '2020-09-11 11:51:32');
-
+commit ;
 -- ----------------------------
 -- Table structure for sys_role
 -- ----------------------------
@@ -157,10 +162,11 @@ CREATE TABLE `sys_role`  (
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
+begin ;
 INSERT INTO `sys_role` VALUES (1, '超级管理员', 'ROLE_ADMIN', 1, 1, '2020-08-11 13:43:20', '2020-09-10 10:48:45');
 INSERT INTO `sys_role` VALUES (3, '普通用户2', 'ROLE_USER5', 1, NULL, '2020-09-08 15:49:36', '2020-09-10 10:46:44');
 INSERT INTO `sys_role` VALUES (4, '普通用户1', 'ROLE_USER1', 2, NULL, '2020-09-08 15:49:45', '2020-09-10 10:52:30');
-
+commit ;
 -- ----------------------------
 -- Table structure for sys_role_menu
 -- ----------------------------
@@ -173,6 +179,7 @@ CREATE TABLE `sys_role_menu`  (
 -- ----------------------------
 -- Records of sys_role_menu
 -- ----------------------------
+begin ;
 INSERT INTO `sys_role_menu` VALUES (2, 1);
 INSERT INTO `sys_role_menu` VALUES (2, 2);
 INSERT INTO `sys_role_menu` VALUES (2, 3);
@@ -194,7 +201,7 @@ INSERT INTO `sys_role_menu` VALUES (1, 13);
 INSERT INTO `sys_role_menu` VALUES (4, 2);
 INSERT INTO `sys_role_menu` VALUES (4, 5);
 INSERT INTO `sys_role_menu` VALUES (4, 4);
-
+commit ;
 -- ----------------------------
 -- Table structure for sys_user
 -- ----------------------------
@@ -220,13 +227,14 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
+begin ;
 INSERT INTO `sys_user` VALUES (1, 1, '超级管理员', 'admin', '$2a$10$ctfu9KkAOkfR9vNcl41PSOKu6LP0d03pvQmARBhmUNPLBtdkKzK3S', '410303198911282511', 'https://s1.ax1x.com/2020/08/14/dCRXDg.jpg', 1, 'gyv12345@163.com', '15139960649', 1, '2020-08-11 13:42:53', '2020-08-19 16:15:01');
 INSERT INTO `sys_user` VALUES (2, 2, '测试用户2', 'test', '$2a$10$D0Q7WRGknLLoBIG1kLSYleXweSXgs93hWtqYWpIA9uQpVP6srTN06', NULL, NULL, NULL, NULL, '15139960649', 1, '2020-08-19 16:12:17', '2020-08-19 16:15:00');
 INSERT INTO `sys_user` VALUES (3, NULL, '林一春', 'linyichun', '$2a$10$ft75PdpsV5pQ6h8UbqLVxecRVm25RhHTcSSCcRdkRbGegbkt57Wbu', NULL, NULL, 1, '1282205412@qq.com', '17702197245', 1, '2020-09-06 20:51:15', '2020-09-10 16:38:31');
 INSERT INTO `sys_user` VALUES (4, NULL, '林一春', 'linyichun', '$2a$10$bK6bVljL4QL5XEunPJ/oD.LjJZlJHx4m3R1eMTKyZTKIJodqcetWO', '1', NULL, 1, '1282205412@qq.com', '17702197245', 1, '2020-09-06 21:47:20', NULL);
 INSERT INTO `sys_user` VALUES (5, 2, '林一春', 'linyichun', '$2a$10$9E8l3Dn4yOTh/PUT.ikXvegx.i7LV9ovRapTzr4YchlWq1yL8Z5yK', '2323', NULL, 1, '1282205412@qq.com', '17702197245', 1, '2020-09-08 09:59:36', '2020-09-10 10:05:16');
 INSERT INTO `sys_user` VALUES (6, 1, '545', '1282205412@qq.com', '$2a$10$B7sUBhaNTdn07T4qcR6rNOjeyfPRz7ViSVJiYbODd9p/kQh/4tDMy', '4554', NULL, 2, '1282205412@qq.com', '17702197245', 1, '2020-09-08 10:24:09', '2020-09-08 11:34:06');
-
+commit ;
 -- ----------------------------
 -- Table structure for sys_user_role
 -- ----------------------------
@@ -239,6 +247,7 @@ CREATE TABLE `sys_user_role`  (
 -- ----------------------------
 -- Records of sys_user_role
 -- ----------------------------
+begin ;
 INSERT INTO `sys_user_role` VALUES (2, 1);
 INSERT INTO `sys_user_role` VALUES (1, 1);
 INSERT INTO `sys_user_role` VALUES (5, 1);
@@ -248,5 +257,6 @@ INSERT INTO `sys_user_role` VALUES (6, 3);
 INSERT INTO `sys_user_role` VALUES (6, 4);
 INSERT INTO `sys_user_role` VALUES (9, 4);
 INSERT INTO `sys_user_role` VALUES (9, 3);
+commit ;
 
 SET FOREIGN_KEY_CHECKS = 1;
