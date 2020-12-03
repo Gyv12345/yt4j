@@ -13,6 +13,7 @@
 
  Date: 26/11/2020 11:49:51
 */
+USE yt4j;
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
