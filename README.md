@@ -51,7 +51,6 @@ yt4j
 ├─yt4j-modules 业务模块
 │  ├─yt4j-ding 钉钉OA相关（还没有开始做）
 │  └─yt4j-sys 基础系统【9999】
-└─yt4j-ui 系统前端ui【8000】
 
 ```
 
