@@ -16,7 +16,6 @@
         <knife4j.version>3.0.2</knife4j.version>
         <easy-excel.version>2.2.6</easy-excel.version>
         <jjwt.version>0.11.2</jjwt.version>
-        <jetcache.latest.version>2.6.0</jetcache.latest.version>
         <jasypt.version>2.1.1</jasypt.version>
     </properties>
 
@@ -61,11 +60,6 @@
                 <artifactId>jjwt-jackson</artifactId> <!-- or jjwt-gson if Gson is preferred -->
                 <version>${jjwt.version}</version>
                 <scope>runtime</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.alicp.jetcache</groupId>
-                <artifactId>jetcache-starter-redis</artifactId>
-                <version>${jetcache.latest.version}</version>
             </dependency>
             <!--jasypt配置文件加解密-->
             <dependency>
