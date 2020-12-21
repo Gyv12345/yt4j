@@ -8,18 +8,20 @@ import java.sql.SQLException;
 
 /**
  * 预览过滤器
+ *
  * @author gyv12345@163.com
  */
 public class PreviewInterceptor implements InnerInterceptor {
 
-    private Boolean preview;
+	private Boolean preview;
 
-    public PreviewInterceptor(Boolean preview) {
-        this.preview = preview;
-    }
+	public PreviewInterceptor(Boolean preview) {
+		this.preview = preview;
+	}
 
-    @Override
-    public boolean willDoUpdate(Executor executor, MappedStatement ms, Object parameter) throws SQLException {
-        return this.preview;
-    }
+	@Override
+	public boolean willDoUpdate(Executor executor, MappedStatement ms, Object parameter) throws SQLException {
+		return this.preview;
+	}
+
 }

@@ -34,8 +34,8 @@ public class R<T> implements Serializable {
 	}
 
 	public static <T> R<T> ok(T result) {
-		if (result instanceof Boolean){
-			if (Boolean.FALSE.equals(result)){
+		if (result instanceof Boolean) {
+			if (Boolean.FALSE.equals(result)) {
 				return result(null, HttpStatus.INTERNAL_SERVER_ERROR.value(), "出现错误，可能是演示环境引起的");
 			}
 		}

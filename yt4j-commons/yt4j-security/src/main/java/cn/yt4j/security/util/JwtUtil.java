@@ -29,7 +29,8 @@ public class JwtUtil {
 	 * @return 数据声明
 	 */
 	private Claims getClaimsFromToken(String token) {
-		return Jwts.parserBuilder().setSigningKey(DatatypeConverter.parseBase64Binary(jwtPayloadProperty.getSecret())).build().parseClaimsJws(token).getBody();
+		return Jwts.parserBuilder().setSigningKey(DatatypeConverter.parseBase64Binary(jwtPayloadProperty.getSecret()))
+				.build().parseClaimsJws(token).getBody();
 	}
 
 	/**

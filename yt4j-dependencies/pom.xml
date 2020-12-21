@@ -17,6 +17,7 @@
         <easy-excel.version>2.2.6</easy-excel.version>
         <jjwt.version>0.11.2</jjwt.version>
         <jasypt.version>2.1.1</jasypt.version>
+        <wx.java.version>4.0.0</wx.java.version>
     </properties>
 
     <dependencyManagement>
@@ -66,6 +67,11 @@
                 <groupId>com.github.ulisesbocchio</groupId>
                 <artifactId>jasypt-spring-boot-starter</artifactId>
                 <version>${jasypt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-cp</artifactId>
+                <version>${wx.java.version}</version>
             </dependency>
             <!-- 2方库 -->
             <dependency>

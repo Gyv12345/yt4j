@@ -47,7 +47,7 @@ public class SysUserController {
 
 	@ApiOperation("退出")
 	@GetMapping("logout")
-	public R logout(){
+	public R logout() {
 		this.sysUserService.logout();
 		return R.ok("退出成功");
 	}

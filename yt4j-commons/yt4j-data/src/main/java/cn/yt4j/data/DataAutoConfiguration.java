@@ -28,13 +28,14 @@ public class DataAutoConfiguration {
 		MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
 		interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
 		interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
-		//增加预览过滤器，增删改操作直接不成功
+		// 增加预览过滤器，增删改操作直接不成功
 		interceptor.addInnerInterceptor(new PreviewInterceptor(false));
 		return interceptor;
 	}
 
 	@Bean
-	public Yt4jLogicSqlInjector injector(){
+	public Yt4jLogicSqlInjector injector() {
 		return new Yt4jLogicSqlInjector();
 	}
+
 }

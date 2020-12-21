@@ -23,25 +23,25 @@ import java.util.List;
 @Service("sysDictService")
 public class SysDictServiceImpl extends ServiceImpl<SysDictDao, SysDict> implements SysDictService {
 
-    private final SysDictItemDao sysDictItemDao;
+	private final SysDictItemDao sysDictItemDao;
 
-    @Transactional(rollbackFor = Exception.class)
-    @Override
-    public Boolean insert(SysDict dict) {
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public Boolean insert(SysDict dict) {
 
-        return  this.baseMapper.insert(dict)>0;
-    }
+		return this.baseMapper.insert(dict) > 0;
+	}
 
-    @Transactional(rollbackFor = Exception.class)
-    @Override
-    public Boolean update(SysDict dict) {
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public Boolean update(SysDict dict) {
 
-        return this.baseMapper.updateById(dict) > 0;
-    }
+		return this.baseMapper.updateById(dict) > 0;
+	}
 
-    @Override
-    public List<SysDictItem> listByCode(String code) {
-        return sysDictItemDao.selectList(Wrappers.<SysDictItem>query().lambda().eq(SysDictItem::getCode, code));
-    }
+	@Override
+	public List<SysDictItem> listByCode(String code) {
+		return sysDictItemDao.selectList(Wrappers.<SysDictItem>query().lambda().eq(SysDictItem::getCode, code));
+	}
 
 }

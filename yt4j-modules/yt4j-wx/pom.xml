@@ -3,19 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>yt4j-boot</artifactId>
+        <artifactId>yt4j-modules</artifactId>
         <groupId>cn.yt4j</groupId>
         <version>1.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <packaging>pom</packaging>
-    <modules>
-        <module>yt4j-sys</module>
-        <module>yt4j-ding</module>
-        <module>yt4j-wx</module>
-    </modules>
 
-    <artifactId>yt4j-modules</artifactId>
+    <artifactId>yt4j-wx</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-cp</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

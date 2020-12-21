@@ -21,7 +21,7 @@ public class SysTest {
 	 * 配置文件中数据库密码加密
 	 */
 	@Test
-	public void encode(){
+	public void encode() {
 		System.out.println(stringEncryptor.encrypt("1234232123"));
 	}
 
@@ -39,7 +39,6 @@ public class SysTest {
 	@Test
 	public void rsa() {
 
-
 		RSA rsa = new RSA();
 
 		// 获得私钥
@@ -49,9 +48,9 @@ public class SysTest {
 		System.out.println(rsa.getPublicKeyBase64());
 		rsa.getPublicKeyBase64();
 
-
-		RSA rsa1=new RSA(null,"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCaM2N1vMupralzJItx3Y4AftJVh78I8LNuUGuKqMF1YHiwYBHrvZXpzEuRmtTArSaPOlywVt2obC2Ft8ruIDw7Xfpt5SiY1Y7aCONT/DRGGsUEal6jGgTzxiUKTyfyF4wr+0vd7IeiTD/iqg4Oqm3+WsKm7ZWozUG6scG5798YqwIDAQAB");
-		String mima=  rsa1.encryptBcd("123456", KeyType.PublicKey);
+		RSA rsa1 = new RSA(null,
+				"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCaM2N1vMupralzJItx3Y4AftJVh78I8LNuUGuKqMF1YHiwYBHrvZXpzEuRmtTArSaPOlywVt2obC2Ft8ruIDw7Xfpt5SiY1Y7aCONT/DRGGsUEal6jGgTzxiUKTyfyF4wr+0vd7IeiTD/iqg4Oqm3+WsKm7ZWozUG6scG5798YqwIDAQAB");
+		String mima = rsa1.encryptBcd("123456", KeyType.PublicKey);
 		System.out.println(mima);
 
 		//// 公钥加密，私钥解密

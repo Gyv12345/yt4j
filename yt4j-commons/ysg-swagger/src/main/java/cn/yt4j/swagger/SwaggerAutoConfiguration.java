@@ -13,6 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * swagger配置
+ *
  * @author gyv12345@163.com
  */
 @EnableSwagger2

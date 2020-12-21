@@ -20,43 +20,45 @@ import java.io.InputStreamReader;
 @Configuration
 public class RsaConfig {
 
-    @SneakyThrows
-    @Bean
-    public RSA create() {
-        ClassPathResource resource = new ClassPathResource("rsaKey/private.key");
+	@SneakyThrows
+	@Bean
+	public RSA create() {
+		ClassPathResource resource = new ClassPathResource("rsaKey/private.key");
 
-        String privateKey = getStringFromInputStream(resource.getInputStream());
-        return new RSA(StrUtil.cleanBlank(privateKey), null);
-    }
+		String privateKey = getStringFromInputStream(resource.getInputStream());
+		return new RSA(StrUtil.cleanBlank(privateKey), null);
+	}
 
-    private static String getStringFromInputStream(InputStream is) {
+	private static String getStringFromInputStream(InputStream is) {
 
-        BufferedReader br = null;
-        StringBuilder sb = new StringBuilder();
+		BufferedReader br = null;
+		StringBuilder sb = new StringBuilder();
 
-        String line;
-        try {
+		String line;
+		try {
 
-            br = new BufferedReader(new InputStreamReader(is));
-            while ((line = br.readLine()) != null) {
-                sb.append(line);
-            }
+			br = new BufferedReader(new InputStreamReader(is));
+			while ((line = br.readLine()) != null) {
+				sb.append(line);
+			}
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		finally {
+			if (br != null) {
+				try {
+					br.close();
+				}
+				catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 
-        return sb.toString();
+		return sb.toString();
 
-    }
-
+	}
 
 }
