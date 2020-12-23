@@ -45,8 +45,66 @@ docker run -u root -itd -p 8080:8080 -p 50000:50000 \
 
 
 
-![job](img/3.png)
+![job](../img/3.png)
 
+
+
+![job](../img/1.png)
+
+
+
+![job](../img/2.png)
+
+
+
+![job](../img/4.png)
+
+
+
+## 关键命令
+
+yt4j-sys
+
+~~~shell
+mvn clean install -Dmaven.test.skip=true
+docker-compose down  --remove
+docker-compose build
+docker-compose up -d
+~~~
+
+
+
+yt4j-ui
+
+~~~shell
+yarn install
+
+yarn build
+
+REPOSITORY=$JOB_NAME
+CONTAINNER=$JOB_NAME
+
+CID=$(docker ps | grep "$CONTAINNER" | awk '{print $1}')
+IID=$(docker images | grep "$REPOSITORY" | awk '{print $3}')
+
+        if [ -n "$CID" ]; then
+                echo "存在$CONTAINNER，CID=$CID"
+                docker stop $CONTAINNER
+                docker rm -f $CONTAINNER
+        else
+                echo "不存在$CONTAINNER"
+        fi
+
+
+        if [ -n "$IID" ]; then
+                echo "存在$SERVER_NAME镜像，IID=$IID"
+                docker rmi $REPOSITORY
+        else
+                echo "不存在$SERVER_NAME镜像，开始构建镜像"
+        fi
+docker build -t $REPOSITORY .
+docker run -d -p 80:80 -p 443:443 --name $CONTAINNER $REPOSITORY
+~~~
 
 
 
