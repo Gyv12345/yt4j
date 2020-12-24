@@ -61,7 +61,7 @@ docker run -u root -itd -p 8080:8080 -p 50000:50000 \
 
 
 
-## 关键命令
+## 启动脚本
 
 yt4j-sys
 
