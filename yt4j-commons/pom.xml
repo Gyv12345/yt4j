@@ -16,6 +16,7 @@
         <module>yt4j-security</module>
         <module>ysg-swagger</module>
         <module>yt4j-cache</module>
+        <module>yt4j-pubsub</module>
     </modules>
 
     <artifactId>yt4j-commons</artifactId>

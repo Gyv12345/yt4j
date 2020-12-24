@@ -51,8 +51,9 @@ yt4j
 │  └─yt4j-web web定义相关
 ├─yt4j-dependencies 依赖管理
 ├─yt4j-modules 业务模块
-│  ├─yt4j-ding 钉钉OA相关（还没有开始做）
+│  ├─yt4j-ding 钉钉相关（还没有开始做）
 │  └─yt4j-sys 基础系统【9999】
+│  └─yt4j-wx 企业微信
 
 ```
 
