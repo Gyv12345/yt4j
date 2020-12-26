@@ -9,7 +9,7 @@ import cn.yt4j.sys.service.SysDictService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
  * @since 2020-08-10 08:43:32
  */
 @Api(tags = " 字典")
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("sys/dict")
 public class SysDictController {

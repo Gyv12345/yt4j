@@ -2,6 +2,7 @@ package cn.yt4j.sys.dao;
 
 import cn.yt4j.sys.entity.SysMenu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-08-10 08:43:33
  */
+@Mapper
 public interface SysMenuDao extends BaseMapper<SysMenu> {
 
 	/**

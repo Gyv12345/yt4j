@@ -14,7 +14,7 @@ import cn.yt4j.sys.service.SysUserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -25,7 +25,7 @@ import javax.validation.Valid;
  * @author gyv12345@163.com
  * @since 2020-08-07 17:11:45
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Api(tags = "用户")
 @RestController
 @RequestMapping("sys/user")

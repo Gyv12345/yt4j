@@ -1,6 +1,8 @@
 # Yt4j 
 如果你想开发一个简单的系统，仅需要做个后台，做点前台，那么可以使用yt4j，它和别的项目没什么两样，提供了一个新的选择罢了。
 
+增加spring cloud 依赖，只是想要使用一些简单服务调用和配置中心，stream功能,尤其是stream，我下来想把企业微信和钉钉服务端都集成进来，主要是企业自研方面，把所有API都进行实现一下
+
 之后会出系列视频，简单讲解一下思路和用到的技术
 
 [配套UI](https://github.com/Gyv12345/yt4j-ui) 
@@ -31,9 +33,12 @@
 
 依赖 | 版本
 ---|---
-Spring Boot |  2.4.0
+Spring Boot | 2.3.6 
 Mybatis Plus | 3.4.1
-hutool | 5.4.7
+hutool | 5.5.4 
+ Spring Cloud | Hoxton.SR9 
+ Spring Cloud Alibaba | 2.2.3 
+ knife4j |  
 
 ## 模块说明
 
@@ -46,9 +51,9 @@ yt4j
 │  └─yt4j-web web定义相关
 ├─yt4j-dependencies 依赖管理
 ├─yt4j-modules 业务模块
-│  ├─yt4j-ding 钉钉相关（还没有开始做）
-│  └─yt4j-sys 基础系统【9999】
-│  └─yt4j-wx 企业微信
+│  ├─yt4j-ding 钉钉相关 【9200】
+│  └─yt4j-sys 基础系统【9100】
+│  └─yt4j-wx 企业微信 【9300】
 
 ```
 

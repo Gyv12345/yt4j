@@ -9,7 +9,7 @@ import cn.yt4j.sys.service.SysDeptService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
@@ -22,7 +22,7 @@ import java.util.List;
  * @since 2020-08-10 08:43:51
  */
 @Api(tags = " 部门")
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("sys/dept")
 public class SysDeptController {

@@ -1,7 +1,7 @@
 
 # 使用jenkins和docker来进行部署
 ## 编辑jenkins镜像
-我们的yt4j项目急需要使用maven来进行打包spring boot项目，也需要nodejs来对前端进行操作，所以我比较习惯使用jenkins作为基础镜像，自己添加maven和node
+yt4j项目需要使用maven来进行打包spring boot项目，也需要nodejs来对前端进行操作，所以我比较习惯使用jenkins作为基础镜像，自己添加maven和node
 ```
 FROM jenkins/jenkins
 MAINTAINER shichenyang89

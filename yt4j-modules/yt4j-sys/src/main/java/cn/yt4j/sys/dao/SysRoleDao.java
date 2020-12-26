@@ -2,6 +2,7 @@ package cn.yt4j.sys.dao;
 
 import cn.yt4j.sys.entity.SysRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-08-10 08:43:34
  */
+@Mapper
 public interface SysRoleDao extends BaseMapper<SysRole> {
 
 	/**

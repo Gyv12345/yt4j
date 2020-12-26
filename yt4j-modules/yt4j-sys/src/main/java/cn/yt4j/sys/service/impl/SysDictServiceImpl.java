@@ -8,6 +8,7 @@ import cn.yt4j.sys.service.SysDictService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,7 +20,7 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-08-10 08:43:32
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service("sysDictService")
 public class SysDictServiceImpl extends ServiceImpl<SysDictDao, SysDict> implements SysDictService {
 

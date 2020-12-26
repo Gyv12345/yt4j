@@ -22,7 +22,7 @@ import cn.yt4j.sys.service.SysUserService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -43,7 +43,7 @@ import static cn.yt4j.core.enums.MessageStatus.PASSWORD_FAILED;
  * @author gyv12345@163.com
  * @since 2020-08-07 17:11:45
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service("sysUserService")
 public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> implements SysUserService {
 
