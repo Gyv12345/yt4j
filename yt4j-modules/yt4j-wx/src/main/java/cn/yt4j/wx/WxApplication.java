@@ -9,7 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class WxApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(WxApplication.class,args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(WxApplication.class, args);
+	}
+
 }
