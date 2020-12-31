@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 @Api(tags = " 字典")
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("sys/dict")
+@RequestMapping("/dict")
 public class SysDictController {
 
 	/**

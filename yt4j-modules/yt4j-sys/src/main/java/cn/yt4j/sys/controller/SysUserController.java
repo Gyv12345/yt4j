@@ -28,7 +28,7 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 @Api(tags = "用户")
 @RestController
-@RequestMapping("sys/user")
+@RequestMapping("/user")
 public class SysUserController {
 
 	/**

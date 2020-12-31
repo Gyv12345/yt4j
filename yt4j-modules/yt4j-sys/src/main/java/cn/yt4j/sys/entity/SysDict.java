@@ -65,6 +65,7 @@ public class SysDict extends Model<SysDict> {
 	private LocalDateTime updateTime;
 
 	@NotNull
+	@ApiModelProperty(hidden = true)
 	@TableField(exist = false)
 	private List<SysDictItem> items;
 

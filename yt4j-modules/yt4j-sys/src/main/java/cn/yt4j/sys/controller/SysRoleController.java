@@ -25,7 +25,7 @@ import java.util.List;
 @Api(tags = " 角色")
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("sys/role")
+@RequestMapping("/role")
 public class SysRoleController {
 
 	/**
