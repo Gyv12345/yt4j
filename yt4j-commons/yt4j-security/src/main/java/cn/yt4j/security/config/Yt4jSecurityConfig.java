@@ -5,6 +5,7 @@ import cn.yt4j.security.handler.RestAuthenticationEntryPoint;
 import cn.yt4j.security.handler.RestfulAccessDeniedHandler;
 import cn.yt4j.security.property.JwtAuthFilterProperty;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +25,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  * @author gyv12345@163.com
  */
 @Configuration
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)

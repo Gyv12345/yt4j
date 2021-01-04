@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -25,7 +26,7 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptDao, SysDept> impleme
 	@Override
 	public List<BaseTree> treeDept() {
 		return TreeUtil.buildByRecursive(Optional.ofNullable(this.baseMapper.selectList(new QueryWrapper<>()))
-				.orElse(null).stream().map(sysDept -> {
+				.orElse(new ArrayList<>()).stream().map(sysDept -> {
 					BaseTree tree = new BaseTree();
 					tree.setId(sysDept.getId());
 					tree.setParentId(sysDept.getParentId());

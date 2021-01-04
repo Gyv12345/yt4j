@@ -23,7 +23,7 @@ import java.util.List;
 @Api(tags = " 钉钉的用户")
 @AllArgsConstructor
 @RestController
-@RequestMapping("dingUser")
+@RequestMapping("user")
 public class DingUserController {
 
 	/**

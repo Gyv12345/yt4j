@@ -24,7 +24,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenu> impleme
 
 	@Override
 	public List<Route> nav(Long id, Long applicationId) {
-		return Optional.ofNullable(this.baseMapper.listMenuByUserIdAndApplicationId(id, applicationId)).orElse(null)
+		return Optional.ofNullable(this.baseMapper.listMenuByUserIdAndApplicationId(id, applicationId)).orElse(new ArrayList<>())
 				.stream().map(sysMenu -> {
 					Route route = new Route();
 					route.setPath(sysMenu.getPath());

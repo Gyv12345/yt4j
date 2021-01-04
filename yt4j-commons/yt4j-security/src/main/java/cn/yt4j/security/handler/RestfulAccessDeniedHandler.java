@@ -4,6 +4,7 @@ import cn.yt4j.core.domain.R;
 import cn.yt4j.core.enums.MessageStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
@@ -17,7 +18,7 @@ import java.io.IOException;
 /**
  * @author gyv12345@163.com
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Component
 public class RestfulAccessDeniedHandler implements AccessDeniedHandler {
 

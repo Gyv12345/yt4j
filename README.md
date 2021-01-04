@@ -38,7 +38,7 @@ Mybatis Plus | 3.4.1
 hutool | 5.5.4 
  Spring Cloud | Hoxton.SR9 
  Spring Cloud Alibaba | 2.2.3 
- knife4j |  
+ knife4j |  3.0.2
 
 ## 模块说明
 
@@ -62,6 +62,7 @@ yt4j
 ```
 127.0.0.1 yt4j-mysql
 127.0.0.1 yt4j-redis
+127.0.0.1 yt4j-nacos
 ```
 ## 是否预览
 ```

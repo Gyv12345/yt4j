@@ -4,6 +4,7 @@ import cn.yt4j.core.domain.R;
 import cn.yt4j.core.enums.MessageStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
@@ -21,7 +22,7 @@ import java.io.IOException;
  * @author gyv12345@163.com
  */
 @Slf4j
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Component
 public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
