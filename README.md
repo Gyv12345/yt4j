@@ -7,7 +7,7 @@
 
 [配套UI](https://github.com/Gyv12345/yt4j-ui) 
 
-[jenkins运行](doc/cicd.md)
+**[jenkins运行](doc/cicd.md)** 暂时不能用了，架构改了
 
 [在线体验](https://www.yt4j.cn/ui/) （只有一台1c2g的服务器，所有东西都在上面，体验一下就行了）
 
@@ -18,7 +18,7 @@
 </p>
 
 
-- 基于spring boot 2.4.0、jwt的RBAC权限管理系统
+- 基于spring boot、spring cloud、jwt的RBAC权限管理系统
 - 基于ant design pro vue模板，构建前端界面
 - 提供对docker支持
 
