@@ -76,3 +76,6 @@ interceptor.addInnerInterceptor(new PreviewInterceptor(false));
 
 ## 配套easycode模板 
 d247cb4eeafd63c09d36e38042da2c2c 7天有效
+
+## 特别鸣谢
+感谢 [JetBrains](https://www.jetbrains.com/) 提供的非商业开源软件开发授权
