@@ -39,7 +39,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenu> impleme
 					meta.setTitle(sysMenu.getTitle());
 					meta.setShow(true);
 					meta.setPermission(
-							Arrays.asList(Optional.ofNullable(sysMenu.getPermission()).orElse(null).split(",")));
+							Arrays.asList(Optional.ofNullable(sysMenu.getPermission()).orElse("").split(",")));
 					route.setMeta(meta);
 					return route;
 				}).collect(Collectors.toList());

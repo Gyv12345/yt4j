@@ -4,7 +4,6 @@ import cn.yt4j.security.filter.JwtAuthenticationTokenFilter;
 import cn.yt4j.security.handler.RestAuthenticationEntryPoint;
 import cn.yt4j.security.handler.RestfulAccessDeniedHandler;
 import cn.yt4j.security.property.JwtAuthFilterProperty;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

@@ -3,7 +3,6 @@ package cn.yt4j.security.handler;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.enums.MessageStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;

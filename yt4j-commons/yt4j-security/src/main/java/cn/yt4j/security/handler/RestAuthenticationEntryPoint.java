@@ -3,7 +3,6 @@ package cn.yt4j.security.handler;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.enums.MessageStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

@@ -2,7 +2,6 @@ package cn.yt4j.security.filter;
 
 import cn.yt4j.security.property.JwtAuthFilterProperty;
 import cn.yt4j.security.util.JwtUtil;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
