@@ -164,8 +164,6 @@ CREATE TABLE `sys_role`  (
 -- ----------------------------
 begin ;
 INSERT INTO `sys_role` VALUES (1, '超级管理员', 'ROLE_ADMIN', 1, 1, '2020-08-11 13:43:20', '2020-09-10 10:48:45');
-INSERT INTO `sys_role` VALUES (3, '普通用户2', 'ROLE_USER5', 1, NULL, '2020-09-08 15:49:36', '2020-09-10 10:46:44');
-INSERT INTO `sys_role` VALUES (4, '普通用户1', 'ROLE_USER1', 2, NULL, '2020-09-08 15:49:45', '2020-09-10 10:52:30');
 commit ;
 -- ----------------------------
 -- Table structure for sys_role_menu
@@ -180,11 +178,6 @@ CREATE TABLE `sys_role_menu`  (
 -- Records of sys_role_menu
 -- ----------------------------
 begin ;
-INSERT INTO `sys_role_menu` VALUES (2, 1);
-INSERT INTO `sys_role_menu` VALUES (2, 2);
-INSERT INTO `sys_role_menu` VALUES (2, 3);
-INSERT INTO `sys_role_menu` VALUES (2, 4);
-INSERT INTO `sys_role_menu` VALUES (2, 5);
 INSERT INTO `sys_role_menu` VALUES (1, 1);
 INSERT INTO `sys_role_menu` VALUES (1, 2);
 INSERT INTO `sys_role_menu` VALUES (1, 3);
@@ -198,9 +191,6 @@ INSERT INTO `sys_role_menu` VALUES (1, 10);
 INSERT INTO `sys_role_menu` VALUES (1, 11);
 INSERT INTO `sys_role_menu` VALUES (1, 12);
 INSERT INTO `sys_role_menu` VALUES (1, 13);
-INSERT INTO `sys_role_menu` VALUES (4, 2);
-INSERT INTO `sys_role_menu` VALUES (4, 5);
-INSERT INTO `sys_role_menu` VALUES (4, 4);
 commit ;
 -- ----------------------------
 -- Table structure for sys_user
@@ -229,11 +219,6 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 begin ;
 INSERT INTO `sys_user` VALUES (1, 1, '超级管理员', 'admin', '$2a$10$ctfu9KkAOkfR9vNcl41PSOKu6LP0d03pvQmARBhmUNPLBtdkKzK3S', '410303198911282511', 'https://s1.ax1x.com/2020/08/14/dCRXDg.jpg', 1, 'gyv12345@163.com', '15139960649', 1, '2020-08-11 13:42:53', '2020-08-19 16:15:01');
-INSERT INTO `sys_user` VALUES (2, 2, '测试用户2', 'test', '$2a$10$D0Q7WRGknLLoBIG1kLSYleXweSXgs93hWtqYWpIA9uQpVP6srTN06', NULL, NULL, NULL, NULL, '15139960649', 1, '2020-08-19 16:12:17', '2020-08-19 16:15:00');
-INSERT INTO `sys_user` VALUES (3, NULL, '林一春', 'linyichun', '$2a$10$ft75PdpsV5pQ6h8UbqLVxecRVm25RhHTcSSCcRdkRbGegbkt57Wbu', NULL, NULL, 1, '1282205412@qq.com', '17702197245', 1, '2020-09-06 20:51:15', '2020-09-10 16:38:31');
-INSERT INTO `sys_user` VALUES (4, NULL, '林一春', 'linyichun', '$2a$10$bK6bVljL4QL5XEunPJ/oD.LjJZlJHx4m3R1eMTKyZTKIJodqcetWO', '1', NULL, 1, '1282205412@qq.com', '17702197245', 1, '2020-09-06 21:47:20', NULL);
-INSERT INTO `sys_user` VALUES (5, 2, '林一春', 'linyichun', '$2a$10$9E8l3Dn4yOTh/PUT.ikXvegx.i7LV9ovRapTzr4YchlWq1yL8Z5yK', '2323', NULL, 1, '1282205412@qq.com', '17702197245', 1, '2020-09-08 09:59:36', '2020-09-10 10:05:16');
-INSERT INTO `sys_user` VALUES (6, 1, '545', '1282205412@qq.com', '$2a$10$B7sUBhaNTdn07T4qcR6rNOjeyfPRz7ViSVJiYbODd9p/kQh/4tDMy', '4554', NULL, 2, '1282205412@qq.com', '17702197245', 1, '2020-09-08 10:24:09', '2020-09-08 11:34:06');
 commit ;
 -- ----------------------------
 -- Table structure for sys_user_role

@@ -6,7 +6,7 @@
         <id property="id" column="id"/>
         <result property="parentId" column="parent_id"/>
         <result property="label" column="label"/>
-        <result property="orderNo" column="orderNo"/>
+        <result property="orderNo" column="order_no"/>
         <result property="state" column="state"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>

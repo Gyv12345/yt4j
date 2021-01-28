@@ -34,7 +34,6 @@ public class SysDeptController {
 
 	/**
 	 * 机构树
-	 * @order 1
 	 * @return
 	 */
 	@ApiOperation("机构树")
@@ -44,7 +43,7 @@ public class SysDeptController {
 	}
 
 	/**
-	 * 分页查询所有数据
+	 * 分页查询所有数据d
 	 * @param sysDept 查询实体
 	 * @return 所有数据
 	 */

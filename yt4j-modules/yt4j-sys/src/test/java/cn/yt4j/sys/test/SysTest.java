@@ -17,6 +17,10 @@ public class SysTest {
 	@Autowired
 	StringEncryptor stringEncryptor;
 
+	public static void main(String[] args) {
+
+	}
+
 	/**
 	 * 配置文件中数据库密码加密
 	 */

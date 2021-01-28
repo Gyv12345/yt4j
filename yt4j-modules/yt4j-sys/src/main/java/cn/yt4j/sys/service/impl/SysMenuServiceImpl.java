@@ -37,7 +37,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenu> impleme
 					Meta meta = new Meta();
 					meta.setIcon(sysMenu.getIcon());
 					meta.setTitle(sysMenu.getTitle());
-					meta.setShow(true);
+					meta.setShow(sysMenu.getHidden());
 					meta.setPermission(
 							Arrays.asList(Optional.ofNullable(sysMenu.getPermission()).orElse("").split(",")));
 					route.setMeta(meta);
