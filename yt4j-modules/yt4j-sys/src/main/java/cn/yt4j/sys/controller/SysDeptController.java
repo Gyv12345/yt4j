@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
@@ -22,6 +23,7 @@ import java.util.List;
  * @since 2020-08-10 08:43:51
  */
 @Api(tags = " 部门")
+@Slf4j
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/dept")

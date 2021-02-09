@@ -1,5 +1,6 @@
 package cn.yt4j.security.service;
 
+import cn.yt4j.core.constant.SecurityConstants;
 import cn.yt4j.security.model.UserCache;
 import cn.yt4j.security.model.Yt4jUser;
 import lombok.AllArgsConstructor;
@@ -25,8 +26,8 @@ public class Yt4jUserDetailServiceImpl implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String s) {
-		if (redisTemplate.hasKey(s)) {
-			UserCache vo = redisTemplate.opsForValue().get(s);
+		if (redisTemplate.hasKey(SecurityConstants.SECURITY_PREFIX+s)) {
+			UserCache vo = redisTemplate.opsForValue().get(SecurityConstants.SECURITY_PREFIX+s);
 
 			List<GrantedAuthority> authorities = new ArrayList<>();
 

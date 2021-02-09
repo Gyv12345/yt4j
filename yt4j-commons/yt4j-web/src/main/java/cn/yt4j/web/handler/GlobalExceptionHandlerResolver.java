@@ -26,7 +26,7 @@ public class GlobalExceptionHandlerResolver {
 	 */
 	@ExceptionHandler(Exception.class)
 	public R handleGlobalException(Exception e) {
-		log.error("全局异常信息 ex={}", e.getMessage(), e);
+		log.error("异常信息 ex={}", e.getMessage(), e);
 		return R.failed(e.getLocalizedMessage());
 	}
 
@@ -37,7 +37,7 @@ public class GlobalExceptionHandlerResolver {
 	 */
 	@ExceptionHandler(AccessDeniedException.class)
 	public R handleAccessDeniedException(AccessDeniedException e) {
-		log.error("拒绝授权异常信息 ex={}", e.getMessage());
+		log.error("拒绝授权异常信息 ex={}", e.getMessage(),e);
 		return R.failed(e.getLocalizedMessage());
 	}
 
@@ -50,6 +50,7 @@ public class GlobalExceptionHandlerResolver {
 	public R handleBodyValidException(MethodArgumentNotValidException exception) {
 		List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
 		log.warn("参数绑定异常,ex = {}", fieldErrors.get(0).getDefaultMessage());
+		log.error(exception.getMessage(),exception);
 		return R.failed(fieldErrors.get(0).getDefaultMessage());
 	}
 
@@ -62,6 +63,7 @@ public class GlobalExceptionHandlerResolver {
 	public R bindExceptionHandler(BindException exception) {
 		List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
 		log.warn("参数绑定异常,ex = {}", fieldErrors.get(0).getDefaultMessage());
+		log.error(exception.getMessage(),exception);
 		return R.failed(fieldErrors.get(0).getDefaultMessage());
 	}
 

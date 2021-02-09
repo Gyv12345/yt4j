@@ -29,7 +29,7 @@ public class DataAutoConfiguration {
 		interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
 		interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
 		// 增加预览过滤器，增删改操作直接不成功
-		interceptor.addInnerInterceptor(new PreviewInterceptor(false));
+		interceptor.addInnerInterceptor(new PreviewInterceptor(true));
 		return interceptor;
 	}
 

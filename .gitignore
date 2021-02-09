@@ -1,5 +1,11 @@
-/yt4j-cloud.iml
-/.idea
-/yt4j-ui/yarn.lock
-/*/*/target
-/*/*/*.iml
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+.idea
+*.iws
+*.iml
+*.ipr
+/logs

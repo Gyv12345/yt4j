@@ -1,6 +1,7 @@
 package cn.yt4j.sys.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
+import cn.yt4j.core.constant.SecurityConstants;
 import cn.yt4j.core.exception.Yt4jException;
 import cn.yt4j.security.model.UserCache;
 import cn.yt4j.security.util.JwtUtil;
@@ -78,7 +79,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 				cache.setRoles(sysRoleDao.listByUserId(user.getId()));
 				cache.setMenus(sysMenuDao.listByUserId(user.getId()));
 
-				redisTemplate.opsForValue().set(user.getUsername(), cache, 30L, TimeUnit.DAYS);
+				redisTemplate.opsForValue().set(SecurityConstants.SECURITY_PREFIX+user.getUsername(), cache, 30L, TimeUnit.DAYS);
 
 				return token;
 			}
