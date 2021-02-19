@@ -75,7 +75,8 @@ interceptor.addInnerInterceptor(new PreviewInterceptor(false));
 配套的前端内有公钥进行加密，所以如果想要使用swagger测试的话，登录哪里注意去掉解密
 
 ## 配套easycode模板 
-d247cb4eeafd63c09d36e38042da2c2c 7天有效
+如果我忘记更新，有需要发邮件也可以 gyv12345@163.com
+a5b66d3d12379c81b331b197a2ef724c 7天有效
 
 ## 特别鸣谢
 感谢 [JetBrains](https://www.jetbrains.com/) 提供的非商业开源软件开发授权
