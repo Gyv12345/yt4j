@@ -26,8 +26,8 @@ public class Yt4jUserDetailServiceImpl implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String s) {
-		if (redisTemplate.hasKey(SecurityConstants.SECURITY_PREFIX+s)) {
-			UserCache vo = redisTemplate.opsForValue().get(SecurityConstants.SECURITY_PREFIX+s);
+		if (redisTemplate.hasKey(SecurityConstants.SECURITY_PREFIX + s)) {
+			UserCache vo = redisTemplate.opsForValue().get(SecurityConstants.SECURITY_PREFIX + s);
 
 			List<GrantedAuthority> authorities = new ArrayList<>();
 

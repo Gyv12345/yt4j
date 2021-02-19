@@ -79,7 +79,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 				cache.setRoles(sysRoleDao.listByUserId(user.getId()));
 				cache.setMenus(sysMenuDao.listByUserId(user.getId()));
 
-				redisTemplate.opsForValue().set(SecurityConstants.SECURITY_PREFIX+user.getUsername(), cache, 30L, TimeUnit.DAYS);
+				redisTemplate.opsForValue().set(SecurityConstants.SECURITY_PREFIX + user.getUsername(), cache, 30L,
+						TimeUnit.DAYS);
 
 				return token;
 			}

@@ -20,6 +20,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 /**
  * @author gyv12345@163.com
  */
@@ -60,9 +64,9 @@ public class Yt4jSecurityConfig extends WebSecurityConfigurerAdapter {
 		ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http
 				.authorizeRequests();
 		// 不需要保护的资源路径允许访问
-		for (String url : jwtAuthFilterProperty.getIgnoredUrl()) {
-			registry.antMatchers(url).permitAll();
-		}
+		Optional.ofNullable(jwtAuthFilterProperty.getIgnoredUrl()).orElse(new ArrayList<>())
+				.forEach(url -> registry.antMatchers(url).permitAll());
+
 		// 允许跨域请求的OPTIONS请求
 		registry.antMatchers(HttpMethod.OPTIONS).permitAll();
 		// 任何请求需要身份认证

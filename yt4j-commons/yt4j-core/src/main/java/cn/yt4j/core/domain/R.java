@@ -1,10 +1,12 @@
 package cn.yt4j.core.domain;
 
 import cn.yt4j.core.enums.IMessageStatus;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.springframework.http.HttpStatus;
 
 import java.io.Serializable;
@@ -46,7 +48,7 @@ public class R<T> implements Serializable {
 		return result(null, HttpStatus.OK.value(), message);
 	}
 
-	public static <T> R<PageResult<T>> ok(Page<T> page) {
+	public static <T> R<PageResult<T>> ok(IPage<T> page) {
 		PageResult<T> result = new PageResult<>(page);
 		return result(result, HttpStatus.OK.value(), "查询成功");
 

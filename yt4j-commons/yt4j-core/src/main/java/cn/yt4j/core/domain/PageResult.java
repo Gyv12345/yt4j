@@ -1,6 +1,6 @@
 package cn.yt4j.core.domain;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -43,7 +43,7 @@ public class PageResult<T> implements Serializable {
 	public PageResult() {
 	}
 
-	public PageResult(Page<T> page) {
+	public PageResult(IPage<T> page) {
 		this.setData(page.getRecords());
 		this.setTotalCount(page.getTotal());
 		this.setPageNo(page.getCurrent());
@@ -52,7 +52,7 @@ public class PageResult<T> implements Serializable {
 
 	}
 
-	public PageResult(Page page, List<T> t) {
+	public PageResult(IPage page, List<T> t) {
 		this.setData(t);
 		this.setTotalCount(page.getTotal());
 		this.setPageNo(page.getCurrent());
