@@ -60,7 +60,7 @@
         </dependency>
         <dependency>
             <groupId>cn.yt4j</groupId>
-            <artifactId>ysg-swagger</artifactId>
+            <artifactId>yt4j-swagger</artifactId>
         </dependency>
 
         <dependency>

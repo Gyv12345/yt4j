@@ -4,10 +4,12 @@ import cn.yt4j.security.annotation.EnableYt4jSecurity;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @author gyv12345@163.com
  */
+@EnableDiscoveryClient
 @EnableCaching
 @EnableYt4jSecurity
 @SpringBootApplication

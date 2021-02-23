@@ -102,7 +102,12 @@
             </dependency>
             <dependency>
                 <groupId>cn.yt4j</groupId>
-                <artifactId>ysg-swagger</artifactId>
+                <artifactId>yt4j-swagger</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.yt4j</groupId>
+                <artifactId>yt4j-log</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
