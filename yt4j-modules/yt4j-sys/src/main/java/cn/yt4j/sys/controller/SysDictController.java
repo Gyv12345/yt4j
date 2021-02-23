@@ -3,6 +3,7 @@ package cn.yt4j.sys.controller;
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
+import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.entity.SysDict;
 import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.service.SysDictService;
@@ -33,6 +34,7 @@ public class SysDictController {
 	 */
 	private final SysDictService sysDictService;
 
+	@SysLog("获取远程字典")
 	@ApiOperation("远程字典")
 	@GetMapping("remote/{code}")
 	public R<List<DictVO>> listByCode(@PathVariable String code) {

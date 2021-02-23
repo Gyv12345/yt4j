@@ -61,6 +61,10 @@
             <artifactId>yt4j-swagger</artifactId>
         </dependency>
         <dependency>
+            <groupId>cn.yt4j</groupId>
+            <artifactId>yt4j-log</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>provided</scope>

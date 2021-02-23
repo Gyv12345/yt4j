@@ -1,5 +1,5 @@
 
-package swagger;
+package cn.yt4j.swagger;
 
 import io.swagger.annotations.Api;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

@@ -4,6 +4,7 @@ import cn.yt4j.core.domain.BaseTree;
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
+import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.entity.SysDept;
 import cn.yt4j.sys.service.SysDeptService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -38,6 +39,7 @@ public class SysDeptController {
 	 * 机构树
 	 * @return
 	 */
+	@SysLog("获取部门机构树")
 	@ApiOperation("机构树")
 	@GetMapping("tree")
 	public R<List<BaseTree>> treeDept() {
@@ -49,6 +51,7 @@ public class SysDeptController {
 	 * @param sysDept 查询实体
 	 * @return 所有数据
 	 */
+	@SysLog("部门分页查询")
 	@ApiOperation("分页查询")
 	@GetMapping
 	public R<PageResult<SysDept>> selectAll(SysDept sysDept) {
