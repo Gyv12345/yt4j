@@ -80,3 +80,9 @@ a5b66d3d12379c81b331b197a2ef724c 7天有效
 
 ## 特别鸣谢
 感谢 [JetBrains](https://www.jetbrains.com/) 提供的非商业开源软件开发授权
+
+## 💹 Stars 趋势图
+
+<p align="center">
+    <a target="_blank" href='https://github.com/Gyv12345/yt4j'><img src="https://starchart.cc/Gyv12345/yt4j.svg"></a>
+</p>
