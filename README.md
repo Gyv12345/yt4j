@@ -47,7 +47,9 @@ yt4j
 ├─yt4j-commons 公共模块
 │  ├─yt4j-core 核心包
 │  ├─yt4j-data mybatis-plus设置
+│  ├─yt4j-log 统一日志
 │  ├─yt4j-security 安全相关
+│  ├─yt4j-swagger 引入了军刀
 │  └─yt4j-web web定义相关
 ├─yt4j-dependencies 依赖管理
 ├─yt4j-modules 业务模块

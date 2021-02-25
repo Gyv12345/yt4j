@@ -33,7 +33,6 @@ public class DingUserController {
 
 	/**
 	 * 分页查询所有数据
-	 * @param page 分页对象
 	 * @param dingUser 查询实体
 	 * @return 所有数据
 	 */
