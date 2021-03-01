@@ -1,5 +1,6 @@
 package cn.yt4j.core.util;
 
+import cn.hutool.core.date.DatePattern;
 import com.alibaba.excel.converters.Converter;
 import com.alibaba.excel.enums.CellDataTypeEnum;
 import com.alibaba.excel.metadata.CellData;
@@ -29,13 +30,13 @@ public class LocalDateTimeConverter implements Converter<LocalDateTime> {
 	@Override
 	public LocalDateTime convertToJavaData(CellData cellData, ExcelContentProperty contentProperty,
 			GlobalConfiguration globalConfiguration) {
-		return LocalDateTime.parse(cellData.getStringValue(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+		return LocalDateTime.parse(cellData.getStringValue(), DateTimeFormatter.ofPattern(DatePattern.NORM_DATETIME_PATTERN));
 	}
 
 	@Override
 	public CellData<String> convertToExcelData(LocalDateTime value, ExcelContentProperty contentProperty,
 			GlobalConfiguration globalConfiguration) {
-		return new CellData<>(value.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+		return new CellData<>(value.format(DateTimeFormatter.ofPattern(DatePattern.NORM_DATETIME_PATTERN)));
 	}
 
 }
