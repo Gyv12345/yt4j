@@ -5,6 +5,7 @@ import cn.hutool.crypto.asymmetric.RSA;
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
+import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.entity.SysUser;
 import cn.yt4j.sys.entity.dto.PasswordDTO;
@@ -38,6 +39,7 @@ public class SysUserController {
 
 	private final RSA rsa;
 
+	@SysLog("登录")
 	@ApiOperation("登录")
 	@PostMapping("login")
 	public R<String> login(@RequestBody @Valid UserDTO dto) {

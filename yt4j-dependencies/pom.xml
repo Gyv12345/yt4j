@@ -19,6 +19,7 @@
         <jasypt.version>2.1.1</jasypt.version>
         <wx.java.version>4.0.0</wx.java.version>
         <dingding.version>1.0.1</dingding.version>
+        <plumelog.version>3.3</plumelog.version>
     </properties>
 
     <dependencyManagement>
@@ -78,6 +79,16 @@
                 <groupId>com.aliyun</groupId>
                 <artifactId>alibaba-dingtalk-service-sdk</artifactId>
                 <version>${dingding.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.plumelog</groupId>
+                <artifactId>plumelog-logback</artifactId>
+                <version>${plumelog.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.plumelog</groupId>
+                <artifactId>plumelog-trace</artifactId>
+                <version>${plumelog.version}</version>
             </dependency>
             <!-- 2方库 -->
             <dependency>

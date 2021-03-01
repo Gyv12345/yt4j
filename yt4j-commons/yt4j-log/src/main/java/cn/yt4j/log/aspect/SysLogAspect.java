@@ -26,15 +26,15 @@ public class SysLogAspect {
 	public Object around(ProceedingJoinPoint point, SysLog sysLog) {
 		String strClassName = point.getTarget().getClass().getName();
 		String strMethodName = point.getSignature().getName();
-		log.info("-------------- 开始执行 {} -------------------",sysLog.value());
+		log.info("-------------- 开始执行 {} -------------------", sysLog.value());
 		log.info("类名:[{}],方法:[{}]", strClassName, strMethodName);
-		log.info("参数:[{}]",objectMapper.writeValueAsString(point.getArgs()));
+		log.info("参数:[{}]", objectMapper.writeValueAsString(point.getArgs()));
 
 		Long startTime = System.currentTimeMillis();
 		Object obj = point.proceed();
 		Long endTime = System.currentTimeMillis();
-		log.info("用时:[{}ms],结果:[{}]",endTime-startTime,objectMapper.writeValueAsString(obj));
-		log.info("-------------- 结束 {} -------------------",sysLog.value());
+		log.info("用时:[{}ms],结果:[{}]", endTime - startTime, objectMapper.writeValueAsString(obj));
+		log.info("-------------- 结束 {} -------------------", sysLog.value());
 		return obj;
 	}
 

@@ -22,23 +22,22 @@ import com.baomidou.mybatisplus.annotation.TableId;
 @ToString
 public class DingDeptTitle extends Model<DingDeptTitle> {
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+	@TableId(value = "id", type = IdType.AUTO)
+	private Integer id;
 
-    @ApiModelProperty(value = "部门ID。")
-    private Integer deptId;
+	@ApiModelProperty(value = "部门ID。")
+	private Integer deptId;
 
-    @ApiModelProperty(value = "员工在部门中的职位。")
-    private String title;
+	@ApiModelProperty(value = "员工在部门中的职位。")
+	private String title;
 
+	/**
+	 * 获取主键值
+	 * @return 主键值
+	 */
+	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
 
-    /**
-     * 获取主键值
-     *
-     * @return 主键值
-     */
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
 }
