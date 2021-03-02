@@ -1,0 +1,11 @@
+{
+  "properties": [
+    {
+      "name": "yt4j.swagger.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否开启swagger文档.",
+      "defaultValue": "true"
+    }
+  ]
+}
+

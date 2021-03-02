@@ -16,7 +16,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
  * @author gyv12345@163.com
  */
 @Order
-@EnableAsync
 @Configuration
 @RequiredArgsConstructor
 @ConditionalOnWebApplication
