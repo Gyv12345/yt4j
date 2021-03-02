@@ -17,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @author gyv12345@163.com
  */
 @EnableSwagger2
-@ConditionalOnProperty(name = "yt4j.swagger.enabled", matchIfMissing = true)
+@ConditionalOnProperty(name = "yt4j.swagger.enabled")
 public class SwaggerAutoConfiguration {
 
 	@Bean
