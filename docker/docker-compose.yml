@@ -43,4 +43,4 @@ services:
 networks:
   default:
     external:
-      yt4j
+      name: yt4j
