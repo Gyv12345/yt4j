@@ -30,9 +30,19 @@ services:
     restart: always
     ports:
       - 6379:6379
+  yt4j-gateway:
+    build:
+      context: ../yt4j-gateway
+    image: yt4j-gateway
+    container_name: yt4j-gateway
+    restart: always
+    ports:
+      - 8888:8888
+    depends_on:
+      - yt4j-nacos
   yt4j-sys:
     build:
-      context: ./yt4j-modules/yt4j-sys
+      context: ../yt4j-modules/yt4j-sys
     image: yt4j-sys
     container_name: yt4j-sys
     restart: always
