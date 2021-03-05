@@ -12,8 +12,8 @@ RUN mkdir -p /yt4j-sys
 
 WORKDIR /yt4j-sys
 
-EXPOSE 9999
+EXPOSE 9100
 
 ADD ./target/yt4j-sys.jar ./
 
-CMD java $JAVA_OPTS -jar yt4j-sys.jar --spring.profiles.active=prod
+CMD sleep 60;java $JAVA_OPTS -jar yt4j-sys.jar
