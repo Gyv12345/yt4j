@@ -9,8 +9,6 @@
 
 **[jenkins运行](doc/cicd.md)** 暂时不能用了，架构改了
 
-[在线体验](https://www.yt4j.cn/ui/) （只有一台1c2g的服务器，所有东西都在上面，体验一下就行了）
-
 <p align="center">
  <img src="https://img.shields.io/badge/Yt4j-1.0.1-success.svg" alt="Build Status">
  <img src="https://img.shields.io/badge/antd%20vue%20pro-3.0.0-green.svg" alt="Build Status">

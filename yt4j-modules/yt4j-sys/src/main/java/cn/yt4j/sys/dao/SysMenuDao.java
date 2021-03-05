@@ -39,6 +39,7 @@ public interface SysMenuDao extends BaseMapper<SysMenu> {
 	List<SysMenu> listMenuByUserId(Long id);
 
 	/**
+	 * 应用菜单
 	 * @param id
 	 * @return
 	 */

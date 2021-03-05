@@ -14,6 +14,7 @@ import java.io.Serializable;
 /**
  * @author gyv12345@163.com
  */
+@SuppressWarnings("AlibabaClassNamingShouldBeCamel")
 @ToString(callSuper = true)
 @Getter
 @Setter

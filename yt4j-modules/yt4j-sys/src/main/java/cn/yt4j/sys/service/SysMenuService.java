@@ -32,6 +32,7 @@ public interface SysMenuService extends IService<SysMenu> {
 	List<MenuTreeVO> menuTree();
 
 	/**
+	 * 应用菜单
 	 * @return
 	 */
 	List<TopMenuVO> topMenu();
