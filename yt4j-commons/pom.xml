@@ -16,6 +16,7 @@
         <module>yt4j-security</module>
         <module>yt4j-log</module>
         <module>yt4j-swagger</module>
+        <module>yt4j-job</module>
     </modules>
 
     <artifactId>yt4j-commons</artifactId>

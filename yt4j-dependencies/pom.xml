@@ -20,6 +20,7 @@
         <wx.java.version>4.0.0</wx.java.version>
         <dingding.version>1.0.1</dingding.version>
         <plumelog.version>3.3</plumelog.version>
+        <xxl-job.version>2.3.0</xxl-job.version>
     </properties>
 
     <dependencyManagement>
@@ -89,6 +90,11 @@
                 <groupId>com.plumelog</groupId>
                 <artifactId>plumelog-trace</artifactId>
                 <version>${plumelog.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job.version}</version>
             </dependency>
             <!-- 2方库 -->
             <dependency>
