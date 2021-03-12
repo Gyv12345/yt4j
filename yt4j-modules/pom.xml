@@ -11,8 +11,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>yt4j-sys</module>
-        <module>yt4j-ding</module>
-        <module>yt4j-wx</module>
     </modules>
 
     <artifactId>yt4j-modules</artifactId>

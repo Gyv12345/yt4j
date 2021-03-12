@@ -45,16 +45,17 @@ yt4j
 ├─yt4j-commons 公共模块
 │  ├─yt4j-core 核心包
 │  ├─yt4j-data mybatis-plus设置
+│  ├─yt4j-job xxl-job
 │  ├─yt4j-log 统一日志
 │  ├─yt4j-security 安全相关
 │  ├─yt4j-swagger 引入了军刀
 │  └─yt4j-web web定义相关
 ├─yt4j-dependencies 依赖管理
+├─yt4j-gateway 项目网关
 ├─yt4j-modules 业务模块
-│  ├─yt4j-ding 钉钉相关 【9200】
 │  └─yt4j-sys 基础系统【9100】
-│  └─yt4j-wx 企业微信 【9300】
-
+├─yt4j-monitor 监控模块
+│  ├─yt4j-log-server 统一日志服务端、ui
 ```
 
 ## 部署
