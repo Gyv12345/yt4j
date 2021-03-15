@@ -1,0 +1,34 @@
+spring:
+  redis:
+    host: yt4j-redis
+  datasource:
+    url: jdbc:mysql://yt4j-mysql:3306/yt4j?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf-8&autoReconnect=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+yt4j:
+  jwt:
+    filter:
+      ignored-url:
+        - /doc.html
+        - /swagger-ui.html
+        - /swagger-resources/**
+        - /swagger/**
+        - /**/v2/api-docs
+        - /**/*.js
+        - /**/*.css
+        - /**/*.png
+        - /**/*.ico
+        - /webjars/springfox-swagger-ui/**
+        - /actuator/**
+        - /user/login
+      header: 'Access-Token'
+      token-head: ''
+  swagger:
+    enabled: true
+jasypt:
+  encryptor:
+    password: yt4j
