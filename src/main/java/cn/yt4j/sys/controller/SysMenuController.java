@@ -27,7 +27,7 @@ import java.util.List;
 @Api(tags = " 资源权限")
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/menu")
+@RequestMapping("/sys/menu")
 public class SysMenuController {
 
 	/**

@@ -27,7 +27,7 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/dept")
+@RequestMapping("/sys/dept")
 public class SysDeptController {
 
 	/**

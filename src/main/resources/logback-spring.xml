@@ -8,7 +8,7 @@
     2. 注意修改 <property name="${log-path}/log.path" value=""/> 的value模块
 -->
 <configuration debug="false" scan="false">
-	<property name="log.path" value="logs/${project.artifactId}"/>
+	<property name="log.path" value="logs/yt4j"/>
 	<!-- 彩色日志格式 -->
 	<property name="CONSOLE_LOG_PATTERN"
 			  value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
@@ -26,10 +26,10 @@
 	</appender>
 
 	<!-- Log file debug output -->
-	<appender name="debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${log.path}/debug.log</file>
+	<appender name="yt4j" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.path}/yt4j.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-			<fileNamePattern>${log.path}/%d{yyyy-MM, aux}/debug.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+			<fileNamePattern>${log.path}/%d{yyyy-MM, aux}/yt4j.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
 			<maxFileSize>50MB</maxFileSize>
 			<maxHistory>30</maxHistory>
 		</rollingPolicy>
@@ -54,15 +54,13 @@
 		</filter>
 	</appender>
 
-
-	<!--nacos 心跳 INFO 屏蔽-->
-	<logger name="com.alibaba.nacos" level="OFF">
+	<root level="ERROR">
 		<appender-ref ref="error"/>
-	</logger>
+	</root>
 
 	<!-- Level: FATAL 0  ERROR 3  WARN 4  INFO 6  DEBUG 7 -->
 	<root level="INFO">
 		<appender-ref ref="console"/>
-		<appender-ref ref="debug"/>
+		<appender-ref ref="yt4j"/>
 	</root>
 </configuration>

@@ -24,7 +24,7 @@ yt4j:
         - /**/*.ico
         - /webjars/springfox-swagger-ui/**
         - /actuator/**
-        - /user/login
+        - /sys/user/login
       header: 'Access-Token'
       token-head: ''
   swagger:

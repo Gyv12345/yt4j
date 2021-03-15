@@ -23,7 +23,7 @@ import java.util.List;
 @Api(tags = "字典项")
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/dict/item")
+@RequestMapping("/sys/dict/item")
 public class SysDictItemController {
 
 	/**

@@ -29,7 +29,7 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 @Api(tags = "用户")
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/sys/user")
 public class SysUserController {
 
 	/**
