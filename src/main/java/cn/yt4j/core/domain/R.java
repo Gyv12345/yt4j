@@ -52,7 +52,6 @@ public class R<T> implements Serializable {
 	public static <T> R<PageResult<T>> ok(IPage<T> page) {
 		PageResult<T> result = new PageResult<>(page);
 		return result(result, HttpStatus.OK.value(), "查询成功");
-
 	}
 
 	public static <T> R<T> ok(T result, String message) {
