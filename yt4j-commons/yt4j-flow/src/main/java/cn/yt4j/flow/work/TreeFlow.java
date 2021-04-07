@@ -8,13 +8,14 @@ import lombok.Data;
 @Data
 public class TreeFlow {
 
-    private String id;
+	private String id;
 
-    private String name;
+	private String name;
 
-    private String beanId;
+	private String beanId;
 
-    private String parentId;
+	private String parentId;
 
-    private String condition;
+	private String condition;
+
 }

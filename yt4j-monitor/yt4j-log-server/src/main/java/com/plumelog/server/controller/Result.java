@@ -12,49 +12,52 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * className：Result
- * description：
- * time：2020/6/10  19:20
+ * className：Result description： time：2020/6/10 19:20
  *
  * @author Frank.chen
  * @version 1.0.0
  */
 public class Result {
-    private Integer code;
-    private String message;
-    private List<String> logs = new ArrayList<>();
 
-    public static Result UN_LOGIN = new Result(401);
-    public static Result INVALID_LOGIN = new Result(402);
+	private Integer code;
 
-    public Result() {
-    }
+	private String message;
 
-    public Result(Integer code) {
-        this.code = code;
-    }
+	private List<String> logs = new ArrayList<>();
 
-    public Integer getCode() {
-        return code;
-    }
+	public static Result UN_LOGIN = new Result(401);
 
-    public void setCode(Integer code) {
-        this.code = code;
-    }
+	public static Result INVALID_LOGIN = new Result(402);
 
-    public String getMessage() {
-        return message;
-    }
+	public Result() {
+	}
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+	public Result(Integer code) {
+		this.code = code;
+	}
 
-    public List<String> getLogs() {
-        return logs;
-    }
+	public Integer getCode() {
+		return code;
+	}
 
-    public void setLogs(List<String> logs) {
-        this.logs = logs;
-    }
+	public void setCode(Integer code) {
+		this.code = code;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public List<String> getLogs() {
+		return logs;
+	}
+
+	public void setLogs(List<String> logs) {
+		this.logs = logs;
+	}
+
 }

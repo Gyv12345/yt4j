@@ -38,7 +38,8 @@ public class LocalDateTimeConverter implements Converter<LocalDateTime> {
 	@Override
 	public LocalDateTime convertToJavaData(CellData cellData, ExcelContentProperty contentProperty,
 			GlobalConfiguration globalConfiguration) {
-		return LocalDateTime.parse(cellData.getStringValue(), DateTimeFormatter.ofPattern(DatePattern.NORM_DATETIME_PATTERN));
+		return LocalDateTime.parse(cellData.getStringValue(),
+				DateTimeFormatter.ofPattern(DatePattern.NORM_DATETIME_PATTERN));
 	}
 
 	@Override

@@ -8,7 +8,6 @@
 
 package com.plumelog.server.config;
 
-
 import com.alibaba.fastjson.JSONObject;
 import com.plumelog.server.InitConfig;
 import com.plumelog.server.controller.Result;
@@ -23,30 +22,30 @@ import java.util.Objects;
 
 public class LoginCheckInterceptor implements HandlerInterceptor {
 
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        if(!Objects.equals(request.getMethod(), HttpMethod.POST.name())) {
-            return true;
-        }
-        if(StringUtils.isEmpty(InitConfig.loginUsername))
-            return true;
-        Object token = request.getSession().getAttribute("token");
-        if(token == null) {
-            printMessage(response, Result.UN_LOGIN);
-            return false;
-        }
-        return true;
-    }
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+		if (!Objects.equals(request.getMethod(), HttpMethod.POST.name())) {
+			return true;
+		}
+		if (StringUtils.isEmpty(InitConfig.loginUsername))
+			return true;
+		Object token = request.getSession().getAttribute("token");
+		if (token == null) {
+			printMessage(response, Result.UN_LOGIN);
+			return false;
+		}
+		return true;
+	}
 
-
-    private void printMessage(HttpServletResponse response, Result rm) {
-        response.setCharacterEncoding("UTF-8");
-        response.setContentType("application/json; charset=utf-8");
-        try (PrintWriter writer = response.getWriter()) {
-            writer.print(JSONObject.toJSONString(rm));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+	private void printMessage(HttpServletResponse response, Result rm) {
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json; charset=utf-8");
+		try (PrintWriter writer = response.getWriter()) {
+			writer.print(JSONObject.toJSONString(rm));
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }

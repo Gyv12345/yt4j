@@ -18,10 +18,11 @@ import java.lang.annotation.*;
  * @author gyv12345@163.com
  */
 @Order
-@Target({ElementType.TYPE})
+@Target({ ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Import({JobAutoConfiguration.class})
+@Import({ JobAutoConfiguration.class })
 public @interface EnableYt4jJob {
+
 }

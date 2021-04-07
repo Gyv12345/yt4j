@@ -12,6 +12,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class AppNameCache {
-    public static final String APP_NAME_SET = "plumelog:appname:set";
-    public static Set<String> appName=new HashSet<>();
+
+	public static final String APP_NAME_SET = "plumelog:appname:set";
+
+	public static Set<String> appName = new HashSet<>();
+
 }

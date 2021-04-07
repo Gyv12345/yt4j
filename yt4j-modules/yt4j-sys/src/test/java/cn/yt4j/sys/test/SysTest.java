@@ -36,10 +36,9 @@ public class SysTest {
 	}
 
 	@Test
-	public void elDemo(){
+	public void elDemo() {
 		ExpressionParser parser = new SpelExpressionParser();
-		Expression expression =
-				parser.parseExpression("('Hello' + ' World').concat(#end)");
+		Expression expression = parser.parseExpression("('Hello' + ' World').concat(#end)");
 		EvaluationContext context = new StandardEvaluationContext();
 		context.setVariable("end", "!");
 		Assertions.assertEquals("Hello World!", expression.getValue(context));

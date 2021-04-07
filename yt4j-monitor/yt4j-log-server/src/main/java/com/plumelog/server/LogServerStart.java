@@ -15,9 +15,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * className：LogServerStart
- * description：
- * time：2020/6/10  17:40
+ * className：LogServerStart description： time：2020/6/10 17:40
  *
  * @author Frank.chen
  * @version 1.0.0
@@ -25,10 +23,11 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableAsync
 @EnableScheduling
-@ComponentScan(basePackages = {"com.plumelog"})
+@ComponentScan(basePackages = { "com.plumelog" })
 public class LogServerStart {
 
-    public static void main(String[] args) {
-        SpringApplication.run(LogServerStart.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(LogServerStart.class, args);
+	}
+
 }

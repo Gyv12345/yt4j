@@ -8,20 +8,24 @@ import lombok.Data;
 @Data
 public class LineEntity {
 
-    /**
-     * 连线标题
-     */
-    private String label;
-    /**
-     * 上级节点
-     */
-    private String from;
-    /**
-     * 到哪个节点
-     */
-    private String to;
-    /**
-     * 条件
-     */
-    private String condition;
+	/**
+	 * 连线标题
+	 */
+	private String label;
+
+	/**
+	 * 上级节点
+	 */
+	private String from;
+
+	/**
+	 * 到哪个节点
+	 */
+	private String to;
+
+	/**
+	 * 条件
+	 */
+	private String condition;
+
 }

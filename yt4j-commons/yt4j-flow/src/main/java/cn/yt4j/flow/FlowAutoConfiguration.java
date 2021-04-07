@@ -7,4 +7,5 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @ComponentScan("cn.yt4j.flow")
 public class FlowAutoConfiguration {
+
 }

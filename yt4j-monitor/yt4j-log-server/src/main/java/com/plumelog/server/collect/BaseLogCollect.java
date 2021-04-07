@@ -22,65 +22,80 @@ import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * className：BaseLogCollect
- * description：BaseLogCollect 基类
+ * className：BaseLogCollect description：BaseLogCollect 基类
  *
  * @author Frank.chen
  * @version 1.0.0
  */
 public class BaseLogCollect {
-    private org.slf4j.Logger logger = LoggerFactory.getLogger(BaseLogCollect.class);
-    public ThreadPoolExecutor threadPoolExecutor = ThreadPoolUtil.getPool();
-    public ElasticLowerClient elasticLowerClient;
-    protected ApplicationEventPublisher applicationEventPublisher;
 
-    public String getRunLogIndex(){
-        if(InitConfig.ES_INDEX_MODEL.equals("day")) {
-            return LogMessageConstant.ES_INDEX + LogMessageConstant.LOG_TYPE_RUN + "_" + DateUtil.parseDateToStr(new Date(), DateUtil.DATE_FORMAT_YYYYMMDD);
-        }else {
-            return LogMessageConstant.ES_INDEX + LogMessageConstant.LOG_TYPE_RUN + "_" + DateUtil.parseDateToStr(new Date(), DateUtil.DATE_TIME_FORMAT_YYYYMMDDHH);
-        }
-    }
-    public String getTraceLogIndex(){
-        if(InitConfig.ES_INDEX_MODEL.equals("day")) {
-            return LogMessageConstant.ES_INDEX + LogMessageConstant.LOG_TYPE_TRACE + "_" + DateUtil.parseDateToStr(new Date(), DateUtil.DATE_FORMAT_YYYYMMDD);
-        }else {
-            return LogMessageConstant.ES_INDEX + LogMessageConstant.LOG_TYPE_TRACE + "_" + DateUtil.parseDateToStr(new Date(), DateUtil.DATE_TIME_FORMAT_YYYYMMDDHH);
-        }
-    }
+	private org.slf4j.Logger logger = LoggerFactory.getLogger(BaseLogCollect.class);
 
-    public void sendLog(String index, List<String> sendList) {
-        try {
-            if(sendList.size()>0) {
-                long startTime=System.currentTimeMillis();
-                elasticLowerClient.insertListLog(sendList, index, LogMessageConstant.ES_TYPE);
-                long endTime=System.currentTimeMillis();
-                logger.info("logList insert es success! count:{} RuningLog日志写入耗时：{}", sendList.size(),endTime-startTime);
-            }
-        } catch (Exception e) {
-            logger.error("logList insert es failed!", e);
-        }
-    }
+	public ThreadPoolExecutor threadPoolExecutor = ThreadPoolUtil.getPool();
 
-    public void sendTraceLogList(String index, List<String> sendTraceLogList) {
-        try {
-            if(sendTraceLogList.size()>0) {
-                elasticLowerClient.insertListTrace(sendTraceLogList, index, LogMessageConstant.ES_TYPE);
-                logger.info("traceLogList insert es success! count:{}", sendTraceLogList.size());
-            }
-        } catch (Exception e) {
-            logger.error("traceLogList insert es failed!", e);
-        }
-    }
+	public ElasticLowerClient elasticLowerClient;
 
-    protected void publisherMonitorEvent(List<String> logs) {
-        if (logs.size()>0){
-            try {
-                applicationEventPublisher.publishEvent(new PlumelogMonitorEvent(this, logs));
-            }catch (Exception e){
-                logger.error("publisherMonitorEvent error!", e);
-            }
-        }
+	protected ApplicationEventPublisher applicationEventPublisher;
 
-    }
+	public String getRunLogIndex() {
+		if (InitConfig.ES_INDEX_MODEL.equals("day")) {
+			return LogMessageConstant.ES_INDEX + LogMessageConstant.LOG_TYPE_RUN + "_"
+					+ DateUtil.parseDateToStr(new Date(), DateUtil.DATE_FORMAT_YYYYMMDD);
+		}
+		else {
+			return LogMessageConstant.ES_INDEX + LogMessageConstant.LOG_TYPE_RUN + "_"
+					+ DateUtil.parseDateToStr(new Date(), DateUtil.DATE_TIME_FORMAT_YYYYMMDDHH);
+		}
+	}
+
+	public String getTraceLogIndex() {
+		if (InitConfig.ES_INDEX_MODEL.equals("day")) {
+			return LogMessageConstant.ES_INDEX + LogMessageConstant.LOG_TYPE_TRACE + "_"
+					+ DateUtil.parseDateToStr(new Date(), DateUtil.DATE_FORMAT_YYYYMMDD);
+		}
+		else {
+			return LogMessageConstant.ES_INDEX + LogMessageConstant.LOG_TYPE_TRACE + "_"
+					+ DateUtil.parseDateToStr(new Date(), DateUtil.DATE_TIME_FORMAT_YYYYMMDDHH);
+		}
+	}
+
+	public void sendLog(String index, List<String> sendList) {
+		try {
+			if (sendList.size() > 0) {
+				long startTime = System.currentTimeMillis();
+				elasticLowerClient.insertListLog(sendList, index, LogMessageConstant.ES_TYPE);
+				long endTime = System.currentTimeMillis();
+				logger.info("logList insert es success! count:{} RuningLog日志写入耗时：{}", sendList.size(),
+						endTime - startTime);
+			}
+		}
+		catch (Exception e) {
+			logger.error("logList insert es failed!", e);
+		}
+	}
+
+	public void sendTraceLogList(String index, List<String> sendTraceLogList) {
+		try {
+			if (sendTraceLogList.size() > 0) {
+				elasticLowerClient.insertListTrace(sendTraceLogList, index, LogMessageConstant.ES_TYPE);
+				logger.info("traceLogList insert es success! count:{}", sendTraceLogList.size());
+			}
+		}
+		catch (Exception e) {
+			logger.error("traceLogList insert es failed!", e);
+		}
+	}
+
+	protected void publisherMonitorEvent(List<String> logs) {
+		if (logs.size() > 0) {
+			try {
+				applicationEventPublisher.publishEvent(new PlumelogMonitorEvent(this, logs));
+			}
+			catch (Exception e) {
+				logger.error("publisherMonitorEvent error!", e);
+			}
+		}
+
+	}
+
 }

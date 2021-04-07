@@ -12,15 +12,15 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
  */
 public class ElUtil {
 
-    private static final String ALIAS = "data";
+	private static final String ALIAS = "data";
 
-    public static Boolean condition(WorkContext context, String expression) {
-        ExpressionParser parser = new SpelExpressionParser();
+	public static Boolean condition(WorkContext context, String expression) {
+		ExpressionParser parser = new SpelExpressionParser();
 
-        Expression ex =
-                parser.parseExpression(expression);
-        EvaluationContext ctx = new StandardEvaluationContext();
-        ctx.setVariable(ALIAS, context.getData());
-        return ex.getValue(ctx, Boolean.class);
-    }
+		Expression ex = parser.parseExpression(expression);
+		EvaluationContext ctx = new StandardEvaluationContext();
+		ctx.setVariable(ALIAS, context.getData());
+		return ex.getValue(ctx, Boolean.class);
+	}
+
 }

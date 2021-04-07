@@ -24,25 +24,26 @@ import org.springframework.context.annotation.Configuration;
 @EnableAutoConfiguration
 public class JobAutoConfiguration {
 
-    @Bean
-    @ConditionalOnMissingBean
-    public JobProperty jobProperty() {
-        return new JobProperty();
-    }
+	@Bean
+	@ConditionalOnMissingBean
+	public JobProperty jobProperty() {
+		return new JobProperty();
+	}
 
-    @Bean
-    public XxlJobSpringExecutor xxlJobExecutor() {
-        log.info(">>>>>>>>>>> xxl-job config init.");
-        XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
-        xxlJobSpringExecutor.setAdminAddresses(jobProperty().getAdminAddresses());
-        xxlJobSpringExecutor.setAddress(jobProperty().getAddress());
-        xxlJobSpringExecutor.setAppname(jobProperty().getAppName());
-        xxlJobSpringExecutor.setIp(jobProperty().getIp());
-        xxlJobSpringExecutor.setPort(jobProperty().getPort());
-        xxlJobSpringExecutor.setAccessToken(jobProperty().getAccessToken());
-        xxlJobSpringExecutor.setLogPath(jobProperty().getLogPath());
-        xxlJobSpringExecutor.setLogRetentionDays(jobProperty().getLogRetentionDays());
+	@Bean
+	public XxlJobSpringExecutor xxlJobExecutor() {
+		log.info(">>>>>>>>>>> xxl-job config init.");
+		XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
+		xxlJobSpringExecutor.setAdminAddresses(jobProperty().getAdminAddresses());
+		xxlJobSpringExecutor.setAddress(jobProperty().getAddress());
+		xxlJobSpringExecutor.setAppname(jobProperty().getAppName());
+		xxlJobSpringExecutor.setIp(jobProperty().getIp());
+		xxlJobSpringExecutor.setPort(jobProperty().getPort());
+		xxlJobSpringExecutor.setAccessToken(jobProperty().getAccessToken());
+		xxlJobSpringExecutor.setLogPath(jobProperty().getLogPath());
+		xxlJobSpringExecutor.setLogRetentionDays(jobProperty().getLogRetentionDays());
 
-        return xxlJobSpringExecutor;
-    }
+		return xxlJobSpringExecutor;
+	}
+
 }

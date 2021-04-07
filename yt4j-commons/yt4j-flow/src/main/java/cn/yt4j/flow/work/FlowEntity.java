@@ -10,12 +10,12 @@ import java.util.List;
 @Data
 public class FlowEntity {
 
-    private String id;
+	private String id;
 
-    private String name;
+	private String name;
 
-    private List<NodeEntity> nodeList;
+	private List<NodeEntity> nodeList;
 
-    private List<LineEntity> lineList;
+	private List<LineEntity> lineList;
 
 }
