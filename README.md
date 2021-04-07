@@ -45,7 +45,7 @@ yt4j
 ├─yt4j-modules 业务模块
 │  └─yt4j-sys 基础系统【9100】
 ├─yt4j-monitor 监控模块
-│  ├─yt4j-log-server 统一日志服务端、ui
+│  ├─yt4j-log-server 统一日志服务端、ui Plumelog项目中服务端直接搬过来了方便开发
 ```
 
 ## 部署
