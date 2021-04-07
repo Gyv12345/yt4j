@@ -9,3 +9,4 @@ target/
 *.iml
 *.ipr
 /logs
+/yt4j-modules/yt4j-sys/logs

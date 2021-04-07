@@ -9,7 +9,7 @@
 package cn.yt4j.core.constant;
 
 /**
- * @author gyv12
+ * @author gyv12345@163.com
  */
 public interface SecurityConstants {
 

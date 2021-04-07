@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
- * @author gyv12
+ * @author gyv12345@163.com
  */
 @EnableDiscoveryClient
 @SpringBootApplication
