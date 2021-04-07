@@ -7,14 +7,6 @@
   ~ Vestibulum commodo. Ut rhoncus gravida arcu.
   -->
 
-<!--
-    小技巧: 在根pom里面设置统一存放路径，统一管理方便维护
-    <properties>
-        <log-path>/Users/lengleng</log-path>
-    </properties>
-    1. 其他模块加日志输出，直接copy本文件放在resources 目录即可
-    2. 注意修改 <property name="${log-path}/log.path" value=""/> 的value模块
--->
 <configuration debug="false" scan="false">
 	<property name="log.path" value="logs/${project.artifactId}"/>
 	<!-- 彩色日志格式 -->
