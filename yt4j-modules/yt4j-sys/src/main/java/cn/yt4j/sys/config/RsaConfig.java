@@ -8,6 +8,7 @@
 
 package cn.yt4j.sys.config;
 
+import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.asymmetric.RSA;
 import lombok.SneakyThrows;
@@ -33,40 +34,8 @@ public class RsaConfig {
 	public RSA create() {
 		ClassPathResource resource = new ClassPathResource("rsaKey/private.key");
 
-		String privateKey = getStringFromInputStream(resource.getInputStream());
+		String privateKey = IoUtil.read(resource.getInputStream(),"utf-8");
 		return new RSA(StrUtil.cleanBlank(privateKey), null);
-	}
-
-	private static String getStringFromInputStream(InputStream is) {
-
-		BufferedReader br = null;
-		StringBuilder sb = new StringBuilder();
-
-		String line;
-		try {
-
-			br = new BufferedReader(new InputStreamReader(is));
-			while ((line = br.readLine()) != null) {
-				sb.append(line);
-			}
-
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-		finally {
-			if (br != null) {
-				try {
-					br.close();
-				}
-				catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-
-		return sb.toString();
-
 	}
 
 }

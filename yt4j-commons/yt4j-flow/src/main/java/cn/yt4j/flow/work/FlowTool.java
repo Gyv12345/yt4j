@@ -1,5 +1,6 @@
 package cn.yt4j.flow.work;
 
+import cn.hutool.core.io.IoUtil;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
@@ -30,7 +31,7 @@ public class FlowTool {
 			String filePath = String.format("flow/" + name + "%s", ".json");
 			ClassPathResource resource = new ClassPathResource(filePath);
 
-			String flowJson = getStringFromInputStream(resource.getInputStream());
+			String flowJson = IoUtil.read(resource.getInputStream(),"utf-8");
 			FlowEntity entity = JSONUtil.toBean(flowJson, FlowEntity.class);
 			RuleWorkFlow rootFlow = buildByEntity(entity);
 			this.flows.put(rootFlow.getName(), rootFlow);
@@ -60,38 +61,6 @@ public class FlowTool {
 			}
 		}
 		return parentFlow;
-	}
-
-	private static String getStringFromInputStream(InputStream is) {
-
-		BufferedReader br = null;
-		StringBuilder sb = new StringBuilder();
-
-		String line;
-		try {
-
-			br = new BufferedReader(new InputStreamReader(is));
-			while ((line = br.readLine()) != null) {
-				sb.append(line);
-			}
-
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-		finally {
-			if (br != null) {
-				try {
-					br.close();
-				}
-				catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-
-		return sb.toString();
-
 	}
 
 }
