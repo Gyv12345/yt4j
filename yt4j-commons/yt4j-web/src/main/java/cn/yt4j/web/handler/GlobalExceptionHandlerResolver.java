@@ -1,0 +1,89 @@
+/*
+ * Copyright (c) 2021. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
+
+package cn.yt4j.web.handler;
+
+import cn.yt4j.core.domain.R;
+import cn.yt4j.core.exception.Yt4jException;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.BindException;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.nio.file.AccessDeniedException;
+import java.util.List;
+
+/**
+ * @author gyv12345@163.com
+ */
+@Slf4j
+@RestControllerAdvice
+public class GlobalExceptionHandlerResolver {
+
+	/**
+	 * 全局异常.
+	 * @param e the e
+	 * @return R
+	 */
+	@ExceptionHandler(Exception.class)
+	public R handleGlobalException(Exception e) {
+		log.error("异常信息 ex={}", e.getMessage(), e);
+		return R.failed(e.getLocalizedMessage());
+	}
+
+	/**
+	 * AccessDeniedException
+	 * @param e the e
+	 * @return R
+	 */
+	@ExceptionHandler(AccessDeniedException.class)
+	public R handleAccessDeniedException(AccessDeniedException e) {
+		log.error("拒绝授权异常信息 ex={}", e.getMessage(), e);
+		return R.failed(e.getLocalizedMessage());
+	}
+
+	/**
+	 * validation Exception
+	 * @param exception
+	 * @return R
+	 */
+	@ExceptionHandler({ MethodArgumentNotValidException.class })
+	public R handleBodyValidException(MethodArgumentNotValidException exception) {
+		List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
+		log.warn("参数绑定异常,ex = {}", fieldErrors.get(0).getDefaultMessage());
+		log.error(exception.getMessage(), exception);
+		return R.failed(fieldErrors.get(0).getDefaultMessage());
+	}
+
+	/**
+	 * validation Exception (以form-data形式传参)
+	 * @param exception
+	 * @return R
+	 */
+	@ExceptionHandler({ BindException.class })
+	public R bindExceptionHandler(BindException exception) {
+		List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
+		log.warn("参数绑定异常,ex = {}", fieldErrors.get(0).getDefaultMessage());
+		log.error(exception.getMessage(), exception);
+		return R.failed(fieldErrors.get(0).getDefaultMessage());
+	}
+
+	/**
+	 * 自定义异常.
+	 * @param e the e
+	 * @return R
+	 */
+	@ExceptionHandler(Yt4jException.class)
+	public R ysgExceptionHandler(Yt4jException e) {
+		log.error("业务异常信息 ex={}", e.getMessage(), e);
+		return R.failed(e.getMessageStatus());
+	}
+
+}
