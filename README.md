@@ -9,7 +9,7 @@
 <p align="center">
  <img src="https://img.shields.io/badge/Yt4j-1.0.1-success.svg" alt="Build Status">
  <img src="https://img.shields.io/badge/antd%20vue%20pro-3.0.0-green.svg" alt="Build Status">
- <img src="https://img.shields.io/badge/spring%20boot-2.4.0-blue" alt="Coverage Status">
+ <img src="https://img.shields.io/badge/spring%20boot-2.4.X-blue" alt="Coverage Status">
 </p>
 
 
@@ -23,11 +23,11 @@
 
 依赖 | 版本
 ---|---
-Spring Boot | 2.3.6 
+Spring Boot | 2.4.x
 Mybatis Plus | 3.4.1
 hutool | 5.5.4 
- Spring Cloud | Hoxton.SR9 
- Spring Cloud Alibaba | 2.2.3 
+ Spring Cloud | 2020.0.1
+ Spring Cloud Alibaba | 2020.1
  knife4j |  3.0.2
 
 ## 模块说明
