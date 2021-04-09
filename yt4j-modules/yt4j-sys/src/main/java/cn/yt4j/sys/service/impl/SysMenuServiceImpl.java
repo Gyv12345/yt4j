@@ -15,7 +15,6 @@ import cn.yt4j.sys.entity.SysMenu;
 import cn.yt4j.sys.entity.vo.*;
 import cn.yt4j.sys.service.SysMenuService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.apache.commons.collections4.ListUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
