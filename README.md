@@ -4,8 +4,6 @@
 
 [快速开始](doc/develop.md)
 
-**[jenkins运行](doc/cicd.md)** 暂时不能用了，架构改了
-
 <p align="center">
  <img src="https://img.shields.io/badge/Yt4j-1.0.1-success.svg" alt="Build Status">
  <img src="https://img.shields.io/badge/antd%20vue%20pro-3.0.0-green.svg" alt="Build Status">

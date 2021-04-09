@@ -1,10 +1,9 @@
----
-typora-copy-images-to: ..\img
----
 
-> 首先欢迎你尝试yt4j，针对于文档对应视频即将上线
+> 首先欢迎你尝试yt4j
 
+## 视频地址
 
+[视频1](https://www.bilibili.com/video/BV1pK4y1K7YM)
 
 ## 环境说明
 
