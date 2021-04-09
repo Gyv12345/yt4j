@@ -28,7 +28,7 @@ public class FlowTool {
 
 	private Map<String, RuleWorkFlow> flows = new ConcurrentHashMap<>();
 
-	public RuleWorkFlow getByName(String name) throws IOException {
+	public RuleWorkFlow getByName(String name) {
 		if (flows.containsKey(name)) {
 			return flows.get(name);
 		}
@@ -36,7 +36,12 @@ public class FlowTool {
 			String filePath = String.format("flow/" + name + "%s", ".json");
 			ClassPathResource resource = new ClassPathResource(filePath);
 
-			String flowJson = IoUtil.read(resource.getInputStream(),"utf-8");
+			String flowJson = null;
+			try {
+				flowJson = IoUtil.read(resource.getInputStream(),"utf-8");
+			} catch (IOException e) {
+				log.error(e.getMessage(),e);
+			}
 			FlowEntity entity = JSONUtil.toBean(flowJson, FlowEntity.class);
 			RuleWorkFlow rootFlow = buildByEntity(entity);
 			this.flows.put(rootFlow.getName(), rootFlow);

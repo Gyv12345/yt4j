@@ -9,6 +9,7 @@
 package cn.yt4j.flow.util;
 
 import cn.yt4j.flow.work.WorkContext;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
@@ -18,11 +19,13 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
 /**
  * @author gyv12345@163.com
  */
+@Slf4j
 public class ElUtil {
 
 	private static final String ALIAS = "data";
 
 	public static Boolean condition(WorkContext context, String expression) {
+		log.info("条件：[{}]",expression);
 		ExpressionParser parser = new SpelExpressionParser();
 
 		Expression ex = parser.parseExpression(expression);

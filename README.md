@@ -24,7 +24,7 @@
 依赖 | 版本
 ---|---
 Spring Boot | 2.4.x
-Mybatis Plus | 3.4.1
+Mybatis Plus | 3.4.2
 hutool | 5.5.4 
  Spring Cloud | 2020.0.1
  Spring Cloud Alibaba | 2020.1

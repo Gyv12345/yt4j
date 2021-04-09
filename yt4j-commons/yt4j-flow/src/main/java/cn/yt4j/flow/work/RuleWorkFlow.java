@@ -10,6 +10,7 @@ package cn.yt4j.flow.work;
 
 import cn.yt4j.flow.util.ElUtil;
 import cn.yt4j.flow.util.SpringContextHolder;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import java.util.List;
 /**
  * @author gyv12345@163.com
  */
+@Slf4j
 public class RuleWorkFlow extends AbstractWorkFlow {
 
 	private String condition;
@@ -47,6 +49,7 @@ public class RuleWorkFlow extends AbstractWorkFlow {
 	@Override
 	public int execute(WorkContext context) {
 		int status = 0;
+		log.info("执行节点：[{}]",this.getName());
 		if (StringUtils.hasText(this.beanId)) {
 			Work work = SpringContextHolder.getBean(this.beanId);
 			status = work.execute(context);

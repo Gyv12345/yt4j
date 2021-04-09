@@ -1,0 +1,85 @@
+{
+	"id": "0",
+	"name": "测试流程",
+	"nodeList": [
+		{
+			"id": "vlv7pjfq4",
+			"name": "数据接入",
+			"type": "start",
+			"left": "229px",
+			"beanId": "",
+			"top": "167px",
+			"ico": "el-icon-time",
+			"state": "success"
+		},
+		{
+			"id": "j8qu5wqzhi",
+			"name": "小于十岁处理",
+			"type": "task",
+			"left": "228px",
+			"top": "428px",
+			"beanId": "flowDemo1",
+			"ico": "el-icon-odometer",
+			"state": "success"
+		},
+		{
+			"id": "lavcamdfy",
+			"name": "流程结束",
+			"type": "end",
+			"left": "595px",
+			"top": "582px",
+			"beanId": "",
+			"ico": "el-icon-caret-right",
+			"state": "success"
+		},
+		{
+			"id": "odikwwrqie",
+			"name": "接口调用1",
+			"type": "task",
+			"left": "589px",
+			"top": "247px",
+			"beanId": "",
+			"ico": "el-icon-odometer",
+			"state": "success"
+		},
+		{
+			"id": "frnw2m3kbj",
+			"name": "大于十岁处理",
+			"type": "task",
+			"left": "833px",
+			"beanId": "flowDemo2",
+			"top": "400px",
+			"ico": "el-icon-odometer",
+			"state": "success"
+		}
+	],
+	"lineList": [
+		{
+			"from": "vlv7pjfq4",
+			"condition": "",
+			"to": "odikwwrqie"
+		},
+		{
+			"from": "odikwwrqie",
+			"condition": "#data.age<10",
+			"label": "年龄小于10岁",
+			"to": "j8qu5wqzhi"
+		},
+		{
+			"from": "j8qu5wqzhi",
+			"condition": "",
+			"to": "lavcamdfy"
+		},
+		{
+			"from": "odikwwrqie",
+			"condition": "#data.age>10",
+			"label": "年龄大于10岁",
+			"to": "frnw2m3kbj"
+		},
+		{
+			"from": "frnw2m3kbj",
+			"condition": "",
+			"to": "lavcamdfy"
+		}
+	]
+}
