@@ -2,6 +2,8 @@
 
 [配套UI](https://github.com/Gyv12345/yt4j-ui) 
 
+[快速开始](doc/develop.md)
+
 **[jenkins运行](doc/cicd.md)** 暂时不能用了，架构改了
 
 <p align="center">

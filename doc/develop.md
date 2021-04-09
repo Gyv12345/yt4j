@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: ..\img
+---
+
 > 首先欢迎你尝试yt4j，针对于文档对应视频即将上线
 
 
@@ -40,3 +44,20 @@ docker/db/nacos_config.sql nacos配置数据
 127.0.0.1 yt4j-nacos
 ~~~
 
+## 四、启动nacos
+
+![nacos](..\img\5.png)
+
+application.yml中是一些公用的配置，你只需要修改yt4j-sys.yml中的数据库连接地址，账号和密码
+
+## 五、不开启Plumelog
+
+![Plumelog](..\img\6.png)
+
+将配置文件中配置项注释掉即可
+
+## 六、启动项目
+
+现在你可以启动项目了，yt4j现在比较简陋，将gateway和sys启动，服务端就已经启动起来了
+
+前端使用yarn run serve 命令进行启动
