@@ -105,6 +105,3 @@ IID=$(docker images | grep "$REPOSITORY" | awk '{print $3}')
 docker build -t $REPOSITORY .
 docker run -d -p 80:80 -p 443:443 --name $CONTAINNER $REPOSITORY
 ~~~
-
-
-

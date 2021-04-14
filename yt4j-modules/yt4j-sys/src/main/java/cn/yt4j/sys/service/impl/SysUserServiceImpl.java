@@ -182,12 +182,6 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 	}
 
 	@Override
-	public List<SysUser> page(SysUser user) {
-
-		return null;
-	}
-
-	@Override
 	public Boolean resetPassword(Long id) {
 		SysUser user = new SysUser();
 		user.setId(id);

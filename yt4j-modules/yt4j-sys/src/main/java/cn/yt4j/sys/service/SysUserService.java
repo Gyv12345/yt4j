@@ -26,10 +26,12 @@ import java.util.List;
  */
 public interface SysUserService extends IService<SysUser> {
 
+
 	/**
 	 * 登录
-	 * @param dto
-	 * @return
+	 *
+	 * @param dto dto
+	 * @return {@link String}
 	 */
 	String login(UserDTO dto);
 
@@ -72,13 +74,6 @@ public interface SysUserService extends IService<SysUser> {
 	 * @return
 	 */
 	SysUser one(Long id);
-
-	/**
-	 * 分页查询
-	 * @param user
-	 * @return
-	 */
-	List<SysUser> page(SysUser user);
 
 	/**
 	 * 重置用户密码
