@@ -25,7 +25,7 @@ Spring Boot | 2.4.x
 Mybatis Plus | 3.4.2
 hutool | 5.5.4 
  Spring Cloud | 2020.0.1
- Spring Cloud Alibaba | 2020.1
+ Spring Cloud Alibaba | 2021.1
  knife4j |  3.0.2
 
 ## 模块说明
@@ -35,6 +35,7 @@ yt4j
 ├─yt4j-commons 公共模块
 │  ├─yt4j-core 核心包
 │  ├─yt4j-data mybatis-plus设置
+│  ├─yt4j-flow 复杂业务流程处理
 │  ├─yt4j-job xxl-job
 │  ├─yt4j-log 统一日志
 │  ├─yt4j-security 安全相关
