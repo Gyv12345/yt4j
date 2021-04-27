@@ -3,8 +3,7 @@
 
 ## 视频地址
 
-[视频1](https://www.bilibili.com/video/BV1pK4y1K7YM)
-[视频2](https://www.bilibili.com/video/bv1Mb4y1D7TX)
+[视频](https://www.bilibili.com/video/BV1J64y1U7r2/)
 
 ## 环境说明
 
