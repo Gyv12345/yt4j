@@ -19,7 +19,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>yt4j-sys</module>
-        <module>yt4j-mini</module>
+        <module>yt4j-auth</module>
     </modules>
 
     <artifactId>yt4j-modules</artifactId>

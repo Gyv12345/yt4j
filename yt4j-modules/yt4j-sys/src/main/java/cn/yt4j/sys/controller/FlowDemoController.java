@@ -8,6 +8,7 @@
 
 package cn.yt4j.sys.controller;
 
+import cn.yt4j.core.constant.RedisConstants;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.flow.work.FlowTool;
 import cn.yt4j.flow.work.WorkContext;
@@ -17,6 +18,7 @@ import cn.yt4j.sys.entity.dto.FlowTestDTO;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,10 +38,18 @@ public class FlowDemoController {
 
     private final FlowTool flowTool;
 
+    private final RedisTemplate<String,String> redisTemplate;
+
     @GetMapping("test")
     public R test(FlowTestDTO info, HttpServletRequest request){
         WorkContext context=new WorkContext(info,new SysUser());
         flowTool.getByName("test").execute(context);
         return R.ok(context.getResponse());
+    }
+
+    @GetMapping("message")
+    public R message(){
+        redisTemplate.convertAndSend(RedisConstants.MESSAGE_TOPIC,"hello world");
+        return R.ok();
     }
 }

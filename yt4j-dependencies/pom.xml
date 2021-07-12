@@ -14,7 +14,7 @@
     <groupId>cn.yt4j</groupId>
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <artifactId>yt4j-dependencies</artifactId>
 
@@ -29,6 +29,8 @@
         <dingding.version>1.0.1</dingding.version>
         <plumelog.version>3.3</plumelog.version>
         <xxl-job.version>2.3.0</xxl-job.version>
+        <netty.websocket.version>0.10.0</netty.websocket.version>
+        <rocketmq-spring-boot-starter-version>2.2.0</rocketmq-spring-boot-starter-version>
     </properties>
 
     <dependencyManagement>
@@ -103,6 +105,16 @@
                 <groupId>com.xuxueli</groupId>
                 <artifactId>xxl-job-core</artifactId>
                 <version>${xxl-job.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.yeauty</groupId>
+                <artifactId>netty-websocket-spring-boot-starter</artifactId>
+                <version>${netty.websocket.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq-spring-boot-starter-version}</version>
             </dependency>
             <!-- 2方库 -->
             <dependency>
