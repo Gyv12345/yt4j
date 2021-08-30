@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpm code="flow.test" name="test" type="process" description="This is test demo.">
+  <var name="num" description="入参" dataType="java.lang.Double" inOutType="param"></var>
+  <var name="numSqrt" description="开根号结果" dataType="java.lang.Double" inOutType="return"></var>
+  <start id="1" name="开始" g="115,16,30,30">
+    <transition to="17" g=":-15,20"></transition>
+  </start>
+  <decision id="1626142456475" name="decision" g="175,195,90,50"></decision>
+  <end id="11" name="结束" g="115,411,30,30"></end>
+  <subBpm id="1626142616341" name="subBpm" waitForCompletion="false" waitForTrigger="false" g="645,190,90,50"></subBpm>
+  <autoTask id="17" name="计算平方根" g="424,249,88,48">
+    <transition to="11" g=":-15,20"></transition>
+    <action type="java">
+      <actionHandle clazz="java.lang.Math" method="sqrt">
+        <var name="input" dataType="java.lang.Double" contextVarName="num" inOutType="param"></var>
+        <var name="output" dataType="java.lang.Double" contextVarName="numSqrt" inOutType="return"></var>
+      </actionHandle>
+    </action>
+  </autoTask>
+  <continue id="1626142665230" name="continue" g="330,170,80,40"></continue>
+  <scriptTask id="1626142606663" name="script" g="335,380,90,50"></scriptTask>
+  <autoTask id="1626142454257" name="auto" g="275,95,90,50">
+    <transition to="1626142456475"></transition>
+  </autoTask>
+  <break id="1626142652632" name="break" g="25,175,80,40"></break>
+</bpm>

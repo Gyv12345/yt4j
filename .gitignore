@@ -8,5 +8,5 @@ target/
 *.iws
 *.iml
 *.ipr
-/logs
+/logs/
 /yt4j-modules/yt4j-sys/logs

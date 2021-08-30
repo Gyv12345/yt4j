@@ -9,7 +9,7 @@ services:
     container_name: yt4j-mysql
     image: yt4j-mysql
     ports:
-      - 3306:3306
+      - "3306:3306"
     command: --lower_case_table_names=1
   yt4j-nacos:
     image: nacos/nacos-server:latest
@@ -20,7 +20,7 @@ services:
       - ./nacos/logs:/home/nacos/logs
       - ./nacos/custom.properties:/home/nacos/init.d/custom.properties
     ports:
-      - 8848:8848
+      - "8848:8848"
     restart: always
     depends_on:
       - yt4j-mysql
@@ -29,7 +29,7 @@ services:
     image: redis
     restart: always
     ports:
-      - 6379:6379
+      - "6379:6379"
   yt4j-gateway:
     build:
       context: ../yt4j-gateway
@@ -37,7 +37,7 @@ services:
     container_name: yt4j-gateway
     restart: always
     ports:
-      - 8888:8888
+      - "8888:8888"
     depends_on:
       - yt4j-nacos
   yt4j-sys:
@@ -47,7 +47,7 @@ services:
     container_name: yt4j-sys
     restart: always
     ports:
-      - 9100:9100
+      - "9100:9100"
     depends_on:
       - yt4j-nacos
 networks:

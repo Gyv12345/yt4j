@@ -14,6 +14,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -50,6 +51,7 @@ public class SysUser extends Model<SysUser> {
 	@ApiModelProperty(value = "用户名")
 	private String username;
 
+	@JsonProperty
 	@ApiModelProperty(value = "密码")
 	private String password;
 
