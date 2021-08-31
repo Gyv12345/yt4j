@@ -63,7 +63,7 @@
 	<!-- expand：整合其他链路插件，启用这个字段 expand=“sleuth” 表示整合springcloud.sleuth- -->
 	<appender name="plumelog" class="com.plumelog.logback.appender.RedisAppender">
 		<appName>${project.artifactId}</appName>
-		<redisHost>127.0.0.1</redisHost>
+		<redisHost>yt4j-redis</redisHost>
 		<redisPort>6379</redisPort>
 		<runModel>2</runModel>
 		<expand>sleuth</expand>

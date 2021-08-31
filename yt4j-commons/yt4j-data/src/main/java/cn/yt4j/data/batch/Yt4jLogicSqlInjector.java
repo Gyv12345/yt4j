@@ -10,6 +10,7 @@ package cn.yt4j.data.batch;
 
 import com.baomidou.mybatisplus.core.injector.AbstractMethod;
 import com.baomidou.mybatisplus.core.injector.DefaultSqlInjector;
+import com.baomidou.mybatisplus.core.metadata.TableInfo;
 
 import java.util.List;
 
@@ -23,8 +24,8 @@ public class Yt4jLogicSqlInjector extends DefaultSqlInjector {
 	 * @return
 	 */
 	@Override
-	public List<AbstractMethod> getMethodList(Class<?> mapperClass) {
-		List<AbstractMethod> methodList = super.getMethodList(mapperClass);
+	public List<AbstractMethod> getMethodList(Class<?> mapperClass, TableInfo tableInfo) {
+		List<AbstractMethod> methodList = super.getMethodList(mapperClass,tableInfo);
 		methodList.add(new Yt4jInsertBatch());
 		return methodList;
 	}
