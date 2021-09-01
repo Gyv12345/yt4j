@@ -5,24 +5,29 @@
     <parent>
         <artifactId>yt4j-modules</artifactId>
         <groupId>cn.yt4j</groupId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>yt4j-novel</artifactId>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
     <dependencies>
+
         <dependency>
-            <groupId>cn.yt4j</groupId>
-            <artifactId>yt4j-data</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+
         <dependency>
-            <groupId>cn.yt4j</groupId>
-            <artifactId>yt4j-job</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
     </dependencies>
 
