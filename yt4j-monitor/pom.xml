@@ -21,6 +21,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>yt4j-log-server</module>
+        <module>yt4j-admin-server</module>
     </modules>
 
     <properties>

@@ -6,8 +6,6 @@ import cn.yt4j.novel.service.NovelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 /**
  * @author gyv12
  */
