@@ -19,15 +19,13 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * @author gyv12345@163.com
- *
+ *        @Override
+ *    public void addCorsMappings(CorsRegistry registry) {
+ * 		registry.addMapping("/**").allowedMethods("*");
+ *    }
  */
 @Configuration
 public class Yt4jWebConfig implements WebMvcConfigurer {
-
-	@Override
-	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**").allowedMethods("*");
-	}
 
 	/**
 	 * 增加GET请求参数中时间类型转换

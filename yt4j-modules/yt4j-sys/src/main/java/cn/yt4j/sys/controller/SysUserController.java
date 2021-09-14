@@ -70,6 +70,7 @@ public class SysUserController {
 		return R.ok(this.sysUserService.updatePassword(dto));
 	}
 
+	@SysLog("登录")
 	@ApiOperation("获取用户信息")
 	@GetMapping("info")
 	public R<UserInfo> getInfo() {

@@ -24,10 +24,12 @@ import org.springframework.core.io.ClassPathResource;
 @Configuration
 public class RsaConfig {
 
+	private final String PK="rsaKey/private.key";
+
 	@SneakyThrows
 	@Bean
 	public RSA create() {
-		ClassPathResource resource = new ClassPathResource("rsaKey/private.key");
+		ClassPathResource resource = new ClassPathResource(PK);
 
 		String privateKey = IoUtil.read(resource.getInputStream(),"utf-8");
 		return new RSA(StrUtil.cleanBlank(privateKey), null);

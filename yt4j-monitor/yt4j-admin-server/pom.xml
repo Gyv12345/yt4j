@@ -43,10 +43,6 @@
             <artifactId>plumelog-logback</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.plumelog</groupId>
-            <artifactId>plumelog-trace</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
