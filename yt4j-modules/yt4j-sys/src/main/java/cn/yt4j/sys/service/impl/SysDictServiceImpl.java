@@ -37,14 +37,12 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictDao, SysDict> impleme
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Boolean insert(SysDict dict) {
-
 		return this.baseMapper.insert(dict) > 0;
 	}
 
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Boolean update(SysDict dict) {
-
 		return this.baseMapper.updateById(dict) > 0;
 	}
 

@@ -9,7 +9,6 @@
 package cn.yt4j.sys.service;
 
 import cn.yt4j.sys.entity.SysMenu;
-import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.entity.vo.MenuTreeVO;
 import cn.yt4j.sys.entity.vo.Route;
 import cn.yt4j.sys.entity.vo.TopMenuVO;

@@ -1,4 +1,4 @@
-# Yt4j-cloud
+# Yt4j
 
 [配套UI](https://github.com/Gyv12345/yt4j-ui) 
 
@@ -24,9 +24,9 @@
 Spring Boot | 2.5.x
 Mybatis Plus | 3.4.3
 hutool | 5.7.x 
- Spring Cloud | 2020.0.1
+ Spring Cloud | 2020.0.4
  Spring Cloud Alibaba | 2021.1
- knife4j |  3.0.2
+ knife4j |  3.0.3
 
 ## 模块说明
 
