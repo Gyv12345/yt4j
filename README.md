@@ -1,6 +1,6 @@
 # Yt4j
 
-[配套UI](https://github.com/Gyv12345/yt4j-ui) 
+ui部分想要重做了
 
 [快速开始](doc/develop.md)
 
