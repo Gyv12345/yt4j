@@ -12,7 +12,6 @@ import cn.yt4j.core.constant.RedisConstants;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.flow.work.FlowTool;
 import cn.yt4j.flow.work.WorkContext;
-import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.entity.SysUser;
 import cn.yt4j.sys.entity.dto.FlowTestDTO;
 import io.swagger.annotations.Api;

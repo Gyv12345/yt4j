@@ -4,10 +4,9 @@ ui部分想要重做了
 
 [快速开始](doc/develop.md)
 
-<p align="center">
+<p>
  <img src="https://img.shields.io/badge/Yt4j-1.0.1-success.svg" alt="Build Status">
- <img src="https://img.shields.io/badge/antd%20vue%20pro-3.0.0-green.svg" alt="Build Status">
- <img src="https://img.shields.io/badge/spring%20boot-2.4.X-blue" alt="Coverage Status">
+ <img src="https://img.shields.io/badge/spring%20boot-2.5.X-blue" alt="Coverage Status">
 </p>
 
 
@@ -42,11 +41,11 @@ yt4j
 │  ├─yt4j-swagger 引入了军刀
 │  └─yt4j-web web定义相关
 ├─yt4j-dependencies 依赖管理
-├─yt4j-gateway 项目网关
+├─yt4j-gateway 项目网关 【8888】
 ├─yt4j-modules 业务模块
 │  └─yt4j-sys 基础系统【9100】
 ├─yt4j-monitor 监控模块
-│  ├─yt4j-log-server 统一日志服务端、ui Plumelog项目中服务端直接搬过来了方便开发
+│  ├─yt4j-admin-server spring boot admin
 ```
 
 ## 代码生成

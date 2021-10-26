@@ -22,6 +22,6 @@
     <select id="listByUserId" resultType="java.lang.String">
         select t1.code from sys_role t1
         inner join sys_user_role t2 on t1.id = t2.role_id
-        where t2 .user_id=#{id}
+        where t2.user_id=#{id}
     </select>
 </mapper>

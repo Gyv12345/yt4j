@@ -19,10 +19,6 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * @author gyv12345@163.com
- *        @Override
- *    public void addCorsMappings(CorsRegistry registry) {
- * 		registry.addMapping("/**").allowedMethods("*");
- *    }
  */
 @Configuration
 public class Yt4jWebConfig implements WebMvcConfigurer {

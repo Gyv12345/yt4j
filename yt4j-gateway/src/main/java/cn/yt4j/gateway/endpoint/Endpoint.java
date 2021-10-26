@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * 前端启动直接构建websocket连接，各个系统可以通过redis发布订阅的方式，直接将消息放到
  * @author gyv12345@163.com
  */
 @Slf4j

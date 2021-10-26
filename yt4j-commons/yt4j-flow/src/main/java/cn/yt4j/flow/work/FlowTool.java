@@ -9,6 +9,7 @@
 package cn.yt4j.flow.work;
 
 import cn.hutool.core.io.IoUtil;
+import cn.hutool.core.util.CharsetUtil;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
@@ -38,7 +39,7 @@ public class FlowTool {
 
 			String flowJson = null;
 			try {
-				flowJson = IoUtil.read(resource.getInputStream(),"utf-8");
+				flowJson = IoUtil.read(resource.getInputStream(), CharsetUtil.charset("utf-8"));
 			} catch (IOException e) {
 				log.error(e.getMessage(),e);
 			}

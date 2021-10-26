@@ -1,6 +1,7 @@
 package cn.yt4j.gateway.config;
 
 import cn.yt4j.core.constant.RedisConstants;
+import cn.yt4j.gateway.endpoint.Endpoint;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,10 +28,11 @@ public class RedisListenerConfig {
         container.setConnectionFactory(redisConnectionFactory);
         container.addMessageListener((message, bytes) -> {
             log.warn("监听到redis");
-            String body=String.valueOf( message.getBody());
-            String bytess=String.valueOf(bytes);
+            String body=new String(message.getBody());
+            String bytess=new String(bytes);
             log.info("body:[{}]", body);
             log.info("bytes:[{}]", bytess);
+            Endpoint.concurrentHashMap.get("1").sendText(body);
         }, new ChannelTopic(RedisConstants.MESSAGE_TOPIC));
         return container;
     }
