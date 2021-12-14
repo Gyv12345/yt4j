@@ -36,6 +36,20 @@
         <spring-boot-admin.version>2.5.2</spring-boot-admin.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>阿里云公共仓库</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <dependencyManagement>
         <dependencies>
             <!--项目依赖-->
