@@ -25,20 +25,6 @@ import java.util.List;
 public interface SysDictService extends IService<SysDict> {
 
 	/**
-	 * 添加
-	 * @param dict
-	 * @return
-	 */
-	Boolean insert(SysDict dict);
-
-	/**
-	 * 修改
-	 * @param dict
-	 * @return
-	 */
-	Boolean update(SysDict dict);
-
-	/**
 	 * 远程字典
 	 * @param code
 	 * @return

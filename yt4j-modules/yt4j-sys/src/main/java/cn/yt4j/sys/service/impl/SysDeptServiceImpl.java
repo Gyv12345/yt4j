@@ -35,7 +35,7 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptDao, SysDept> impleme
 
 	@Override
 	public List<BaseTree> treeDept() {
-		return TreeUtil.buildByRecursive(Optional.ofNullable(this.baseMapper.selectList(new QueryWrapper<>()))
+		return TreeUtil.buildByRecursive(Optional.ofNullable(this.list())
 				.orElse(new ArrayList<>()).stream().map(sysDept -> {
 					BaseTree tree = new BaseTree();
 					tree.setId(sysDept.getId());

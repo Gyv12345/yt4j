@@ -36,21 +36,9 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictDao, SysDict> impleme
 
 	private final SysDictItemDao sysDictItemDao;
 
-	@Transactional(rollbackFor = Exception.class)
-	@Override
-	public Boolean insert(SysDict dict) {
-		return this.baseMapper.insert(dict) > 0;
-	}
-
-	@Transactional(rollbackFor = Exception.class)
-	@Override
-	public Boolean update(SysDict dict) {
-		return this.baseMapper.updateById(dict) > 0;
-	}
-
 	@Override
 	public List<SysDictItem> listByCode(String code) {
-		return sysDictItemDao.selectList(Wrappers.<SysDictItem>query().lambda().eq(SysDictItem::getCode, code));
+		return sysDictItemDao.selectList(Wrappers.<SysDictItem>lambdaQuery().eq(SysDictItem::getCode, code));
 	}
 
 }

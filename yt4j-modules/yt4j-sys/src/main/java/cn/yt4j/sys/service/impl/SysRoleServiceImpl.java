@@ -41,9 +41,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRole> impleme
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Boolean setting(RoleMenuDTO dto) {
-
-		this.sysRoleMenuDao.delete(Wrappers.<SysRoleMenu>query().lambda().eq(SysRoleMenu::getRoleId, dto.getRoleId()));
-
+		this.sysRoleMenuDao.delete(Wrappers.<SysRoleMenu>lambdaQuery().eq(SysRoleMenu::getRoleId, dto.getRoleId()));
 		this.sysRoleMenuDao.batchAdd(dto.getMenuIds(), dto.getRoleId());
 		return Boolean.TRUE;
 	}
@@ -56,7 +54,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRole> impleme
 
 	@Override
 	public List<DictVO> dropDown() {
-		return this.baseMapper.selectList(null).stream().map(sysRole -> {
+		return this.list().stream().map(sysRole -> {
 			DictVO vo = new DictVO();
 			vo.setLabel(sysRole.getName());
 			vo.setValue(String.valueOf(sysRole.getId()));

@@ -86,7 +86,7 @@ public class SysDictController {
 	@ApiOperation("添加")
 	@PostMapping("insert")
 	public R insert(@RequestBody SysDict sysDict) {
-		return R.ok(this.sysDictService.insert(sysDict));
+		return R.ok(this.sysDictService.save(sysDict));
 	}
 
 	/**
@@ -97,7 +97,7 @@ public class SysDictController {
 	@ApiOperation("修改")
 	@PutMapping("update")
 	public R update(@RequestBody SysDict sysDict) {
-		return R.ok(this.sysDictService.update(sysDict));
+		return R.ok(this.sysDictService.updateById(sysDict));
 	}
 
 	/**

@@ -73,7 +73,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 	@Override
 	public String login(UserDTO dto) {
 		SysUser user = this.baseMapper
-				.selectOne(Wrappers.<SysUser>query().lambda().eq(SysUser::getUsername, dto.getUsername()));
+				.selectOne(Wrappers.<SysUser>lambdaQuery().eq(SysUser::getUsername, dto.getUsername()));
 		if (ObjectUtil.isNull(user)) {
 			throw new BadCredentialsException("用户名或密码错误");
 		}
@@ -125,14 +125,14 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 		List<Permissions> permissionsList = new ArrayList<>();
 
 		// 查询用户，查询用户的菜单，获取菜单下按钮权限
-		SysUser user = this.baseMapper.selectById(id);
+		SysUser user = this.getById(id);
 		List<SysMenu> menus = this.sysMenuDao.listMenuByUserId(id);
 		menus.forEach(sysMenu -> {
 			Permissions permissions = new Permissions();
 			permissions.setPermissionId(sysMenu.getPermission());
 			permissions.setPermissionName(sysMenu.getPermission());
 			permissions.setActionEntitySet(this.sysMenuDao
-					.selectList(Wrappers.<SysMenu>query().lambda().eq(SysMenu::getParentId, sysMenu.getId())).stream()
+					.selectList(Wrappers.<SysMenu>lambdaQuery().eq(SysMenu::getParentId, sysMenu.getId())).stream()
 					.map(menu -> {
 						ActionEntitySet set = new ActionEntitySet();
 						set.setAction(menu.getPermission());
@@ -156,7 +156,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 	public Boolean insert(SysUser user) {
 		user.setPassword(encoder.encode(user.getPassword()));
 		user.setState(true);
-		this.baseMapper.insert(user);
+		this.save(user);
 		if (ObjectUtil.isNotNull(user.getRoleIds())) {
 			this.sysUserRoleDao.batchAdd(user.getId(), user.getRoleIds());
 		}
@@ -170,15 +170,15 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 		if (ObjectUtil.isNotNull(user.getRoleIds())) {
 			this.sysUserRoleDao.batchAdd(user.getId(), user.getRoleIds());
 		}
-		this.baseMapper.updateById(user);
+		this.updateById(user);
 		return Boolean.TRUE;
 	}
 
 	@Override
 	public SysUser one(Long id) {
-		SysUser user = this.baseMapper.selectById(id);
+		SysUser user = this.getById(id);
 		user.setRoleIds(
-				this.sysUserRoleDao.selectList(new LambdaQueryWrapper<SysUserRole>().eq(SysUserRole::getUserId, id))
+				this.sysUserRoleDao.selectList(Wrappers.<SysUserRole>lambdaQuery().eq(SysUserRole::getUserId, id))
 						.stream().map(SysUserRole::getRoleId).collect(Collectors.toList()));
 		return user;
 	}
@@ -188,7 +188,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 		SysUser user = new SysUser();
 		user.setId(id);
 		user.setPassword(encoder.encode("123456"));
-		this.baseMapper.updateById(user);
+		this.updateById(user);
 		return Boolean.TRUE;
 	}
 
