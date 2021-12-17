@@ -29,9 +29,9 @@ public class RedisListenerConfig {
         container.addMessageListener((message, bytes) -> {
             log.warn("监听到redis");
             String body=new String(message.getBody());
-            String bytess=new String(bytes);
+            String bs=new String(bytes);
             log.info("body:[{}]", body);
-            log.info("bytes:[{}]", bytess);
+            log.info("bytes:[{}]", bs);
             Endpoint.concurrentHashMap.get("1").sendText(body);
         }, new ChannelTopic(RedisConstants.MESSAGE_TOPIC));
         return container;
