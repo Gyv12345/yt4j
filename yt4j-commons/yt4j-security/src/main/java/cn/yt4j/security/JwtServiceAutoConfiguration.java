@@ -56,7 +56,7 @@ public class JwtServiceAutoConfiguration {
 		// 指定要序列化的域，field,get和set,以及修饰符范围，ANY是都有包括private和public
 		objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
 		// 存储对象类名
-		// 指定序列化输入的类型，类必须是非final修饰的，final修饰的类，比如String,Integer等会跑出异常
+		// 指定序列化输入的类型，类必须是非final修饰的，final修饰的类，比如String,Integer等会报出异常
 		objectMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance, ObjectMapper.DefaultTyping.NON_FINAL);
 		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 		objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
