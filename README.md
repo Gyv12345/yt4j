@@ -72,3 +72,8 @@ interceptor.addInnerInterceptor(new PreviewInterceptor(false));
 
 ## 复杂流程设计器
 最近在疯狂的看规则引擎，但是发现还是比较复杂的，而且可能不是自己想要的效果，我其实只是想要一个将业务流程画出来的东西，然后让代码按照流程去走，有些流程节点可以进行复用，所以在网上找了找，找到了一个前端项目，非常的惊喜，因为前端就是我想要的，自己写了一套后台，最后想要以stater的方式引入到项目中来
+
+## 感谢 JetBrains 免费的开源授权
+
+<a href="https://www.jetbrains.com/?from=yt4j" target="_blank">
+<img src="https://user-images.githubusercontent.com/1787798/69898077-4f4e3d00-138f-11ea-81f9-96fb7c49da89.png" height="200"/></a>
