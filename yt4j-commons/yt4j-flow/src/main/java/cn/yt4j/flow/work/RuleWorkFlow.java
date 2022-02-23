@@ -17,6 +17,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author gyv12345@163.com
@@ -49,7 +50,7 @@ public class RuleWorkFlow extends AbstractWorkFlow {
 	}
 
 	@Override
-	public int execute(WorkContext context) {
+	public int execute(Map<String,Object> context) {
 		int status = 0;
 		log.info("执行节点：[{}]",this.getName());
 		if (StringUtils.hasText(this.beanId)) {

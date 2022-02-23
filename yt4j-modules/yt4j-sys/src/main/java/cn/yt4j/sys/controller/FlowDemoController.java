@@ -10,6 +10,7 @@
 
 package cn.yt4j.sys.controller;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.yt4j.core.constant.RedisConstants;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.flow.work.FlowTool;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * 简单demo演示
@@ -43,9 +45,9 @@ public class FlowDemoController {
 
     @GetMapping("test")
     public R test(FlowTestDTO info, HttpServletRequest request){
-        WorkContext context=new WorkContext(info,new SysUser());
+        Map<String,Object> context= BeanUtil.beanToMap(info);
         flowTool.getByName("test").execute(context);
-        return R.ok(context.getResponse());
+        return R.ok(context);
     }
 
     @GetMapping("message")

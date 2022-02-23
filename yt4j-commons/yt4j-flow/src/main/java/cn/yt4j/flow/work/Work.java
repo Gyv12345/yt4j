@@ -10,10 +10,12 @@
 
 package cn.yt4j.flow.work;
 
+import java.util.Map;
+
 /**
  * @author gyv12345@163.com
  */
-public interface Work<T, E> {
+public interface Work {
 
 	int NEXT = 1;
 
@@ -24,6 +26,6 @@ public interface Work<T, E> {
 	 * @param context
 	 * @return
 	 */
-	int execute(WorkContext<T, E> context);
+	int execute(Map<String,Object> context);
 
 }

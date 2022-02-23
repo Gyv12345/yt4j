@@ -17,16 +17,18 @@ import cn.yt4j.sys.entity.dto.FlowTestDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 /**
  * @author gyv12345@163.com
  */
 @Slf4j
 @Component
-public class FlowDemo2 implements Work<FlowTestDTO, SysUser> {
+public class FlowDemo2 implements Work {
     @Override
-    public int execute(WorkContext<FlowTestDTO, SysUser> context) {
+    public int execute(Map<String,Object> context) {
         log.info("小于10岁");
-        context.getResponse().setNickName("二花");
+        context.put("nikeName","二花");
         return NEXT;
     }
 }

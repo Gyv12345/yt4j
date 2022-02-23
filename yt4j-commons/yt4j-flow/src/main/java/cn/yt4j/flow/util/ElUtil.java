@@ -18,6 +18,8 @@ import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 
+import java.util.Map;
+
 /**
  * @author gyv12345@163.com
  */
@@ -26,13 +28,13 @@ public class ElUtil {
 
 	private static final String ALIAS = "data";
 
-	public static Boolean condition(WorkContext context, String expression) {
+	public static Boolean condition(Map<String,Object> context, String expression) {
 		log.info("条件：[{}]",expression);
 		ExpressionParser parser = new SpelExpressionParser();
 
 		Expression ex = parser.parseExpression(expression);
 		EvaluationContext ctx = new StandardEvaluationContext();
-		ctx.setVariable(ALIAS, context.getData());
+		ctx.setVariable(ALIAS, context);
 		return ex.getValue(ctx, Boolean.class);
 	}
 
