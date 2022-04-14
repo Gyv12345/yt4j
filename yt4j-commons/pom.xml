@@ -25,7 +25,6 @@
         <module>yt4j-data</module>
         <module>yt4j-security</module>
         <module>yt4j-log</module>
-        <module>yt4j-swagger</module>
         <module>yt4j-job</module>
         <module>yt4j-flow</module>
     </modules>

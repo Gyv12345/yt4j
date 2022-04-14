@@ -14,10 +14,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.yt4j.core.constant.RedisConstants;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.flow.work.FlowTool;
-import cn.yt4j.flow.work.WorkContext;
-import cn.yt4j.sys.entity.SysUser;
 import cn.yt4j.sys.entity.dto.FlowTestDTO;
-import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -30,9 +27,8 @@ import java.util.Map;
 
 /**
  * 简单demo演示
- * @author @author gyv12345@163.com
+ * @author gyv12345@163.com
  */
-@Api(tags = " 业务流程DEMO")
 @Slf4j
 @RequiredArgsConstructor
 @RestController
@@ -43,6 +39,12 @@ public class FlowDemoController {
 
     private final RedisTemplate<String,String> redisTemplate;
 
+    /**
+     * 测试什么
+     * @param info
+     * @param request
+     * @return
+     */
     @GetMapping("test")
     public R test(FlowTestDTO info, HttpServletRequest request){
         Map<String,Object> context= BeanUtil.beanToMap(info);

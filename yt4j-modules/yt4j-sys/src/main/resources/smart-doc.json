@@ -1,0 +1,11 @@
+{
+  "isStrict": false,
+  "outPath": "src/main/resources/static/doc",
+  "packageFilters": "",
+  "projectName": "yt4j",
+  "appToken": "613dc55d6a654cdb90eeaad0bd191b3a",
+  "openUrl": "http://yt4jservice.com:7700/api",
+  "debugEnvName": "测试环境",
+  "replace": true,
+  "debugEnvUrl": "http://yt4jservice.com:7700"
+}

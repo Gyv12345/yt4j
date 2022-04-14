@@ -23,7 +23,6 @@
     <properties>
         <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
         <hutool.version>5.7.14</hutool.version>
-        <knife4j.version>3.0.3</knife4j.version>
         <easy-excel.version>2.2.10</easy-excel.version>
         <jjwt.version>0.11.2</jjwt.version>
         <jasypt.version>2.1.1</jasypt.version>
@@ -50,11 +49,6 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-boot-starter</artifactId>
-                <version>${knife4j.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -144,11 +138,6 @@
             <dependency>
                 <groupId>cn.yt4j</groupId>
                 <artifactId>yt4j-web</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.yt4j</groupId>
-                <artifactId>yt4j-swagger</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

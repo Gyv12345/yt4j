@@ -12,8 +12,6 @@ package cn.yt4j.core.domain;
 
 import cn.yt4j.core.enums.IMessageStatus;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -22,24 +20,30 @@ import org.springframework.http.HttpStatus;
 import java.io.Serializable;
 
 /**
+ * 返回信息
  * @author gyv12345@163.com
  */
 @SuppressWarnings("AlibabaClassNamingShouldBeCamel")
 @ToString(callSuper = true)
 @Getter
 @Setter
-@ApiModel(value = "响应信息")
 public class R<T> implements Serializable {
 
 	private static final long serialVersionUID = -6101337183914807339L;
 
-	@ApiModelProperty("编码")
+	/**
+	 * 编码
+	 */
 	private int status;
 
-	@ApiModelProperty("返回信息")
+	/**
+	 * 返回信息
+	 */
 	private String message;
 
-	@ApiModelProperty("返回数据")
+	/**
+	 * 返回数据
+	 */
 	private T result;
 
 	public static <T> R<T> ok() {

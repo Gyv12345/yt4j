@@ -18,8 +18,6 @@ import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.entity.SysDept;
 import cn.yt4j.sys.service.SysDeptService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +31,6 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-08-10 08:43:51
  */
-@Api(tags = " 部门")
 @Slf4j
 @RequiredArgsConstructor
 @RestController
@@ -50,7 +47,6 @@ public class SysDeptController {
 	 * @return
 	 */
 	@SysLog("获取部门机构树")
-	@ApiOperation("机构树")
 	@GetMapping("tree")
 	public R<List<BaseTree>> treeDept() {
 		return R.ok(this.sysDeptService.treeDept());
@@ -62,7 +58,6 @@ public class SysDeptController {
 	 * @return 所有数据
 	 */
 	@SysLog("部门分页查询")
-	@ApiOperation("分页查询")
 	@GetMapping
 	public R<PageResult<SysDept>> selectAll(SysDept sysDept) {
 		return R.ok(this.sysDeptService.page(PageUtil.page(), new QueryWrapper<>(sysDept)));
@@ -73,7 +68,6 @@ public class SysDeptController {
 	 * @param id 主键
 	 * @return 单条数据
 	 */
-	@ApiOperation("获取单个")
 	@GetMapping("get/{id}")
 	public R<SysDept> selectOne(@PathVariable Serializable id) {
 		return R.ok(this.sysDeptService.getById(id));
@@ -84,7 +78,6 @@ public class SysDeptController {
 	 * @param sysDept 实体对象
 	 * @return 新增结果
 	 */
-	@ApiOperation("添加")
 	@PostMapping("insert")
 	public R insert(@RequestBody SysDept sysDept) {
 		return R.ok(this.sysDeptService.save(sysDept));
@@ -95,7 +88,6 @@ public class SysDeptController {
 	 * @param sysDept 实体对象
 	 * @return 修改结果
 	 */
-	@ApiOperation("修改")
 	@PutMapping("update")
 	public R update(@RequestBody SysDept sysDept) {
 		return R.ok(this.sysDeptService.updateById(sysDept));
@@ -106,7 +98,6 @@ public class SysDeptController {
 	 * @param id 主键结合
 	 * @return 删除结果
 	 */
-	@ApiOperation("删除")
 	@DeleteMapping("delete/{id}")
 	public R delete(@PathVariable Long id) {
 		return R.ok(this.sysDeptService.removeById(id));

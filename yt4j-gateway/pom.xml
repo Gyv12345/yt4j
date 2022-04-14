@@ -30,10 +30,6 @@
                     <artifactId>spring-boot-starter-web</artifactId>
                 </exclusion>
                 <exclusion>
-                    <groupId>com.github.xiaoymin</groupId>
-                    <artifactId>knife4j-spring-boot-starter</artifactId>
-                </exclusion>
-                <exclusion>
                     <groupId>cn.hutool</groupId>
                     <artifactId>hutool-all</artifactId>
                 </exclusion>
@@ -54,10 +50,6 @@
         <dependency>
             <groupId>org.yeauty</groupId>
             <artifactId>netty-websocket-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
         </dependency>
         <!--gateway 网关依赖,内置webflux 依赖-->
         <dependency>

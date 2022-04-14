@@ -18,8 +18,6 @@ import cn.yt4j.sys.entity.dto.RoleMenuDTO;
 import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.service.SysRoleService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,7 +30,6 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-08-10 08:43:34
  */
-@Api(tags = " 角色")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/role")
@@ -43,19 +40,16 @@ public class SysRoleController {
 	 */
 	private final SysRoleService sysRoleService;
 
-	@ApiOperation("获取角色权限")
 	@GetMapping("get/menus/{id}")
 	public R<List<Long>> getMenuIds(@PathVariable Long id) {
 		return R.ok(this.sysRoleService.listMenuIds(id));
 	}
 
-	@ApiOperation("角色下拉菜单")
 	@GetMapping("select")
 	public R<List<DictVO>> dropDown() {
 		return R.ok(this.sysRoleService.dropDown());
 	}
 
-	@ApiOperation("设置权限")
 	@PostMapping("setting")
 	public R<Boolean> setting(@RequestBody RoleMenuDTO dto) {
 		return R.ok(this.sysRoleService.setting(dto));
@@ -66,7 +60,6 @@ public class SysRoleController {
 	 * @param sysRole 查询实体
 	 * @return 所有数据
 	 */
-	@ApiOperation("分页查询")
 	@GetMapping("list")
 	public R<PageResult<SysRole>> selectAll(SysRole sysRole) {
 		return R.ok(this.sysRoleService.page(PageUtil.page(), new QueryWrapper<>(sysRole)));
@@ -77,7 +70,6 @@ public class SysRoleController {
 	 * @param id 主键
 	 * @return 单条数据
 	 */
-	@ApiOperation("获取单个")
 	@GetMapping("get/{id}")
 	public R<SysRole> selectOne(@PathVariable Serializable id) {
 		return R.ok(this.sysRoleService.getById(id));
@@ -88,7 +80,6 @@ public class SysRoleController {
 	 * @param sysRole 实体对象
 	 * @return 新增结果
 	 */
-	@ApiOperation("添加")
 	@PostMapping("insert")
 	public R insert(@RequestBody SysRole sysRole) {
 		return R.ok(this.sysRoleService.save(sysRole));
@@ -99,7 +90,6 @@ public class SysRoleController {
 	 * @param sysRole 实体对象
 	 * @return 修改结果
 	 */
-	@ApiOperation("修改")
 	@PutMapping("update")
 	public R update(@RequestBody SysRole sysRole) {
 		return R.ok(this.sysRoleService.updateById(sysRole));
@@ -110,7 +100,6 @@ public class SysRoleController {
 	 * @param id 主键结合
 	 * @return 删除结果
 	 */
-	@ApiOperation("删除")
 	@DeleteMapping("delete/{id}")
 	public R delete(@PathVariable Long id) {
 		return R.ok(this.sysRoleService.removeById(id));
