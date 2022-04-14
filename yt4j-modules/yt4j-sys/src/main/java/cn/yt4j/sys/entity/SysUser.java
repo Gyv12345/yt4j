@@ -49,6 +49,7 @@ public class SysUser extends Model<SysUser> {
 
 	@Sensitive(type = SensitiveTypeEnum.ID_CARD)
 	private String idCard;
+
 	private String avatar;
 
 	private Integer sex;
@@ -67,6 +68,5 @@ public class SysUser extends Model<SysUser> {
 
 	@TableField(exist = false)
 	private List<Long> roleIds;
-
 
 }

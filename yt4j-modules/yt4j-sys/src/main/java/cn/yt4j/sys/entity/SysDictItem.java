@@ -43,5 +43,4 @@ public class SysDictItem extends Model<SysDictItem> {
 
 	private LocalDateTime updateTime;
 
-
 }

@@ -18,5 +18,6 @@ import lombok.Data;
 @Data
 public class FlowTestDTO {
 
-    private Integer age;
+	private Integer age;
+
 }

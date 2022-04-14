@@ -26,7 +26,6 @@ public interface SysUserService extends IService<SysUser> {
 
 	/**
 	 * 登录
-	 *
 	 * @param dto dto
 	 * @return {@link String}
 	 */

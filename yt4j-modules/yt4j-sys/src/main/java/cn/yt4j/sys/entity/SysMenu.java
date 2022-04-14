@@ -63,5 +63,4 @@ public class SysMenu extends Model<SysMenu> {
 
 	private LocalDateTime updateTime;
 
-
 }

@@ -45,5 +45,4 @@ public class SysRole extends Model<SysRole> {
 
 	private LocalDateTime updateTime;
 
-
 }

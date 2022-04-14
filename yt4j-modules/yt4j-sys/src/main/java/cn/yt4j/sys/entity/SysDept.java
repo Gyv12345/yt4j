@@ -45,5 +45,4 @@ public class SysDept extends Model<SysDept> {
 
 	private LocalDateTime updateTime;
 
-
 }

@@ -27,6 +27,7 @@ import java.util.Map;
 
 /**
  * 简单demo演示
+ *
  * @author gyv12345@163.com
  */
 @Slf4j
@@ -35,26 +36,27 @@ import java.util.Map;
 @RequestMapping("/flow")
 public class FlowDemoController {
 
-    private final FlowTool flowTool;
+	private final FlowTool flowTool;
 
-    private final RedisTemplate<String,String> redisTemplate;
+	private final RedisTemplate<String, String> redisTemplate;
 
-    /**
-     * 测试什么
-     * @param info
-     * @param request
-     * @return
-     */
-    @GetMapping("test")
-    public R test(FlowTestDTO info, HttpServletRequest request){
-        Map<String,Object> context= BeanUtil.beanToMap(info);
-        flowTool.getByName("test").execute(context);
-        return R.ok(context);
-    }
+	/**
+	 * 测试什么
+	 * @param info
+	 * @param request
+	 * @return
+	 */
+	@GetMapping("test")
+	public R test(FlowTestDTO info, HttpServletRequest request) {
+		Map<String, Object> context = BeanUtil.beanToMap(info);
+		flowTool.getByName("test").execute(context);
+		return R.ok(context);
+	}
 
-    @GetMapping("message")
-    public R message(){
-        redisTemplate.convertAndSend(RedisConstants.MESSAGE_TOPIC,"hello world");
-        return R.ok();
-    }
+	@GetMapping("message")
+	public R message() {
+		redisTemplate.convertAndSend(RedisConstants.MESSAGE_TOPIC, "hello world");
+		return R.ok();
+	}
+
 }

@@ -27,7 +27,7 @@ import org.springframework.core.io.ClassPathResource;
 @Configuration
 public class RsaConfig {
 
-	private final String PK="rsaKey/private.key";
+	private final String PK = "rsaKey/private.key";
 
 	@SneakyThrows
 	@Bean

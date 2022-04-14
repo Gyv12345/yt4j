@@ -25,10 +25,12 @@ import java.util.Map;
 @Slf4j
 @Component
 public class FlowDemo1 implements Work {
-    @Override
-    public int execute(Map<String,Object> context) {
-        log.info("大于10岁");
-        context.put("nikeName","网二");
-        return NEXT;
-    }
+
+	@Override
+	public int execute(Map<String, Object> context) {
+		log.info("大于10岁");
+		context.put("nikeName", "网二");
+		return NEXT;
+	}
+
 }

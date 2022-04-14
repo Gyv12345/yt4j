@@ -68,5 +68,4 @@ public class SysDict extends Model<SysDict> {
 	@TableField(exist = false)
 	private List<SysDictItem> items;
 
-
 }
