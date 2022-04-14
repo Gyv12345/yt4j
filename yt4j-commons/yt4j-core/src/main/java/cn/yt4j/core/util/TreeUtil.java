@@ -30,7 +30,7 @@ public class TreeUtil {
 	 * @return
 	 */
 	public <T extends BaseTree> List<T> buildByRecursive(List<T> treeNodes, Object root) {
-		List<T> trees = new ArrayList<T>();
+		List<T> trees = new ArrayList<>();
 		for (T treeNode : treeNodes) {
 			if (root.equals(treeNode.getParentId())) {
 				trees.add(findChildren(treeNode, treeNodes));

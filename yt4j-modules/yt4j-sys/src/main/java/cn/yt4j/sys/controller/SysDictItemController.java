@@ -23,7 +23,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * (SysDictItem)表控制层
+ * 字段项(SysDictItem)表控制层
  *
  * @author gyv12345@163.com
  * @since 2020-09-10 10:29:08
@@ -68,6 +68,11 @@ public class SysDictItemController {
 		return R.ok(this.sysDictItemService.save(sysDictItem));
 	}
 
+	/**
+	 * 批量添加
+	 * @param list
+	 * @return
+	 */
 	@PostMapping("batch/insert")
 	public R<Boolean> batchInsert(@RequestBody List<SysDictItem> list) {
 		return R.ok(this.sysDictItemService.saveBatch(list));

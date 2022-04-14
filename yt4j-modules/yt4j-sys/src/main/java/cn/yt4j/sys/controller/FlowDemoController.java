@@ -53,6 +53,10 @@ public class FlowDemoController {
 		return R.ok(context);
 	}
 
+	/**
+	 * 测试推送消息
+	 * @return
+	 */
 	@GetMapping("message")
 	public R message() {
 		redisTemplate.convertAndSend(RedisConstants.MESSAGE_TOPIC, "hello world");
