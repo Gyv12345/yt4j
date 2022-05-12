@@ -60,7 +60,8 @@ public class SysUserController {
 		return R.ok(this.sysUserService.updatePassword(dto));
 	}
 
-	@SysLog("登录")
+	@SysLog("获取用户信息")
+	@SaCheckRole("super-admin")
 	@GetMapping("info")
 	public R<UserInfo> getInfo() {
 		return R.ok(this.sysUserService.getInfo(Convert.toLong(StpUtil.getLoginId())));

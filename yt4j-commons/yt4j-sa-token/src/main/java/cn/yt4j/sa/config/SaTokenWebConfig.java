@@ -13,7 +13,7 @@ package cn.yt4j.sa.config;
 import cn.dev33.satoken.context.SaHolder;
 import cn.dev33.satoken.filter.SaServletFilter;
 import cn.dev33.satoken.id.SaIdUtil;
-import cn.dev33.satoken.util.SaResult;
+import cn.yt4j.core.domain.R;
 import cn.yt4j.sa.property.SaIgnoredUrlProperty;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -39,7 +39,7 @@ public class SaTokenWebConfig implements WebMvcConfigurer {
                     String token = SaHolder.getRequest().getHeader(SaIdUtil.ID_TOKEN);
                     SaIdUtil.checkToken(token);
                 })
-                .setError(e -> SaResult.error(e.getMessage()))
+                .setError(e -> R.failed(e.getMessage()))
                 ;
     }
 

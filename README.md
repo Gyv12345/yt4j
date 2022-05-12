@@ -1,6 +1,6 @@
 # Yt4j
 
-ui部分想要重做了
+ui部分重做了 
 
 [快速开始](doc/develop.md)
 
@@ -23,9 +23,9 @@ ui部分想要重做了
 Spring Boot | 2.5.x
 Mybatis Plus | 3.4.3
 hutool | 5.7.x 
- Spring Cloud | 2020.0.4
+ Spring Cloud | 2021.0.1
  Spring Cloud Alibaba | 2021.1
- knife4j |  3.0.3
+ smart-doc |  2.4.2
 
 ## 模块说明
 
@@ -37,6 +37,7 @@ yt4j
 │  ├─yt4j-flow 复杂业务流程处理
 │  ├─yt4j-job xxl-job
 │  ├─yt4j-log 统一日志
+│  ├─yt4j-sa-token 安全相关 换了一个框架
 │  ├─yt4j-security 安全相关
 │  ├─yt4j-swagger 引入了军刀
 │  └─yt4j-web web定义相关
