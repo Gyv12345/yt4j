@@ -10,10 +10,10 @@
 
 package cn.yt4j.sys.controller;
 
+import cn.dev33.satoken.stp.StpUtil;
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
-import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.entity.SysMenu;
 import cn.yt4j.sys.entity.vo.MenuTreeVO;
 import cn.yt4j.sys.entity.vo.Route;
@@ -49,7 +49,7 @@ public class SysMenuController {
 	 */
 	@GetMapping("nav/{id}")
 	public R<List<Route>> nav(@PathVariable("id") Long applicationId) {
-		return R.ok(this.sysMenuService.nav(SecurityUtil.getUser().getId(), applicationId));
+		return R.ok(this.sysMenuService.nav(StpUtil.getLoginIdAsLong(), applicationId));
 	}
 
 	/**

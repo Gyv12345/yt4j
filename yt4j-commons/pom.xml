@@ -27,6 +27,7 @@
         <module>yt4j-log</module>
         <module>yt4j-job</module>
         <module>yt4j-flow</module>
+        <module>yt4j-sa-token</module>
     </modules>
 
     <artifactId>yt4j-commons</artifactId>

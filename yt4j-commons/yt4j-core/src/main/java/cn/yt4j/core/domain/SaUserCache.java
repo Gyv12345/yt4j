@@ -8,23 +8,37 @@
  *    See the Mulan PSL v2 for more details.
  */
 
-package cn.yt4j.core.enums;
+package cn.yt4j.core.domain;
+
+import lombok.Data;
+import lombok.ToString;
+
+import java.util.List;
 
 /**
  * @author gyv12345@163.com
  */
-public interface IMessageStatus {
-
-	/**
-	 * 返回code
-	 * @return
-	 */
-	int getCode();
-
-	/**
-	 * 返回信息
-	 * @return
-	 */
-	String getMessage();
-
+@Data
+@ToString
+public class SaUserCache {
+    /**
+     * id
+     */
+    private Long id;
+    /**
+     * 登录名称
+     */
+    private String username;
+    /**
+     * 真实姓名
+     */
+    private String realName;
+    /**
+     * 角色列表
+     */
+    private List<String> roles;
+    /**
+     * 权限列表
+     */
+    private List<String> permissions;
 }

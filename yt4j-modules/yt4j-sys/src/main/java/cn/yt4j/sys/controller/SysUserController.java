@@ -10,19 +10,18 @@
 
 package cn.yt4j.sys.controller;
 
-import cn.hutool.crypto.asymmetric.KeyType;
-import cn.hutool.crypto.asymmetric.RSA;
+import cn.dev33.satoken.annotation.SaCheckRole;
+import cn.dev33.satoken.stp.StpUtil;
+import cn.hutool.core.convert.Convert;
+import cn.yt4j.core.domain.PageRequest;
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
-import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.log.annotation.SysLog;
-import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.entity.SysUser;
+import cn.yt4j.sys.entity.dto.LoginDTO;
 import cn.yt4j.sys.entity.dto.PasswordDTO;
-import cn.yt4j.sys.entity.dto.UserDTO;
 import cn.yt4j.sys.entity.vo.UserInfo;
 import cn.yt4j.sys.service.SysUserService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,18 +37,14 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/user")
 public class SysUserController {
-
 	/**
 	 * 服务对象
 	 */
 	private final SysUserService sysUserService;
 
-	private final RSA rsa;
-
 	@SysLog("登录")
 	@PostMapping("login")
-	public R<String> login(@RequestBody @Valid UserDTO dto) {
-		dto.setPassword(rsa.decryptStr(dto.getPassword(), KeyType.PrivateKey));
+	public R<String> login(@RequestBody @Valid LoginDTO dto) {
 		return R.ok(this.sysUserService.login(dto), "登录成功");
 	}
 
@@ -59,27 +54,27 @@ public class SysUserController {
 		return R.ok("退出成功");
 	}
 
+
 	@PostMapping("update/password")
 	public R<Boolean> updatePassword(@RequestBody @Valid PasswordDTO dto) {
-		dto.setOldPwd(rsa.decryptStr(dto.getOldPwd(), KeyType.PrivateKey));
-		dto.setNewPwd(rsa.decryptStr(dto.getNewPwd(), KeyType.PrivateKey));
 		return R.ok(this.sysUserService.updatePassword(dto));
 	}
 
 	@SysLog("登录")
 	@GetMapping("info")
 	public R<UserInfo> getInfo() {
-		return R.ok(this.sysUserService.getInfo(SecurityUtil.getUser().getId()));
+		return R.ok(this.sysUserService.getInfo(Convert.toLong(StpUtil.getLoginId())));
 	}
 
 	/**
 	 * 分页查询所有数据
-	 * @param sysUser 查询实体
+	 * @param request 查询实体
 	 * @return 所有数据
 	 */
-	@GetMapping("list")
-	public R<PageResult<SysUser>> selectAll(SysUser sysUser) {
-		return R.ok(this.sysUserService.page(PageUtil.page(), new QueryWrapper<>(sysUser)));
+	@SaCheckRole("super-admin")
+	@PostMapping("page")
+	public R<PageResult<SysUser>> listPage(@Valid @RequestBody PageRequest<SysUser> request) {
+		return R.ok(this.sysUserService.page(request.page(), request.wrapper()));
 	}
 
 	/**

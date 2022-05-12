@@ -34,7 +34,7 @@ public class R<T> implements Serializable {
 	/**
 	 * 编码
 	 */
-	private int status;
+	private int code;
 
 	/**
 	 * 返回信息
@@ -93,12 +93,12 @@ public class R<T> implements Serializable {
 	}
 
 	public static <T> R<T> result(T result, IMessageStatus status) {
-		return result(result, status.getStatus(), status.getMessage());
+		return result(result, status.getCode(), status.getMessage());
 	}
 
 	private static <T> R<T> result(T result, int status, String message) {
 		R<T> apiResult = new R<>();
-		apiResult.setStatus(status);
+		apiResult.setCode(status);
 		apiResult.setResult(result);
 		apiResult.setMessage(message);
 		return apiResult;

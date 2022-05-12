@@ -8,23 +8,26 @@
  *    See the Mulan PSL v2 for more details.
  */
 
-package cn.yt4j.core.enums;
+package cn.yt4j.sa.property;
+
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author gyv12345@163.com
  */
-public interface IMessageStatus {
+@Component
+@Data
+@ConfigurationProperties(prefix = "yt4j.sa")
+public class SaIgnoredUrlProperty {
 
 	/**
-	 * 返回code
-	 * @return
+	 * exclude url
 	 */
-	int getCode();
-
-	/**
-	 * 返回信息
-	 * @return
-	 */
-	String getMessage();
+	private List<String> ignoredUrl = new ArrayList<>();
 
 }

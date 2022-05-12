@@ -54,9 +54,13 @@
             <groupId>cn.yt4j</groupId>
             <artifactId>yt4j-core</artifactId>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>cn.yt4j</groupId>-->
+<!--            <artifactId>yt4j-security</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>cn.yt4j</groupId>
-            <artifactId>yt4j-security</artifactId>
+            <artifactId>yt4j-sa-token</artifactId>
         </dependency>
         <dependency>
             <groupId>cn.yt4j</groupId>

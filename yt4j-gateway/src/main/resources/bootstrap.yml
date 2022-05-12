@@ -13,6 +13,8 @@ spring:
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
         file-extension: yml
+        shared-configs:
+          - application.${spring.cloud.nacos.config.file-extension}
 rocketmq:
   consumer:
     message-model: BROADCASTING

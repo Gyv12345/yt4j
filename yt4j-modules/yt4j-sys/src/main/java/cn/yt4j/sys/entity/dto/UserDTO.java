@@ -11,22 +11,29 @@
 package cn.yt4j.sys.entity.dto;
 
 import lombok.Data;
+import lombok.ToString;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
  * @author gyv12345@163.com
  */
 @Data
+@ToString
 public class UserDTO implements Serializable {
 
 	private static final long serialVersionUID = 7380450222422017042L;
 
-	@NotNull
+	/**
+	 * 用户名
+	 */
+	@NotBlank
 	private String username;
-
-	@NotNull
+	/**
+	 * 密码
+	 */
+	@NotBlank
 	private String password;
 
 }

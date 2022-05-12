@@ -8,23 +8,25 @@
  *    See the Mulan PSL v2 for more details.
  */
 
-package cn.yt4j.core.enums;
+package cn.yt4j.sys.entity.dto;
+
+import lombok.Data;
+
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 /**
  * @author gyv12345@163.com
  */
-public interface IMessageStatus {
+@Data
+public class LoginDTO implements Serializable {
 
-	/**
-	 * 返回code
-	 * @return
-	 */
-	int getCode();
+	private static final long serialVersionUID = 7380450222422017042L;
 
-	/**
-	 * 返回信息
-	 * @return
-	 */
-	String getMessage();
+	@NotNull
+	private String username;
+
+	@NotNull
+	private String password;
 
 }

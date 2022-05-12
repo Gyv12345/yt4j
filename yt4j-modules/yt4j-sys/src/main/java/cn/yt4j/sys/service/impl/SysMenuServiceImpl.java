@@ -10,16 +10,22 @@
 
 package cn.yt4j.sys.service.impl;
 
+import cn.dev33.satoken.stp.StpUtil;
 import cn.yt4j.core.util.TreeUtil;
-import cn.yt4j.security.util.SecurityUtil;
 import cn.yt4j.sys.dao.SysMenuDao;
 import cn.yt4j.sys.entity.SysMenu;
-import cn.yt4j.sys.entity.vo.*;
+import cn.yt4j.sys.entity.vo.MenuTreeVO;
+import cn.yt4j.sys.entity.vo.Meta;
+import cn.yt4j.sys.entity.vo.Route;
+import cn.yt4j.sys.entity.vo.TopMenuVO;
 import cn.yt4j.sys.service.SysMenuService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -67,7 +73,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenu> impleme
 
 	@Override
 	public List<TopMenuVO> topMenu() {
-		return this.baseMapper.listTopMenu(SecurityUtil.getUser().getId()).stream().map(sysMenu -> {
+		return this.baseMapper.listTopMenu(StpUtil.getLoginIdAsLong()).stream().map(sysMenu -> {
 			TopMenuVO vo = new TopMenuVO();
 			vo.setTitle(sysMenu.getTitle());
 			vo.setId(sysMenu.getId());

@@ -11,8 +11,8 @@
 package cn.yt4j.sys.service;
 
 import cn.yt4j.sys.entity.SysUser;
+import cn.yt4j.sys.entity.dto.LoginDTO;
 import cn.yt4j.sys.entity.dto.PasswordDTO;
-import cn.yt4j.sys.entity.dto.UserDTO;
 import cn.yt4j.sys.entity.vo.UserInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -29,7 +29,7 @@ public interface SysUserService extends IService<SysUser> {
 	 * @param dto dto
 	 * @return {@link String}
 	 */
-	String login(UserDTO dto);
+	String login(LoginDTO dto);
 
 	/**
 	 * 退出

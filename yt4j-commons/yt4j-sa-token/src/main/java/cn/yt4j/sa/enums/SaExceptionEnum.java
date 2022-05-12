@@ -8,23 +8,25 @@
  *    See the Mulan PSL v2 for more details.
  */
 
-package cn.yt4j.core.enums;
+package cn.yt4j.sa.enums;
+
+import cn.yt4j.core.enums.IMessageStatus;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
  * @author gyv12345@163.com
  */
-public interface IMessageStatus {
+@Getter
+@AllArgsConstructor
+public enum SaExceptionEnum implements IMessageStatus {
 
-	/**
-	 * 返回code
-	 * @return
-	 */
-	int getCode();
+    NOT_ROLE(401, "您无权限进行操作"),
+    NOT_PERMISSION(401, "您无权限进行操作"),
+    ;
 
-	/**
-	 * 返回信息
-	 * @return
-	 */
-	String getMessage();
+    private int code;
+
+    private String message;
 
 }
