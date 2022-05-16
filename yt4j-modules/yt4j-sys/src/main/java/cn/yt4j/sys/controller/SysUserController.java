@@ -37,6 +37,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/user")
 public class SysUserController {
+
 	/**
 	 * 服务对象
 	 */
@@ -53,7 +54,6 @@ public class SysUserController {
 		this.sysUserService.logout();
 		return R.ok("退出成功");
 	}
-
 
 	@PostMapping("update/password")
 	public R<Boolean> updatePassword(@RequestBody @Valid PasswordDTO dto) {

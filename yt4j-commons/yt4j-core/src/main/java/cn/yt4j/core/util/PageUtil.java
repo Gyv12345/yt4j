@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 做的多了，发现这样写还是有问题的，分页查询他们也是用post，基本上Post走遍天下，那这样写就有问题了
+ *
  * @author gyv12345@163.com
  */
 public class PageUtil {

@@ -17,6 +17,6 @@ public interface RedisConstants {
 
 	String USER_TOPIC = "channel:user";
 
-	String MESSAGE_TOPIC="channel:message";
+	String MESSAGE_TOPIC = "channel:message";
 
 }

@@ -42,8 +42,9 @@ public class FlowTool {
 			String flowJson = null;
 			try {
 				flowJson = IoUtil.read(resource.getInputStream(), CharsetUtil.charset("utf-8"));
-			} catch (IOException e) {
-				log.error(e.getMessage(),e);
+			}
+			catch (IOException e) {
+				log.error(e.getMessage(), e);
 			}
 			FlowEntity entity = JSONUtil.toBean(flowJson, FlowEntity.class);
 			RuleWorkFlow rootFlow = buildByEntity(entity);

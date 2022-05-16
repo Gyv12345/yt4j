@@ -29,27 +29,33 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 public class SysDictItem extends Model<SysDictItem> {
+
 	/**
 	 * 主键
 	 */
 	@TableId(value = "id", type = IdType.AUTO)
 	private Long id;
+
 	/**
 	 * 编码
 	 */
 	private String code;
+
 	/**
 	 * 名称
 	 */
 	private String label;
+
 	/**
 	 * 值
 	 */
 	private String value;
+
 	/**
 	 * 创建时间
 	 */
 	private LocalDateTime createTime;
+
 	/**
 	 * 修改时间
 	 */

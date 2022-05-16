@@ -30,6 +30,7 @@ public class UserDTO implements Serializable {
 	 */
 	@NotBlank
 	private String username;
+
 	/**
 	 * 密码
 	 */

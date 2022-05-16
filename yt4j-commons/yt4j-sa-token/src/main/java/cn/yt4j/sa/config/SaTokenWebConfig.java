@@ -27,20 +27,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class SaTokenWebConfig implements WebMvcConfigurer {
 
-    private final SaIgnoredUrlProperty saIgnoredUrlProperty;
+	private final SaIgnoredUrlProperty saIgnoredUrlProperty;
 
-    @Bean
-    public SaServletFilter getSaServletFilter() {
-        return new SaServletFilter()
-                .addInclude("/**")
-                .setExcludeList(saIgnoredUrlProperty.getIgnoredUrl())
-                .setAuth(obj -> {
-                    // 校验 Id-Token 身份凭证     —— 以下两句代码可简化为：SaIdUtil.checkCurrentRequestToken();
-                    String token = SaHolder.getRequest().getHeader(SaIdUtil.ID_TOKEN);
-                    SaIdUtil.checkToken(token);
-                })
-                .setError(e -> R.failed(e.getMessage()))
-                ;
-    }
+	@Bean
+	public SaServletFilter getSaServletFilter() {
+		return new SaServletFilter().addInclude("/**").setExcludeList(saIgnoredUrlProperty.getIgnoredUrl())
+				.setAuth(obj -> {
+					// 校验 Id-Token 身份凭证 —— 以下两句代码可简化为：SaIdUtil.checkCurrentRequestToken();
+					String token = SaHolder.getRequest().getHeader(SaIdUtil.ID_TOKEN);
+					SaIdUtil.checkToken(token);
+				}).setError(e -> R.failed(e.getMessage()));
+	}
 
 }

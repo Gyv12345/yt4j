@@ -20,8 +20,8 @@ ui部分重做了
 
 依赖 | 版本
 ---|---
-Spring Boot | 2.5.x
-Mybatis Plus | 3.4.3
+Spring Boot | 2.6.x
+Mybatis Plus | 3.5.x
 hutool | 5.7.x 
  Spring Cloud | 2021.0.1
  Spring Cloud Alibaba | 2021.1
@@ -39,7 +39,7 @@ yt4j
 │  ├─yt4j-log 统一日志
 │  ├─yt4j-sa-token 安全相关 换了一个框架
 │  ├─yt4j-security 安全相关
-│  ├─yt4j-swagger 引入了军刀
+│  ├─yt4j-swagger 引入了军刀 不用了
 │  └─yt4j-web web定义相关
 ├─yt4j-dependencies 依赖管理
 ├─yt4j-gateway 项目网关 【8888】

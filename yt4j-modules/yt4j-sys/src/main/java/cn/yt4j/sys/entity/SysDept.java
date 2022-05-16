@@ -29,31 +29,38 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 public class SysDept extends Model<SysDept> {
+
 	/**
 	 * 主键
 	 */
 	@TableId(value = "id", type = IdType.AUTO)
 	private Long id;
+
 	/**
 	 * 父级ID
 	 */
 	private Long parentId;
+
 	/**
 	 * 部门名称
 	 */
 	private String label;
+
 	/**
 	 * 排序
 	 */
 	private Integer orderNo;
+
 	/**
 	 * 状态
 	 */
 	private Integer state;
+
 	/**
 	 * 创建时间
 	 */
 	private LocalDateTime createTime;
+
 	/**
 	 * 修改时间
 	 */

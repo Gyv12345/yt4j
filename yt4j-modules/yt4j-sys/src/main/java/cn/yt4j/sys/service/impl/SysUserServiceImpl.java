@@ -73,7 +73,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 				StpUtil.login(user.getId());
 				String token = StpUtil.getTokenValue();
 				SaSession session = StpUtil.getTokenSession();
-				SaUserCache userCache=new SaUserCache();
+				SaUserCache userCache = new SaUserCache();
 				userCache.setId(user.getId());
 				userCache.setUsername(user.getUsername());
 				userCache.setRealName(user.getNickName());

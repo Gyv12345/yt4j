@@ -28,8 +28,8 @@ public class ElUtil {
 
 	private static final String ALIAS = "data";
 
-	public static Boolean condition(Map<String,Object> context, String expression) {
-		log.info("条件：[{}]",expression);
+	public static Boolean condition(Map<String, Object> context, String expression) {
+		log.info("条件：[{}]", expression);
 		ExpressionParser parser = new SpelExpressionParser();
 
 		Expression ex = parser.parseExpression(expression);

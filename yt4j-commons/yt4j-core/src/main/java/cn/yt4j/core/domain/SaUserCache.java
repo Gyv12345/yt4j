@@ -21,24 +21,30 @@ import java.util.List;
 @Data
 @ToString
 public class SaUserCache {
-    /**
-     * id
-     */
-    private Long id;
-    /**
-     * 登录名称
-     */
-    private String username;
-    /**
-     * 真实姓名
-     */
-    private String realName;
-    /**
-     * 角色列表
-     */
-    private List<String> roles;
-    /**
-     * 权限列表
-     */
-    private List<String> permissions;
+
+	/**
+	 * id
+	 */
+	private Long id;
+
+	/**
+	 * 登录名称
+	 */
+	private String username;
+
+	/**
+	 * 真实姓名
+	 */
+	private String realName;
+
+	/**
+	 * 角色列表
+	 */
+	private List<String> roles;
+
+	/**
+	 * 权限列表
+	 */
+	private List<String> permissions;
+
 }

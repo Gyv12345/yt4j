@@ -17,23 +17,24 @@ import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 @Configuration
 public class RedisListenerConfig {
 
-    /**
-     * redis 监听配置
-     * @param redisConnectionFactory redis 配置
-     * @return
-     */
-    @Bean
-    public RedisMessageListenerContainer redisContainer(RedisConnectionFactory redisConnectionFactory) {
-        RedisMessageListenerContainer container = new RedisMessageListenerContainer();
-        container.setConnectionFactory(redisConnectionFactory);
-        container.addMessageListener((message, bytes) -> {
-            log.warn("监听到redis");
-            String body=new String(message.getBody());
-            String bs=new String(bytes);
-            log.info("body:[{}]", body);
-            log.info("bytes:[{}]", bs);
-            Endpoint.concurrentHashMap.get("1").sendText(body);
-        }, new ChannelTopic(RedisConstants.MESSAGE_TOPIC));
-        return container;
-    }
+	/**
+	 * redis 监听配置
+	 * @param redisConnectionFactory redis 配置
+	 * @return
+	 */
+	@Bean
+	public RedisMessageListenerContainer redisContainer(RedisConnectionFactory redisConnectionFactory) {
+		RedisMessageListenerContainer container = new RedisMessageListenerContainer();
+		container.setConnectionFactory(redisConnectionFactory);
+		container.addMessageListener((message, bytes) -> {
+			log.warn("监听到redis");
+			String body = new String(message.getBody());
+			String bs = new String(bytes);
+			log.info("body:[{}]", body);
+			log.info("bytes:[{}]", bs);
+			Endpoint.concurrentHashMap.get("1").sendText(body);
+		}, new ChannelTopic(RedisConstants.MESSAGE_TOPIC));
+		return container;
+	}
+
 }

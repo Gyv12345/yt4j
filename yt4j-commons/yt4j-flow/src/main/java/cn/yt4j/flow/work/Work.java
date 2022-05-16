@@ -26,6 +26,6 @@ public interface Work {
 	 * @param context
 	 * @return
 	 */
-	int execute(Map<String,Object> context);
+	int execute(Map<String, Object> context);
 
 }

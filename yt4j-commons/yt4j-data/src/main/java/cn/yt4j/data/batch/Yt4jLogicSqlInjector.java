@@ -27,7 +27,7 @@ public class Yt4jLogicSqlInjector extends DefaultSqlInjector {
 	 */
 	@Override
 	public List<AbstractMethod> getMethodList(Class<?> mapperClass, TableInfo tableInfo) {
-		List<AbstractMethod> methodList = super.getMethodList(mapperClass,tableInfo);
+		List<AbstractMethod> methodList = super.getMethodList(mapperClass, tableInfo);
 		methodList.add(new Yt4jInsertBatch());
 		return methodList;
 	}

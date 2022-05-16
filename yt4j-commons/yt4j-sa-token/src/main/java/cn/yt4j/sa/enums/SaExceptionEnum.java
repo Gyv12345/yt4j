@@ -21,12 +21,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum SaExceptionEnum implements IMessageStatus {
 
-    NOT_ROLE(401, "您无权限进行操作"),
-    NOT_PERMISSION(401, "您无权限进行操作"),
-    ;
+	NOT_ROLE(401, "您无权限进行操作"), NOT_PERMISSION(401, "您无权限进行操作"),;
 
-    private int code;
+	private int code;
 
-    private String message;
+	private String message;
 
 }

@@ -21,6 +21,7 @@ import java.io.Serializable;
 
 /**
  * 返回信息
+ *
  * @author gyv12345@163.com
  */
 @SuppressWarnings("AlibabaClassNamingShouldBeCamel")
