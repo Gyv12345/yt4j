@@ -16,7 +16,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -35,6 +35,9 @@ import java.util.List;
 @ToString
 public class SysUser extends Model<SysUser> {
 
+	/**
+	 * 主键
+	 */
 	@TableId(value = "id", type = IdType.AUTO)
 	private Long id;
 
@@ -44,7 +47,7 @@ public class SysUser extends Model<SysUser> {
 
 	private String username;
 
-	@JsonProperty
+	@JsonIgnore
 	private String password;
 
 	@Sensitive(type = SensitiveTypeEnum.ID_CARD)

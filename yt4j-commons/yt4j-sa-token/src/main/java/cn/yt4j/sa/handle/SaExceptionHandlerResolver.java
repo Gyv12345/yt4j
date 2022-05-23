@@ -30,7 +30,7 @@ public class SaExceptionHandlerResolver {
 	@ExceptionHandler(NotLoginException.class)
 	public R notLoginException(NotLoginException e) {
 		log.error("异常信息 ex={}", e.getMessage(), e);
-		return R.failed(MessageStatus.ACCESS_FAILED);
+		return R.failed(MessageStatus.LOGIN_FAILED);
 	}
 
 	@ExceptionHandler(NotRoleException.class)
