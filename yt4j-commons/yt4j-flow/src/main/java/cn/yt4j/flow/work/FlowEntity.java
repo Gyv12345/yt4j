@@ -11,14 +11,19 @@
 package cn.yt4j.flow.work;
 
 import lombok.Data;
+import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @author gyv12345@163.com
  */
 @Data
-public class FlowEntity {
+@ToString
+public class FlowEntity implements Serializable {
+
+	private static final long serialVersionUID = 3298691564980761310L;
 
 	private String id;
 

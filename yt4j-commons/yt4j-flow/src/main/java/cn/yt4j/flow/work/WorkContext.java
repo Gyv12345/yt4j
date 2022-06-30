@@ -17,17 +17,17 @@ package cn.yt4j.flow.work;
  */
 public class WorkContext<T extends Object, E extends Object> {
 
-	private T data;
+	private T request;
 
 	private E response;
 
-	public WorkContext(T data, E response) {
-		this.data = data;
+	public WorkContext(T request, E response) {
+		this.request = request;
 		this.response = response;
 	}
 
-	public T getData() {
-		return data;
+	public T getRequest() {
+		return request;
 	}
 
 	public E getResponse() {

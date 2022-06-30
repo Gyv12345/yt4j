@@ -12,8 +12,8 @@ package cn.yt4j.sys.service.impl;
 
 import cn.yt4j.sys.dao.SysDictDao;
 import cn.yt4j.sys.dao.SysDictItemDao;
-import cn.yt4j.sys.entity.SysDict;
-import cn.yt4j.sys.entity.SysDictItem;
+import cn.yt4j.sys.api.entity.SysDict;
+import cn.yt4j.sys.api.entity.SysDictItem;
 import cn.yt4j.sys.service.SysDictService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

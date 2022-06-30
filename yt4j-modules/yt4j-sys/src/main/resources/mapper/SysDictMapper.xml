@@ -12,7 +12,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.yt4j.sys.dao.SysDictDao">
 
-    <resultMap type="cn.yt4j.sys.entity.SysDict" id="SysDictMap">
+    <resultMap type="cn.yt4j.sys.api.entity.SysDict" id="SysDictMap">
         <id property="id" column="id"/>
         <result property="code" column="code"/>
         <result property="name" column="name"/>

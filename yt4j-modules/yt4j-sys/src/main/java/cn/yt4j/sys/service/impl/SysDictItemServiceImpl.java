@@ -11,7 +11,7 @@
 package cn.yt4j.sys.service.impl;
 
 import cn.yt4j.sys.dao.SysDictItemDao;
-import cn.yt4j.sys.entity.SysDictItem;
+import cn.yt4j.sys.api.entity.SysDictItem;
 import cn.yt4j.sys.service.SysDictItemService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

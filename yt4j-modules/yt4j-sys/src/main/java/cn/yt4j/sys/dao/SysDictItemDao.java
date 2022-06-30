@@ -11,8 +11,7 @@
 package cn.yt4j.sys.dao;
 
 import cn.yt4j.data.batch.Yt4jBatchMapper;
-import cn.yt4j.sys.entity.SysDictItem;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import cn.yt4j.sys.api.entity.SysDictItem;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

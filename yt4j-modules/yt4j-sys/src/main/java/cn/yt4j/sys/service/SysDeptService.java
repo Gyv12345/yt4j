@@ -11,7 +11,7 @@
 package cn.yt4j.sys.service;
 
 import cn.yt4j.core.domain.BaseTree;
-import cn.yt4j.sys.entity.SysDept;
+import cn.yt4j.sys.api.entity.SysDept;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

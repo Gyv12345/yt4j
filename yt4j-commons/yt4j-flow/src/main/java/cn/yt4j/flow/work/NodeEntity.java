@@ -11,12 +11,16 @@
 package cn.yt4j.flow.work;
 
 import lombok.Data;
+import lombok.ToString;
+
+import java.io.Serializable;
 
 /**
  * @author gyv12345@163.com
  */
 @Data
-public class NodeEntity {
+@ToString
+public class NodeEntity implements Serializable {
 
 	/**
 	 * 节点ID

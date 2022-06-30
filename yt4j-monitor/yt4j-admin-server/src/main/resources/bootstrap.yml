@@ -11,8 +11,11 @@ spring:
     nacos:
       discovery:
         server-addr: yt4j-nacos:8848
+        namespace: yt4j
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
-        file-extension: yml
-        shared-configs:
-          - application.${spring.cloud.nacos.config.file-extension}
+        namespace: yt4j
+  config:
+    import:
+      - optional:nacos:application.yml
+      - optional:nacos:${spring.application.name}.yml

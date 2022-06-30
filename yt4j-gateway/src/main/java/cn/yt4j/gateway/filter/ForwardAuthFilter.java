@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 /**
  * 全局过滤器，为请求添加 Id-Token
  *
- * @author shichenyang
+ * @author gyv12345@163.com
  */
 @Component
 public class ForwardAuthFilter implements GlobalFilter {

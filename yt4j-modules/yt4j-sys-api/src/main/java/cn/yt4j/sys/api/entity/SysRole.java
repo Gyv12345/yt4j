@@ -8,68 +8,41 @@
  *    See the Mulan PSL v2 for more details.
  */
 
-package cn.yt4j.sys.entity;
+package cn.yt4j.sys.api.entity;
 
-import cn.yt4j.core.sensitive.Sensitive;
-import cn.yt4j.core.sensitive.SensitiveTypeEnum;
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
- * 用户(SysUser)表实体类
+ * 角色(SysRole)表实体类
  *
  * @author gyv12345@163.com
- * @since 2020-08-07 17:11:42
+ * @since 2020-08-10 08:43:33
  */
 @Getter
 @Setter
 @ToString
-public class SysUser extends Model<SysUser> {
+public class SysRole extends Model<SysRole> {
 
-	/**
-	 * 主键
-	 */
 	@TableId(value = "id", type = IdType.AUTO)
 	private Long id;
 
-	private Long deptId;
+	private String name;
 
-	private String nickName;
+	private String code;
 
-	private String username;
+	private Integer level;
 
-	@JsonIgnore
-	private String password;
-
-	@Sensitive(type = SensitiveTypeEnum.ID_CARD)
-	private String idCard;
-
-	private String avatar;
-
-	private Integer sex;
-
-	@Sensitive(type = SensitiveTypeEnum.EMAIL)
-	private String email;
-
-	@Sensitive(type = SensitiveTypeEnum.MOBILE_PHONE)
-	private String phone;
-
-	private Boolean state;
+	private Integer state;
 
 	private LocalDateTime createTime;
 
 	private LocalDateTime updateTime;
-
-	@TableField(exist = false)
-	private List<Long> roleIds;
 
 }

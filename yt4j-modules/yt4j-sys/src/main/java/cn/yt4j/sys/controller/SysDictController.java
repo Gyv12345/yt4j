@@ -14,7 +14,7 @@ import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.log.annotation.SysLog;
-import cn.yt4j.sys.entity.SysDict;
+import cn.yt4j.sys.api.entity.SysDict;
 import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.service.SysDictService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

@@ -8,7 +8,7 @@
  *    See the Mulan PSL v2 for more details.
  */
 
-package cn.yt4j.sys.entity;
+package cn.yt4j.sys.api.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -20,15 +20,15 @@ import lombok.ToString;
 import java.time.LocalDateTime;
 
 /**
- * (SysDictItem)表实体类
+ * 部门(SysDept)表实体类
  *
- * @author makejava
- * @since 2020-08-18 16:44:07
+ * @author gyv12345@163.com
+ * @since 2020-08-10 08:43:50
  */
 @Getter
 @Setter
 @ToString
-public class SysDictItem extends Model<SysDictItem> {
+public class SysDept extends Model<SysDept> {
 
 	/**
 	 * 主键
@@ -37,19 +37,24 @@ public class SysDictItem extends Model<SysDictItem> {
 	private Long id;
 
 	/**
-	 * 编码
+	 * 父级ID
 	 */
-	private String code;
+	private Long parentId;
 
 	/**
-	 * 名称
+	 * 部门名称
 	 */
 	private String label;
 
 	/**
-	 * 值
+	 * 排序
 	 */
-	private String value;
+	private Integer orderNo;
+
+	/**
+	 * 状态
+	 */
+	private Integer state;
 
 	/**
 	 * 创建时间

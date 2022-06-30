@@ -8,7 +8,7 @@
  *    See the Mulan PSL v2 for more details.
  */
 
-package cn.yt4j.sys.entity;
+package cn.yt4j.sys.api.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

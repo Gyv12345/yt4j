@@ -14,7 +14,7 @@ import cn.dev33.satoken.stp.StpUtil;
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
-import cn.yt4j.sys.entity.SysMenu;
+import cn.yt4j.sys.api.entity.SysMenu;
 import cn.yt4j.sys.entity.vo.MenuTreeVO;
 import cn.yt4j.sys.entity.vo.Route;
 import cn.yt4j.sys.entity.vo.TopMenuVO;
@@ -120,6 +120,11 @@ public class SysMenuController {
 	@DeleteMapping("delete/{id}")
 	public R delete(@PathVariable Long id) {
 		return R.ok(this.sysMenuService.removeById(id));
+	}
+
+	@GetMapping("/auth/list")
+	public R<List<String>> listByUserId(@RequestParam Long userId){
+		return R.ok(this.sysMenuService.listByUserId(userId));
 	}
 
 }

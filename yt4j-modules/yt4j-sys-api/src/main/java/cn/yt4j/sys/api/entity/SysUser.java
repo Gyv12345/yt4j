@@ -8,27 +8,32 @@
  *    See the Mulan PSL v2 for more details.
  */
 
-package cn.yt4j.sys.entity;
+package cn.yt4j.sys.api.entity;
 
+import cn.yt4j.core.sensitive.Sensitive;
+import cn.yt4j.core.sensitive.SensitiveTypeEnum;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
- * 部门(SysDept)表实体类
+ * 用户(SysUser)表实体类
  *
  * @author gyv12345@163.com
- * @since 2020-08-10 08:43:50
+ * @since 2020-08-07 17:11:42
  */
 @Getter
 @Setter
 @ToString
-public class SysDept extends Model<SysDept> {
+public class SysUser extends Model<SysUser> {
 
 	/**
 	 * 主键
@@ -36,34 +41,31 @@ public class SysDept extends Model<SysDept> {
 	@TableId(value = "id", type = IdType.AUTO)
 	private Long id;
 
-	/**
-	 * 父级ID
-	 */
-	private Long parentId;
+	private Long deptId;
 
-	/**
-	 * 部门名称
-	 */
-	private String label;
+	private String nickName;
 
-	/**
-	 * 排序
-	 */
-	private Integer orderNo;
+	private String username;
 
-	/**
-	 * 状态
-	 */
-	private Integer state;
+	private String password;
 
-	/**
-	 * 创建时间
-	 */
+	private String idCard;
+
+	private String avatar;
+
+	private Integer sex;
+
+	private String email;
+
+	private String phone;
+
+	private Boolean state;
+
 	private LocalDateTime createTime;
 
-	/**
-	 * 修改时间
-	 */
 	private LocalDateTime updateTime;
+
+	@TableField(exist = false)
+	private List<Long> roleIds;
 
 }

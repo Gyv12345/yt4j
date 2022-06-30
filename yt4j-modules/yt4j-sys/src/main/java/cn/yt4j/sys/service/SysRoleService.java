@@ -10,7 +10,7 @@
 
 package cn.yt4j.sys.service;
 
-import cn.yt4j.sys.entity.SysRole;
+import cn.yt4j.sys.api.entity.SysRole;
 import cn.yt4j.sys.entity.dto.RoleMenuDTO;
 import cn.yt4j.sys.entity.vo.DictVO;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -44,5 +44,12 @@ public interface SysRoleService extends IService<SysRole> {
 	 * @return
 	 */
 	List<DictVO> dropDown();
+
+	/**
+	 * 根据用户ID返回
+	 * @param userId
+	 * @return
+	 */
+	List<String> listByUserId(Long userId);
 
 }

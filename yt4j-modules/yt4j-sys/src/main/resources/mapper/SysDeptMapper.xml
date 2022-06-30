@@ -12,7 +12,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.yt4j.sys.dao.SysDeptDao">
 
-    <resultMap type="cn.yt4j.sys.entity.SysDept" id="SysDeptMap">
+    <resultMap type="cn.yt4j.sys.api.entity.SysDept" id="SysDeptMap">
         <id property="id" column="id"/>
         <result property="parentId" column="parent_id"/>
         <result property="label" column="label"/>

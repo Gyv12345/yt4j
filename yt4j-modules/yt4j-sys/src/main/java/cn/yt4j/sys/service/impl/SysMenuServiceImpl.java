@@ -13,7 +13,7 @@ package cn.yt4j.sys.service.impl;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.yt4j.core.util.TreeUtil;
 import cn.yt4j.sys.dao.SysMenuDao;
-import cn.yt4j.sys.entity.SysMenu;
+import cn.yt4j.sys.api.entity.SysMenu;
 import cn.yt4j.sys.entity.vo.MenuTreeVO;
 import cn.yt4j.sys.entity.vo.Meta;
 import cn.yt4j.sys.entity.vo.Route;
@@ -80,6 +80,11 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenu> impleme
 			vo.setRedirect(sysMenu.getRedirect());
 			return vo;
 		}).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<String> listByUserId(Long userId) {
+		return this.baseMapper.listByUserId(userId);
 	}
 
 }

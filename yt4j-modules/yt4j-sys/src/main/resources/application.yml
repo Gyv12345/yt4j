@@ -1,17 +1,16 @@
 server:
-  port: 8888
+  port: 9100
+
 spring:
   application:
     name: @artifactId@
   cloud:
-    loadbalancer:
-      ribbon:
-        enabled: false
     nacos:
       discovery:
         server-addr: yt4j-nacos:8848
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
-        file-extension: yml
-        shared-configs:
-          - application.${spring.cloud.nacos.config.file-extension}
+  config:
+    import:
+      - optional:nacos:application-common.yml
+      - optional:nacos:${spring.application.name}.yml

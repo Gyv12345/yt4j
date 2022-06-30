@@ -10,7 +10,7 @@
 
 package cn.yt4j.sys.service;
 
-import cn.yt4j.sys.entity.SysMenu;
+import cn.yt4j.sys.api.entity.SysMenu;
 import cn.yt4j.sys.entity.vo.MenuTreeVO;
 import cn.yt4j.sys.entity.vo.Route;
 import cn.yt4j.sys.entity.vo.TopMenuVO;
@@ -45,5 +45,12 @@ public interface SysMenuService extends IService<SysMenu> {
 	 * @return
 	 */
 	List<TopMenuVO> topMenu();
+
+	/**
+	 * 通过用户获取菜单
+	 * @param userId
+	 * @return
+	 */
+	List<String> listByUserId(Long userId);
 
 }

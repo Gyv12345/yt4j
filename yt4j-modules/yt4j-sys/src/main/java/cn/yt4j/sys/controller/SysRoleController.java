@@ -13,7 +13,7 @@ package cn.yt4j.sys.controller;
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
-import cn.yt4j.sys.entity.SysRole;
+import cn.yt4j.sys.api.entity.SysRole;
 import cn.yt4j.sys.entity.dto.RoleMenuDTO;
 import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.service.SysRoleService;
@@ -103,6 +103,11 @@ public class SysRoleController {
 	@DeleteMapping("delete/{id}")
 	public R delete(@PathVariable Long id) {
 		return R.ok(this.sysRoleService.removeById(id));
+	}
+
+	@GetMapping("/auth/list")
+	public R<List<String>> listByUserId(@RequestParam Long userId){
+		return R.ok(this.sysRoleService.listByUserId(userId));
 	}
 
 }

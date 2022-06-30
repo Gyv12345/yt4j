@@ -12,7 +12,7 @@ package cn.yt4j.sys.test;
 
 import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.asymmetric.RSA;
-import cn.yt4j.sys.entity.SysUser;
+import cn.yt4j.sys.api.entity.SysUser;
 import cn.yt4j.sys.entity.dto.UserDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;

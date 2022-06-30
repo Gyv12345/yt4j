@@ -10,7 +10,7 @@
 
 package cn.yt4j.sys.service;
 
-import cn.yt4j.sys.entity.SysRoleMenu;
+import cn.yt4j.sys.api.entity.SysRoleMenu;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

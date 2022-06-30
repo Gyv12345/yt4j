@@ -21,7 +21,7 @@
     <artifactId>yt4j-dependencies</artifactId>
 
     <properties>
-        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <hutool.version>5.7.14</hutool.version>
         <easy-excel.version>2.2.10</easy-excel.version>
         <jjwt.version>0.11.2</jjwt.version>
@@ -34,6 +34,7 @@
         <rocketmq-spring-boot-starter-version>2.2.0</rocketmq-spring-boot-starter-version>
         <jetcache.latest.version>2.6.0</jetcache.latest.version>
         <sa-token.version>1.30.0</sa-token.version>
+        <fastjson.version>1.2.83</fastjson.version>
     </properties>
 
     <dependencyManagement>
@@ -43,6 +44,16 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-core</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
             <!-- hutool -->
@@ -145,6 +156,11 @@
                 <artifactId>sa-token-spring-aop</artifactId>
                 <version>${sa-token.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
 
             <!-- 2方库 -->
             <dependency>
@@ -185,6 +201,11 @@
             <dependency>
                 <groupId>cn.yt4j</groupId>
                 <artifactId>yt4j-sa-token</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.yt4j</groupId>
+                <artifactId>yt4j-sys-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

@@ -12,8 +12,8 @@ package cn.yt4j.sys.service.impl;
 
 import cn.yt4j.sys.dao.SysRoleDao;
 import cn.yt4j.sys.dao.SysRoleMenuDao;
-import cn.yt4j.sys.entity.SysRole;
-import cn.yt4j.sys.entity.SysRoleMenu;
+import cn.yt4j.sys.api.entity.SysRole;
+import cn.yt4j.sys.api.entity.SysRoleMenu;
 import cn.yt4j.sys.entity.dto.RoleMenuDTO;
 import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.service.SysRoleService;
@@ -60,6 +60,11 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRole> impleme
 			vo.setValue(String.valueOf(sysRole.getId()));
 			return vo;
 		}).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<String> listByUserId(Long userId) {
+		return this.baseMapper.listByUserId(userId);
 	}
 
 }

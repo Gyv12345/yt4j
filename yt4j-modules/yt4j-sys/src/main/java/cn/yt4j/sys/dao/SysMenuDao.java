@@ -10,7 +10,7 @@
 
 package cn.yt4j.sys.dao;
 
-import cn.yt4j.sys.entity.SysMenu;
+import cn.yt4j.sys.api.entity.SysMenu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

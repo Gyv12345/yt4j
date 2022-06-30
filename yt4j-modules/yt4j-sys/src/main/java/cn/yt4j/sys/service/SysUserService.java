@@ -10,8 +10,8 @@
 
 package cn.yt4j.sys.service;
 
-import cn.yt4j.sys.entity.SysUser;
-import cn.yt4j.sys.entity.dto.LoginDTO;
+import cn.yt4j.sys.api.entity.dto.LoginDTO;
+import cn.yt4j.sys.api.entity.SysUser;
 import cn.yt4j.sys.entity.dto.PasswordDTO;
 import cn.yt4j.sys.entity.vo.UserInfo;
 import com.baomidou.mybatisplus.extension.service.IService;

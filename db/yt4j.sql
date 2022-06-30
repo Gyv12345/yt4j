@@ -1,4 +1,18 @@
-USE yt4j;
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : 192.168.0.195
+ Source Server Type    : MySQL
+ Source Server Version : 80027
+ Source Host           : 192.168.0.195:3306
+ Source Schema         : yt4j
+
+ Target Server Type    : MySQL
+ Target Server Version : 80027
+ File Encoding         : 65001
+
+ Date: 30/06/2022 19:39:07
+*/
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
@@ -8,15 +22,15 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dept`;
 CREATE TABLE `sys_dept`  (
-                             `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
-                             `parent_id` bigint(0) NULL DEFAULT NULL COMMENT '父级ID',
-                             `label` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '部门名称',
-                             `order_no` int(0) NULL DEFAULT NULL COMMENT '排序',
-                             `state` tinyint(0) NULL DEFAULT NULL COMMENT '状态',
-                             `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
-                             `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
-                             PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '部门' ROW_FORMAT = Dynamic;
+  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `parent_id` bigint(0) NULL DEFAULT NULL COMMENT '父级ID',
+  `label` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '部门名称',
+  `order_no` int(0) NULL DEFAULT NULL COMMENT '排序',
+  `state` tinyint(0) NULL DEFAULT NULL COMMENT '状态',
+  `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
+  `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '部门' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_dept
@@ -30,14 +44,14 @@ INSERT INTO `sys_dept` VALUES (4, 1, '郑州分部', 2, NULL, '2020-09-06 11:13:
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dict`;
 CREATE TABLE `sys_dict`  (
-                             `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
-                             `code` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '字典关键字',
-                             `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '字典名称',
-                             `state` int(0) NULL DEFAULT NULL COMMENT '状态',
-                             `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '创建时间',
-                             `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
-                             PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '字典' ROW_FORMAT = Dynamic;
+  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `code` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '字典关键字',
+  `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '字典名称',
+  `state` int(0) NULL DEFAULT NULL COMMENT '状态',
+  `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '创建时间',
+  `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '字典' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_dict
@@ -54,14 +68,14 @@ INSERT INTO `sys_dict` VALUES (12, 'test_data', '测试数据444', NULL, '2020-0
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dict_item`;
 CREATE TABLE `sys_dict_item`  (
-                                  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
-                                  `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '字典编码',
-                                  `label` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '标题',
-                                  `value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '值',
-                                  `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
-                                  `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
-                                  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '字典编码',
+  `label` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '标题',
+  `value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '值',
+  `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
+  `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_dict_item
@@ -86,24 +100,24 @@ INSERT INTO `sys_dict_item` VALUES (24, 'test_data', 'item2', '2', '2020-09-10 1
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_menu`;
 CREATE TABLE `sys_menu`  (
-                             `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
-                             `type` tinyint(0) NOT NULL COMMENT '类型 1系统 2菜单 3按钮',
-                             `parent_id` bigint(0) NULL DEFAULT NULL COMMENT '父级ID',
-                             `label` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '路由名称 不能重复',
-                             `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '路由标题',
-                             `permission` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '权限标识',
-                             `icon` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '图标',
-                             `layer` varchar(4000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '层级',
-                             `order_no` int(0) NULL DEFAULT NULL COMMENT '排序',
-                             `hidden` tinyint(0) NULL DEFAULT NULL COMMENT '是否显示在左侧',
-                             `redirect` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '重定向',
-                             `path` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '请求地址',
-                             `component` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '组件地址',
-                             `keepalive` tinyint(0) NULL DEFAULT NULL COMMENT '保持不变',
-                             `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
-                             `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
-                             PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '资源权限' ROW_FORMAT = Dynamic;
+  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `type` tinyint(0) NOT NULL COMMENT '类型 1系统 2菜单 3按钮',
+  `parent_id` bigint(0) NULL DEFAULT NULL COMMENT '父级ID',
+  `label` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '路由名称 不能重复',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '路由标题',
+  `permission` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '权限标识',
+  `icon` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '图标',
+  `layer` varchar(4000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '层级',
+  `order_no` int(0) NULL DEFAULT NULL COMMENT '排序',
+  `hidden` tinyint(0) NULL DEFAULT NULL COMMENT '是否显示在左侧',
+  `redirect` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '重定向',
+  `path` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '请求地址',
+  `component` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '组件地址',
+  `keepalive` tinyint(0) NULL DEFAULT NULL COMMENT '保持不变',
+  `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
+  `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '资源权限' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_menu
@@ -129,15 +143,15 @@ INSERT INTO `sys_menu` VALUES (15, 3, 13, 'test21', '测试按钮2', '  12', NUL
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role`  (
-                             `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
-                             `name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '角色名称',
-                             `code` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '角色标识',
-                             `level` smallint(0) NULL DEFAULT NULL COMMENT '角色权限等级 1部门及下属部门所有信息 2本部门 3本人',
-                             `state` smallint(0) NULL DEFAULT NULL COMMENT '状态',
-                             `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
-                             `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
-                             PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '角色' ROW_FORMAT = Dynamic;
+  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '角色名称',
+  `code` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '角色标识',
+  `level` smallint(0) NULL DEFAULT NULL COMMENT '角色权限等级 1部门及下属部门所有信息 2本部门 3本人',
+  `state` smallint(0) NULL DEFAULT NULL COMMENT '状态',
+  `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
+  `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '角色' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_role
@@ -149,8 +163,8 @@ INSERT INTO `sys_role` VALUES (1, '超级管理员', 'ROLE_ADMIN', 1, 1, '2020-0
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role_menu`;
 CREATE TABLE `sys_role_menu`  (
-                                  `role_id` bigint(0) NULL DEFAULT NULL COMMENT '角色ID',
-                                  `menu_id` bigint(0) NULL DEFAULT NULL COMMENT '权限ID'
+  `role_id` bigint(0) NULL DEFAULT NULL COMMENT '角色ID',
+  `menu_id` bigint(0) NULL DEFAULT NULL COMMENT '权限ID'
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '角色权限' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -175,35 +189,35 @@ INSERT INTO `sys_role_menu` VALUES (1, 13);
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user`  (
-                             `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
-                             `dept_id` bigint(0) NULL DEFAULT NULL COMMENT '部门ID',
-                             `nick_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '昵称',
-                             `username` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '用户名',
-                             `password` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '密码',
-                             `id_card` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '身份证号',
-                             `avatar` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '头像',
-                             `sex` tinyint(0) NULL DEFAULT NULL COMMENT '性别',
-                             `email` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '电子邮箱',
-                             `phone` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '手机号',
-                             `state` smallint(0) NULL DEFAULT NULL COMMENT '状态',
-                             `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
-                             `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
-                             PRIMARY KEY (`id`) USING BTREE,
-                             INDEX `sys_user_username_uindex`(`username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '用户' ROW_FORMAT = Dynamic;
+  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `dept_id` bigint(0) NULL DEFAULT NULL COMMENT '部门ID',
+  `nick_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '昵称',
+  `username` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '用户名',
+  `password` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '密码',
+  `id_card` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '身份证号',
+  `avatar` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '头像',
+  `sex` tinyint(0) NULL DEFAULT NULL COMMENT '性别',
+  `email` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '电子邮箱',
+  `phone` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '手机号',
+  `state` smallint(0) NULL DEFAULT NULL COMMENT '状态',
+  `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
+  `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '修改时间',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `sys_user_username_uindex`(`username`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '用户' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 1, '超级管理员', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '410303198911282511', 'https://s1.ax1x.com/2020/08/14/dCRXDg.jpg', 1, 'gyv12345@163.com', '15139960649', 1, '2020-08-11 13:42:53', '2022-04-21 15:47:44');
+INSERT INTO `sys_user` VALUES (1, 1, '超级管理员', 'admin', '$2a$10$ctfu9KkAOkfR9vNcl41PSOKu6LP0d03pvQmARBhmUNPLBtdkKzK3S', '410303198911282511', 'https://s1.ax1x.com/2020/08/14/dCRXDg.jpg', 1, 'gyv12345@163.com', '15139960649', 1, '2020-08-11 13:42:53', '2020-08-19 16:15:01');
 
 -- ----------------------------
 -- Table structure for sys_user_role
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user_role`;
 CREATE TABLE `sys_user_role`  (
-                                  `user_id` bigint(0) NOT NULL,
-                                  `role_id` bigint(0) NULL DEFAULT NULL
+  `user_id` bigint(0) NOT NULL,
+  `role_id` bigint(0) NULL DEFAULT NULL
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------

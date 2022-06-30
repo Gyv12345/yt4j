@@ -13,7 +13,7 @@ package cn.yt4j.sys.controller;
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
-import cn.yt4j.sys.entity.SysDictItem;
+import cn.yt4j.sys.api.entity.SysDictItem;
 import cn.yt4j.sys.service.SysDictItemService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.RequiredArgsConstructor;

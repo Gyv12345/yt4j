@@ -11,7 +11,7 @@
 package cn.yt4j.sys.service.impl;
 
 import cn.yt4j.sys.dao.SysRoleMenuDao;
-import cn.yt4j.sys.entity.SysRoleMenu;
+import cn.yt4j.sys.api.entity.SysRoleMenu;
 import cn.yt4j.sys.service.SysRoleMenuService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

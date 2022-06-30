@@ -10,8 +10,8 @@
 
 package cn.yt4j.sys.service;
 
-import cn.yt4j.sys.entity.SysDict;
-import cn.yt4j.sys.entity.SysDictItem;
+import cn.yt4j.sys.api.entity.SysDict;
+import cn.yt4j.sys.api.entity.SysDictItem;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

@@ -1,5 +1,5 @@
 server:
-  port: 9100
+  port: 9300
 
 spring:
   application:
@@ -10,11 +10,10 @@ spring:
         enabled: false
     nacos:
       discovery:
-        server-addr: yt4j-nacos:8848
+        server-addr: 127.0.0.1:8848
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
   config:
     import:
-      - optional:nacos:application.yml
+      - optional:nacos:application-common.yml
       - optional:nacos:${spring.application.name}.yml
-

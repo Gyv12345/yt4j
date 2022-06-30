@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: yt4j-sys
+          uri: lb://yt4j-sys
+          predicates:
+            - Path=/sys/**
+          filters:
+            - StripPrefix=1
+        - id: yt4j-auth
+          uri: lb://yt4j-auth
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1

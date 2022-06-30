@@ -8,26 +8,27 @@
  *    See the Mulan PSL v2 for more details.
  */
 
-package cn.yt4j.sys.entity;
+package cn.yt4j.sys.api.entity.dto;
 
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import lombok.ToString;
 
+import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
+
 /**
- * 角色权限(SysRoleMenu)表实体类
- *
  * @author gyv12345@163.com
- * @since 2020-08-10 08:44:09
  */
-@Getter
-@Setter
+@Data
 @ToString
-public class SysRoleMenu extends Model<SysRoleMenu> {
+public class LoginDTO implements Serializable {
 
-	private Long roleId;
+	private static final long serialVersionUID = 7380450222422017042L;
 
-	private Long menuId;
+	@NotBlank(message = "登录用户名不能为空")
+	private String username;
+
+	@NotBlank(message = "登录密码不能为空")
+	private String password;
 
 }

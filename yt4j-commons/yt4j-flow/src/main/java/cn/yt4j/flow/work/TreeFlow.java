@@ -11,12 +11,16 @@
 package cn.yt4j.flow.work;
 
 import lombok.Data;
+import lombok.ToString;
+
+import java.io.Serializable;
 
 /**
  * @author gyv12345@163.com
  */
 @Data
-public class TreeFlow {
+@ToString
+public class TreeFlow implements Serializable {
 
 	private String id;
 

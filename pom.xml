@@ -23,7 +23,6 @@
         <module>yt4j-gateway</module>
         <module>yt4j-monitor</module>
         <module>yt4j-auth</module>
-        <module>yt4j-modules/yt4j-sys-api</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * 自定义权限验证接口扩展
  *
- * @author shichenyang
+ * @author gyv12345@163.com
  */
 @Component
 public class StpInterfaceImpl implements StpInterface {

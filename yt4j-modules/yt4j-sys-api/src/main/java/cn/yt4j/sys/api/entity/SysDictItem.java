@@ -8,7 +8,7 @@
  *    See the Mulan PSL v2 for more details.
  */
 
-package cn.yt4j.sys.entity;
+package cn.yt4j.sys.api.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -20,29 +20,45 @@ import lombok.ToString;
 import java.time.LocalDateTime;
 
 /**
- * 角色(SysRole)表实体类
+ * (SysDictItem)表实体类
  *
- * @author gyv12345@163.com
- * @since 2020-08-10 08:43:33
+ * @author makejava
+ * @since 2020-08-18 16:44:07
  */
 @Getter
 @Setter
 @ToString
-public class SysRole extends Model<SysRole> {
+public class SysDictItem extends Model<SysDictItem> {
 
+	/**
+	 * 主键
+	 */
 	@TableId(value = "id", type = IdType.AUTO)
 	private Long id;
 
-	private String name;
-
+	/**
+	 * 编码
+	 */
 	private String code;
 
-	private Integer level;
+	/**
+	 * 名称
+	 */
+	private String label;
 
-	private Integer state;
+	/**
+	 * 值
+	 */
+	private String value;
 
+	/**
+	 * 创建时间
+	 */
 	private LocalDateTime createTime;
 
+	/**
+	 * 修改时间
+	 */
 	private LocalDateTime updateTime;
 
 }
