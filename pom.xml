@@ -21,7 +21,6 @@
         <module>yt4j-modules</module>
         <module>yt4j-commons</module>
         <module>yt4j-gateway</module>
-        <module>yt4j-monitor</module>
         <module>yt4j-auth</module>
     </modules>
     <packaging>pom</packaging>

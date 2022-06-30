@@ -20,7 +20,7 @@ ui部分重做了
 
 依赖 | 版本
 ---|---
-Spring Boot | 2.6.x
+Spring Boot | 2.7.x
 Mybatis Plus | 3.5.x
 hutool | 5.7.x 
  Spring Cloud | 2021.0.1
@@ -31,6 +31,7 @@ hutool | 5.7.x
 
 ```
 yt4j
+├─yt4j-auth 鉴权服务【9300】
 ├─yt4j-commons 公共模块
 │  ├─yt4j-core 核心包
 │  ├─yt4j-data mybatis-plus设置
