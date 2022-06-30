@@ -123,7 +123,7 @@ public class SysMenuController {
 	}
 
 	@GetMapping("/auth/list")
-	public R<List<String>> listByUserId(@RequestParam Long userId){
+	public R<List<String>> listByUserId(@RequestParam Long userId) {
 		return R.ok(this.sysMenuService.listByUserId(userId));
 	}
 

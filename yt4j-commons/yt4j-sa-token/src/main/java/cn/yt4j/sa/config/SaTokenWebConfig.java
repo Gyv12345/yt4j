@@ -10,7 +10,6 @@
 
 package cn.yt4j.sa.config;
 
-import cn.dev33.satoken.context.SaHolder;
 import cn.dev33.satoken.filter.SaServletFilter;
 import cn.dev33.satoken.id.SaIdUtil;
 import cn.yt4j.core.domain.R;
@@ -31,11 +30,8 @@ public class SaTokenWebConfig implements WebMvcConfigurer {
 
 	@Bean
 	public SaServletFilter getSaServletFilter() {
-		return new SaServletFilter()
-				.addInclude("/**")
-				.addExclude("/actuator/**")
-				.setAuth(obj -> SaIdUtil.checkCurrentRequestToken())
-				.setError(e -> R.failed(e.getMessage()));
+		return new SaServletFilter().addInclude("/**").addExclude("/actuator/**")
+				.setAuth(obj -> SaIdUtil.checkCurrentRequestToken()).setError(e -> R.failed(e.getMessage()));
 	}
 
 }

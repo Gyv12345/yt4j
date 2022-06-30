@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 鉴权
+ *
  * @author gyv12345@163.com
  */
 @RestController
@@ -19,11 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AuthController {
 
-    private final AuthService authService;
+	private final AuthService authService;
 
-    @PostMapping("login")
-    public R<String> login(@RequestBody @Validated LoginDTO dto){
-        return R.ok(authService.login(dto));
-    }
+	@PostMapping("login")
+	public R<String> login(@RequestBody @Validated LoginDTO dto) {
+		return R.ok(authService.login(dto));
+	}
 
 }

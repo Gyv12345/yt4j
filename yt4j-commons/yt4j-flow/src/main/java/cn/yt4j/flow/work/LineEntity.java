@@ -23,6 +23,7 @@ import java.io.Serializable;
 public class LineEntity implements Serializable {
 
 	private static final long serialVersionUID = 5907732080447102514L;
+
 	/**
 	 * 连线标题
 	 */

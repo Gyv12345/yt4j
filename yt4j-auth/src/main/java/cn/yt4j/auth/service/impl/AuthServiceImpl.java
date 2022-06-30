@@ -26,30 +26,33 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class AuthServiceImpl implements AuthService {
 
-    private final LoginService loginService;
+	private final LoginService loginService;
 
-    @Override
-    public String login(LoginDTO dto) {
-        SysUser user = this.loginService.getUserByUsername(dto.getUsername()).getResult();
-        if (ObjectUtil.isNull(user)) {
-            throw new Yt4jException(MessageStatus.LOGIN_FAILED);
-        } else {
-            // 密码比较，一直
-            if (ObjectUtil.equals(SaSecureUtil.md5(dto.getPassword()), user.getPassword())) {
-                StpUtil.login(user.getId());
-                String token = StpUtil.getTokenValue();
-                SaSession session = StpUtil.getTokenSession();
-                SaUserCache userCache = new SaUserCache();
-                userCache.setId(user.getId());
-                userCache.setUsername(user.getUsername());
-                userCache.setRealName(user.getNickName());
-                userCache.setRoles(this.loginService.listRoleByUserId(user.getId()).getResult());
-                userCache.setPermissions(this.loginService.listMenuByUserId(user.getId()).getResult());
-                session.set(SecurityConstants.SECURITY_PREFIX, userCache);
-                return token;
-            } else {
-                throw new Yt4jException(MessageStatus.LOGIN_FAILED);
-            }
-        }
-    }
+	@Override
+	public String login(LoginDTO dto) {
+		SysUser user = this.loginService.getUserByUsername(dto.getUsername()).getResult();
+		if (ObjectUtil.isNull(user)) {
+			throw new Yt4jException(MessageStatus.LOGIN_FAILED);
+		}
+		else {
+			// 密码比较，一直
+			if (ObjectUtil.equals(SaSecureUtil.md5(dto.getPassword()), user.getPassword())) {
+				StpUtil.login(user.getId());
+				String token = StpUtil.getTokenValue();
+				SaSession session = StpUtil.getTokenSession();
+				SaUserCache userCache = new SaUserCache();
+				userCache.setId(user.getId());
+				userCache.setUsername(user.getUsername());
+				userCache.setRealName(user.getNickName());
+				userCache.setRoles(this.loginService.listRoleByUserId(user.getId()).getResult());
+				userCache.setPermissions(this.loginService.listMenuByUserId(user.getId()).getResult());
+				session.set(SecurityConstants.SECURITY_PREFIX, userCache);
+				return token;
+			}
+			else {
+				throw new Yt4jException(MessageStatus.LOGIN_FAILED);
+			}
+		}
+	}
+
 }

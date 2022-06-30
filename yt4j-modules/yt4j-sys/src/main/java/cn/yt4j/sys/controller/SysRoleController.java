@@ -106,7 +106,7 @@ public class SysRoleController {
 	}
 
 	@GetMapping("/auth/list")
-	public R<List<String>> listByUserId(@RequestParam Long userId){
+	public R<List<String>> listByUserId(@RequestParam Long userId) {
 		return R.ok(this.sysRoleService.listByUserId(userId));
 	}
 

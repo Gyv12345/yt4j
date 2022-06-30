@@ -16,33 +16,32 @@ import java.util.List;
  *
  * @author gyv12345@163.com
  */
-@FeignClient(name = "yt4j-sys", contextId = "login", configuration = FeignInterceptor.class, fallbackFactory = LoginServiceImpl.class)
+@FeignClient(name = "yt4j-sys", contextId = "login", configuration = FeignInterceptor.class,
+		fallbackFactory = LoginServiceImpl.class)
 public interface LoginService {
 
-    /**
-     * 登录
-     *
-     * @param username
-     * @return
-     */
-    @PostMapping("/user/info/username")
-    R<SysUser> getUserByUsername(@RequestParam("username") String username);
+	/**
+	 * 登录
+	 * @param username
+	 * @return
+	 */
+	@PostMapping("/user/info/username")
+	R<SysUser> getUserByUsername(@RequestParam("username") String username);
 
-    /**
-     * 根据用户ID查询
-     * @param userId
-     * @return
-     */
-    @GetMapping("/role/auth/list")
-    R<List<String>> listRoleByUserId(@RequestParam("userId") Long userId);
+	/**
+	 * 根据用户ID查询
+	 * @param userId
+	 * @return
+	 */
+	@GetMapping("/role/auth/list")
+	R<List<String>> listRoleByUserId(@RequestParam("userId") Long userId);
 
-    /**
-     * 根据用户ID查询
-     * @param userId
-     * @return
-     */
-    @GetMapping("/menu/auth/list")
-    R<List<String>> listMenuByUserId(@RequestParam("userId") Long userId);
-
+	/**
+	 * 根据用户ID查询
+	 * @param userId
+	 * @return
+	 */
+	@GetMapping("/menu/auth/list")
+	R<List<String>> listMenuByUserId(@RequestParam("userId") Long userId);
 
 }

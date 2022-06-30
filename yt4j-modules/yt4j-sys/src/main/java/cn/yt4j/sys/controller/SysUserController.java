@@ -17,8 +17,8 @@ import cn.yt4j.core.domain.PageRequest;
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.log.annotation.SysLog;
-import cn.yt4j.sys.api.entity.dto.LoginDTO;
 import cn.yt4j.sys.api.entity.SysUser;
+import cn.yt4j.sys.api.entity.dto.LoginDTO;
 import cn.yt4j.sys.entity.dto.PasswordDTO;
 import cn.yt4j.sys.entity.vo.UserInfo;
 import cn.yt4j.sys.service.SysUserService;
@@ -130,8 +130,8 @@ public class SysUserController {
 	}
 
 	@PostMapping("/info/username")
-	public R<SysUser> getUserByUsername(@RequestParam String username){
-		return R.ok(this.sysUserService.getOne(Wrappers.<SysUser>lambdaQuery().eq(SysUser::getUsername,username)));
+	public R<SysUser> getUserByUsername(@RequestParam String username) {
+		return R.ok(this.sysUserService.getOne(Wrappers.<SysUser>lambdaQuery().eq(SysUser::getUsername, username)));
 	}
 
 }

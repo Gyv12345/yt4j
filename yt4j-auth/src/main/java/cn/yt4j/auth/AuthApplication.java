@@ -8,11 +8,13 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 /**
  * @author gyv12345@163.com
  */
-@EnableFeignClients(basePackages  = "cn.yt4j.sys.api")
+@EnableFeignClients(basePackages = "cn.yt4j.sys.api")
 @EnableDiscoveryClient
 @SpringBootApplication
 public class AuthApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(AuthApplication.class,args);
-    }
+
+	public static void main(String[] args) {
+		SpringApplication.run(AuthApplication.class, args);
+	}
+
 }
