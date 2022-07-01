@@ -22,7 +22,7 @@
 
     <properties>
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
-        <hutool.version>5.7.14</hutool.version>
+        <hutool.version>5.8.0</hutool.version>
         <easy-excel.version>2.2.10</easy-excel.version>
         <jjwt.version>0.11.2</jjwt.version>
         <jasypt.version>2.1.1</jasypt.version>
@@ -36,6 +36,7 @@
         <sa-token.version>1.30.0</sa-token.version>
         <fastjson.version>1.2.83</fastjson.version>
         <knife4j.version>3.0.3</knife4j.version>
+        <swagger.core.version>1.5.22</swagger.core.version>
     </properties>
 
     <dependencyManagement>
@@ -68,6 +69,17 @@
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
+            </dependency>
+            <!--swagger 最新依赖内置版本-->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger.core.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -198,6 +210,11 @@
             <dependency>
                 <groupId>cn.yt4j</groupId>
                 <artifactId>yt4j-flow</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.yt4j</groupId>
+                <artifactId>yt4j-swagger</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

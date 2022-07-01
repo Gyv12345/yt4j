@@ -46,7 +46,7 @@ public class SwaggerResourceConfig implements SwaggerResourcesProvider {
 							.filter(predicateDefinition -> ("Path").equalsIgnoreCase(predicateDefinition.getName()))
 							.forEach(predicateDefinition -> resources
 									.add(swaggerResource(route.getId(), predicateDefinition.getArgs()
-											.get(NameUtils.GENERATED_NAME_PREFIX + "0").replace("**", "v2/api-docs"))));
+											.get(NameUtils.GENERATED_NAME_PREFIX + "0").replace("**", "v3/api-docs"))));
 				});
 
 		return resources;
@@ -57,7 +57,7 @@ public class SwaggerResourceConfig implements SwaggerResourcesProvider {
 		SwaggerResource swaggerResource = new SwaggerResource();
 		swaggerResource.setName(name);
 		swaggerResource.setLocation(location);
-		swaggerResource.setSwaggerVersion("2.0");
+		swaggerResource.setSwaggerVersion("3.0");
 		return swaggerResource;
 	}
 

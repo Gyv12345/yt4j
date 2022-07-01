@@ -30,7 +30,7 @@ public class SaTokenWebConfig implements WebMvcConfigurer {
 
 	@Bean
 	public SaServletFilter getSaServletFilter() {
-		return new SaServletFilter().addInclude("/**").addExclude("/actuator/**")
+		return new SaServletFilter().addInclude("/**").setExcludeList(saIgnoredUrlProperty.getIgnoredUrl())
 				.setAuth(obj -> SaIdUtil.checkCurrentRequestToken()).setError(e -> R.failed(e.getMessage()));
 	}
 
