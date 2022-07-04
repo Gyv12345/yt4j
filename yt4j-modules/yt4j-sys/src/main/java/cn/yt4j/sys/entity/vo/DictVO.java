@@ -10,7 +10,9 @@
 
 package cn.yt4j.sys.entity.vo;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
+import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -18,6 +20,8 @@ import java.io.Serializable;
  * @author gyv12345@163.com
  */
 @Data
+@ToString
+@ApiModel("字典")
 public class DictVO implements Serializable {
 
 	private static final long serialVersionUID = -7694822691794776892L;

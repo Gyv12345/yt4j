@@ -11,9 +11,11 @@
 
 package cn.yt4j.swagger;
 
+import cn.hutool.core.util.StrUtil;
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import io.swagger.annotations.Api;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
@@ -43,12 +45,24 @@ import java.util.stream.Collectors;
 @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
 public class SwaggerAutoConfiguration {
 
+	@Value("${spring.application.name}")
+	private String appName;
+
 	@Bean
 	public Docket api() {
-		return new Docket(DocumentationType.OAS_30).apiInfo(ApiInfo.DEFAULT).select()
-				.apis(RequestHandlerSelectors.withClassAnnotation(Api.class)).build().pathMapping("/");
+		return new Docket(DocumentationType.OAS_30)
+				.apiInfo(ApiInfo.DEFAULT)
+				.select()
+				.apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
+				.build()
+				// 请求前缀，因为使用了聚合文档，我们的请求是在gateway发出的，因此加上服务前缀
+				.pathMapping(StrUtil.subSuf(appName, appName.indexOf("-") + 1));
 	}
 
+	/**
+	 * 从网上找的解决新版本spring boot按默认mvc 默认匹配策略
+	 * @return
+	 */
 	@Bean
 	public static BeanPostProcessor springfoxHandlerProviderBeanPostProcessor() {
 		return new BeanPostProcessor() {

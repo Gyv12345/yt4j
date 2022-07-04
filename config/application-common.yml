@@ -9,10 +9,23 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 yt4j:
+  swagger:
+    enabled: true
   sa:
     ignoredUrl:
-      - /user/login
       - /auth/login
+      - /swagger-ui.html\
+      - /swagger-resources/**
+      - /swagger/**
+      - /**/v3/api-docs
+      - /**/*.js
+      - /**/*.css
+      - /**/*.png
+      - /**/*.ico
+      - /webjars/springfox-swagger-ui/**
+      - /actuator/**
+      - /doc.html
+      - /v3/api-docs
 jasypt:
   encryptor:
     password: yt4j
