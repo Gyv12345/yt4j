@@ -16,14 +16,9 @@ import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-
-import javax.sql.DataSource;
 
 /**
  * mybatis-plus配置 如果需要多租户、数据权限 直接进行扩展就好了
@@ -31,7 +26,7 @@ import javax.sql.DataSource;
  * @author gyv12345@163.com
  */
 @ComponentScan("cn.yt4j.data")
-@Configuration
+@AutoConfiguration
 public class DataAutoConfiguration {
 
 	/**
