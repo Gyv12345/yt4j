@@ -18,7 +18,7 @@
 			"type": "task",
 			"left": "228px",
 			"top": "428px",
-			"beanId": "flowDemo1",
+			"beanId": "flowDemo2",
 			"ico": "el-icon-odometer",
 			"state": "success"
 		},
@@ -47,7 +47,7 @@
 			"name": "大于十岁处理",
 			"type": "task",
 			"left": "833px",
-			"beanId": "flowDemo2",
+			"beanId": "flowDemo1",
 			"top": "400px",
 			"ico": "el-icon-odometer",
 			"state": "success"
@@ -61,7 +61,7 @@
 		},
 		{
 			"from": "odikwwrqie",
-			"condition": "#data.age<10",
+			"condition": "#age<10",
 			"label": "年龄小于10岁",
 			"to": "j8qu5wqzhi"
 		},
@@ -72,7 +72,7 @@
 		},
 		{
 			"from": "odikwwrqie",
-			"condition": "#data.age>10",
+			"condition": "#age>10",
 			"label": "年龄大于10岁",
 			"to": "frnw2m3kbj"
 		},

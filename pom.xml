@@ -31,11 +31,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <spring-boot.version>2.7.0</spring-boot.version>
+        <spring-boot.version>2.7.1</spring-boot.version>
         <spring-cloud.version>2021.0.2</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.1.0</spring-cloud-alibaba.version>
         <spring.checkstyle.version>0.0.31</spring.checkstyle.version>
-        <spring-boot-admin.version>2.6.6</spring-boot-admin.version>
     </properties>
 
     <repositories>

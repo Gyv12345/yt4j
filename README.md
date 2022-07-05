@@ -35,10 +35,10 @@ yt4j
 ├─yt4j-commons 公共模块
 │  ├─yt4j-core 核心包
 │  ├─yt4j-data mybatis-plus设置
-│  ├─yt4j-flow 复杂业务流程处理
+│  ├─yt4j-flow 自己开发的流程编排，暂时只能做同步调用，不能做异步调用
 │  ├─yt4j-job xxl-job
 │  ├─yt4j-log 统一日志
-│  ├─yt4j-sa-token 安全相关 换了一个框架
+│  ├─yt4j-sa-token 使用sa-token 换了一个框架
 │  ├─yt4j-security 安全相关
 │  ├─yt4j-swagger 引入了军刀 
 │  └─yt4j-web web定义相关
