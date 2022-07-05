@@ -2,6 +2,7 @@ package cn.yt4j.auth.controller;
 
 import cn.yt4j.auth.service.AuthService;
 import cn.yt4j.core.domain.R;
+import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.api.entity.dto.LoginDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,6 +24,7 @@ public class AuthController {
 
 	private final AuthService authService;
 
+	@SysLog("登录")
 	@ApiOperation("登录")
 	@PostMapping("login")
 	public R<String> login(@RequestBody @Validated LoginDTO dto) {

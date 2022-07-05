@@ -5,6 +5,10 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  boot:
+    admin:
+      client:
+        url: http://yt4j-admin:8891/admin
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
@@ -13,6 +17,7 @@ yt4j:
     enabled: true
   sa:
     ignoredUrl:
+      - /user/login
       - /auth/login
       - /swagger-ui.html\
       - /swagger-resources/**
@@ -64,3 +69,8 @@ sa-token:
   token-prefix: "Bearer"
   # 是否输出操作日志
   is-log: true
+plumelog:
+  appName: ${spring.application.name}
+  redisHost: ${spring.redis.host}
+  redisAuth: ${spring.redis.password}
+  redisDb: 0

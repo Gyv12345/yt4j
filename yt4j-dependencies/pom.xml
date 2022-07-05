@@ -28,7 +28,7 @@
         <jasypt.version>2.1.1</jasypt.version>
         <wx.java.version>4.0.0</wx.java.version>
         <dingding.version>1.0.1</dingding.version>
-        <plumelog.version>3.3</plumelog.version>
+        <plumelog.version>3.5.2</plumelog.version>
         <xxl-job.version>2.3.0</xxl-job.version>
         <netty.websocket.version>0.12.0</netty.websocket.version>
         <rocketmq-spring-boot-starter-version>2.2.0</rocketmq-spring-boot-starter-version>

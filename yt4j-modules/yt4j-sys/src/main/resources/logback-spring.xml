@@ -40,6 +40,7 @@
 		</encoder>
 	</appender>
 
+
 	<!-- Log file error output -->
 	<appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<file>${log.path}/error.log</file>
@@ -56,6 +57,14 @@
 		</filter>
 	</appender>
 
+	<!-- 环境配置 -->
+	<springProperty scope="context" name="plumelog.appName" source="plumelog.appName"/>
+	<springProperty scope="context" name="plumelog.redisHost" source="plumelog.redisHost"/>
+	<springProperty scope="context" name="plumelog.redisPort" source="plumelog.redisPort"/>
+	<springProperty scope="context" name="plumelog.redisAuth" source="plumelog.redisAuth"/>
+	<springProperty scope="context" name="plumelog.redisDb" source="plumelog.redisDb"/>
+	<springProperty scope="context" name="plumelog.env" source="spring.profiles.active"/>
+
 	<!--使用redis启用下面配置-->
 	<!-- 字段说明 -->
 	<!-- appName:应用名称 -->
@@ -63,13 +72,13 @@
 	<!-- redisPort：redis端口号 不配置，默认使用6379-->
 	<!-- runModel：runModel 1,2  1表示最高性能模式，2表示低性能模式 但是2可以获取更多信息 不配置默认为1- -->
 	<!-- expand：整合其他链路插件，启用这个字段 expand=“sleuth” 表示整合springcloud.sleuth- -->
-<!--	<appender name="plumelog" class="com.plumelog.logback.appender.RedisAppender">
-		<appName>${project.artifactId}</appName>
-		<redisHost>yt4j-redis</redisHost>
-		<redisPort>6379</redisPort>
-		<runModel>2</runModel>
-		<expand>sleuth</expand>
-	</appender>-->
+	<!-- 输出plumelog -->
+	<appender name="plumelog" class="com.plumelog.logback.appender.RedisAppender">
+		<appName>${plumelog.appName}</appName>
+		<redisHost>${plumelog.redisHost}</redisHost>
+		<redisAuth>${plumelog.redisAuth}</redisAuth>
+		<redisDb>${plumelog.redisDb}</redisDb>
+	</appender>
 
 	<!--nacos 心跳 INFO 屏蔽-->
 	<logger name="com.alibaba.nacos" level="OFF">
@@ -80,6 +89,6 @@
 	<root level="INFO">
 		<appender-ref ref="console"/>
 		<appender-ref ref="debug"/>
-<!--		<appender-ref ref="plumelog"/>-->
+		<appender-ref ref="plumelog"/>
 	</root>
 </configuration>

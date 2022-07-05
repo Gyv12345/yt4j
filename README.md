@@ -26,6 +26,7 @@ hutool | 5.8.x
 Spring Cloud | 2021.0.2
 Spring Cloud Alibaba | 2021.0.1.0
 sa-token | 1.30.0
+plumelog | 3.5.2
 
 ## 模块说明
 
