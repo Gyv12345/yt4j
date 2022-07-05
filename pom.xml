@@ -15,7 +15,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn.yt4j</groupId>
     <artifactId>yt4j</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <modules>
         <module>yt4j-dependencies</module>
         <module>yt4j-modules</module>
