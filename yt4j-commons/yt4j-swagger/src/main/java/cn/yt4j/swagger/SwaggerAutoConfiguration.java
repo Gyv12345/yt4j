@@ -50,11 +50,8 @@ public class SwaggerAutoConfiguration {
 
 	@Bean
 	public Docket api() {
-		return new Docket(DocumentationType.OAS_30)
-				.apiInfo(ApiInfo.DEFAULT)
-				.select()
-				.apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
-				.build()
+		return new Docket(DocumentationType.OAS_30).apiInfo(ApiInfo.DEFAULT).select()
+				.apis(RequestHandlerSelectors.withClassAnnotation(Api.class)).build()
 				// 请求前缀，因为使用了聚合文档，我们的请求是在gateway发出的，因此加上服务前缀
 				.pathMapping(StrUtil.subSuf(appName, appName.indexOf("-") + 1));
 	}
@@ -75,9 +72,9 @@ public class SwaggerAutoConfiguration {
 				return bean;
 			}
 
-			private <T extends RequestMappingInfoHandlerMapping> void customizeSpringfoxHandlerMappings(List<T> mappings) {
-				List<T> copy = mappings.stream()
-						.filter(mapping -> mapping.getPatternParser() == null)
+			private <T extends RequestMappingInfoHandlerMapping> void customizeSpringfoxHandlerMappings(
+					List<T> mappings) {
+				List<T> copy = mappings.stream().filter(mapping -> mapping.getPatternParser() == null)
 						.collect(Collectors.toList());
 				mappings.clear();
 				mappings.addAll(copy);
@@ -89,12 +86,12 @@ public class SwaggerAutoConfiguration {
 					Field field = ReflectionUtils.findField(bean.getClass(), "handlerMappings");
 					field.setAccessible(true);
 					return (List<RequestMappingInfoHandlerMapping>) field.get(bean);
-				} catch (IllegalArgumentException | IllegalAccessException e) {
+				}
+				catch (IllegalArgumentException | IllegalAccessException e) {
 					throw new IllegalStateException(e);
 				}
 			}
 		};
 	}
-
 
 }
