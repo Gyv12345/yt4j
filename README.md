@@ -5,8 +5,8 @@ ui部分重做了
 [快速开始](doc/develop.md)
 
 <p>
- <img src="https://img.shields.io/badge/Yt4j-1.0.1-success.svg" alt="Build Status">
- <img src="https://img.shields.io/badge/spring%20boot-2.7.X-blue" alt="Coverage Status">
+ <img src="https://img.shields.io/badge/Yt4j-1.0.3-success.svg" alt="Build Status">
+ <img src="https://img.shields.io/badge/spring%20boot-2.7.1-blue" alt="Coverage Status">
 </p>
 
 
@@ -20,9 +20,9 @@ ui部分重做了
 
 依赖 | 版本
 ---|---
-Spring Boot | 2.7.x
-Mybatis Plus | 3.5.x
-hutool | 5.8.x 
+Spring Boot | 2.7.1
+Mybatis Plus | 3.5.2
+hutool | 5.8.0
 Spring Cloud | 2021.0.2
 Spring Cloud Alibaba | 2021.0.1.0
 sa-token | 1.30.0
