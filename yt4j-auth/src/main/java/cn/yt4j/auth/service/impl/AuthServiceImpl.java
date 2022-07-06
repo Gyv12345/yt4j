@@ -30,7 +30,7 @@ public class AuthServiceImpl implements AuthService {
 
 	@Override
 	public String login(LoginDTO dto) {
-		SysUser user = this.loginService.getUserByUsername(dto.getUsername()).getResult();
+		SysUser user = this.loginService.getUserByUsername(dto.getUsername()).getData();
 		if (ObjectUtil.isNull(user)) {
 			throw new Yt4jException(MessageStatus.LOGIN_FAILED);
 		}
@@ -44,8 +44,8 @@ public class AuthServiceImpl implements AuthService {
 				userCache.setId(user.getId());
 				userCache.setUsername(user.getUsername());
 				userCache.setRealName(user.getNickName());
-				userCache.setRoles(this.loginService.listRoleByUserId(user.getId()).getResult());
-				userCache.setPermissions(this.loginService.listMenuByUserId(user.getId()).getResult());
+				userCache.setRoles(this.loginService.listRoleByUserId(user.getId()).getData());
+				userCache.setPermissions(this.loginService.listMenuByUserId(user.getId()).getData());
 				session.set(SecurityConstants.SECURITY_PREFIX, userCache);
 				return token;
 			}

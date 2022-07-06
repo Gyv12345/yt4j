@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 鉴权
  *
@@ -27,8 +30,11 @@ public class AuthController {
 	@SysLog("登录")
 	@ApiOperation("登录")
 	@PostMapping("login")
-	public R<String> login(@RequestBody @Validated LoginDTO dto) {
-		return R.ok(authService.login(dto));
+	public R<Map> login(@RequestBody @Validated LoginDTO dto) {
+		Map<String,String> map=new HashMap<>();
+		String token=authService.login(dto);
+		map.put("token",token);
+		return R.ok(map);
 	}
 
 }

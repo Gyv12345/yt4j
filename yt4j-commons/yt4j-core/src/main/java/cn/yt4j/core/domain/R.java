@@ -42,32 +42,36 @@ public class R<T> implements Serializable {
 	private String message;
 
 	@ApiModelProperty("返回数据")
-	private T result;
+	private T data;
 
 	public static <T> R<T> ok() {
 		return result(null, HttpStatus.OK.value(), null);
 	}
 
-	public static <T> R<T> ok(T result) {
-		if (result instanceof Boolean) {
-			if (Boolean.FALSE.equals(result)) {
+	public static <T> R<T> ok(T data) {
+		if (data instanceof Boolean) {
+			if (Boolean.FALSE.equals(data)) {
 				return result(null, HttpStatus.INTERNAL_SERVER_ERROR.value(), "出现错误，可能是演示环境引起的");
 			}
 		}
-		return result(result, HttpStatus.OK.value(), null);
+		return result(data, HttpStatus.OK.value(), null);
 	}
 
 	public static <T> R<T> ok(String message) {
 		return result(null, HttpStatus.OK.value(), message);
 	}
 
-	public static <T> R<PageResult<T>> ok(IPage<T> page) {
-		PageResult<T> result = new PageResult<>(page);
-		return result(result, HttpStatus.OK.value(), "查询成功");
+	public static R<String> success(String message) {
+		return result(message, HttpStatus.OK.value(), null);
 	}
 
-	public static <T> R<T> ok(T result, String message) {
-		return result(result, HttpStatus.OK.value(), message);
+	public static <T> R<PageResult<T>> ok(IPage<T> page) {
+		PageResult<T> data = new PageResult<>(page);
+		return result(data, HttpStatus.OK.value(), "查询成功");
+	}
+
+	public static <T> R<T> ok(T data, String message) {
+		return result(data, HttpStatus.OK.value(), message);
 	}
 
 	public static <T> R<T> failed() {
@@ -78,26 +82,26 @@ public class R<T> implements Serializable {
 		return result(null, HttpStatus.INTERNAL_SERVER_ERROR.value(), message);
 	}
 
-	public static <T> R<T> failed(T result) {
-		return result(result, HttpStatus.INTERNAL_SERVER_ERROR.value(), null);
+	public static <T> R<T> failed(T data) {
+		return result(data, HttpStatus.INTERNAL_SERVER_ERROR.value(), null);
 	}
 
-	public static <T> R<T> failed(T result, String message) {
-		return result(result, HttpStatus.INTERNAL_SERVER_ERROR.value(), message);
+	public static <T> R<T> failed(T data, String message) {
+		return result(data, HttpStatus.INTERNAL_SERVER_ERROR.value(), message);
 	}
 
 	public static <T> R<T> failed(IMessageStatus status) {
 		return result(null, status);
 	}
 
-	public static <T> R<T> result(T result, IMessageStatus status) {
-		return result(result, status.getCode(), status.getMessage());
+	public static <T> R<T> result(T data, IMessageStatus status) {
+		return result(data, status.getCode(), status.getMessage());
 	}
 
-	private static <T> R<T> result(T result, int code, String message) {
+	private static <T> R<T> result(T data, int code, String message) {
 		R<T> apiResult = new R<>();
 		apiResult.setCode(code);
-		apiResult.setResult(result);
+		apiResult.setData(data);
 		apiResult.setMessage(message);
 		return apiResult;
 	}
