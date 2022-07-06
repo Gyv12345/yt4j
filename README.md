@@ -61,6 +61,7 @@ acba9f2c5c244d87e9779722ba7392
 127.0.0.1 yt4j-mysql
 127.0.0.1 yt4j-redis
 127.0.0.1 yt4j-nacos
+127.0.0.1 yt4j-admin
 ```
 ## 是否预览
 ```
@@ -72,8 +73,89 @@ interceptor.addInnerInterceptor(new PreviewInterceptor(false));
 ## yt4j的密码用了rsa加密
 ~~配套的前端内有公钥进行加密，所以如果想要使用swagger测试的话，登录哪里注意去掉解密~~这个现在没有启用哦
 
-## 复杂流程设计器
-最近在疯狂的看规则引擎，但是发现还是比较复杂的，而且可能不是自己想要的效果，我其实只是想要一个将业务流程画出来的东西，然后让代码按照流程去走，有些流程节点可以进行复用，所以在网上找了找，找到了一个前端项目，非常的惊喜，因为前端就是我想要的，自己写了一套后台，最后想要以stater的方式引入到项目中来
+## 流程编排（yt4j-flow）
+像是[liteFlow](https://gitee.com/dromara/liteFlow?_from=gitee_search) 
+[Gobrs-Async](https://gitee.com/dromara/gobrs-async) 
+功能都很强大，水平有限写不出来这样好的框架，最初设计的时候就是想要能够让流程以拖拉拽的形式去设计，
+然后找到了[easy-flow](https://gitee.com/xiaoka2017/easy-flow)项目， fork了一个项目
+，增加了两个字段 beanId 和 condition 一个填写spring bean name，一个写spEL表达式
+，完成以后，下载json文件，流程就在json文件中了，yt4j-flow会将这个文件中的节点转成树，一个个节点，按照符合条件去执行
+
+fork 的项目 [yt4j-flow流程设计页](https://gitee.com/yangshao/easy-flow)
+
+[![jUrxl6.png](https://s1.ax1x.com/2022/07/06/jUrxl6.png)](https://imgtu.com/i/jUrxl6)
+
+~~~json
+{
+  "name": "测试流程",
+  "nodeList": [
+    {
+      "id": "59uh21rtyo",
+      "name": "开始",
+      "type": "timer",
+      "left": "266px",
+      "top": "220px",
+      "ico": "el-icon-time",
+      "state": "success"
+    },
+    {
+      "id": "4vcvxgcpo",
+      "name": "大于十岁处理",
+      "type": "task",
+      "left": "610px",
+      "top": "132px",
+      "ico": "el-icon-odometer",
+      "state": "success",
+      "beanId": "flowDemo1"
+    },
+    {
+      "id": "tk07ay06hm",
+      "name": "小于十岁处理",
+      "type": "task",
+      "left": "597px",
+      "top": "376px",
+      "ico": "el-icon-odometer",
+      "state": "success",
+      "beanId": "flowDemo2"
+    },
+    {
+      "id": "ewo9o56u8x",
+      "name": "流程结束",
+      "type": "end",
+      "left": "998px",
+      "top": "211px",
+      "ico": "el-icon-caret-right",
+      "state": "success"
+    }
+  ],
+  "lineList": [
+    {
+      "from": "59uh21rtyo",
+      "to": "4vcvxgcpo",
+      "label": "大于10岁",
+      "condition": "#age>10"
+    },
+    {
+      "from": "59uh21rtyo",
+      "to": "tk07ay06hm",
+      "label": "小于10岁",
+      "condition": "#age<10"
+    },
+    {
+      "from": "tk07ay06hm",
+      "to": "ewo9o56u8x"
+    },
+    {
+      "from": "4vcvxgcpo",
+      "to": "ewo9o56u8x"
+    }
+  ],
+  "id": "0"
+}
+
+
+~~~
+
 
 ## 感谢 JetBrains 免费的开源授权
 
