@@ -12,6 +12,7 @@ package cn.yt4j.log.aspect;
 
 import cn.yt4j.log.annotation.SysLog;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.plumelog.trace.aspect.AbstractAspect;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +28,7 @@ import org.aspectj.lang.annotation.Aspect;
 @Slf4j
 @Aspect
 @RequiredArgsConstructor
-public class SysLogAspect {
+public class SysLogAspect extends AbstractAspect {
 
 	private final ObjectMapper objectMapper;
 
@@ -40,10 +41,8 @@ public class SysLogAspect {
 		log.info("类名:[{}],方法:[{}]", strClassName, strMethodName);
 		log.info("参数:[{}]", objectMapper.writeValueAsString(point.getArgs()));
 
-		Long startTime = System.currentTimeMillis();
-		Object obj = point.proceed();
-		Long endTime = System.currentTimeMillis();
-		log.info("用时:[{}ms],结果:[{}]", endTime - startTime, objectMapper.writeValueAsString(obj));
+		Object obj = this.aroundExecute(point);
+		log.info("结果:[{}]", objectMapper.writeValueAsString(obj));
 		log.info("-------------- 结束 {} -------------------", sysLog.value());
 		return obj;
 	}

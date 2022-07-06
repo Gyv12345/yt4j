@@ -14,6 +14,7 @@ import cn.dev33.satoken.stp.StpUtil;
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.core.util.PageUtil;
+import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.api.entity.SysMenu;
 import cn.yt4j.sys.entity.vo.MenuTreeVO;
 import cn.yt4j.sys.entity.vo.Route;
@@ -122,6 +123,7 @@ public class SysMenuController {
 		return R.ok(this.sysMenuService.removeById(id));
 	}
 
+	@SysLog("根据用户Id查询用户权限列表")
 	@GetMapping("/auth/list")
 	public R<List<String>> listByUserId(@RequestParam Long userId) {
 		return R.ok(this.sysMenuService.listByUserId(userId));

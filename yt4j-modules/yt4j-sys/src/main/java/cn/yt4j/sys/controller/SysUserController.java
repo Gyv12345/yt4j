@@ -129,6 +129,7 @@ public class SysUserController {
 		return R.ok(this.sysUserService.removeById(id));
 	}
 
+	@SysLog("根据用户名获取用户信息")
 	@PostMapping("/info/username")
 	public R<SysUser> getUserByUsername(@RequestParam String username) {
 		return R.ok(this.sysUserService.getOne(Wrappers.<SysUser>lambdaQuery().eq(SysUser::getUsername, username)));
