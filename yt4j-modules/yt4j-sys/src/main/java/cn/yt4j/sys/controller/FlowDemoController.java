@@ -44,7 +44,7 @@ public class FlowDemoController {
 	private final RedisTemplate<String, String> redisTemplate;
 
 	/**
-	 * 测试什么
+	 * 测试流程
 	 * @param info
 	 * @param request
 	 * @return

@@ -16,6 +16,7 @@ import lombok.ToString;
 import java.io.Serializable;
 
 /**
+ * 流程树
  * @author gyv12345@163.com
  */
 @Data
