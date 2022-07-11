@@ -1,6 +1,6 @@
 # Yt4j
 
-ui部分重做了 
+ui部分 放弃了，前端太难了
 
 [快速开始](doc/develop.md)
 
