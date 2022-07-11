@@ -2,6 +2,8 @@
 
 ui部分 放弃了，前端太难了
 
+[老UI](https://github.com/Gyv12345/yt4j-ui)
+
 [快速开始](doc/develop.md)
 
 <p>
@@ -23,7 +25,7 @@ ui部分 放弃了，前端太难了
 Spring Boot | 2.7.1
 Mybatis Plus | 3.5.2
 hutool | 5.8.0
-Spring Cloud | 2021.0.2
+Spring Cloud | 2021.0.3
 Spring Cloud Alibaba | 2021.0.1.0
 sa-token | 1.30.0
 plumelog | 3.5.2

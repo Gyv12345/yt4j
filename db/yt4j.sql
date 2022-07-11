@@ -209,7 +209,7 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 1, '超级管理员', 'admin', '$2a$10$ctfu9KkAOkfR9vNcl41PSOKu6LP0d03pvQmARBhmUNPLBtdkKzK3S', '410303198911282511', 'https://s1.ax1x.com/2020/08/14/dCRXDg.jpg', 1, 'gyv12345@163.com', '15139960649', 1, '2020-08-11 13:42:53', '2020-08-19 16:15:01');
+INSERT INTO `sys_user` VALUES (1, 1, '超级管理员', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '410303198911282511', 'https://s1.ax1x.com/2020/08/14/dCRXDg.jpg', 1, 'gyv12345@163.com', '15139960649', 1, '2020-08-11 13:42:53', '2020-08-19 16:15:01');
 
 -- ----------------------------
 -- Table structure for sys_user_role
