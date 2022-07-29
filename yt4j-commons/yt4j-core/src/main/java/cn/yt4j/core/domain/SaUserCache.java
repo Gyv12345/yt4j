@@ -47,4 +47,9 @@ public class SaUserCache {
 	 */
 	private List<String> permissions;
 
+	/**
+	 * 数据权限
+	 */
+	private Integer dataScope;
+
 }

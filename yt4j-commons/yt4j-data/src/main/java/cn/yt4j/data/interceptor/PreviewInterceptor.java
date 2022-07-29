@@ -14,8 +14,6 @@ import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.MappedStatement;
 
-import java.sql.SQLException;
-
 /**
  * 预览过滤器
  *
@@ -30,7 +28,7 @@ public class PreviewInterceptor implements InnerInterceptor {
 	}
 
 	@Override
-	public boolean willDoUpdate(Executor executor, MappedStatement ms, Object parameter) throws SQLException {
+	public boolean willDoUpdate(Executor executor, MappedStatement ms, Object parameter) {
 		return this.preview;
 	}
 

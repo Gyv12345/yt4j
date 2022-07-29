@@ -15,6 +15,6 @@ package cn.yt4j.core.constant;
  */
 public interface SecurityConstants {
 
-	String SECURITY_PREFIX = "yt4j:user:";
+	String SECURITY_PREFIX = "yt4j:user";
 
 }

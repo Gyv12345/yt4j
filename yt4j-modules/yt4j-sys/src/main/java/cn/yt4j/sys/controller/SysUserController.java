@@ -10,7 +10,6 @@
 
 package cn.yt4j.sys.controller;
 
-import cn.dev33.satoken.annotation.SaCheckRole;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.convert.Convert;
 import cn.yt4j.core.domain.PageRequest;
@@ -23,10 +22,14 @@ import cn.yt4j.sys.entity.dto.PasswordDTO;
 import cn.yt4j.sys.entity.vo.UserInfo;
 import cn.yt4j.sys.service.SysUserService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * 用户(SysUser)表控制层
@@ -34,6 +37,7 @@ import javax.validation.Valid;
  * @author gyv12345@163.com
  * @since 2020-08-07 17:11:45
  */
+@Api(tags = "用户系信息")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/user")
@@ -43,6 +47,8 @@ public class SysUserController {
 	 * 服务对象
 	 */
 	private final SysUserService sysUserService;
+
+	private final RedisTemplate redisTemplate;
 
 	@SysLog("登录")
 	@PostMapping("login")
@@ -62,7 +68,6 @@ public class SysUserController {
 	}
 
 	@SysLog("获取用户信息")
-	@SaCheckRole("super-admin")
 	@GetMapping("info")
 	public R<UserInfo> getInfo() {
 		return R.ok(this.sysUserService.getInfo(Convert.toLong(StpUtil.getLoginId())));
@@ -73,7 +78,6 @@ public class SysUserController {
 	 * @param request 查询实体
 	 * @return 所有数据
 	 */
-	@SaCheckRole("super-admin")
 	@PostMapping("page")
 	public R<PageResult<SysUser>> listPage(@Valid @RequestBody PageRequest<SysUser> request) {
 		return R.ok(this.sysUserService.page(request.page(), request.wrapper()));
@@ -135,4 +139,11 @@ public class SysUserController {
 		return R.ok(this.sysUserService.getOne(Wrappers.<SysUser>lambdaQuery().eq(SysUser::getUsername, username)));
 	}
 
+	@ApiOperation("在线用户")
+	@SysLog("在线用户")
+	@PostMapping("/online")
+	public R online() {
+		List<String> list= StpUtil.searchSessionId("",-1,0);
+		return R.ok(list);
+	}
 }

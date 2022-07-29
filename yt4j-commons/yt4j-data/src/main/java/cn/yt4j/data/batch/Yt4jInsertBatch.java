@@ -28,6 +28,10 @@ import java.util.List;
  */
 public class Yt4jInsertBatch extends AbstractMethod {
 
+	public Yt4jInsertBatch() {
+		super("yt4jInsertBatch");
+	}
+
 	private List<String> filter = new ArrayList<>() {
 		{
 			add("create_time");

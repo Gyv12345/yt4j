@@ -46,5 +46,9 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.yt4j</groupId>
+            <artifactId>yt4j-sa-token</artifactId>
+        </dependency>
     </dependencies>
 </project>
