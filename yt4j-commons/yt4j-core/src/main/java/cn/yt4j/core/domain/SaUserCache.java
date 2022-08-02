@@ -38,6 +38,11 @@ public class SaUserCache {
 	private String realName;
 
 	/**
+	 * 所属部门ID
+	 */
+	private Long deptId;
+
+	/**
 	 * 角色列表
 	 */
 	private List<String> roles;

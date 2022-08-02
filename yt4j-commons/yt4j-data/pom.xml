@@ -48,7 +48,7 @@
         </dependency>
         <dependency>
             <groupId>cn.yt4j</groupId>
-            <artifactId>yt4j-sa-token</artifactId>
+            <artifactId>yt4j-sys-api</artifactId>
         </dependency>
     </dependencies>
 </project>

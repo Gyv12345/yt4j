@@ -45,6 +45,7 @@ public class AuthServiceImpl implements AuthService {
 				userCache.setId(user.getId());
 				userCache.setUsername(user.getUsername());
 				userCache.setRealName(user.getNickName());
+				userCache.setDeptId(user.getDeptId());
 				userCache.setRoles(this.loginService.listRoleByUserId(user.getId()).getData());
 				userCache.setPermissions(this.loginService.listMenuByUserId(user.getId()).getData());
 				session.set(SecurityConstants.SECURITY_PREFIX, userCache);
