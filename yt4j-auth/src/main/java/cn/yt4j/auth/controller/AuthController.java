@@ -31,9 +31,9 @@ public class AuthController {
 	@ApiOperation("登录")
 	@PostMapping("login")
 	public R<Map> login(@RequestBody @Validated LoginDTO dto) {
-		Map<String,String> map=new HashMap<>();
-		String token=authService.login(dto);
-		map.put("token",token);
+		Map<String, String> map = new HashMap<>();
+		String token = authService.login(dto);
+		map.put("token", token);
 		return R.ok(map);
 	}
 

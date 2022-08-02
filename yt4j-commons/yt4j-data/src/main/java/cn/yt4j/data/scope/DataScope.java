@@ -14,11 +14,10 @@ import java.io.Serializable;
 @Builder
 public class DataScope implements Serializable {
 
-    private static final long serialVersionUID = 5797127798849230892L;
+	private static final long serialVersionUID = 5797127798849230892L;
 
-    private String alias;
+	private String alias;
 
-    private String columnName;
-
+	private String columnName;
 
 }

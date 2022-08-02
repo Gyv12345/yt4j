@@ -35,7 +35,8 @@ public class AuthServiceImpl implements AuthService {
 			throw new Yt4jException(MessageStatus.LOGIN_FAILED);
 		}
 		else {
-			// 密码比较，一直
+			// 密码比较
+			// todo 增加次数判断，出错进行锁定
 			if (ObjectUtil.equals(SaSecureUtil.md5(dto.getPassword()), user.getPassword())) {
 				StpUtil.login(user.getId());
 				String token = StpUtil.getTokenValue();
