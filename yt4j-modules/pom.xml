@@ -22,6 +22,7 @@
     <modules>
         <module>yt4j-sys</module>
         <module>yt4j-sys-api</module>
+        <module>yt4j-crm</module>
     </modules>
 
     <artifactId>yt4j-modules</artifactId>
