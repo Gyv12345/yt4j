@@ -2,6 +2,7 @@ package cn.yt4j.crm.dao;
 
 import cn.yt4j.crm.entity.CrmCustomer;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2022-08-04 21:02:49
  */
+@Mapper
 public interface CrmCustomerDao extends BaseMapper<CrmCustomer> {
 
     /**

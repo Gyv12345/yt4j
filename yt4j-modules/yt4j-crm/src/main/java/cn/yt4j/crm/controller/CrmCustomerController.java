@@ -28,7 +28,7 @@ import java.io.Serializable;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("crmCustomer")
+@RequestMapping("customer")
 public class CrmCustomerController {
     /**
      * 服务对象
