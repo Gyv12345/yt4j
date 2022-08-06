@@ -29,6 +29,7 @@ Spring Cloud | 2021.0.3
 Spring Cloud Alibaba | 2021.0.1.0
 sa-token | 1.30.0
 plumelog | 3.5.2
+xxl-job | 2.3.0
 
 ## 模块说明
 
