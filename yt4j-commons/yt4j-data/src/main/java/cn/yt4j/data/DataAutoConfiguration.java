@@ -53,7 +53,7 @@ public class DataAutoConfiguration {
 		return new Yt4jLogicSqlInjector();
 	}
 
-	public DataScopeHandler dataScopeHandler(){
+	public DataScopeHandler dataScopeHandler() {
 		return new DefaultDataScopeHandler();
 	}
 

@@ -20,6 +20,7 @@ public class DataScope implements Serializable {
 	 * 表别名
 	 */
 	private String alias;
+
 	/**
 	 * 数据权限列名
 	 */

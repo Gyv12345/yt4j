@@ -14,14 +14,15 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class AuthUtil {
 
-    public SaUserCache getUser() {
-        SaSession session = StpUtil.getTokenSession();
-        SaUserCache userCache = session.getModel(SecurityConstants.SECURITY_PREFIX, SaUserCache.class);
-        return userCache;
-    }
+	public SaUserCache getUser() {
+		SaSession session = StpUtil.getTokenSession();
+		SaUserCache userCache = session.getModel(SecurityConstants.SECURITY_PREFIX, SaUserCache.class);
+		return userCache;
+	}
 
-    public Long getUserId(){
-        SaUserCache user = getUser();
-        return user.getId();
-    }
+	public Long getUserId() {
+		SaUserCache user = getUser();
+		return user.getId();
+	}
+
 }

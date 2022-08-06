@@ -16,13 +16,11 @@ import java.util.List;
 @Mapper
 public interface CrmCustomerDao extends BaseMapper<CrmCustomer> {
 
-    /**
-     * 批量新增数据（MyBatis原生foreach方法）
-     *
-     * @param entities List<CrmCustomer> 实例对象列表
-     * @return 影响行数
-     */
-    int insertBatch(@Param("entities") List<CrmCustomer> entities);
+	/**
+	 * 批量新增数据（MyBatis原生foreach方法）
+	 * @param entities List<CrmCustomer> 实例对象列表
+	 * @return 影响行数
+	 */
+	int insertBatch(@Param("entities") List<CrmCustomer> entities);
 
 }
-

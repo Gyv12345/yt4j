@@ -12,37 +12,39 @@ import java.time.LocalDateTime;
  */
 @Component
 public class BaseMetaObjectHandler implements MetaObjectHandler {
-    /**
-     * 创建时间
-     */
-    public static final String FIELD_CREATE_TIME = "createTime";
 
-    /**
-     * 修改时间
-     */
-    public static final String FIELD_UPDATE_TIME = "updateTime";
+	/**
+	 * 创建时间
+	 */
+	public static final String FIELD_CREATE_TIME = "createTime";
 
-    /**
-     * 创建人
-     */
-    public static final String FIELD_CREATE_USER = "createUserId";
+	/**
+	 * 修改时间
+	 */
+	public static final String FIELD_UPDATE_TIME = "updateTime";
 
-    /**
-     * 修改人
-     */
-    public static final String FIELD_UPDATE_USER = "updateUserId";
+	/**
+	 * 创建人
+	 */
+	public static final String FIELD_CREATE_USER = "createUserId";
 
-    @Override
-    public void insertFill(MetaObject metaObject) {
-        LocalDateTime localDateTime = LocalDateTime.now();
-        this.strictInsertFill(metaObject, FIELD_CREATE_TIME, LocalDateTime.class, localDateTime);
-        this.strictInsertFill(metaObject, FIELD_CREATE_USER, Long.class, AuthUtil.getUserId());
-    }
+	/**
+	 * 修改人
+	 */
+	public static final String FIELD_UPDATE_USER = "updateUserId";
 
-    @Override
-    public void updateFill(MetaObject metaObject) {
-        LocalDateTime localDateTime = LocalDateTime.now();
-        this.strictUpdateFill(metaObject, FIELD_UPDATE_TIME, LocalDateTime.class, localDateTime);
-        this.strictUpdateFill(metaObject, FIELD_UPDATE_USER, Long.class, AuthUtil.getUserId());
-    }
+	@Override
+	public void insertFill(MetaObject metaObject) {
+		LocalDateTime localDateTime = LocalDateTime.now();
+		this.strictInsertFill(metaObject, FIELD_CREATE_TIME, LocalDateTime.class, localDateTime);
+		this.strictInsertFill(metaObject, FIELD_CREATE_USER, Long.class, AuthUtil.getUserId());
+	}
+
+	@Override
+	public void updateFill(MetaObject metaObject) {
+		LocalDateTime localDateTime = LocalDateTime.now();
+		this.strictUpdateFill(metaObject, FIELD_UPDATE_TIME, LocalDateTime.class, localDateTime);
+		this.strictUpdateFill(metaObject, FIELD_UPDATE_USER, Long.class, AuthUtil.getUserId());
+	}
+
 }

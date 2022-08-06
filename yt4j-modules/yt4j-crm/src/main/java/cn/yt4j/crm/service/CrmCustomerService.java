@@ -12,4 +12,3 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface CrmCustomerService extends IService<CrmCustomer> {
 
 }
-
