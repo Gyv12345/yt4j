@@ -69,6 +69,7 @@ sa-token:
   token-prefix: "Bearer"
   # 是否输出操作日志
   is-log: true
+# plumelog 集中式日志 链路追踪
 plumelog:
   appName: ${spring.application.name}
   redisHost: ${spring.redis.host}

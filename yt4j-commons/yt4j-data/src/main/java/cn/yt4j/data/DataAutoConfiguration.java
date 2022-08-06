@@ -11,7 +11,10 @@
 package cn.yt4j.data;
 
 import cn.yt4j.data.batch.Yt4jLogicSqlInjector;
+import cn.yt4j.data.interceptor.DataScopeInterceptor;
 import cn.yt4j.data.interceptor.PreviewInterceptor;
+import cn.yt4j.data.scope.DataScopeHandler;
+import cn.yt4j.data.scope.DefaultDataScopeHandler;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
@@ -38,6 +41,8 @@ public class DataAutoConfiguration {
 		MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
 		// 增加预览过滤器，增删改操作直接不成功
 		interceptor.addInnerInterceptor(new PreviewInterceptor(true));
+		// 增加数据权限处理器 ，现在使用的默认的，可以自己扩展
+		interceptor.addInnerInterceptor(new DataScopeInterceptor(dataScopeHandler()));
 		interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
 		interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
 		return interceptor;
@@ -46,6 +51,10 @@ public class DataAutoConfiguration {
 	@Bean
 	public Yt4jLogicSqlInjector injector() {
 		return new Yt4jLogicSqlInjector();
+	}
+
+	public DataScopeHandler dataScopeHandler(){
+		return new DefaultDataScopeHandler();
 	}
 
 }

@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.toolkit.PluginUtils;
 import com.baomidou.mybatisplus.extension.parser.JsqlParserSupport;
 import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.statement.select.PlainSelect;
 import net.sf.jsqlparser.statement.select.Select;
@@ -27,9 +28,10 @@ import java.util.Map;
  * @author gyv12345@163.com
  */
 @Data
+@RequiredArgsConstructor
 public class DataScopeInterceptor extends JsqlParserSupport implements InnerInterceptor {
 
-	private DataScopeHandler dataScopeHandler;
+	private final DataScopeHandler dataScopeHandler;
 
 	@Override
 	public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds,

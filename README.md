@@ -22,7 +22,7 @@ ui部分 放弃了，前端太难了
 
 依赖 | 版本
 ---|---
-Spring Boot | 2.7.1
+Spring Boot | 2.7.2
 Mybatis Plus | 3.5.2
 hutool | 5.8.0
 Spring Cloud | 2021.0.3
@@ -34,21 +34,23 @@ plumelog | 3.5.2
 
 ```
 yt4j
-├─yt4j-auth 鉴权服务【9300】
+├─yt4j-auth 鉴权服务
 ├─yt4j-commons 公共模块
 │  ├─yt4j-core 核心包
-│  ├─yt4j-data mybatis-plus设置
+│  ├─yt4j-data mybatis-plus设置 数据权限
 │  ├─yt4j-flow 自己开发的流程编排，暂时只能做同步调用，不能做异步调用
 │  ├─yt4j-job xxl-job
 │  ├─yt4j-log 统一日志
 │  ├─yt4j-sa-token 使用sa-token 换了一个框架
 │  ├─yt4j-security 安全相关
-│  ├─yt4j-swagger 引入了军刀 
+│  ├─yt4j-swagger swagger的配置 使用knife4j /doc.html 
 │  └─yt4j-web web定义相关
 ├─yt4j-dependencies 依赖管理
 ├─yt4j-gateway 项目网关 【8888】
 ├─yt4j-modules 业务模块
-│  └─yt4j-sys 基础系统【9100】
+│  └─yt4j-crm crm
+│  └─yt4j-sys 基础系统
+│  └─yt4j-sys-api feign调用
 
 ```
 

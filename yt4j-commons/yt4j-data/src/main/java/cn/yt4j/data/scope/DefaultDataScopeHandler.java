@@ -11,7 +11,7 @@ import net.sf.jsqlparser.parser.CCJSqlParserUtil;
 import org.springframework.util.StringUtils;
 
 /**
- * 处理
+ * 默认权限处理器，可以自己编写
  *
  * @author gyv12345@163.com
  */
