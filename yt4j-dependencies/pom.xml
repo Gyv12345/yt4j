@@ -37,6 +37,7 @@
         <fastjson.version>1.2.83</fastjson.version>
         <knife4j.version>3.0.3</knife4j.version>
         <swagger.core.version>1.5.22</swagger.core.version>
+        <ip2region.version>2.6.5</ip2region.version>
     </properties>
 
     <dependencyManagement>
@@ -179,6 +180,11 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.lionsoul</groupId>
+                <artifactId>ip2region</artifactId>
+                <version>${ip2region.version}</version>
             </dependency>
 
             <!-- 2方库 -->
