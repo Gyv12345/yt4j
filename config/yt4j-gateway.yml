@@ -14,3 +14,9 @@ spring:
             - Path=/auth/**
           filters:
             - StripPrefix=1
+        - id: yt4j-crm
+          uri: lb://yt4j-crm
+          predicates:
+            - Path=/crm/**
+          filters:
+            - StripPrefix=1
