@@ -10,13 +10,12 @@
 
 package cn.yt4j.sys.api.entity;
 
-import cn.yt4j.core.sensitive.Sensitive;
-import cn.yt4j.core.sensitive.SensitiveTypeEnum;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -38,7 +37,8 @@ public class SysUser extends Model<SysUser> {
 	/**
 	 * 主键
 	 */
-	@TableId(value = "id", type = IdType.AUTO)
+	@JsonSerialize(using = ToStringSerializer.class)
+	@TableId(value = "id", type = IdType.ASSIGN_ID)
 	private Long id;
 
 	private Long deptId;

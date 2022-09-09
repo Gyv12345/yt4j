@@ -42,7 +42,7 @@
         inner join sys_user_role t3 on t2.role_id=t3.role_id
         where t3.user_id=#{id}
         and t1.type =2
-        and t1.layer like concat('%[',#{applicationId},']%')
+        and FIND_IN_SET(t1.layer,#{applicationId})
     </select>
 
     <select id="listMenuByUserId" resultMap="SysMenuMap">

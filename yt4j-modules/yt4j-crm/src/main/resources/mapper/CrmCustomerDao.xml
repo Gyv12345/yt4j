@@ -15,7 +15,7 @@
 
     <!-- 批量插入 -->
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into yt4j-crm.crm_customer(customer_name, phone, create_user_id, create_time, update_user_id, update_time, dept_id)
+        insert into crm_customer(customer_name, phone, create_user_id, create_time, update_user_id, update_time, dept_id)
         values
         <foreach collection="entities" item="entity" separator=",">
         (#{entity.customerName}, #{entity.phone}, #{entity.createUserId}, #{entity.createTime}, #{entity.updateUserId}, #{entity.updateTime}, #{entity.deptId})

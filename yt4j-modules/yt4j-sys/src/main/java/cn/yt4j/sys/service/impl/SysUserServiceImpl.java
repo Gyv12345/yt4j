@@ -18,18 +18,14 @@ import cn.yt4j.core.constant.SecurityConstants;
 import cn.yt4j.core.domain.SaUserCache;
 import cn.yt4j.core.enums.MessageStatus;
 import cn.yt4j.core.exception.Yt4jException;
+import cn.yt4j.sys.api.entity.SysUser;
+import cn.yt4j.sys.api.entity.SysUserRole;
 import cn.yt4j.sys.api.entity.dto.LoginDTO;
 import cn.yt4j.sys.dao.SysMenuDao;
 import cn.yt4j.sys.dao.SysRoleDao;
 import cn.yt4j.sys.dao.SysUserDao;
 import cn.yt4j.sys.dao.SysUserRoleDao;
-import cn.yt4j.sys.api.entity.SysMenu;
-import cn.yt4j.sys.api.entity.SysUser;
-import cn.yt4j.sys.api.entity.SysUserRole;
 import cn.yt4j.sys.entity.dto.PasswordDTO;
-import cn.yt4j.sys.entity.vo.ActionEntitySet;
-import cn.yt4j.sys.entity.vo.Permissions;
-import cn.yt4j.sys.entity.vo.Role;
 import cn.yt4j.sys.entity.vo.UserInfo;
 import cn.yt4j.sys.service.SysUserService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -39,8 +35,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import static cn.yt4j.core.enums.MessageStatus.PASSWORD_FAILED;
@@ -107,35 +101,14 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 
 	@Override
 	public UserInfo getInfo(Long id) {
-		// 创建最终返回对象
-		UserInfo userInfo = new UserInfo();
-		Role role = new Role();
-		List<Permissions> permissionsList = new ArrayList<>();
-
 		// 查询用户，查询用户的菜单，获取菜单下按钮权限
 		SysUser user = this.getById(id);
-		List<SysMenu> menus = this.sysMenuDao.listMenuByUserId(id);
-		menus.forEach(sysMenu -> {
-			Permissions permissions = new Permissions();
-			permissions.setPermissionId(sysMenu.getPermission());
-			permissions.setPermissionName(sysMenu.getPermission());
-			permissions.setActionEntitySet(this.sysMenuDao
-					.selectList(Wrappers.<SysMenu>lambdaQuery().eq(SysMenu::getParentId, sysMenu.getId())).stream()
-					.map(menu -> {
-						ActionEntitySet set = new ActionEntitySet();
-						set.setAction(menu.getPermission());
-						set.setDescribe(menu.getTitle());
-						set.setDefaultCheck(false);
-						return set;
-					}).collect(Collectors.toList()));
-			permissionsList.add(permissions);
-		});
-
+		// 创建最终返回对象
+		UserInfo userInfo = new UserInfo();
 		// 拼装
 		userInfo.setName(user.getNickName());
 		userInfo.setAvatar(user.getAvatar());
-		role.setPermissions(permissionsList);
-		userInfo.setRole(role);
+		userInfo.setRole("*");
 		return userInfo;
 	}
 

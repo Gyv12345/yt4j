@@ -11,13 +11,12 @@
 package cn.yt4j.sys.controller;
 
 import cn.yt4j.core.domain.BaseTree;
+import cn.yt4j.core.domain.PageRequest;
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
-import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.api.entity.SysDept;
 import cn.yt4j.sys.service.SysDeptService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -56,16 +55,11 @@ public class SysDeptController {
 		return R.ok(this.sysDeptService.treeDept());
 	}
 
-	/**
-	 * 分页查询所有数据d
-	 * @param sysDept 查询实体
-	 * @return 所有数据
-	 */
 	@ApiOperation("部门分页查询")
 	@SysLog("部门分页查询")
-	@GetMapping
-	public R<PageResult<SysDept>> selectAll(SysDept sysDept) {
-		return R.ok(this.sysDeptService.page(PageUtil.page(), new QueryWrapper<>(sysDept)));
+	@PostMapping("page")
+	public R<PageResult<SysDept>> selectAll(@RequestBody PageRequest<SysDept> pageRequest) {
+		return R.ok(this.sysDeptService.page(pageRequest.page(), pageRequest.wrapper()));
 	}
 
 	/**

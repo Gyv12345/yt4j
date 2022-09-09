@@ -10,6 +10,8 @@
 
 package cn.yt4j.sys.entity.vo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -26,6 +28,7 @@ public class TopMenuVO implements Serializable {
 
 	private String title;
 
+	@JsonSerialize(using = ToStringSerializer.class)
 	private Long id;
 
 	private String redirect;

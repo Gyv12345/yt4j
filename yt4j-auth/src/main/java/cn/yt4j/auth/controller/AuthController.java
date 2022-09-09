@@ -1,5 +1,6 @@
 package cn.yt4j.auth.controller;
 
+import cn.dev33.satoken.stp.StpUtil;
 import cn.yt4j.auth.service.AuthService;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.log.annotation.SysLog;
@@ -8,6 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,6 +37,14 @@ public class AuthController {
 		String token = authService.login(dto);
 		map.put("token", token);
 		return R.ok(map);
+	}
+
+	@SysLog("退出登录")
+	@ApiOperation("退出登录")
+	@GetMapping("logout")
+	public R logout(){
+		StpUtil.logout();
+		return R.ok();
 	}
 
 }

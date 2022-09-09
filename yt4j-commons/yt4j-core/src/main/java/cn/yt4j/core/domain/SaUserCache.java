@@ -13,6 +13,7 @@ package cn.yt4j.core.domain;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -20,7 +21,9 @@ import java.util.List;
  */
 @Data
 @ToString
-public class SaUserCache {
+public class SaUserCache implements Serializable {
+
+	private static final long serialVersionUID = -592825050848857275L;
 
 	/**
 	 * id
