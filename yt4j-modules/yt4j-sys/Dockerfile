@@ -1,4 +1,4 @@
-FROM pig4cloud/java:8-jre
+FROM anapsix/alpine-java:8_server-jre_unlimited
 
 MAINTAINER shichenyang89
 
