@@ -24,9 +24,9 @@ ui部分 放弃了，前端太难了
 ---|---
 Spring Boot | 2.7.2
 Mybatis Plus | 3.5.2
-hutool | 5.8.0
-Spring Cloud | 2021.0.3
-Spring Cloud Alibaba | 2021.0.1.0
+hutool | 5.8.6
+Spring Cloud | 2021.0.4
+Spring Cloud Alibaba | 2021.0.4.0
 sa-token | 1.30.0
 plumelog | 3.5.2
 xxl-job | 2.3.0
