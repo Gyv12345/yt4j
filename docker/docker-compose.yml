@@ -1,0 +1,69 @@
+version: "3"
+services:
+  yt4j-mysql:
+    image: mysql/mysql-server:8.0.30
+    container_name: yt4j-mysql
+    volumes:
+      - ./conf/mysql/my.cnf:/etc/my.cnf
+      - ./data/mysql/data:/var/lib/mysql
+      - ./data/mysql/init:/docker-entrypoint-initdb.d/
+      - ./logs/mysql:/var/log/mysql/
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: "%"
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+    networks:
+      yt4j_network:
+    ports:
+      - '3306:3306'
+    restart: always
+    command:
+      --lower_case_table_names=1
+  yt4j-nacos:
+    image: nacos/nacos-server:v2.0.4
+    container_name: yt4j-nacos
+    env_file:
+      - conf/nacos/nacos-standlone-mysql.env
+    volumes:
+      - ./logs/nacos:/home/nacos/logs
+      - ./conf/nacos/custom.properties:/home/nacos/init.d/custom.properties
+    networks:
+      yt4j_network:
+    ports:
+      - "8848:8848"
+    restart: always
+    depends_on:
+      - yt4j-mysql
+  yt4j-job:
+    image: xuxueli/xxl-job-admin:2.3.0
+    container_name: yt4j-job
+    volumes:
+      - ./logs/xxl-job:/data/applogs/xxl-job/
+    environment:
+      PARAMS: '--spring.datasource.url=jdbc:mysql://yt4j-mysql:3306/xxl_job?Unicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai --spring.datasource.username=root --spring.datasource.password=root'
+    ports:
+      - "8080:8080"
+    networks:
+      yt4j_network:
+    restart: always
+    depends_on:
+      - yt4j-nacos
+  yt4j-redis:
+    image: redis:latest
+    container_name: yt4j-redis
+    volumes:
+      - ./conf/redis/redis.conf:/etc/redis.conf
+    ports:
+      - '6379:6379'
+    networks:
+      yt4j_network:
+    command: [ "redis-server", "/etc/redis.conf" ]
+    restart: always
+
+networks:
+  yt4j_network:
+    external:
+      name: yt4j
+
+
