@@ -32,6 +32,8 @@ services:
       yt4j_network:
     ports:
       - "8848:8848"
+      - "9848:9848"
+      - "9555:9555"
     restart: always
     depends_on:
       - yt4j-mysql
