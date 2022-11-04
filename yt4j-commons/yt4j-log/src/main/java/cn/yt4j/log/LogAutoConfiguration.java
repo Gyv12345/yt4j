@@ -10,12 +10,9 @@
 
 package cn.yt4j.log;
 
-import cn.yt4j.log.aspect.SysLogAspect;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.annotation.Order;
 
@@ -30,10 +27,5 @@ import org.springframework.core.annotation.Order;
 @RequiredArgsConstructor
 @ConditionalOnWebApplication
 public class LogAutoConfiguration {
-
-	@Bean
-	public SysLogAspect sysLogAspect(ObjectMapper objectMapper) {
-		return new SysLogAspect(objectMapper);
-	}
 
 }
