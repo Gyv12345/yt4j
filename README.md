@@ -8,7 +8,7 @@ ui部分 放弃了，前端太难了
 
 <p>
  <img src="https://img.shields.io/badge/Yt4j-1.0.3-success.svg" alt="Build Status">
- <img src="https://img.shields.io/badge/spring%20boot-2.7.1-blue" alt="Coverage Status">
+ <img src="https://img.shields.io/badge/spring%20boot-2.7.5-blue" alt="Coverage Status">
 </p>
 
 
@@ -22,12 +22,12 @@ ui部分 放弃了，前端太难了
 
 依赖 | 版本
 ---|---
-Spring Boot | 2.7.2
+Spring Boot | 2.7.6
 Mybatis Plus | 3.5.2
 hutool | 5.8.6
-Spring Cloud | 2021.0.4
+Spring Cloud | 2021.0.5
 Spring Cloud Alibaba | 2021.0.4.0
-sa-token | 1.30.0
+sa-token | 1.33.0
 plumelog | 3.5.2
 xxl-job | 2.3.0
 
