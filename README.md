@@ -8,7 +8,7 @@ ui部分 放弃了，前端太难了
 
 <p>
  <img src="https://img.shields.io/badge/Yt4j-1.0.3-success.svg" alt="Build Status">
- <img src="https://img.shields.io/badge/spring%20boot-2.7.1-blue" alt="Coverage Status">
+ <img src="https://img.shields.io/badge/spring%20boot-2.7.6-blue" alt="Coverage Status">
 </p>
 
 
