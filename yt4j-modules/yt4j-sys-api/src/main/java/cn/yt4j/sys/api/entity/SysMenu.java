@@ -13,6 +13,8 @@ package cn.yt4j.sys.api.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -30,11 +32,13 @@ import java.time.LocalDateTime;
 @ToString
 public class SysMenu extends Model<SysMenu> {
 
-	@TableId(value = "id", type = IdType.AUTO)
+	@JsonSerialize(using = ToStringSerializer.class)
+	@TableId(value = "id", type = IdType.ASSIGN_ID)
 	private Long id;
 
 	private Short type;
 
+	@JsonSerialize(using = ToStringSerializer.class)
 	private Long parentId;
 
 	private String label;
@@ -44,8 +48,6 @@ public class SysMenu extends Model<SysMenu> {
 	private String permission;
 
 	private String icon;
-
-	private String layer;
 
 	private Integer orderNo;
 

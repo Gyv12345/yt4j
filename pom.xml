@@ -31,11 +31,20 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <maven.versions.plugins.version>2.10.0</maven.versions.plugins.version>
+
         <spring-boot.version>2.7.6</spring-boot.version>
         <spring-cloud.version>2021.0.5</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
         <spring.checkstyle.version>0.0.31</spring.checkstyle.version>
         <spring-boot-admin.version>2.6.7</spring-boot-admin.version>
+
+        <docker.registry>192.168.0.196</docker.registry>
+        <docker.host>http://192.168.0.196:2375</docker.host>
+        <docker.namespace>library</docker.namespace>
+        <docker.username>admin</docker.username>
+        <docker.password>Harbor12345</docker.password>
+        <docker.plugin.version>0.33.0</docker.plugin.version>
     </properties>
 
     <repositories>
@@ -128,6 +137,30 @@
                         </execution>
                     </executions>
                 </plugin>
+                <!--maven  docker 打包插件 -->
+                <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${docker.plugin.version}</version>
+                    <configuration>
+                        <dockerHost>${docker.host}</dockerHost>
+                        <registry>${docker.registry}</registry>
+                        <authConfig>
+                            <push>
+                                <username>${docker.username}</username>
+                                <password>${docker.password}</password>
+                            </push>
+                        </authConfig>
+                        <images>
+                            <image>
+                                <name>${docker.registry}/${docker.namespace}/${project.name}:${project.version}</name>
+                                <build>
+                                    <dockerFile>${project.basedir}/Dockerfile</dockerFile>
+                                </build>
+                            </image>
+                        </images>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -136,6 +169,11 @@
                 <groupId>io.spring.javaformat</groupId>
                 <artifactId>spring-javaformat-maven-plugin</artifactId>
                 <version>${spring.checkstyle.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${maven.versions.plugins.version}</version>
             </plugin>
         </plugins>
     </build>

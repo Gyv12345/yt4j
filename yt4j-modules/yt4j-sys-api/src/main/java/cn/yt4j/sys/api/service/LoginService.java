@@ -17,7 +17,7 @@ import java.util.List;
  * @author gyv12345@163.com
  */
 @FeignClient(name = "yt4j-sys", contextId = "login", configuration = FeignInterceptor.class,
-		fallbackFactory = LoginServiceImpl.class)
+		fallback = LoginServiceImpl.class)
 public interface LoginService {
 
 	/**

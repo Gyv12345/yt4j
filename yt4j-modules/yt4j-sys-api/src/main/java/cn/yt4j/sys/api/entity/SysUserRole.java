@@ -11,6 +11,8 @@
 package cn.yt4j.sys.api.entity;
 
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -26,8 +28,10 @@ import lombok.ToString;
 @ToString
 public class SysUserRole extends Model<SysUserRole> {
 
+	@JsonSerialize(using = ToStringSerializer.class)
 	private Long userId;
 
+	@JsonSerialize(using = ToStringSerializer.class)
 	private Long roleId;
 
 }

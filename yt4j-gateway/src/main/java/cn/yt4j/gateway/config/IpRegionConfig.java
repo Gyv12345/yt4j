@@ -17,7 +17,7 @@ public class IpRegionConfig {
 
     @Bean
     public Searcher ip() {
-        String dbPath = "D:\\ip2region.xdb";
+        String dbPath = IpRegionConfig.class.getResource("/ip2region.xdb").getPath();
 
         // 1、从 dbPath 加载整个 xdb 到内存。
         byte[] cBuff = new byte[0];

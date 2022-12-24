@@ -34,7 +34,7 @@ public class WrapperRequestGlobalFilter implements GlobalFilter, Ordered {
      */
     @Override
     public int getOrder() {
-        return Ordered.HIGHEST_PRECEDENCE - 1;
+        return Ordered.HIGHEST_PRECEDENCE;
     }
 
     @SneakyThrows
