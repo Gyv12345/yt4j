@@ -10,10 +10,10 @@
 
 package cn.yt4j.sys.entity.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.ToString;
 
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**

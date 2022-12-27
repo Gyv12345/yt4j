@@ -13,7 +13,7 @@ package cn.yt4j.security.service;
 import cn.yt4j.core.constant.SecurityConstants;
 import cn.yt4j.security.model.UserCache;
 import cn.yt4j.security.model.Yt4jUser;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 /**
  * @author gyv12345@163.com
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class Yt4jUserDetailServiceImpl implements UserDetailsService {
 

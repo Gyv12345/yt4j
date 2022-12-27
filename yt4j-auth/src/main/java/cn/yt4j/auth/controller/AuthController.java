@@ -29,6 +29,11 @@ public class AuthController {
 
 	private final AuthService authService;
 
+	/**
+	 *
+	 * @param dto
+	 * @return
+	 */
 	@SysLog("登录")
 	@ApiOperation("登录")
 	@PostMapping("login")
@@ -39,6 +44,10 @@ public class AuthController {
 		return R.ok(map);
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@SysLog("退出登录")
 	@ApiOperation("退出登录")
 	@GetMapping("logout")

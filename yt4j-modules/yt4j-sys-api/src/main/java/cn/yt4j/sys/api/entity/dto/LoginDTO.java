@@ -12,10 +12,10 @@ package cn.yt4j.sys.api.entity.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.ToString;
 
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**

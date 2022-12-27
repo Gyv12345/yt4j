@@ -17,21 +17,21 @@ import cn.yt4j.security.property.JwtAuthFilterProperty;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -42,7 +42,7 @@ import java.util.Optional;
 @Slf4j
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class Yt4jSecurityConfig extends WebSecurityConfigurerAdapter {
+public class Yt4jSecurityConfig{
 
 	private final JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
 
@@ -56,29 +56,16 @@ public class Yt4jSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	private final RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
-	@SneakyThrows
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) {
-		auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
-	}
-
-	/**
-	 * HTTP请求安全处理 token请求授权
-	 * @param http .
-	 * @throws Exception .
-	 */
-	@SneakyThrows
-	@Override
-	protected void configure(HttpSecurity http) {
-
+	@Bean
+	public SecurityFilterChain apiFilterChain(HttpSecurity http) throws Exception {
 		ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http
 				.authorizeRequests();
 		// 不需要保护的资源路径允许访问
 		Optional.ofNullable(jwtAuthFilterProperty.getIgnoredUrl()).orElse(new ArrayList<>())
-				.forEach(url -> registry.antMatchers(url).permitAll());
+				.forEach(url -> registry.requestMatchers(url).permitAll());
 
 		// 允许跨域请求的OPTIONS请求
-		registry.antMatchers(HttpMethod.OPTIONS).permitAll();
+		registry.requestMatchers(HttpMethod.OPTIONS).permitAll();
 		// 任何请求需要身份认证
 		registry.and().authorizeRequests().anyRequest().authenticated()
 				// 关闭跨站请求防护及不使用session
@@ -88,6 +75,13 @@ public class Yt4jSecurityConfig extends WebSecurityConfigurerAdapter {
 				.authenticationEntryPoint(restAuthenticationEntryPoint)
 				// 自定义权限拦截器JWT过滤器
 				.and().addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+		return http.build();
 	}
+
+	@SneakyThrows
+	protected void configure(AuthenticationManagerBuilder auth) {
+		auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
+	}
+
 
 }
