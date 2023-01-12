@@ -34,7 +34,7 @@ public class WrapperRequestGlobalFilter implements GlobalFilter, Ordered {
      */
     @Override
     public int getOrder() {
-        return Ordered.HIGHEST_PRECEDENCE;
+        return Ordered.HIGHEST_PRECEDENCE+1;
     }
 
     @SneakyThrows
@@ -43,7 +43,7 @@ public class WrapperRequestGlobalFilter implements GlobalFilter, Ordered {
         ServerHttpRequest request = exchange.getRequest();
         URI URIPath = request.getURI();
         String path = request.getPath().value();
-        String method = request.getMethodValue();
+        String method = request.getMethod().name();
         HttpHeaders header = request.getHeaders();
         String ip = WebFluxUtil.getIpAddress(exchange.getRequest());
         String region = searcher.search(ip);

@@ -15,19 +15,15 @@ import cn.yt4j.security.handler.RestAuthenticationEntryPoint;
 import cn.yt4j.security.handler.RestfulAccessDeniedHandler;
 import cn.yt4j.security.property.JwtAuthFilterProperty;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -45,10 +41,6 @@ import java.util.Optional;
 public class Yt4jSecurityConfig{
 
 	private final JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
-
-	private final UserDetailsService userDetailsService;
-
-	private final PasswordEncoder encoder;
 
 	private final JwtAuthFilterProperty jwtAuthFilterProperty;
 
@@ -76,11 +68,6 @@ public class Yt4jSecurityConfig{
 				// 自定义权限拦截器JWT过滤器
 				.and().addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
 		return http.build();
-	}
-
-	@SneakyThrows
-	protected void configure(AuthenticationManagerBuilder auth) {
-		auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
 	}
 
 

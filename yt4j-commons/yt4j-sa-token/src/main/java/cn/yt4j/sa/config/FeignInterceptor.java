@@ -1,6 +1,6 @@
 package cn.yt4j.sa.config;
 
-import cn.dev33.satoken.id.SaIdUtil;
+import cn.dev33.satoken.same.SaSameUtil;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import org.springframework.stereotype.Component;
@@ -18,7 +18,7 @@ public class FeignInterceptor implements RequestInterceptor {
 	 */
 	@Override
 	public void apply(RequestTemplate requestTemplate) {
-		requestTemplate.header(SaIdUtil.ID_TOKEN, SaIdUtil.getToken());
+		requestTemplate.header(SaSameUtil.SAME_TOKEN, SaSameUtil.getToken());
 	}
 
 }

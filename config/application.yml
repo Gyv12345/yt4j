@@ -1,7 +1,4 @@
 spring:
-  redis:
-    host: yt4j-redis
-    password: 123456
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
@@ -54,7 +51,7 @@ sa-token:
   # token临时有效期 (指定时间无操作就过期) 单位: 秒
   activity-timeout: 1800
   # 开启内网服务调用鉴权
-  check-id-token: true
+  check-same-token: true
   # Id-Token的有效期 (单位: 秒)
   id-token-timeout: 600
   # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
@@ -69,9 +66,15 @@ sa-token:
   token-prefix: "Bearer"
   # 是否输出操作日志
   is-log: true
+--- #
+spring:
+  data:
+    redis:
+      host: yt4j-redis
+      password: 123456
 # plumelog 集中式日志 链路追踪
 plumelog:
   appName: ${spring.application.name}
-  redisHost: ${spring.redis.host}
-  redisAuth: ${spring.redis.password}
+  redisHost: ${spring.data.redis.host}
+  redisAuth: ${spring.data.redis.password}
   redisDb: 0

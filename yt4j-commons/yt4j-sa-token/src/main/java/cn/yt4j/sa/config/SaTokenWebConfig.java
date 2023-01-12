@@ -11,7 +11,7 @@
 package cn.yt4j.sa.config;
 
 import cn.dev33.satoken.filter.SaServletFilter;
-import cn.dev33.satoken.id.SaIdUtil;
+import cn.dev33.satoken.same.SaSameUtil;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.sa.property.SaIgnoredUrlProperty;
 import lombok.RequiredArgsConstructor;
@@ -31,7 +31,7 @@ public class SaTokenWebConfig implements WebMvcConfigurer {
 	@Bean
 	public SaServletFilter getSaServletFilter() {
 		return new SaServletFilter().addInclude("/**").setExcludeList(saIgnoredUrlProperty.getIgnoredUrl())
-				.setAuth(obj -> SaIdUtil.checkCurrentRequestToken()).setError(e -> R.failed(e.getMessage()));
+				.setAuth(obj -> SaSameUtil.checkCurrentRequestToken()).setError(e -> R.failed(e.getMessage()));
 	}
 
 }
