@@ -12,6 +12,7 @@ package cn.yt4j.core.domain;
 
 import cn.yt4j.core.enums.IMessageStatus;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -24,6 +25,7 @@ import java.io.Serializable;
  *
  * @author gyv12345@163.com
  */
+@Schema(description = "结果实体")
 @SuppressWarnings("AlibabaClassNamingShouldBeCamel")
 @ToString(callSuper = true)
 @Getter
@@ -32,10 +34,13 @@ public class R<T> implements Serializable {
 
 	private static final long serialVersionUID = -6101337183914807339L;
 
+	@Schema(description = "编码")
 	private int code;
 
+	@Schema(description = "返回信息")
 	private String message;
 
+	@Schema(description = "结果")
 	private T data;
 
 	public static <T> R<T> ok() {

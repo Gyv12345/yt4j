@@ -12,6 +12,7 @@ package cn.yt4j.core.domain;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ import java.util.List;
  *
  * @author gyv12345@163.com
  */
+@Schema(description = "树实体")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -34,14 +36,18 @@ public class BaseTree implements Serializable {
 
 	private static final long serialVersionUID = -6535556067013322117L;
 
+	@Schema(description = "ID")
 	@JsonSerialize(using = ToStringSerializer.class)
 	public Long id;
 
+	@Schema(description = "父ID")
 	@JsonSerialize(using = ToStringSerializer.class)
 	public Long parentId;
 
+	@Schema(description = "名称")
 	private String name;
 
+	@Schema(description = "子集")
 	public List<BaseTree> children = new ArrayList<>();
 
 	public void add(BaseTree node) {

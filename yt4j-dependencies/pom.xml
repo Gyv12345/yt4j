@@ -28,7 +28,7 @@
         <jasypt.version>2.1.1</jasypt.version>
         <wx.java.version>4.0.0</wx.java.version>
         <dingding.version>1.0.1</dingding.version>
-        <plumelog.version>3.5.2</plumelog.version>
+        <plumelog.version>3.5.3</plumelog.version>
         <xxl-job.version>2.3.0</xxl-job.version>
         <netty.websocket.version>0.12.0</netty.websocket.version>
         <rocketmq-spring-boot-starter-version>2.2.0</rocketmq-spring-boot-starter-version>
@@ -36,10 +36,9 @@
         <sa-token.version>1.34.0</sa-token.version>
         <fastjson.version>1.2.83</fastjson.version>
         <knife4j.version>4.0.0</knife4j.version>
-        <swagger.core.version>1.5.22</swagger.core.version>
         <ip2region.version>2.6.5</ip2region.version>
         <springdoc.version>2.0.0</springdoc.version>
-        <springdoc.javadoc.version>1.6.14</springdoc.javadoc.version>
+        <swagger.annotation.version>2.2.7</swagger.annotation.version>
     </properties>
 
     <dependencyManagement>
@@ -80,10 +79,11 @@
                 <version>${knife4j.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-javadoc</artifactId>
-                <version>${springdoc.javadoc.version}</version>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-annotations-jakarta</artifactId>
+                <version>${swagger.annotation.version}</version>
             </dependency>
+
 
             <dependency>
                 <groupId>com.alibaba</groupId>

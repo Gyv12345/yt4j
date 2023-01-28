@@ -5,6 +5,7 @@ import cn.yt4j.auth.service.AuthService;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.api.entity.dto.LoginDTO;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -26,31 +27,31 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class AuthController {
 
-	private final AuthService authService;
+    private final AuthService authService;
 
-	/**
-	 *
-	 * @param dto
-	 * @return
-	 */
-	@SysLog("登录")
-	@PostMapping("login")
-	public R<Map> login(@RequestBody @Validated LoginDTO dto) {
-		Map<String, String> map = new HashMap<>();
-		String token = authService.login(dto);
-		map.put("token", token);
-		return R.ok(map);
-	}
+    /**
+     * @param dto
+     * @return
+     */
+    @Operation(summary = "登录")
+    @SysLog("登录")
+    @PostMapping("login")
+    public R<Map> login(@RequestBody @Validated LoginDTO dto) {
+        Map<String, String> map = new HashMap<>();
+        String token = authService.login(dto);
+        map.put("token", token);
+        return R.ok(map);
+    }
 
-	/**
-	 *
-	 * @return
-	 */
-	@SysLog("退出登录")
-	@GetMapping("logout")
-	public R logout(){
-		StpUtil.logout();
-		return R.ok();
-	}
+    /**
+     * @return
+     */
+    @Operation(summary = "退出登录")
+    @SysLog("退出登录")
+    @GetMapping("logout")
+    public R logout() {
+        StpUtil.logout();
+        return R.ok();
+    }
 
 }

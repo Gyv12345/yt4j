@@ -51,10 +51,6 @@
             <groupId>cn.yt4j</groupId>
             <artifactId>yt4j-log</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-javadoc</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

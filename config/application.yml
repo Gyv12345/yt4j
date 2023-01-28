@@ -12,6 +12,10 @@ mybatis-plus:
 yt4j:
   swagger:
     enabled: true
+    info:
+      title: ${spring.application.name}文档
+      version: 1.0
+      description: '使用Knife4j返回Open-Api文档'
   sa:
     ignoredUrl:
       - /user/login
@@ -78,11 +82,3 @@ plumelog:
   redisHost: ${spring.data.redis.host}
   redisAuth: ${spring.data.redis.password}
   redisDb: 0
---- # 二方库信息
-yt4j:
-  swagger:
-    enabled: true
-    info:
-      title: @artifactId@文档
-      version: @project.version@
-      description: '使用Knife4j返回Open-Api文档'

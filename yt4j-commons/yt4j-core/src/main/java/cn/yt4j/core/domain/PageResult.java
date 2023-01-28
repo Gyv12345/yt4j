@@ -11,6 +11,7 @@
 package cn.yt4j.core.domain;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.ToString;
 
@@ -21,6 +22,7 @@ import java.util.List;
  * @author gyv12345@163.com
  * @param <T>
  */
+@Schema(description = "分页返回结果")
 @Data
 @ToString
 public class PageResult<T> implements Serializable {
@@ -30,26 +32,31 @@ public class PageResult<T> implements Serializable {
 	/**
 	 * 第几页
 	 */
+	@Schema(description = "页码")
 	private Long pageNo = 1L;
 
 	/**
 	 * 每页条数
 	 */
+	@Schema(description = "条数")
 	private Long pageSize = 10L;
 
 	/**
 	 * 总页数
 	 */
+	@Schema(description = "总页数")
 	private Long totalPage = 0L;
 
 	/**
 	 * 总记录数
 	 */
+	@Schema(description = "总记录数")
 	private Long totalCount = 0L;
 
 	/**
 	 * 结果集
 	 */
+	@Schema(description = "结果集")
 	private List<T> data;
 
 	public PageResult() {

@@ -15,6 +15,7 @@ import cn.yt4j.core.constant.RedisConstants;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.flow.work.FlowTool;
 import cn.yt4j.sys.entity.dto.FlowTestDTO;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +31,7 @@ import java.util.Map;
  *
  * @author gyv12345@163.com
  */
+@Tag(name = "流程编排示例")
 @Slf4j
 @RequiredArgsConstructor
 @RestController
