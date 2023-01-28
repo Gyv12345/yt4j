@@ -3,8 +3,6 @@ package cn.yt4j.gateway.filter;
 import cn.yt4j.gateway.util.WebFluxUtil;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.lionsoul.ip2region.xdb.Searcher;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -25,10 +23,6 @@ import java.net.URI;
 @Slf4j
 public class WrapperRequestGlobalFilter implements GlobalFilter, Ordered {
 
-
-    @Autowired
-    private Searcher searcher;
-
     /**
      * 优先级最高
      */
@@ -46,10 +40,9 @@ public class WrapperRequestGlobalFilter implements GlobalFilter, Ordered {
         String method = request.getMethod().name();
         HttpHeaders header = request.getHeaders();
         String ip = WebFluxUtil.getIpAddress(exchange.getRequest());
-        String region = searcher.search(ip);
 
         log.info("***********************************请求信息**********************************");
-        log.info("请求request信息：URI = {}, path = {}，method = {}，header = {}，ip = {} ，region = {}。", URIPath, path, method, header, ip, region);
+        log.info("请求request信息：URI = {}, path = {}，method = {}，header = {}，ip = {} 。", URIPath, path, method, header, ip);
         log.info("****************************************************************************\n");
         return chain.filter(exchange);
     }

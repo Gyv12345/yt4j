@@ -12,8 +12,6 @@ package cn.yt4j.core.domain;
 
 import cn.yt4j.core.enums.IMessageStatus;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -30,18 +28,14 @@ import java.io.Serializable;
 @ToString(callSuper = true)
 @Getter
 @Setter
-@ApiModel(value = "响应信息")
 public class R<T> implements Serializable {
 
 	private static final long serialVersionUID = -6101337183914807339L;
 
-	@ApiModelProperty("编码")
 	private int code;
 
-	@ApiModelProperty("返回信息")
 	private String message;
 
-	@ApiModelProperty("返回数据")
 	private T data;
 
 	public static <T> R<T> ok() {

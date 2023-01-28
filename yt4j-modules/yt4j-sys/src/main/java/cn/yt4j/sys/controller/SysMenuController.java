@@ -21,8 +21,6 @@ import cn.yt4j.sys.entity.vo.Route;
 import cn.yt4j.sys.entity.vo.TopMenuVO;
 import cn.yt4j.sys.service.SysMenuService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,7 +33,6 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-08-10 08:43:33
  */
-@Api(tags = "菜单信息")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/menu")
@@ -52,7 +49,6 @@ public class SysMenuController {
      * @param applicationId
      * @return
      */
-    @ApiOperation("通过应用ID获取菜单")
     @GetMapping("nav/{id}")
     public R<List<Route>> nav(@PathVariable("id") Long applicationId) {
         return R.ok(this.sysMenuService.nav(StpUtil.getLoginIdAsLong(), applicationId));
@@ -61,13 +57,11 @@ public class SysMenuController {
     /**
      * @return
      */
-    @ApiOperation("顶部菜单")
     @GetMapping("top")
     public R<List<TopMenuVO>> topMenu() {
         return R.ok(this.sysMenuService.topMenu());
     }
 
-    @ApiOperation("菜单树")
     @GetMapping("tree")
     public R<List<MenuTreeVO>> menuTree() {
         return R.ok(this.sysMenuService.menuTree());
@@ -79,7 +73,6 @@ public class SysMenuController {
      * @param sysMenu 查询实体
      * @return 所有数据
      */
-    @ApiOperation("分页查询所有数据")
     @GetMapping("list")
     public R<PageResult<SysMenu>> selectAll(SysMenu sysMenu) {
         return R.ok(this.sysMenuService.page(PageUtil.page(), new QueryWrapper<>(sysMenu)));
@@ -91,7 +84,6 @@ public class SysMenuController {
      * @param id 主键
      * @return 单条数据
      */
-    @ApiOperation("根据ID查询菜单")
     @GetMapping("{id}")
     public R<SysMenu> selectOne(@PathVariable Serializable id) {
         return R.ok(this.sysMenuService.getById(id));
@@ -103,7 +95,6 @@ public class SysMenuController {
      * @param sysMenu 实体对象
      * @return 新增结果
      */
-    @ApiOperation("添加菜单")
     @PostMapping("insert")
     public R insert(@RequestBody SysMenu sysMenu) {
         return R.ok(this.sysMenuService.save(sysMenu));
@@ -115,7 +106,6 @@ public class SysMenuController {
      * @param sysMenu 实体对象
      * @return 修改结果
      */
-    @ApiOperation("更新菜单")
     @PutMapping("update")
     public R update(@RequestBody SysMenu sysMenu) {
         return R.ok(this.sysMenuService.updateById(sysMenu));
@@ -127,13 +117,11 @@ public class SysMenuController {
      * @param id 主键结合
      * @return 删除结果
      */
-    @ApiOperation("删除菜单")
     @DeleteMapping("delete/{id}")
     public R delete(@PathVariable Long id) {
         return R.ok(this.sysMenuService.removeById(id));
     }
 
-    @ApiOperation("根据用户Id查询用户权限列表")
     @SysLog("根据用户Id查询用户权限列表")
     @GetMapping("/auth/list")
     public R<List<String>> listByUserId(@RequestParam Long userId) {

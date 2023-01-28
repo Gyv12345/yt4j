@@ -11,8 +11,6 @@
 package cn.yt4j.core.domain;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.ToString;
 
@@ -25,7 +23,6 @@ import java.util.List;
  */
 @Data
 @ToString
-@ApiModel("分页工具")
 public class PageResult<T> implements Serializable {
 
 	private static final long serialVersionUID = 983447747149487589L;
@@ -33,31 +30,26 @@ public class PageResult<T> implements Serializable {
 	/**
 	 * 第几页
 	 */
-	@ApiModelProperty("页数")
 	private Long pageNo = 1L;
 
 	/**
 	 * 每页条数
 	 */
-	@ApiModelProperty("每页条数")
 	private Long pageSize = 10L;
 
 	/**
 	 * 总页数
 	 */
-	@ApiModelProperty("总页数")
 	private Long totalPage = 0L;
 
 	/**
 	 * 总记录数
 	 */
-	@ApiModelProperty("总记录数")
 	private Long totalCount = 0L;
 
 	/**
 	 * 结果集
 	 */
-	@ApiModelProperty("结果集")
 	private List<T> data;
 
 	public PageResult() {

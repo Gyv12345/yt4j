@@ -11,87 +11,30 @@
 
 package cn.yt4j.swagger;
 
-import cn.hutool.core.util.StrUtil;
-import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
-import io.swagger.annotations.Api;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.boot.autoconfigure.AutoConfiguration;
+import cn.yt4j.swagger.properties.SwaggerProperties;
+import io.swagger.v3.oas.models.OpenAPI;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.util.ReflectionUtils;
-import org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.spring.web.plugins.WebFluxRequestHandlerProvider;
-import springfox.documentation.spring.web.plugins.WebMvcRequestHandlerProvider;
-
-import java.lang.reflect.Field;
-import java.util.List;
-import java.util.stream.Collectors;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * swagger配置
  *
  * @author gyv12345@163.com
  */
-@EnableKnife4j
-@AutoConfiguration
+@Configuration
 @ConditionalOnProperty(name = "yt4j.swagger.enabled", havingValue = "true")
 @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
+@EnableConfigurationProperties(SwaggerProperties.class)
 public class SwaggerAutoConfiguration {
 
-	@Value("${spring.application.name}")
-	private String appName;
-
-	@Bean
-	public Docket api() {
-		return new Docket(DocumentationType.OAS_30).apiInfo(ApiInfo.DEFAULT).select()
-				.apis(RequestHandlerSelectors.withClassAnnotation(Api.class)).build()
-				// 请求前缀，因为使用了聚合文档，我们的请求是在gateway发出的，因此加上服务前缀
-				.pathMapping(StrUtil.subSuf(appName, appName.indexOf("-") + 1));
-	}
-
-	/**
-	 * 从网上找的解决新版本spring boot按默认mvc 默认匹配策略
-	 * @return
-	 */
-	@Bean
-	public static BeanPostProcessor springfoxHandlerProviderBeanPostProcessor() {
-		return new BeanPostProcessor() {
-
-			@Override
-			public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-				if (bean instanceof WebMvcRequestHandlerProvider || bean instanceof WebFluxRequestHandlerProvider) {
-					customizeSpringfoxHandlerMappings(getHandlerMappings(bean));
-				}
-				return bean;
-			}
-
-			private <T extends RequestMappingInfoHandlerMapping> void customizeSpringfoxHandlerMappings(
-					List<T> mappings) {
-				List<T> copy = mappings.stream().filter(mapping -> mapping.getPatternParser() == null)
-						.collect(Collectors.toList());
-				mappings.clear();
-				mappings.addAll(copy);
-			}
-
-			@SuppressWarnings("unchecked")
-			private List<RequestMappingInfoHandlerMapping> getHandlerMappings(Object bean) {
-				try {
-					Field field = ReflectionUtils.findField(bean.getClass(), "handlerMappings");
-					field.setAccessible(true);
-					return (List<RequestMappingInfoHandlerMapping>) field.get(bean);
-				}
-				catch (IllegalArgumentException | IllegalAccessException e) {
-					throw new IllegalStateException(e);
-				}
-			}
-		};
-	}
+    @Bean
+    public OpenAPI customOpenAPI(SwaggerProperties swaggerProperties) {
+        OpenAPI openAPI = new OpenAPI();
+        openAPI.setInfo(swaggerProperties.getInfo());
+        return openAPI;
+    }
 
 }

@@ -22,13 +22,11 @@ import cn.yt4j.sys.entity.dto.PasswordDTO;
 import cn.yt4j.sys.entity.vo.UserInfo;
 import cn.yt4j.sys.service.SysUserService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -37,7 +35,6 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-08-07 17:11:45
  */
-@Api(tags = "用户系信息")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/user")
@@ -139,7 +136,6 @@ public class SysUserController {
 		return R.ok(this.sysUserService.getOne(Wrappers.<SysUser>lambdaQuery().eq(SysUser::getUsername, username)));
 	}
 
-	@ApiOperation("在线用户")
 	@SysLog("在线用户")
 	@PostMapping("/online")
 	public R online() {

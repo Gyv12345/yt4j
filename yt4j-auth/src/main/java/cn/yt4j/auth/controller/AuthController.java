@@ -5,8 +5,7 @@ import cn.yt4j.auth.service.AuthService;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.api.entity.dto.LoginDTO;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +21,7 @@ import java.util.Map;
  *
  * @author gyv12345@163.com
  */
-@Api(tags = "鉴权服务")
+@Tag(name = "鉴权")
 @RestController
 @RequiredArgsConstructor
 public class AuthController {
@@ -35,7 +34,6 @@ public class AuthController {
 	 * @return
 	 */
 	@SysLog("登录")
-	@ApiOperation("登录")
 	@PostMapping("login")
 	public R<Map> login(@RequestBody @Validated LoginDTO dto) {
 		Map<String, String> map = new HashMap<>();
@@ -49,7 +47,6 @@ public class AuthController {
 	 * @return
 	 */
 	@SysLog("退出登录")
-	@ApiOperation("退出登录")
 	@GetMapping("logout")
 	public R logout(){
 		StpUtil.logout();

@@ -18,8 +18,6 @@ import cn.yt4j.sys.api.entity.SysDict;
 import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.service.SysDictService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,7 +31,6 @@ import java.util.stream.Collectors;
  * @author gyv12345@163.com
  * @since 2020-08-10 08:43:32
  */
-@Api(tags = "字典操作")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/dict")
@@ -44,7 +41,6 @@ public class SysDictController {
 	 */
 	private final SysDictService sysDictService;
 
-	@ApiOperation("获取远程字典")
 	@SysLog("获取远程字典")
 	@GetMapping("remote/{code}")
 	public R<List<DictVO>> listByCode(@PathVariable String code) {
@@ -61,7 +57,6 @@ public class SysDictController {
 	 * @param sysDict 查询实体
 	 * @return 所有数据
 	 */
-	@ApiOperation("分页查询所有字典数据")
 	@GetMapping
 	public R<PageResult<SysDict>> selectAll(SysDict sysDict) {
 		return R.ok(this.sysDictService.page(PageUtil.page(), new QueryWrapper<>(sysDict)));
@@ -72,7 +67,6 @@ public class SysDictController {
 	 * @param id 主键
 	 * @return 单条数据
 	 */
-	@ApiOperation("通过主键查询单条数据")
 	@GetMapping("{id}")
 	public R<SysDict> selectOne(@PathVariable Serializable id) {
 		return R.ok(this.sysDictService.getById(id));
@@ -83,7 +77,6 @@ public class SysDictController {
 	 * @param sysDict 实体对象
 	 * @return 新增结果
 	 */
-	@ApiOperation("新增数据")
 	@PostMapping("insert")
 	public R insert(@RequestBody SysDict sysDict) {
 		return R.ok(this.sysDictService.save(sysDict));
@@ -94,7 +87,6 @@ public class SysDictController {
 	 * @param sysDict 实体对象
 	 * @return 修改结果
 	 */
-	@ApiOperation("修改数据")
 	@PutMapping("update")
 	public R update(@RequestBody SysDict sysDict) {
 		return R.ok(this.sysDictService.updateById(sysDict));
@@ -105,7 +97,6 @@ public class SysDictController {
 	 * @param id 主键结合
 	 * @return 删除结果
 	 */
-	@ApiOperation("删除数据")
 	@DeleteMapping("delete/{id}")
 	public R delete(@PathVariable Long id) {
 		return R.ok(this.sysDictService.removeById(id));

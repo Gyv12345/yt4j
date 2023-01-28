@@ -16,8 +16,6 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.ToString;
 
@@ -29,7 +27,6 @@ import java.util.Map;
  */
 @Data
 @ToString
-@ApiModel("分页请求")
 public class PageRequest<T> implements Serializable {
 
 	private static final long serialVersionUID = -2788877367261112273L;
@@ -37,19 +34,16 @@ public class PageRequest<T> implements Serializable {
 	/**
 	 * 第几页
 	 */
-	@ApiModelProperty("第几页")
 	private Long pageNo;
 
 	/**
 	 * 每页条数
 	 */
-	@ApiModelProperty("每页条数")
 	private Long pageSize;
 
 	/**
 	 * 查询条件
 	 */
-	@ApiModelProperty("查询条件")
 	private Map<String, Object> condition;
 
 	public IPage<T> page() {

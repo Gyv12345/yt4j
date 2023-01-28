@@ -10,8 +10,6 @@
 
 package cn.yt4j.sys.api.entity.dto;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.ToString;
@@ -19,20 +17,22 @@ import lombok.ToString;
 import java.io.Serializable;
 
 /**
+ * 登录实体
  * @author gyv12345@163.com
  */
 @Data
 @ToString
-@ApiModel("登录实体")
 public class LoginDTO implements Serializable {
 
 	private static final long serialVersionUID = 7380450222422017042L;
-
-	@ApiModelProperty("用户名")
+	/**
+	 * 用户名
+	 */
 	@NotBlank(message = "登录用户名不能为空")
 	private String username;
-
-	@ApiModelProperty("密码")
+	/**
+	 * 密码
+	 */
 	@NotBlank(message = "登录密码不能为空")
 	private String password;
 

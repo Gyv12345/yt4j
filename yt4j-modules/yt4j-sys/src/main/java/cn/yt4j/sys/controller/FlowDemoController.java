@@ -15,8 +15,6 @@ import cn.yt4j.core.constant.RedisConstants;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.flow.work.FlowTool;
 import cn.yt4j.sys.entity.dto.FlowTestDTO;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +30,6 @@ import java.util.Map;
  *
  * @author gyv12345@163.com
  */
-@Api(tags = "流程编排")
 @Slf4j
 @RequiredArgsConstructor
 @RestController
@@ -49,7 +46,6 @@ public class FlowDemoController {
 	 * @param request
 	 * @return
 	 */
-	@ApiOperation("测试流程")
 	@GetMapping("test")
 	public R test(FlowTestDTO info, HttpServletRequest request) {
 		Map<String, Object> context = BeanUtil.beanToMap(info);
@@ -61,7 +57,6 @@ public class FlowDemoController {
 	 * 测试推送消息
 	 * @return
 	 */
-	@ApiOperation("测试推送消息")
 	@GetMapping("message")
 	public R message() {
 		redisTemplate.convertAndSend(RedisConstants.MESSAGE_TOPIC, "hello world");
