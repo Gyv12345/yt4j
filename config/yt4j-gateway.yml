@@ -20,3 +20,17 @@ spring:
             - Path=/crm/**
           filters:
             - StripPrefix=1
+--- # 聚合文档
+knife4j:
+  # 聚合swagger文档
+  gateway:
+    enable: true
+    routes:
+      - name: 系统服务
+        url: /sys/v3/api-docs
+        service-name: sys
+        order: 1
+      - name: 鉴权服务
+        url: /auth/v3/api-docs
+        service-name: auth
+        order: 2
