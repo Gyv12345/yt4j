@@ -30,11 +30,11 @@ import org.springframework.context.annotation.Configuration;
 @EnableConfigurationProperties(SwaggerProperties.class)
 public class SwaggerAutoConfiguration {
 
-    @Bean
-    public OpenAPI customOpenAPI(SwaggerProperties swaggerProperties) {
-        OpenAPI openAPI = new OpenAPI();
-        openAPI.setInfo(swaggerProperties.getInfo());
-        return openAPI;
-    }
+	@Bean
+	public OpenAPI customOpenAPI(SwaggerProperties swaggerProperties) {
+		OpenAPI openAPI = new OpenAPI();
+		openAPI.setInfo(swaggerProperties.getInfo());
+		return openAPI;
+	}
 
 }

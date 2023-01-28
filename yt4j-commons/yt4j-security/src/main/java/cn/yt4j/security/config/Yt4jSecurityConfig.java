@@ -38,7 +38,7 @@ import java.util.Optional;
 @Slf4j
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class Yt4jSecurityConfig{
+public class Yt4jSecurityConfig {
 
 	private final JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
 
@@ -69,6 +69,5 @@ public class Yt4jSecurityConfig{
 				.and().addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
 		return http.build();
 	}
-
 
 }

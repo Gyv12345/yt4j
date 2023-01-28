@@ -17,6 +17,7 @@ import java.io.Serializable;
 
 /**
  * 字典
+ *
  * @author gyv12345@163.com
  */
 @Data
@@ -24,10 +25,12 @@ import java.io.Serializable;
 public class DictVO implements Serializable {
 
 	private static final long serialVersionUID = -7694822691794776892L;
+
 	/**
 	 * 标签名称
 	 */
 	private String label;
+
 	/**
 	 * 值
 	 */

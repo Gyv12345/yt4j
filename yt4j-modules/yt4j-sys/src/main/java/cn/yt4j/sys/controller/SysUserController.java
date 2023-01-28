@@ -139,7 +139,7 @@ public class SysUserController {
 	@SysLog("在线用户")
 	@PostMapping("/online")
 	public R online() {
-		List<String> list = StpUtil.searchSessionId("",0,1000,true);
+		List<String> list = StpUtil.searchSessionId("", 0, 1000, true);
 		return R.ok(list);
 	}
 

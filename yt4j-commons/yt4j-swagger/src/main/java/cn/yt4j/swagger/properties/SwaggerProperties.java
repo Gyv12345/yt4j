@@ -15,14 +15,14 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "yt4j.swagger")
 public class SwaggerProperties {
 
-    /**
-     * 是否开启 openApi 文档
-     */
-    private Boolean enabled = true;
+	/**
+	 * 是否开启 openApi 文档
+	 */
+	private Boolean enabled = true;
 
-    /**
-     * 文档基本信息
-     */
-    private Info info = new Info();
+	/**
+	 * 文档基本信息
+	 */
+	private Info info = new Info();
 
 }
