@@ -22,14 +22,14 @@
 
     <properties>
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
-        <hutool.version>5.8.11</hutool.version>
-        <easy-excel.version>2.2.10</easy-excel.version>
+        <hutool.version>5.8.15</hutool.version>
+        <easy-excel.version>3.2.1</easy-excel.version>
         <jjwt.version>0.11.2</jjwt.version>
         <jasypt.version>2.1.1</jasypt.version>
         <wx.java.version>4.0.0</wx.java.version>
         <dingding.version>1.0.1</dingding.version>
         <plumelog.version>3.5.3</plumelog.version>
-        <xxl-job.version>2.3.0</xxl-job.version>
+        <xxl-job.version>2.3.1</xxl-job.version>
         <netty.websocket.version>0.12.0</netty.websocket.version>
         <rocketmq-spring-boot-starter-version>2.2.0</rocketmq-spring-boot-starter-version>
         <jetcache.latest.version>2.6.7</jetcache.latest.version>

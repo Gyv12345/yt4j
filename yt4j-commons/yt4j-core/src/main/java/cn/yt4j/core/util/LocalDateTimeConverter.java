@@ -12,9 +12,11 @@ package cn.yt4j.core.util;
 
 import cn.hutool.core.date.DatePattern;
 import com.alibaba.excel.converters.Converter;
+import com.alibaba.excel.converters.WriteConverterContext;
 import com.alibaba.excel.enums.CellDataTypeEnum;
-import com.alibaba.excel.metadata.CellData;
 import com.alibaba.excel.metadata.GlobalConfiguration;
+import com.alibaba.excel.metadata.data.ReadCellData;
+import com.alibaba.excel.metadata.data.WriteCellData;
 import com.alibaba.excel.metadata.property.ExcelContentProperty;
 
 import java.time.LocalDateTime;
@@ -38,16 +40,16 @@ public class LocalDateTimeConverter implements Converter<LocalDateTime> {
 	}
 
 	@Override
-	public LocalDateTime convertToJavaData(CellData cellData, ExcelContentProperty contentProperty,
-			GlobalConfiguration globalConfiguration) {
+	public LocalDateTime convertToJavaData(ReadCellData<?> cellData, ExcelContentProperty contentProperty,
+			GlobalConfiguration globalConfiguration) throws Exception {
 		return LocalDateTime.parse(cellData.getStringValue(),
 				DateTimeFormatter.ofPattern(DatePattern.NORM_DATETIME_PATTERN));
 	}
 
 	@Override
-	public CellData<String> convertToExcelData(LocalDateTime value, ExcelContentProperty contentProperty,
-			GlobalConfiguration globalConfiguration) {
-		return new CellData<>(value.format(DateTimeFormatter.ofPattern(DatePattern.NORM_DATETIME_PATTERN)));
+	public WriteCellData<?> convertToExcelData(WriteConverterContext<LocalDateTime> context) throws Exception {
+		return new WriteCellData<>(
+				context.getValue().format(DateTimeFormatter.ofPattern(DatePattern.NORM_DATETIME_PATTERN)));
 	}
 
 }

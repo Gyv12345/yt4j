@@ -33,7 +33,7 @@
 
         <maven.versions.plugins.version>2.10.0</maven.versions.plugins.version>
 
-        <spring-boot.version>3.0.1</spring-boot.version>
+        <spring-boot.version>3.0.2</spring-boot.version>
         <spring-cloud.version>2022.0.0</spring-cloud.version>
         <spring-cloud-alibaba.version>2022.0.0.0-RC1</spring-cloud-alibaba.version>
         <spring.checkstyle.version>0.0.31</spring.checkstyle.version>
