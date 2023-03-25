@@ -1,0 +1,66 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: yt4j-sys
+          uri: lb://yt4j-sys
+          predicates:
+            - Path=/sys/**
+          filters:
+            - StripPrefix=1
+        - id: yt4j-auth
+          uri: lb://yt4j-auth
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+        - id: yt4j-crm
+          uri: lb://yt4j-crm
+          predicates:
+            - Path=/crm/**
+          filters:
+            - StripPrefix=1
+--- # 聚合文档
+knife4j:
+  gateway:
+    # 开区网关聚合文档 默认:/
+    enabled: true
+    # 网关前缀(如nginx配置的代理前缀) 默认:/
+    api-path-prefix: /
+    # 使用的UI版本(v2或者v3) 默认: v3
+    version: v3
+    # 服务发现
+    discover:
+      # 开启服务发现 默认:true
+      enabled: true
+      # 默认排序 默认:0
+      default-order: 0
+      # 排除的服务名 默认:为空(建议排除网关服务)
+      excluded-services: gateway
+    v3:
+      # 文档访问地址 默认:/v3/api-docs
+      api-docs-path: '/v3/api-docs'
+      # oauth2 redirect url
+      oauth2-redirect-url: ''
+      # validator url
+      validator-url: ''
+    routes:
+      # 分组名称
+      - name: 系统服务
+        # 文档地址
+        url: '/sys/v3/api-docs'
+        # context-path
+        context-path: '/sys'
+        # 服务名
+        service-name: sys
+        # 排序
+        order: 1
+      - name: 鉴权服务
+        # 文档地址
+        url: '/auth/v3/api-docs'
+        # context-path
+        context-path: '/auth'
+        # 服务名
+        service-name: auth
+        # 排序
+        order: 1

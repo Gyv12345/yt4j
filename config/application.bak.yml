@@ -20,7 +20,7 @@ yt4j:
     ignoredUrl:
       - /user/login
       - /auth/login
-      - /swagger-ui.html\
+      - /swagger-ui.html
       - /swagger-resources/**
       - /swagger/**
       - /**/v3/api-docs
@@ -31,7 +31,8 @@ yt4j:
       - /webjars/springfox-swagger-ui/**
       - /actuator/**
       - /doc.html
-      - /v3/api-docs
+      - /v3/**
+      - /v3/api-docs/swagger-config
 jasypt:
   encryptor:
     password: yt4j

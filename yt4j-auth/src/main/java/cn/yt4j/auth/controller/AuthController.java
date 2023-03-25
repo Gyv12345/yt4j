@@ -30,6 +30,7 @@ public class AuthController {
 	private final AuthService authService;
 
 	/**
+	 * 登录
 	 * @param dto
 	 * @return
 	 */
@@ -37,7 +38,7 @@ public class AuthController {
 	@SysLog("登录")
 	@PostMapping("login")
 	public R<Map> login(@RequestBody @Validated LoginDTO dto) {
-		Map<String, String> map = new HashMap<>();
+		Map<String, String> map = new HashMap<>(8);
 		String token = authService.login(dto);
 		map.put("token", token);
 		return R.ok(map);
