@@ -13,7 +13,6 @@ package cn.yt4j.log;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.annotation.Order;
 
 /**
@@ -22,7 +21,6 @@ import org.springframework.core.annotation.Order;
  * @author gyv12345@163.com
  */
 @Order
-@ComponentScan("com.plumelog")
 @AutoConfiguration
 @RequiredArgsConstructor
 @ConditionalOnWebApplication

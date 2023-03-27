@@ -20,6 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>yt4j-log</artifactId>
+    <description>日志启动器，本来增加了链路追踪，但是感觉这样去引入的性能还是不好，并且有些用户可能不想使用Plumelog</description>
 
     <dependencies>
         <dependency>
@@ -48,14 +49,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.plumelog</groupId>
-            <artifactId>plumelog-logback</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.plumelog</groupId>
-            <artifactId>plumelog-trace</artifactId>
         </dependency>
     </dependencies>
 

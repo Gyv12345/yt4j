@@ -8,11 +8,9 @@ ENV JAVA_OPTS="-Xms128m -Xmx128m -Djava.security.egd=file:/dev/./urandom"
 
 RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN mkdir -p /yt4j-sys
+RUN mkdir -p /app
 
-WORKDIR /yt4j-sys
-
-EXPOSE 9100
+WORKDIR /app
 
 ADD ./target/yt4j-sys.jar ./
 
