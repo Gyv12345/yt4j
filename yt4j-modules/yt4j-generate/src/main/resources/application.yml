@@ -1,0 +1,60 @@
+server:
+  port: 0
+spring:
+  application:
+    name: @artifactId@
+  cloud:
+    nacos:
+      discovery:
+        server-addr: yt4j-nacos:8848
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+  config:
+    import:
+      - optional:nacos:application.yml
+      - optional:nacos:${spring.application.name}.yml
+---
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    # 动态数据源文档 https://www.kancloud.cn/tracy5546/dynamic-datasource/content
+    dynamic:
+      # 性能分析插件(有性能损耗 不建议生产环境使用)
+      p6spy: false
+      # 设置默认的数据源或者数据源组,默认值即为 master
+      primary: master
+      # 严格模式 匹配不到数据源则报错
+      strict: true
+      datasource:
+        # 主库数据源
+        master:
+          type: ${spring.datasource.type}
+          driverClassName: com.mysql.cj.jdbc.Driver
+          # jdbc 所有参数配置参考 https://lionli.blog.csdn.net/article/details/122018562
+          # rewriteBatchedStatements=true 批处理优化 大幅提升批量插入更新删除性能(对数据库有性能损耗 使用批量操作应考虑性能问题)
+          url: jdbc:mysql://gz-cynosdbmysql-grp-097nbpx3.sql.tencentcdb.com:29323/yt4j?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&autoReconnect=true&rewriteBatchedStatements=true
+          username: root
+          password: '!Shijie123456'
+      hikari:
+        # 最大连接池数量
+        maxPoolSize: 20
+        # 最小空闲线程数量
+        minIdle: 10
+        # 配置获取连接等待超时的时间
+        connectionTimeout: 10000
+        # 校验超时时间
+        validationTimeout: 5000
+        # 空闲连接存活最大时间，默认10分钟
+        idleTimeout: 60000
+        # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认30分钟
+        maxLifetime: 900000
+        # 连接测试query（配置检测连接是否有效）
+        connectionTestQuery: SELECT 1
+---
+yt4j:
+  datasource:
+    url: ${spring.datasource.dynamic.datasource.master.url}
+    username: ${spring.datasource.dynamic.datasource.master.username}
+    password: ${spring.datasource.dynamic.datasource.master.password}
+    driverClassName: ${spring.datasource.dynamic.datasource.master.driverClassName}
+    queryDsSql: 'select * from gen_datasource'

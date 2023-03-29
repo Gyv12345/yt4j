@@ -39,6 +39,7 @@
         <ip2region.version>2.6.5</ip2region.version>
         <springdoc.version>2.0.0</springdoc.version>
         <swagger.annotation.version>2.2.7</swagger.annotation.version>
+        <dynamic-datasource.version>3.6.1</dynamic-datasource.version>
     </properties>
 
     <dependencyManagement>
@@ -188,6 +189,12 @@
                 <groupId>org.lionsoul</groupId>
                 <artifactId>ip2region</artifactId>
                 <version>${ip2region.version}</version>
+            </dependency>
+            <!-- 动态数据源 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic-datasource.version}</version>
             </dependency>
 
             <!-- 2方库 -->
