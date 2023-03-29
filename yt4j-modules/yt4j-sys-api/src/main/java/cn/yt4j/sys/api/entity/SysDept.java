@@ -15,6 +15,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -30,11 +31,13 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
+@Schema(name = "SysDept",description = "部门")
 public class SysDept extends Model<SysDept> {
 
 	/**
 	 * 主键
 	 */
+	@Schema(name = "id",description = "主键")
 	@JsonSerialize(using = ToStringSerializer.class)
 	@TableId(value = "id", type = IdType.ASSIGN_ID)
 	private Long id;

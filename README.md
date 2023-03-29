@@ -22,14 +22,15 @@ ui部分 放弃了，前端太难了
 
 依赖 | 版本
 ---|---
-Spring Boot | 3.0.1
+Spring Boot | 3.0.5
 Mybatis Plus | 3.5.3.1
 hutool | 5.8.11
-Spring Cloud | 2022.0.0
-Spring Cloud Alibaba | 2022.0.0
+Spring Cloud | 2022.0.1
+Spring Cloud Alibaba | 2022.0.0.0-RC1
 sa-token | 1.34.0
 plumelog | 3.5.3
 xxl-job | 2.3.0
+knife4j | 4.1.0
 
 ## 模块说明
 
@@ -44,7 +45,7 @@ yt4j
 │  ├─yt4j-log 统一日志
 │  ├─yt4j-sa-token 使用sa-token 换了一个框架
 │  ├─yt4j-security 安全相关
-│  ├─yt4j-swagger swagger的配置 使用knife4j /doc.html 
+│  ├─yt4j-swagger 使用knife4j /doc.html 使用SpringDoc
 │  └─yt4j-web web定义相关
 ├─yt4j-dependencies 依赖管理
 ├─yt4j-gateway 项目网关 【8888】
@@ -56,9 +57,7 @@ yt4j
 ```
 
 ## 代码生成
-感觉easycode作者大佬增加了官网，模板可以永久下载了，再也不用担心丢失之苦
-
-acba9f2c5c244d87e9779722ba7392
+easycode插件服务断了，准备增加代码生成模块，没有easycode的功能强大 ，毕竟easycode按理来说只要database支持的它都支持
 
 ## 部署
 部署的时候，需要设置一下host
