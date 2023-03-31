@@ -9,10 +9,11 @@ public interface DataSourceConstants {
 	 * 数据源名称
 	 */
 	String DS_NAME = "pool_name";
+
 	/**
 	 * 这个是传过来的名称
 	 */
-	String POOL_NAME="poolName";
+	String POOL_NAME = "poolName";
 
 	/**
 	 * 默认数据源（master）

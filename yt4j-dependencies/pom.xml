@@ -77,12 +77,6 @@
                 <artifactId>knife4j-gateway-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
             </dependency>
-            <dependency>
-                <groupId>io.swagger.core.v3</groupId>
-                <artifactId>swagger-annotations-jakarta</artifactId>
-                <version>${swagger.annotation.version}</version>
-            </dependency>
-
 
             <dependency>
                 <groupId>com.alibaba</groupId>

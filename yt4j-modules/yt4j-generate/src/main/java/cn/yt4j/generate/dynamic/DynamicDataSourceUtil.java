@@ -19,20 +19,22 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Component
 public class DynamicDataSourceUtil {
-    private final DataSource dataSource;
 
-    private final DataSourceCreator hikariDataSourceCreator;
+	private final DataSource dataSource;
 
-    public void addDataSource(String in) {
-        DynamicRoutingDataSource ds = (DynamicRoutingDataSource) dataSource;
-        Map<String,String> map= JSON.parseObject(in, Map.class);
-        DataSourceProperty property=new DataSourceProperty();
-        property.setUsername(map.get(DataSourceConstants.DS_USER_NAME));
-        property.setPassword(map.get(DataSourceConstants.DS_USER_PWD));
-        property.setUrl(map.get(DataSourceConstants.DS_JDBC_URL));
-        log.info(property.toString());
-        DataSource dataSource = hikariDataSourceCreator.createDataSource(property);
-        ds.addDataSource(map.get(DataSourceConstants.POOL_NAME), dataSource);
-        log.info(ds.getDataSources().toString());
-    }
+	private final DataSourceCreator hikariDataSourceCreator;
+
+	public void addDataSource(String in) {
+		DynamicRoutingDataSource ds = (DynamicRoutingDataSource) dataSource;
+		Map<String, String> map = JSON.parseObject(in, Map.class);
+		DataSourceProperty property = new DataSourceProperty();
+		property.setUsername(map.get(DataSourceConstants.DS_USER_NAME));
+		property.setPassword(map.get(DataSourceConstants.DS_USER_PWD));
+		property.setUrl(map.get(DataSourceConstants.DS_JDBC_URL));
+		log.info(property.toString());
+		DataSource dataSource = hikariDataSourceCreator.createDataSource(property);
+		ds.addDataSource(map.get(DataSourceConstants.POOL_NAME), dataSource);
+		log.info(ds.getDataSources().toString());
+	}
+
 }

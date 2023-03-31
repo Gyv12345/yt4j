@@ -36,4 +36,5 @@ public class JdbcDataSourceProperties {
 	 * 查询数据源的SQL
 	 */
 	private String queryDsSql = "select * from gen_datasource";
+
 }

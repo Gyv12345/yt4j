@@ -16,6 +16,7 @@ import java.util.Map;
  */
 @Component
 public class JdbcDynamicDataSourceProvider extends AbstractJdbcDataSourceProvider {
+
 	private final JdbcDataSourceProperties properties;
 
 	public JdbcDynamicDataSourceProvider(JdbcDataSourceProperties properties) {
@@ -24,8 +25,7 @@ public class JdbcDynamicDataSourceProvider extends AbstractJdbcDataSourceProvide
 	}
 
 	/**
-	 * 执行语句获得数据源参数
-	 *
+	 * 项目启动的时候加载数据源
 	 * @param statement 语句
 	 * @return 数据源参数
 	 * @throws SQLException sql异常
@@ -47,13 +47,7 @@ public class JdbcDynamicDataSourceProvider extends AbstractJdbcDataSourceProvide
 			map.put(name, property);
 		}
 
-		// 添加默认主数据源
-		DataSourceProperty property = new DataSourceProperty();
-		property.setUsername(properties.getUsername());
-		property.setPassword(properties.getPassword());
-		property.setUrl(properties.getUrl());
-		map.put(DataSourceConstants.DS_MASTER, property);
-
 		return map;
 	}
+
 }

@@ -1,8 +1,10 @@
 package cn.yt4j.generate.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StringSerializer;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -10,123 +12,126 @@ import java.time.LocalDateTime;
 
 /**
  * 代码生成业务表字段
+ *
  * @author gyv12345@163.com
  * @TableName gen_table_column
  */
-@TableName(value ="gen_table_column")
+@TableName(value = "gen_table_column")
 @Data
 public class GenTableColumn implements Serializable {
-    /**
-     * 编号
-     */
-    @TableId
-    private Long columnId;
 
-    /**
-     * 归属表编号
-     */
-    private Long tableId;
+	private static final long serialVersionUID = 4856624367120382987L;
 
-    /**
-     * 列名称
-     */
-    private String columnName;
+	/**
+	 * 编号
+	 */
+	@TableId(type = IdType.ASSIGN_ID)
+	@JsonSerialize(using = StringSerializer.class)
+	private Long columnId;
 
-    /**
-     * 列描述
-     */
-    private String columnComment;
+	/**
+	 * 归属表编号
+	 */
+	private Long tableId;
 
-    /**
-     * 列类型
-     */
-    private String columnType;
+	/**
+	 * 列名称
+	 */
+	private String columnName;
 
-    /**
-     * JAVA类型
-     */
-    private String javaType;
+	/**
+	 * 列描述
+	 */
+	private String columnComment;
 
-    /**
-     * JAVA字段名
-     */
-    private String javaField;
+	/**
+	 * 列类型
+	 */
+	private String columnType;
 
-    /**
-     * 是否主键（1是）
-     */
-    private String isPk;
+	/**
+	 * JAVA类型
+	 */
+	private String javaType;
 
-    /**
-     * 是否自增（1是）
-     */
-    private String isIncrement;
+	/**
+	 * JAVA字段名
+	 */
+	private String javaField;
 
-    /**
-     * 是否必填（1是）
-     */
-    private String isRequired;
+	/**
+	 * 是否主键（1是）
+	 */
+	private String isPk;
 
-    /**
-     * 是否为插入字段（1是）
-     */
-    private String isInsert;
+	/**
+	 * 是否自增（1是）
+	 */
+	private String isIncrement;
 
-    /**
-     * 是否编辑字段（1是）
-     */
-    private String isEdit;
+	/**
+	 * 是否必填（1是）
+	 */
+	private String isRequired;
 
-    /**
-     * 是否列表字段（1是）
-     */
-    private String isList;
+	/**
+	 * 是否为插入字段（1是）
+	 */
+	private String isInsert;
 
-    /**
-     * 是否查询字段（1是）
-     */
-    private String isQuery;
+	/**
+	 * 是否编辑字段（1是）
+	 */
+	private String isEdit;
 
-    /**
-     * 查询方式（等于、不等于、大于、小于、范围）
-     */
-    private String queryType;
+	/**
+	 * 是否列表字段（1是）
+	 */
+	private String isList;
 
-    /**
-     * 显示类型（文本框、文本域、下拉框、复选框、单选框、日期控件）
-     */
-    private String htmlType;
+	/**
+	 * 是否查询字段（1是）
+	 */
+	private String isQuery;
 
-    /**
-     * 字典类型
-     */
-    private String dictType;
+	/**
+	 * 查询方式（等于、不等于、大于、小于、范围）
+	 */
+	private String queryType;
 
-    /**
-     * 排序
-     */
-    private Integer sort;
+	/**
+	 * 显示类型（文本框、文本域、下拉框、复选框、单选框、日期控件）
+	 */
+	private String htmlType;
 
-    /**
-     * 创建者
-     */
-    private String createBy;
+	/**
+	 * 字典类型
+	 */
+	private String dictType;
 
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
+	/**
+	 * 排序
+	 */
+	private Integer sort;
 
-    /**
-     * 更新者
-     */
-    private String updateBy;
+	/**
+	 * 创建者
+	 */
+	private String createBy;
 
-    /**
-     * 更新时间
-     */
-    private LocalDateTime updateTime;
+	/**
+	 * 创建时间
+	 */
+	private LocalDateTime createTime;
 
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
+	/**
+	 * 更新者
+	 */
+	private String updateBy;
+
+	/**
+	 * 更新时间
+	 */
+	private LocalDateTime updateTime;
+
 }

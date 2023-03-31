@@ -20,6 +20,12 @@ spring:
             - Path=/crm/**
           filters:
             - StripPrefix=1
+        - id: yt4j-generate
+          uri: lb://yt4j-generate
+          predicates:
+            - Path=/gen/**
+          filters:
+            - StripPrefix=1
 --- # 聚合文档
 knife4j:
   gateway:
@@ -54,7 +60,7 @@ knife4j:
         # 服务名
         service-name: sys
         # 排序
-        order: 1
+        order: 0
       - name: 鉴权服务
         # 文档地址
         url: '/auth/v3/api-docs'
@@ -64,3 +70,12 @@ knife4j:
         service-name: auth
         # 排序
         order: 1
+      - name: 代码生成服务
+        # 文档地址
+        url: '/gen/v3/api-docs'
+        # context-path
+        context-path: '/gen'
+        # 服务名
+        service-name: gen
+        # 排序
+        order: 2

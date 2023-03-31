@@ -31,13 +31,13 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-@Schema(name = "SysDept",description = "部门")
+@Schema(name = "SysDept", description = "部门")
 public class SysDept extends Model<SysDept> {
 
 	/**
 	 * 主键
 	 */
-	@Schema(name = "id",description = "主键")
+	@Schema(name = "id", description = "主键")
 	@JsonSerialize(using = ToStringSerializer.class)
 	@TableId(value = "id", type = IdType.ASSIGN_ID)
 	private Long id;
