@@ -5,28 +5,28 @@
 <mapper namespace="cn.yt4j.generate.mapper.GenTableColumnMapper">
 
     <resultMap id="BaseResultMap" type="cn.yt4j.generate.entity.GenTableColumn">
-            <id property="columnId" column="column_id" jdbcType="BIGINT"/>
-            <result property="tableId" column="table_id" jdbcType="BIGINT"/>
-            <result property="columnName" column="column_name" jdbcType="VARCHAR"/>
-            <result property="columnComment" column="column_comment" jdbcType="VARCHAR"/>
-            <result property="columnType" column="column_type" jdbcType="VARCHAR"/>
-            <result property="javaType" column="java_type" jdbcType="VARCHAR"/>
-            <result property="javaField" column="java_field" jdbcType="VARCHAR"/>
-            <result property="isPk" column="is_pk" jdbcType="CHAR"/>
-            <result property="isIncrement" column="is_increment" jdbcType="CHAR"/>
-            <result property="isRequired" column="is_required" jdbcType="CHAR"/>
-            <result property="isInsert" column="is_insert" jdbcType="CHAR"/>
-            <result property="isEdit" column="is_edit" jdbcType="CHAR"/>
-            <result property="isList" column="is_list" jdbcType="CHAR"/>
-            <result property="isQuery" column="is_query" jdbcType="CHAR"/>
-            <result property="queryType" column="query_type" jdbcType="VARCHAR"/>
-            <result property="htmlType" column="html_type" jdbcType="VARCHAR"/>
-            <result property="dictType" column="dict_type" jdbcType="VARCHAR"/>
-            <result property="sort" column="sort" jdbcType="INTEGER"/>
-            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
-            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
-            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
-            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <id property="columnId" column="column_id" jdbcType="BIGINT"/>
+        <result property="tableId" column="table_id" jdbcType="BIGINT"/>
+        <result property="columnName" column="column_name" jdbcType="VARCHAR"/>
+        <result property="columnComment" column="column_comment" jdbcType="VARCHAR"/>
+        <result property="columnType" column="column_type" jdbcType="VARCHAR"/>
+        <result property="javaType" column="java_type" jdbcType="VARCHAR"/>
+        <result property="javaField" column="java_field" jdbcType="VARCHAR"/>
+        <result property="isPk" column="is_pk" jdbcType="CHAR"/>
+        <result property="isIncrement" column="is_increment" jdbcType="CHAR"/>
+        <result property="isRequired" column="is_required" jdbcType="CHAR"/>
+        <result property="isInsert" column="is_insert" jdbcType="CHAR"/>
+        <result property="isEdit" column="is_edit" jdbcType="CHAR"/>
+        <result property="isList" column="is_list" jdbcType="CHAR"/>
+        <result property="isQuery" column="is_query" jdbcType="CHAR"/>
+        <result property="queryType" column="query_type" jdbcType="VARCHAR"/>
+        <result property="htmlType" column="html_type" jdbcType="VARCHAR"/>
+        <result property="dictType" column="dict_type" jdbcType="VARCHAR"/>
+        <result property="sort" column="sort" jdbcType="INTEGER"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <sql id="Base_Column_List">

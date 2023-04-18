@@ -1,7 +1,10 @@
 package cn.yt4j.generate.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StringSerializer;
 import lombok.Data;
 import lombok.ToString;
 
@@ -24,7 +27,8 @@ public class GenDatasource implements Serializable {
 	/**
 	 * ID
 	 */
-	@TableId
+	@TableId(type = IdType.ASSIGN_ID)
+	@JsonSerialize(using = StringSerializer.class)
 	private Long id;
 
 	/**

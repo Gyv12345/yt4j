@@ -10,4 +10,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface GenDatasourceService extends IService<GenDatasource> {
 
+	/**
+	 * 添加修改数据源
+	 * @param datasource
+	 */
+	void addOrUpdate(GenDatasource datasource);
+
 }
