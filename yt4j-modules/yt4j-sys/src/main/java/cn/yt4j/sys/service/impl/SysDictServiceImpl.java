@@ -1,19 +1,10 @@
-/*
- *    Copyright (c) [2020] [yang1989]
- *    [yt4j] is licensed under Mulan PSL v2.
- *    You can use this software according to the terms and conditions of the Mulan PSL v2.
- *    You may obtain a copy of Mulan PSL v2 at:
- *             http://license.coscl.org.cn/MulanPSL2
- *    THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
- *    See the Mulan PSL v2 for more details.
- */
 
 package cn.yt4j.sys.service.impl;
 
-import cn.yt4j.sys.dao.SysDictDao;
-import cn.yt4j.sys.dao.SysDictItemDao;
 import cn.yt4j.sys.api.entity.SysDict;
 import cn.yt4j.sys.api.entity.SysDictItem;
+import cn.yt4j.sys.dao.SysDictDao;
+import cn.yt4j.sys.dao.SysDictItemDao;
 import cn.yt4j.sys.service.SysDictService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

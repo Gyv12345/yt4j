@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.sql.DataSource;
 import java.io.Serializable;
 import java.util.List;
 
@@ -24,10 +25,12 @@ import java.util.List;
 @Validated
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/gen/datasource")
+@RequestMapping("datasource")
 public class GenDatasourceController {
 
 	private final GenDatasourceService genDatasourceService;
+
+	private final DataSource dataSource;
 
 	/**
 	 * 分页查询数据源

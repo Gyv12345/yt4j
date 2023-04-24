@@ -14,6 +14,13 @@ import java.util.Map;
 public interface GenTableService extends IService<GenTable> {
 
 	/**
+	 * 根据数据源查询表信息
+	 * @param datasourceName
+	 * @return
+	 */
+	List<Map<String, Object>> queryTables(String datasourceName);
+
+	/**
 	 * 查询当前数据源表
 	 * @param tableName
 	 * @return
