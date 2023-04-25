@@ -42,6 +42,10 @@ public class PageRequest<T> implements Serializable {
 	 */
 	@Schema(description = "查询条件 like_name:wang")
 	private Map<String, Object> condition;
+	/**
+	 * 实体类
+	 */
+	private T data;
 
 	public IPage<T> page() {
 		Page<T> page = new Page<>(this.pageNo, this.pageSize);

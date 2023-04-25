@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.StringSerializer;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -26,7 +26,7 @@ public class GenTable implements Serializable {
 	 * 编号
 	 */
 	@TableId(type = IdType.ASSIGN_ID)
-	@JsonSerialize(using = StringSerializer.class)
+	@JsonSerialize(using = ToStringSerializer.class)
 	private Long tableId;
 
 	/**
@@ -123,5 +123,14 @@ public class GenTable implements Serializable {
 	 * 备注
 	 */
 	private String remark;
+	/**
+	 * 数据源ID
+	 */
+	@JsonSerialize(using = ToStringSerializer.class)
+	private Long datasourceId;
+	/**
+	 * 数据源名称
+	 */
+	private String datasourceName;
 
 }

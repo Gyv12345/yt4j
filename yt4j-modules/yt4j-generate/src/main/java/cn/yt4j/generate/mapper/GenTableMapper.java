@@ -2,7 +2,10 @@ package cn.yt4j.generate.mapper;
 
 import cn.yt4j.generate.entity.GenTable;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @author gyv12345@163.com
@@ -12,5 +15,12 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface GenTableMapper extends BaseMapper<GenTable> {
+    /**
+     * 查询数据库元数据
+     * @param page
+     * @param genTable
+     * @return
+     */
+    Page<GenTable> selectTablePage(@Param("page") IPage<GenTable> page, @Param("genTable") GenTable genTable);
 
 }

@@ -1,6 +1,8 @@
 package cn.yt4j.generate.service;
 
 import cn.yt4j.generate.entity.GenTable;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
@@ -12,19 +14,21 @@ import java.util.Map;
  * @createDate 2023-03-28 09:38:00
  */
 public interface GenTableService extends IService<GenTable> {
+    /**
+     * 分页查询数据源表
+     *
+     * @param page
+     * @param genTable
+     * @return
+     */
+    Page<GenTable> selectTablePage(IPage<GenTable> page, GenTable genTable);
 
-	/**
-	 * 根据数据源查询表信息
-	 * @param datasourceName
-	 * @return
-	 */
-	List<Map<String, Object>> queryTables(String datasourceName);
-
-	/**
-	 * 查询当前数据源表
-	 * @param tableName
-	 * @return
-	 */
-	List<Map<String, Object>> tables(String tableName);
+    /**
+     * 查询当前数据源表
+     *
+     * @param tableName
+     * @return
+     */
+    List<Map<String, Object>> tables(String tableName);
 
 }

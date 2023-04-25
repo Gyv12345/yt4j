@@ -8,7 +8,7 @@ public interface DataSourceConstants {
 	/**
 	 * 数据源名称
 	 */
-	String DS_NAME = "pool_name";
+	String DS_NAME = "name";
 
 	/**
 	 * 这个是传过来的名称
