@@ -123,11 +123,13 @@ public class GenTable implements Serializable {
 	 * 备注
 	 */
 	private String remark;
+
 	/**
 	 * 数据源ID
 	 */
 	@JsonSerialize(using = ToStringSerializer.class)
 	private Long datasourceId;
+
 	/**
 	 * 数据源名称
 	 */

@@ -1,5 +1,6 @@
 package cn.yt4j.generate.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import cn.yt4j.generate.entity.GenTable;
 import cn.yt4j.generate.mapper.GenTableMapper;
 import cn.yt4j.generate.service.GenTableService;
@@ -13,23 +14,24 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 数据表
  * @author gyv12345@163.com
- * @description 针对表【gen_table(代码生成业务表)】的数据库操作Service实现
- * @createDate 2023-03-28 09:38:00
  */
 @Service
 public class GenTableServiceImpl extends ServiceImpl<GenTableMapper, GenTable> implements GenTableService {
 
+	@DS("#genTable.datasourceName")
+	@Override
+	public Page<GenTable> selectTablePage(IPage<GenTable> page, GenTable genTable) {
+		if (ObjectUtil.isEmpty(genTable.getDatasourceName())){
+			return new Page<>();
+		}
+		return this.baseMapper.selectTablePage(page, genTable);
+	}
 
-    @DS("#genTable.datasourceName")
-    @Override
-    public Page<GenTable> selectTablePage(IPage<GenTable> page, GenTable genTable) {
-        return this.baseMapper.selectTablePage(page, genTable);
-    }
-
-    @Override
-    public List<Map<String, Object>> tables(String tableName) {
-        return null;
-    }
+	@Override
+	public List<Map<String, Object>> tables(String tableName) {
+		return null;
+	}
 
 }

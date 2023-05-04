@@ -15,12 +15,13 @@ import org.apache.ibatis.annotations.Param;
  */
 @Mapper
 public interface GenTableMapper extends BaseMapper<GenTable> {
-    /**
-     * 查询数据库元数据
-     * @param page
-     * @param genTable
-     * @return
-     */
-    Page<GenTable> selectTablePage(@Param("page") IPage<GenTable> page, @Param("genTable") GenTable genTable);
+
+	/**
+	 * 查询数据库元数据
+	 * @param page
+	 * @param genTable
+	 * @return
+	 */
+	Page<GenTable> selectTablePage(@Param("page") IPage<GenTable> page, @Param("genTable") GenTable genTable);
 
 }

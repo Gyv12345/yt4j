@@ -33,7 +33,7 @@ public class GenTableController {
 	 * @param request 查询实体
 	 * @return 所有数据
 	 */
-	@Operation(summary ="分页查询数据源表")
+	@Operation(summary = "分页查询数据源表")
 	@SysLog("分页查询数据源表")
 	@PostMapping("page")
 	public R<PageResult<GenTable>> listPage(@Valid @RequestBody PageRequest<GenTable> request) {

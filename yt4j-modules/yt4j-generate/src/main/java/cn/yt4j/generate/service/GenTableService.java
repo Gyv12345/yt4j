@@ -14,21 +14,20 @@ import java.util.Map;
  * @createDate 2023-03-28 09:38:00
  */
 public interface GenTableService extends IService<GenTable> {
-    /**
-     * 分页查询数据源表
-     *
-     * @param page
-     * @param genTable
-     * @return
-     */
-    Page<GenTable> selectTablePage(IPage<GenTable> page, GenTable genTable);
 
-    /**
-     * 查询当前数据源表
-     *
-     * @param tableName
-     * @return
-     */
-    List<Map<String, Object>> tables(String tableName);
+	/**
+	 * 分页查询数据源表
+	 * @param page
+	 * @param genTable
+	 * @return
+	 */
+	Page<GenTable> selectTablePage(IPage<GenTable> page, GenTable genTable);
+
+	/**
+	 * 查询当前数据源表
+	 * @param tableName
+	 * @return
+	 */
+	List<Map<String, Object>> tables(String tableName);
 
 }
