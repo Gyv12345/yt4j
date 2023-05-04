@@ -40,4 +40,6 @@ public class GenTableController {
 		return R.ok(this.genTableService.selectTablePage(request.page(), request.getData()));
 	}
 
+
+
 }

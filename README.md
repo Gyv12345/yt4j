@@ -172,3 +172,8 @@ fork 的项目 [yt4j-flow流程设计页](https://gitee.com/yangshao/easy-flow)
 
 <a href="https://www.jetbrains.com/?from=yt4j" target="_blank">
 <img src="https://user-images.githubusercontent.com/1787798/69898077-4f4e3d00-138f-11ea-81f9-96fb7c49da89.png" height="200"/></a>
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Gyv12345/yt4j&type=Date)](https://star-history.com/#Gyv12345/yt4j&Date)
+
