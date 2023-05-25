@@ -4,6 +4,8 @@ import cn.yt4j.generate.entity.GenTableColumn;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * @author gyv12345@163.com
  * @description 针对表【gen_table_column(代码生成业务表字段)】的数据库操作Mapper
@@ -12,5 +14,8 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface GenTableColumnMapper extends BaseMapper<GenTableColumn> {
+
+
+    List<GenTableColumn> selectDbTableColumnsByName(String tableName);
 
 }
