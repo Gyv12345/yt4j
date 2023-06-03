@@ -32,6 +32,11 @@ public class SysDictController {
 	 */
 	private final SysDictService sysDictService;
 
+	/**
+	 * 获取远程字典
+	 * @param code
+	 * @return
+	 */
 	@SysLog("获取远程字典")
 	@GetMapping("remote/{code}")
 	public R<List<DictVO>> listByCode(@PathVariable String code) {

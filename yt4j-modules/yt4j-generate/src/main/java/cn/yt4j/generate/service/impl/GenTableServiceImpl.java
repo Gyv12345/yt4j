@@ -15,6 +15,7 @@ import java.util.Map;
 
 /**
  * 数据表
+ *
  * @author gyv12345@163.com
  */
 @Service
@@ -23,7 +24,7 @@ public class GenTableServiceImpl extends ServiceImpl<GenTableMapper, GenTable> i
 	@DS("#genTable.datasourceName")
 	@Override
 	public Page<GenTable> selectTablePage(IPage<GenTable> page, GenTable genTable) {
-		if (ObjectUtil.isEmpty(genTable.getDatasourceName())){
+		if (ObjectUtil.isEmpty(genTable.getDatasourceName())) {
 			return new Page<>();
 		}
 		return this.baseMapper.selectTablePage(page, genTable);

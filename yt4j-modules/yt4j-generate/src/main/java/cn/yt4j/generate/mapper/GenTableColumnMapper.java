@@ -15,7 +15,6 @@ import java.util.List;
 @Mapper
 public interface GenTableColumnMapper extends BaseMapper<GenTableColumn> {
 
-
-    List<GenTableColumn> selectDbTableColumnsByName(String tableName);
+	List<GenTableColumn> selectDbTableColumnsByName(String tableName);
 
 }

@@ -11,3 +11,5 @@ target/
 /logs/
 /yt4j-modules/yt4j-sys/logs
 static
+
+.flattened-pom.xml

@@ -2,7 +2,6 @@
 package cn.yt4j.sys.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
-import cn.hutool.core.convert.Convert;
 import cn.yt4j.core.domain.PageRequest;
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.R;
@@ -58,7 +57,7 @@ public class SysUserController {
 	@SysLog("获取用户信息")
 	@GetMapping("info")
 	public R<UserInfo> getInfo() {
-		return R.ok(this.sysUserService.getInfo(Convert.toLong(StpUtil.getLoginId())));
+		return R.ok(this.sysUserService.getInfo(StpUtil.getLoginIdAsLong()));
 	}
 
 	/**

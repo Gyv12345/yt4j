@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~    Copyright (c) [2020] [yang1989]
-  ~    [yt4j] is licensed under Mulan PSL v2.
-  ~    You can use this software according to the terms and conditions of the Mulan PSL v2.
-  ~    You may obtain a copy of Mulan PSL v2 at:
-  ~             http://license.coscl.org.cn/MulanPSL2
-  ~    THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
-  ~    See the Mulan PSL v2 for more details.
-  -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn.yt4j</groupId>
     <artifactId>yt4j</artifactId>
-    <version>1.0.3</version>
+    <version>${revision}</version>
     <modules>
         <module>yt4j-dependencies</module>
         <module>yt4j-modules</module>
@@ -25,13 +15,12 @@
     </modules>
     <packaging>pom</packaging>
     <properties>
+        <revision>1.0.5</revision>
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-        <maven.versions.plugins.version>2.10.0</maven.versions.plugins.version>
 
         <spring-boot.version>3.0.6</spring-boot.version>
         <spring-cloud.version>2022.0.2</spring-cloud.version>
@@ -45,6 +34,13 @@
         <docker.username>admin</docker.username>
         <docker.password>Harbor12345</docker.password>
         <docker.plugin.version>0.33.0</docker.plugin.version>
+        <therapi-javadoc.version>0.15.0</therapi-javadoc.version>
+        <lombok.version>1.18.26</lombok.version>
+
+        <!-- 插件版本 -->
+        <maven-compiler-plugin.verison>3.11.0</maven-compiler-plugin.verison>
+        <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
+        <flatten-maven-plugin.version>1.5.0</flatten-maven-plugin.version>
     </properties>
 
     <repositories>
@@ -61,13 +57,27 @@
         </repository>
     </repositories>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>阿里云公共仓库</name>
+            <url>https://maven.aliyun.com/repository/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
     <dependencyManagement>
         <dependencies>
             <!--项目依赖-->
             <dependency>
                 <groupId>cn.yt4j</groupId>
                 <artifactId>yt4j-dependencies</artifactId>
-                <version>${project.version}</version>
+                <version>${revision}</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -164,16 +174,65 @@
             </plugins>
         </pluginManagement>
         <plugins>
+            <!--代码编译指定版本插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.verison}</version>
+                <configuration>
+                    <target>${maven.compiler.target}</target>
+                    <source>${maven.compiler.source}</source>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>com.github.therapi</groupId>
+                            <artifactId>therapi-runtime-javadoc-scribe</artifactId>
+                            <version>${therapi-javadoc.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-configuration-processor</artifactId>
+                            <version>${spring-boot.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
             <!--代码格式插件，默认使用spring 规则-->
             <plugin>
                 <groupId>io.spring.javaformat</groupId>
                 <artifactId>spring-javaformat-maven-plugin</artifactId>
                 <version>${spring.checkstyle.version}</version>
             </plugin>
+            <!-- 统一版本号 -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
-                <artifactId>versions-maven-plugin</artifactId>
-                <version>${maven.versions.plugins.version}</version>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${flatten-maven-plugin.version}</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
