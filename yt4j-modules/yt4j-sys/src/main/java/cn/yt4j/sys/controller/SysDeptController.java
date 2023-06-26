@@ -8,6 +8,7 @@ import cn.yt4j.core.domain.R;
 import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.api.entity.SysDept;
 import cn.yt4j.sys.service.SysDeptService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-08-10 08:43:51
  */
+@Tag(name = "部门")
 @Slf4j
 @RequiredArgsConstructor
 @RestController
@@ -42,6 +44,11 @@ public class SysDeptController {
 		return R.ok(this.sysDeptService.treeDept());
 	}
 
+	/**
+	 * 部门分页查询
+	 * @param pageRequest
+	 * @return
+	 */
 	@SysLog("部门分页查询")
 	@PostMapping("page")
 	public R<PageResult<SysDept>> selectAll(@RequestBody PageRequest<SysDept> pageRequest) {

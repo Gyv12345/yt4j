@@ -5,7 +5,6 @@ import cn.yt4j.auth.service.AuthService;
 import cn.yt4j.core.domain.R;
 import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.api.entity.dto.LoginDTO;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -34,7 +33,6 @@ public class AuthController {
 	 * @param dto
 	 * @return
 	 */
-	@Operation(summary = "登录")
 	@SysLog("登录")
 	@PostMapping("login")
 	public R<Map> login(@RequestBody @Validated LoginDTO dto) {
@@ -45,9 +43,9 @@ public class AuthController {
 	}
 
 	/**
+	 * 退出登录
 	 * @return
 	 */
-	@Operation(summary = "退出登录")
 	@SysLog("退出登录")
 	@GetMapping("logout")
 	public R logout() {

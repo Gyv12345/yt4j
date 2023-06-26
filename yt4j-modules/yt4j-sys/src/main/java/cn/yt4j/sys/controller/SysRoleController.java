@@ -10,6 +10,7 @@ import cn.yt4j.sys.entity.dto.RoleMenuDTO;
 import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.service.SysRoleService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +23,7 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-08-10 08:43:34
  */
+@Tag(name = "角色")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/role")
@@ -32,16 +34,30 @@ public class SysRoleController {
 	 */
 	private final SysRoleService sysRoleService;
 
+	/**
+	 * 根据角色ID获取菜单
+	 * @param id 角色ID
+	 * @return
+	 */
 	@GetMapping("get/menus/{id}")
 	public R<List<Long>> getMenuIds(@PathVariable Long id) {
 		return R.ok(this.sysRoleService.listMenuIds(id));
 	}
 
+	/**
+	 * 角色下拉
+	 * @return
+	 */
 	@GetMapping("select")
 	public R<List<DictVO>> dropDown() {
 		return R.ok(this.sysRoleService.dropDown());
 	}
 
+	/**
+	 * 角色设置
+	 * @param dto
+	 * @return
+	 */
 	@PostMapping("setting")
 	public R<Boolean> setting(@RequestBody RoleMenuDTO dto) {
 		return R.ok(this.sysRoleService.setting(dto));
@@ -97,6 +113,11 @@ public class SysRoleController {
 		return R.ok(this.sysRoleService.removeById(id));
 	}
 
+	/**
+	 * 根据用户Id查询用户角色列表
+	 * @param userId
+	 * @return
+	 */
 	@SysLog("根据用户Id查询用户角色列表")
 	@GetMapping("/auth/list")
 	public R<List<String>> listByUserId(@RequestParam Long userId) {

@@ -12,6 +12,7 @@ import cn.yt4j.sys.entity.dto.PasswordDTO;
 import cn.yt4j.sys.entity.vo.UserInfo;
 import cn.yt4j.sys.service.SysUserService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -25,6 +26,7 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-08-07 17:11:45
  */
+@Tag(name = "用户")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/user")
@@ -37,23 +39,41 @@ public class SysUserController {
 
 	private final RedisTemplate redisTemplate;
 
+	/**
+	 * 登录已经废弃
+	 * @param dto
+	 * @return
+	 */
 	@SysLog("登录")
 	@PostMapping("login")
 	public R<String> login(@RequestBody @Valid LoginDTO dto) {
 		return R.ok(this.sysUserService.login(dto), "登录成功");
 	}
 
+	/**
+	 * 退出
+	 * @return
+	 */
 	@GetMapping("logout")
 	public R logout() {
 		this.sysUserService.logout();
 		return R.ok("退出成功");
 	}
 
+	/**
+	 * 修改密码
+	 * @param dto
+	 * @return
+	 */
 	@PostMapping("update/password")
 	public R<Boolean> updatePassword(@RequestBody @Valid PasswordDTO dto) {
 		return R.ok(this.sysUserService.updatePassword(dto));
 	}
 
+	/**
+	 * 获取用户信息
+	 * @return
+	 */
 	@SysLog("获取用户信息")
 	@GetMapping("info")
 	public R<UserInfo> getInfo() {
@@ -120,12 +140,21 @@ public class SysUserController {
 		return R.ok(this.sysUserService.removeById(id));
 	}
 
+	/**
+	 * 根据用户名获取用户信息
+	 * @param username
+	 * @return
+	 */
 	@SysLog("根据用户名获取用户信息")
 	@PostMapping("/info/username")
 	public R<SysUser> getUserByUsername(@RequestParam String username) {
 		return R.ok(this.sysUserService.getOne(Wrappers.<SysUser>lambdaQuery().eq(SysUser::getUsername, username)));
 	}
 
+	/**
+	 * 在线用户
+	 * @return
+	 */
 	@SysLog("在线用户")
 	@PostMapping("/online")
 	public R online() {

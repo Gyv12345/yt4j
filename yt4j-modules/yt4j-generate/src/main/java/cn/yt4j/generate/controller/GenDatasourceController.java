@@ -25,6 +25,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("datasource")
+
 public class GenDatasourceController {
 
 	private final GenDatasourceService genDatasourceService;

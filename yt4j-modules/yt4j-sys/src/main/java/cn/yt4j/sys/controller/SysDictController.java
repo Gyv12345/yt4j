@@ -9,6 +9,7 @@ import cn.yt4j.sys.api.entity.SysDict;
 import cn.yt4j.sys.entity.vo.DictVO;
 import cn.yt4j.sys.service.SysDictService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
  * @author gyv12345@163.com
  * @since 2020-08-10 08:43:32
  */
+@Tag(name = "字典")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/dict")

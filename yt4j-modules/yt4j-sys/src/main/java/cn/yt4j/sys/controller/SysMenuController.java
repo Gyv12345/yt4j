@@ -12,6 +12,7 @@ import cn.yt4j.sys.entity.vo.Route;
 import cn.yt4j.sys.entity.vo.TopMenuVO;
 import cn.yt4j.sys.service.SysMenuService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,7 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-08-10 08:43:33
  */
+@Tag(name = "资源权限")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/menu")
@@ -45,6 +47,7 @@ public class SysMenuController {
 	}
 
 	/**
+	 * 获取顶部菜单
 	 * @return
 	 */
 	@GetMapping("top")
@@ -52,6 +55,10 @@ public class SysMenuController {
 		return R.ok(this.sysMenuService.topMenu());
 	}
 
+	/**
+	 * 获取菜单树
+	 * @return
+	 */
 	@GetMapping("tree")
 	public R<List<MenuTreeVO>> menuTree() {
 		return R.ok(this.sysMenuService.menuTree());
@@ -107,6 +114,11 @@ public class SysMenuController {
 		return R.ok(this.sysMenuService.removeById(id));
 	}
 
+	/**
+	 * 根据用户Id查询用户权限列表
+	 * @param userId
+	 * @return
+	 */
 	@SysLog("根据用户Id查询用户权限列表")
 	@GetMapping("/auth/list")
 	public R<List<String>> listByUserId(@RequestParam Long userId) {

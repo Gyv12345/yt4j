@@ -16,6 +16,7 @@
         <module>yt4j-sys-api</module>
         <module>yt4j-crm</module>
         <module>yt4j-generate</module>
+        <module>yt4j-flow-server</module>
     </modules>
 
     <artifactId>yt4j-modules</artifactId>

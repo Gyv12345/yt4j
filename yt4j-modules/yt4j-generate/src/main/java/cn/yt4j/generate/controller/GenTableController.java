@@ -6,7 +6,6 @@ import cn.yt4j.core.domain.R;
 import cn.yt4j.generate.entity.GenTable;
 import cn.yt4j.generate.service.GenTableService;
 import cn.yt4j.log.annotation.SysLog;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -33,11 +32,12 @@ public class GenTableController {
 	 * @param request 查询实体
 	 * @return 所有数据
 	 */
-	@Operation(summary = "分页查询数据源表")
 	@SysLog("分页查询数据源表")
 	@PostMapping("page")
 	public R<PageResult<GenTable>> listPage(@Valid @RequestBody PageRequest<GenTable> request) {
 		return R.ok(this.genTableService.selectTablePage(request.page(), request.getData()));
 	}
+
+
 
 }
