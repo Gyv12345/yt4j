@@ -18,10 +18,14 @@ import lombok.ToString;
 @Setter
 @ToString
 public class SysUserRole extends Model<SysUserRole> {
-
+	/**
+	 * 用户ID
+	 */
 	@JsonSerialize(using = ToStringSerializer.class)
 	private Long userId;
-
+	/**
+	 * 角色ID
+	 */
 	@JsonSerialize(using = ToStringSerializer.class)
 	private Long roleId;
 

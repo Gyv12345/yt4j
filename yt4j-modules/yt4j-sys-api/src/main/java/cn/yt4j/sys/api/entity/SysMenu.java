@@ -22,38 +22,68 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 public class SysMenu extends Model<SysMenu> {
-
-	@JsonSerialize(using = ToStringSerializer.class)
-	@TableId(value = "id", type = IdType.ASSIGN_ID)
-	private Long id;
-
-	private Short type;
-
-	@JsonSerialize(using = ToStringSerializer.class)
-	private Long parentId;
-
-	private String label;
-
-	private String title;
-
-	private String permission;
-
-	private String icon;
-
-	private Integer orderNo;
-
-	private Boolean hidden;
-
-	private String redirect;
-
-	private String path;
-
-	private String component;
-
-	private Boolean keepalive;
-
-	private LocalDateTime createTime;
-
-	private LocalDateTime updateTime;
+    /**
+     * 主键
+     */
+    @JsonSerialize(using = ToStringSerializer.class)
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
+    private Long id;
+    /**
+     * 菜单类型
+     */
+    private Short type;
+    /**
+     * 父级	ID
+     */
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long parentId;
+    /**
+     * 名称
+     */
+    private String label;
+    /**
+     * 名称
+     */
+    private String title;
+    /**
+     * 权限
+     */
+    private String permission;
+    /**
+     * 图标
+     */
+    private String icon;
+    /**
+     * 排序
+     */
+    private Integer orderNo;
+    /**
+     * 是否隐藏
+     */
+    private Boolean hidden;
+    /**
+     * 重定向
+     */
+    private String redirect;
+    /**
+     * 路径
+     */
+    private String path;
+    /**
+     * 内容
+     */
+    private String component;
+    /**
+     * 是否保持激活
+     */
+    private Boolean keepalive;
+    /**
+     * 创建时间
+     */
+    private LocalDateTime createTime;
+    /**
+     * 修改时间
+     */
+    private LocalDateTime updateTime;
 
 }

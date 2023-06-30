@@ -20,7 +20,7 @@
         <wx.java.version>4.0.0</wx.java.version>
         <dingding.version>1.0.1</dingding.version>
         <plumelog.version>3.5.3</plumelog.version>
-        <xxl-job.version>2.3.1</xxl-job.version>
+        <xxl-job.version>2.4.0</xxl-job.version>
         <netty.websocket.version>0.12.0</netty.websocket.version>
         <rocketmq-spring-boot-starter-version>2.2.0</rocketmq-spring-boot-starter-version>
         <jetcache.latest.version>2.6.7</jetcache.latest.version>
@@ -30,6 +30,7 @@
         <ip2region.version>2.6.5</ip2region.version>
         <dynamic-datasource.version>3.6.1</dynamic-datasource.version>
         <therapi-javadoc.version>0.15.0</therapi-javadoc.version>
+        <dynamic-tp.version>1.1.3</dynamic-tp.version>
     </properties>
 
     <dependencyManagement>
@@ -163,6 +164,12 @@
                 <artifactId>sa-token-dao-redis-jackson</artifactId>
                 <version>${sa-token.version}</version>
             </dependency>
+            <!-- Sa-Token-OAuth2.0 模块 -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-oauth2</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
 
             <!-- Sa-Token整合SpringAOP实现注解鉴权 -->
             <dependency>
@@ -185,6 +192,12 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
                 <version>${dynamic-datasource.version}</version>
+            </dependency>
+            <!-- 动态线程池 -->
+            <dependency>
+                <groupId>org.dromara.dynamictp</groupId>
+                <artifactId>dynamic-tp-spring-boot-starter-nacos</artifactId>
+                <version>${dynamic-tp.version}</version>
             </dependency>
 
             <!-- 2方库 -->

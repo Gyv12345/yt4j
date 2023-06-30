@@ -38,7 +38,7 @@ services:
     depends_on:
       - yt4j-mysql
   yt4j-job:
-    image: xuxueli/xxl-job-admin:2.3.0
+    image: xuxueli/xxl-job-admin:2.4.0
     container_name: yt4j-job
     volumes:
       - ./logs/xxl-job:/data/applogs/xxl-job/

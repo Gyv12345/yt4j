@@ -38,4 +38,16 @@ public class GenTableController {
 		return R.ok(this.genTableService.selectTablePage(request.page(), request.getData()));
 	}
 
+	/**
+	 * 导入某个数据源某张表
+	 * @param genTable
+	 * @return
+	 */
+	@SysLog("导入某张表")
+	@PostMapping("page")
+	public R importTable(@RequestBody GenTable genTable){
+
+		return R.ok();
+	}
+
 }
