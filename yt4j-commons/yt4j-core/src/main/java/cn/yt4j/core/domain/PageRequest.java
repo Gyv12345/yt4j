@@ -11,17 +11,18 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Map;
 
 /**
  * @author gyv12345@163.com
  */
-@Schema(description = "分页实体")
 @Data
 @ToString
 public class PageRequest<T> implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = -2788877367261112273L;
 
 	/**
@@ -49,8 +50,7 @@ public class PageRequest<T> implements Serializable {
 	private T data;
 
 	public IPage<T> page() {
-		Page<T> page = new Page<>(this.pageNo, this.pageSize);
-		return page;
+		return new Page<>(this.pageNo, this.pageSize);
 	}
 
 	public Wrapper wrapper() {

@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
@@ -13,11 +14,11 @@ import java.util.List;
  * @author gyv12345@163.com
  * @param <T>
  */
-@Schema(description = "分页返回结果")
 @Data
 @ToString
 public class PageResult<T> implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 983447747149487589L;
 
 	/**
@@ -62,7 +63,7 @@ public class PageResult<T> implements Serializable {
 
 	}
 
-	public PageResult(IPage page, List<T> t) {
+	public PageResult(IPage<T> page, List<T> t) {
 		this.setData(t);
 		this.setTotalCount(page.getTotal());
 		this.setPageNo(page.getCurrent());

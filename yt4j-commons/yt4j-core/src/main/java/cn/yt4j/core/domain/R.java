@@ -9,6 +9,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.http.HttpStatus;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -16,13 +17,13 @@ import java.io.Serializable;
  *
  * @author gyv12345@163.com
  */
-@Schema(description = "结果实体")
 @SuppressWarnings("AlibabaClassNamingShouldBeCamel")
 @ToString(callSuper = true)
 @Getter
 @Setter
 public class R<T> implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = -6101337183914807339L;
 
 	@Schema(description = "编码")

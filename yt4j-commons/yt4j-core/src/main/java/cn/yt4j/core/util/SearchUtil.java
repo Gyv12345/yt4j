@@ -10,10 +10,7 @@ import java.util.regex.Pattern;
 /**
  * 借用群里小伙伴分享的
  *
- * @ClassName QueryWrapper自定义SQL查询构造器
- * @Author Lu Ze
- * @Date 2020/4/1
- * @Version V1.0
+ * @author Lu Ze
  **/
 public class SearchUtil {
 
@@ -22,6 +19,7 @@ public class SearchUtil {
 	private static final String LINE = "_";
 
 	/**
+	 * <p>
 	 * eq：相等<br />
 	 * ne：不等<br />
 	 * like：两边模糊查询<br />
@@ -33,8 +31,9 @@ public class SearchUtil {
 	 * ge：大于等于<br />
 	 * le：小于等于<br />
 	 * bet：...之间 bet_age=15,20 notBet：不在...之间 netBet_age=15,20 or：在紧接着下一个条件使用，否则不生效<br />
-	 * @param condition
-	 * @return
+	 * </p>
+	 * @param condition 查询条件
+	 * @return 返回
 	 */
 	public static QueryWrapper parseWhereSql(Map<String, Object> condition) {
 		QueryWrapper queryWrapper = new QueryWrapper();

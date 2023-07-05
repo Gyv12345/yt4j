@@ -19,7 +19,6 @@ public class PageUtil {
 	private static final String PAGE_NO = "pageNo";
 
 	public static <T> Page<T> page() {
-
 		int pageSize = 10;
 		int pageNo = 1;
 		HttpServletRequest request = ((ServletRequestAttributes) (RequestContextHolder.currentRequestAttributes()))

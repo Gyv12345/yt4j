@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,13 +19,13 @@ import java.util.List;
  *
  * @author gyv12345@163.com
  */
-@Schema(description = "树实体")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public class BaseTree implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = -6535556067013322117L;
 
 	@Schema(description = "ID")
