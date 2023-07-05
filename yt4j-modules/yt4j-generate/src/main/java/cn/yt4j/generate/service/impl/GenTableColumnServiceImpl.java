@@ -19,4 +19,5 @@ public class GenTableColumnServiceImpl extends ServiceImpl<GenTableColumnMapper,
 	public List<GenTableColumn> selectDbTableColumnsByName(String tableName) {
 		return this.baseMapper.selectDbTableColumnsByName(tableName);
 	}
+
 }

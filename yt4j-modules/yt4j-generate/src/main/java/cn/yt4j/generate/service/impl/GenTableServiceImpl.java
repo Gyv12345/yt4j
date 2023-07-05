@@ -52,7 +52,7 @@ public class GenTableServiceImpl extends ServiceImpl<GenTableMapper, GenTable> i
 		genTable.setTplCategory("curd");
 		this.save(genTable);
 
-		List<GenTableColumn> list= genTableColumnService.selectDbTableColumnsByName(genTable.getTableName());
+		List<GenTableColumn> list = genTableColumnService.selectDbTableColumnsByName(genTable.getTableName());
 
 		for (GenTableColumn genTableColumn : list) {
 			genTableColumn.setTableId(genTable.getTableId());

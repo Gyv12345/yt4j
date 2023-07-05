@@ -45,7 +45,7 @@ public class GenTableController {
 	 */
 	@SysLog("导入某张表")
 	@PostMapping("page")
-	public R importTable(@RequestBody GenTable genTable){
+	public R importTable(@RequestBody GenTable genTable) {
 
 		return R.ok();
 	}

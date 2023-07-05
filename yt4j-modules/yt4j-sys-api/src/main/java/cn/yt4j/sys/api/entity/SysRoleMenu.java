@@ -18,11 +18,13 @@ import lombok.ToString;
 @Setter
 @ToString
 public class SysRoleMenu extends Model<SysRoleMenu> {
+
 	/**
 	 * 角色ID
 	 */
 	@JsonSerialize(using = ToStringSerializer.class)
 	private Long roleId;
+
 	/**
 	 * 菜单ID
 	 */

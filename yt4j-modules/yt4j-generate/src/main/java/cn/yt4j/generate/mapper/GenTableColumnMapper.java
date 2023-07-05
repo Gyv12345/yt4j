@@ -14,6 +14,7 @@ import java.util.List;
  */
 @Mapper
 public interface GenTableColumnMapper extends BaseMapper<GenTableColumn> {
+
 	/**
 	 * 按表名查询字段信息
 	 * @param tableName

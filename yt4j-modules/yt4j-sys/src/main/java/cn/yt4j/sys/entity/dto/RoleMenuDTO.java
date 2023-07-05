@@ -9,12 +9,14 @@ import java.util.List;
 
 /**
  * 角色菜单
+ *
  * @author gyv12345@163.com
  */
 @Data
 public class RoleMenuDTO implements Serializable {
 
 	private static final long serialVersionUID = 8163461364967823330L;
+
 	/**
 	 * 角色ID
 	 */

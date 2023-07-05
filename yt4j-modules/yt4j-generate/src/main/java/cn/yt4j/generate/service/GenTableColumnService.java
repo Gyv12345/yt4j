@@ -11,11 +11,12 @@ import java.util.List;
  * @createDate 2023-03-28 09:38:00
  */
 public interface GenTableColumnService extends IService<GenTableColumn> {
-    /**
-     * 根据表名称
-     * @param tableName
-     * @return
-     */
-    List<GenTableColumn> selectDbTableColumnsByName(String tableName);
+
+	/**
+	 * 根据表名称
+	 * @param tableName
+	 * @return
+	 */
+	List<GenTableColumn> selectDbTableColumnsByName(String tableName);
 
 }
