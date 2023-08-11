@@ -1,45 +1,45 @@
-package cn.yt4j.crm.entity;
+package cn.yt4j.flowserver.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import lombok.ToString;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * 客户表(CrmCustomer)表实体类
+ * 流程信息(FlowInfo)表实体类
  *
- * @author gyv12345@163.com
- * @since 2022-08-04 21:02:49
+ * @author makejava
+ * @since 2023-08-11 11:26:41
  */
-@Getter
-@Setter
+@Data
 @ToString
-public class CrmCustomer implements Serializable {
+public class FlowInfo implements Serializable {
+
+	private static final long serialVersionUID = -61131714042296499L;
 
 	/**
 	 * 主键
 	 */
-	@TableId(value = "id", type = IdType.AUTO)
+	@TableId(value = "id", type = IdType.ASSIGN_ID)
 	private Long id;
 
 	/**
-	 * 客户名称
+	 * 流程名称
 	 */
-	private String customerName;
+	private String flowName;
 
 	/**
-	 * 联系方式
+	 * 描述
 	 */
-	private String phone;
+	private String description;
 
 	/**
-	 * 创建人
+	 * 创建者
 	 */
 	@TableField(fill = FieldFill.INSERT)
 	private Long createUserId;
@@ -51,20 +51,15 @@ public class CrmCustomer implements Serializable {
 	private LocalDateTime createTime;
 
 	/**
-	 * 修改人
+	 * 更新者
 	 */
 	@TableField(fill = FieldFill.UPDATE)
 	private Long updateUserId;
 
 	/**
-	 * 修改时间
+	 * 更新时间
 	 */
 	@TableField(fill = FieldFill.UPDATE)
 	private LocalDateTime updateTime;
-
-	/**
-	 * 部门
-	 */
-	private Long deptId;
 
 }
