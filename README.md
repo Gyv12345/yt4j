@@ -15,11 +15,6 @@ ui部分 放弃了，前端太难了
 - 基于spring boot、spring cloud、sa-token的RBAC权限管理系统
 - ~~基于ant design pro vue模板，构建前端界面~~
 - 提供对docker支持
-## 接私活养服务器
-
-我们的研发团队来自互联网公司，有10年开发经验，服务过多家企业，擅长小程序，网站，系统软件等项目，真诚期待与您的合作。
-如果您有需求请联系gyv12345@163.com 注明软件需求
-
 ## 计划功能
 - [ ] 增加代码生成
 - [ ] 增加自己写的流程编排前端页面
@@ -30,17 +25,17 @@ ui部分 放弃了，前端太难了
 ## 依赖
 
 
-依赖 | 版本
----|---
-Spring Boot | 3.0.5
-Mybatis Plus | 3.5.3.1
-hutool | 5.8.11
-Spring Cloud | 2022.0.1
-Spring Cloud Alibaba | 2022.0.0.0-RC1
-sa-token | 1.34.0
-plumelog | 3.5.3
-xxl-job | 2.3.0
-knife4j | 4.1.0
+| 依赖                 | 版本         |
+|--------------------|------------|
+| SpringBoot         | 3.1.5      |
+| MybatisPlus        | 3.5.3.2    |
+| hutool             | 5.8.16     |
+| SpringCloud        | 2022.0.4   |
+| SpringCloudAlibaba | 2022.0.0.0 |
+| sa-token           | 1.34.0     |
+| plumelog           | 3.5.3      |
+| xxl-job            | 2.3.0      |
+| knife4j            | 4.1.0      |
 
 ## 模块说明
 
