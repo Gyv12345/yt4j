@@ -30,7 +30,7 @@ import java.util.Map;
  */
 @Data
 @RequiredArgsConstructor
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 public class DataScopeInterceptor extends JsqlParserSupport implements InnerInterceptor {
 
 	private final DataScopeHandler dataScopeHandler;
