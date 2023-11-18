@@ -3,15 +3,19 @@ package cn.yt4j.sys.entity.vo;
 
 import cn.yt4j.core.domain.BaseTree;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+import java.io.Serial;
 import java.util.List;
 
 /**
  * @author gyv12345@163.com
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class MenuTreeVO extends BaseTree {
 
+	@Serial
 	private static final long serialVersionUID = 7541326659328732790L;
 
 	/**

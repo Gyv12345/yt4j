@@ -8,12 +8,10 @@ ENV JAVA_OPTS="-Xms128m -Xmx128m -Djava.security.egd=file:/dev/./urandom"
 
 RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN mkdir -p /yt4j-gateway
+RUN mkdir -p /app
 
-WORKDIR /yt4j-gateway
+WORKDIR /app
 
-EXPOSE 8888
+ADD ./target/yt4j-auth.jar ./
 
-ADD ./target/yt4j-gateway.jar ./
-
-CMD java $JAVA_OPTS -jar yt4j-gateway.jar
+CMD java $JAVA_OPTS -jar yt4j-auth.jar
