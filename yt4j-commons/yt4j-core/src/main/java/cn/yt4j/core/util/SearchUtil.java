@@ -1,7 +1,9 @@
 package cn.yt4j.core.util;
 
+import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -36,8 +38,8 @@ public class SearchUtil {
 	 * @return 返回
 	 */
 	public static QueryWrapper parseWhereSql(Map<String, Object> condition) {
-		QueryWrapper queryWrapper = new QueryWrapper();
-		if (condition != null && condition.size() > 0) {
+		QueryWrapper queryWrapper = Wrappers.query();
+		if (MapUtil.isNotEmpty(condition)) {
 			condition.forEach((k, v) -> {
 				if (k.contains(LINE) && StrUtil.isNotBlank(v.toString())) {
 					String pre = k.substring(0, k.indexOf(LINE));
@@ -95,12 +97,12 @@ public class SearchUtil {
 
 	/**
 	 * 驼峰转下划线
-	 * @param column
-	 * @return
+	 * @param column 列
+	 * @return 转成数据库列名
 	 */
 	private static String humpToLine(String column) {
 		Matcher matcher = HUMP_PATTERN.matcher(column);
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		while (matcher.find()) {
 			matcher.appendReplacement(sb, "_" + matcher.group(0).toLowerCase());
 		}

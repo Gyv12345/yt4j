@@ -4,8 +4,8 @@ package cn.yt4j.core.domain;
 import cn.hutool.core.map.MapUtil;
 import cn.yt4j.core.util.SearchUtil;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -55,7 +55,7 @@ public class PageRequest<T> implements Serializable {
 
 	public Wrapper wrapper() {
 		if (MapUtil.isEmpty(this.condition)) {
-			return new QueryWrapper();
+			return Wrappers.emptyWrapper();
 		}
 		return SearchUtil.parseWhereSql(this.condition);
 	}

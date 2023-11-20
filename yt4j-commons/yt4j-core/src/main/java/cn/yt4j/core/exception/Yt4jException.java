@@ -6,6 +6,7 @@ import lombok.Getter;
 
 /**
  * yt4j异常
+ *
  * @author gyv12345@163.com
  */
 @Getter

@@ -28,13 +28,13 @@ ui部分 放弃了，前端太难了
 | 依赖                 | 版本         |
 |--------------------|------------|
 | SpringBoot         | 3.1.5      |
-| MybatisPlus        | 3.5.3.2    |
+| MybatisPlus        | 3.5.4      |
 | hutool             | 5.8.16     |
 | SpringCloud        | 2022.0.4   |
 | SpringCloudAlibaba | 2022.0.0.0 |
 | sa-token           | 1.34.0     |
 | plumelog           | 3.5.3      |
-| xxl-job            | 2.3.0      |
+| xxl-job            | 2.4.0      |
 | knife4j            | 4.1.0      |
 
 ## 模块说明

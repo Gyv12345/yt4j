@@ -4,6 +4,7 @@ import cn.yt4j.sys.api.entity.dto.LoginDTO;
 
 /**
  * 鉴权服务
+ *
  * @author gyv12345@163.com
  */
 public interface AuthService {
