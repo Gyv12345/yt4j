@@ -19,8 +19,8 @@ public enum MessageStatus implements IMessageStatus {
 					"添加成功"), ADD_FAILED(500, "添加失败"), UPDATE_SUCCESS(200, "修改成功"), UPDATE_FAILED(500,
 							"修改失败"), DELETE_SUCCESS(200, "删除成功"), DELETE_FAILED(500, "删除失败"),;
 
-	private int code;
+	private final int code;
 
-	private String message;
+	private final String message;
 
 }

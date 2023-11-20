@@ -30,12 +30,12 @@ public class AuthController {
 
 	/**
 	 * 登录
-	 * @param dto
-	 * @return
+	 * @param dto 登录用户
+	 * @return token
 	 */
 	@SysLog("登录")
 	@PostMapping("login")
-	public R<Map> login(@RequestBody @Validated LoginDTO dto) {
+	public R<Map<String, String>> login(@RequestBody @Validated LoginDTO dto) {
 		Map<String, String> map = new HashMap<>(8);
 		String token = authService.login(dto);
 		map.put("token", token);
@@ -44,11 +44,11 @@ public class AuthController {
 
 	/**
 	 * 退出登录
-	 * @return
+	 * @return 成功
 	 */
 	@SysLog("退出登录")
 	@GetMapping("logout")
-	public R logout() {
+	public R<Void> logout() {
 		StpUtil.logout();
 		return R.ok();
 	}

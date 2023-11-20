@@ -2,10 +2,13 @@
 package cn.yt4j.core.exception;
 
 import cn.yt4j.core.enums.IMessageStatus;
+import lombok.Getter;
 
 /**
+ * yt4j异常
  * @author gyv12345@163.com
  */
+@Getter
 public class Yt4jException extends RuntimeException {
 
 	private IMessageStatus messageStatus;
@@ -19,10 +22,6 @@ public class Yt4jException extends RuntimeException {
 
 	public Yt4jException(IMessageStatus messageStatus) {
 		this.messageStatus = messageStatus;
-	}
-
-	public IMessageStatus getMessageStatus() {
-		return messageStatus;
 	}
 
 }
