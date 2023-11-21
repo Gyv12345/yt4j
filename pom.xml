@@ -28,6 +28,7 @@
         <spring.checkstyle.version>0.0.31</spring.checkstyle.version>
         <spring-boot-admin.version>2.6.7</spring-boot-admin.version>
         <dubbo.version>3.1.10</dubbo.version>
+        <micrometer-tracing.version>1.1.0</micrometer-tracing.version>
 
         <docker.registry>192.168.0.196</docker.registry>
         <docker.host>http://192.168.0.196:2375</docker.host>
@@ -146,12 +147,24 @@
                 <version>${spring-boot-admin.version}</version>
             </dependency>
 
+                <dependency>
+                    <groupId>io.micrometer</groupId>
+                    <artifactId>micrometer-tracing-bom</artifactId>
+                    <version>${micrometer-tracing.version}</version>
+                    <type>pom</type>
+                    <scope>import</scope>
+                </dependency>
+
         </dependencies>
     </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-tracing</artifactId>
         </dependency>
     </dependencies>
 
