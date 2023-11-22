@@ -3,7 +3,7 @@ package cn.yt4j.gateway.config;
 import cn.dev33.satoken.reactor.filter.SaReactorFilter;
 import cn.dev33.satoken.router.SaRouter;
 import cn.dev33.satoken.stp.StpUtil;
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -28,7 +28,7 @@ public class SaTokenConfigure {
 					SaRouter.match("/**", r -> StpUtil.checkLogin());
 				})
 				// 异常处理方法：每次setAuth函数出现异常时进入
-				.setError(e -> R.failed(e.getMessage()));
+				.setError(e -> Result.failed(e.getMessage()));
 	}
 
 }

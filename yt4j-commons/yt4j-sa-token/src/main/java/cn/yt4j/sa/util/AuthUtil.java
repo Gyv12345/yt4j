@@ -16,8 +16,7 @@ public class AuthUtil {
 
 	public SaUserCache getUser() {
 		SaSession session = StpUtil.getTokenSession();
-		SaUserCache userCache = session.getModel(SecurityConstants.SECURITY_PREFIX, SaUserCache.class);
-		return userCache;
+		return session.getModel(SecurityConstants.SECURITY_PREFIX, SaUserCache.class);
 	}
 
 	public Long getUserId() {

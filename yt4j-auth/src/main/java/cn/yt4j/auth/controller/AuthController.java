@@ -2,7 +2,7 @@ package cn.yt4j.auth.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
 import cn.yt4j.auth.service.AuthService;
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.api.entity.dto.LoginDTO;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -35,11 +35,11 @@ public class AuthController {
 	 */
 	@SysLog("登录")
 	@PostMapping("login")
-	public R<Map<String, String>> login(@RequestBody @Validated LoginDTO dto) {
+	public Result<Map<String, String>> login(@RequestBody @Validated LoginDTO dto) {
 		Map<String, String> map = new HashMap<>(8);
 		String token = authService.login(dto);
 		map.put("token", token);
-		return R.ok(map);
+		return Result.ok(map);
 	}
 
 	/**
@@ -48,9 +48,9 @@ public class AuthController {
 	 */
 	@SysLog("退出登录")
 	@GetMapping("logout")
-	public R<Void> logout() {
+	public Result<Void> logout() {
 		StpUtil.logout();
-		return R.ok();
+		return Result.ok();
 	}
 
 }

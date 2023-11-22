@@ -2,7 +2,7 @@ package cn.yt4j.generate.controller;
 
 import cn.yt4j.core.domain.PageRequest;
 import cn.yt4j.core.domain.PageResult;
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.generate.entity.GenDatasource;
 import cn.yt4j.generate.service.GenDatasourceService;
 import cn.yt4j.log.annotation.SysLog;
@@ -37,8 +37,8 @@ public class GenDatasourceController {
 	 */
 	@SysLog("分页查询数据源")
 	@PostMapping("page")
-	public R<PageResult<GenDatasource>> listPage(@Valid @RequestBody PageRequest<GenDatasource> request) {
-		return R.ok(this.genDatasourceService.page(request.page(), request.wrapper()));
+	public Result<PageResult<GenDatasource>> listPage(@Valid @RequestBody PageRequest<GenDatasource> request) {
+		return Result.ok(this.genDatasourceService.page(request.page(), request.wrapper()));
 	}
 
 	/**
@@ -48,8 +48,8 @@ public class GenDatasourceController {
 	 */
 	@SysLog("通过主键查询客户表单条数据")
 	@GetMapping("get/{id}")
-	public R<GenDatasource> selectOne(@PathVariable Serializable id) {
-		return R.ok(this.genDatasourceService.getById(id));
+	public Result<GenDatasource> selectOne(@PathVariable Serializable id) {
+		return Result.ok(this.genDatasourceService.getById(id));
 	}
 
 	/**
@@ -59,9 +59,9 @@ public class GenDatasourceController {
 	 */
 	@SysLog("新增数据源表数据")
 	@PostMapping("insert")
-	public R insert(@RequestBody GenDatasource datasource) {
+	public Result insert(@RequestBody GenDatasource datasource) {
 		this.genDatasourceService.addOrUpdate(datasource);
-		return R.ok();
+		return Result.ok();
 	}
 
 	/**
@@ -71,9 +71,9 @@ public class GenDatasourceController {
 	 */
 	@SysLog("修改数据源表数据")
 	@PutMapping("update")
-	public R update(@RequestBody GenDatasource datasource) {
+	public Result update(@RequestBody GenDatasource datasource) {
 		this.genDatasourceService.addOrUpdate(datasource);
-		return R.ok();
+		return Result.ok();
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class GenDatasourceController {
 	 */
 	@SysLog("删除数据源表数据")
 	@DeleteMapping("delete/{id}")
-	public R delete(@PathVariable Long id) {
-		return R.ok(this.genDatasourceService.removeById(id));
+	public Result delete(@PathVariable Long id) {
+		return Result.ok(this.genDatasourceService.removeById(id));
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class GenDatasourceController {
 	 */
 	@SysLog("获取数据源下拉")
 	@GetMapping("dropDown")
-	public R<List<GenDatasource>> dropDown() {
-		return R.ok(this.genDatasourceService.list());
+	public Result<List<GenDatasource>> dropDown() {
+		return Result.ok(this.genDatasourceService.list());
 	}
 
 }

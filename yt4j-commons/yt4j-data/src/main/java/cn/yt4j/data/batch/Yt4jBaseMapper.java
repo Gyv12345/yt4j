@@ -13,8 +13,8 @@ public interface Yt4jBaseMapper<T> extends BaseMapper<T> {
 
 	/**
 	 * 不同数据库批量插入方式肯定是不同的 批量插入
-	 * @param batchList
-	 * @return
+	 * @param batchList 插入列表
+	 * @return 成功条数
 	 */
 	int batchInsertByMysql(@Param("list") List<T> batchList);
 

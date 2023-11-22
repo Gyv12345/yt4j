@@ -8,7 +8,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
- * 做的多了，发现这样写还是有问题的，分页查询他们也是用post，基本上Post走遍天下，那这样写就有问题了
+ * 这样不是很灵活，前端需要将查询条件每次都要一一对照，不如使用post，更复杂的结构
  *
  * @author gyv12345@163.com
  */

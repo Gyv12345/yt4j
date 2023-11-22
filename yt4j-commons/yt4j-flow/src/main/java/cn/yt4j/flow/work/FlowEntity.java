@@ -4,6 +4,7 @@ package cn.yt4j.flow.work;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @ToString
 public class FlowEntity implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 3298691564980761310L;
 
 	/**

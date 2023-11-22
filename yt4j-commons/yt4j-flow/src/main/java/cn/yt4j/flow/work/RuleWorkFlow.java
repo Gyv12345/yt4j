@@ -1,8 +1,9 @@
 
 package cn.yt4j.flow.work;
 
+import cn.hutool.extra.spring.SpringUtil;
 import cn.yt4j.flow.util.ElUtil;
-import cn.yt4j.flow.util.SpringContextHolder;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 
@@ -18,22 +19,16 @@ import java.util.Map;
 @Slf4j
 public class RuleWorkFlow extends AbstractWorkFlow {
 
-	private String condition;
+	@Getter
+	private final String condition;
 
-	public String getCondition() {
-		return condition;
-	}
+	private final String beanId;
 
-	private String beanId;
-
+	@Getter
 	private final List<RuleWorkFlow> nextNodes = new ArrayList<>();
 
 	public static RuleWorkFlowBuilder builder() {
 		return new RuleWorkFlowBuilder();
-	}
-
-	public List<RuleWorkFlow> getNextNodes() {
-		return nextNodes;
 	}
 
 	RuleWorkFlow(String name, String id, String beanId, String condition) {
@@ -47,7 +42,7 @@ public class RuleWorkFlow extends AbstractWorkFlow {
 		int status = 0;
 		log.info("执行节点：[{}]", this.getName());
 		if (StringUtils.hasText(this.beanId)) {
-			Work work = SpringContextHolder.getBean(this.beanId);
+			Work work = SpringUtil.getBean(this.beanId);
 			status = work.execute(context);
 		}
 		for (RuleWorkFlow flow : nextNodes) {

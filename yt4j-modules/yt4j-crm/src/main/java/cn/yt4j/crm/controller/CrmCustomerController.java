@@ -2,7 +2,7 @@ package cn.yt4j.crm.controller;
 
 import cn.yt4j.core.domain.PageRequest;
 import cn.yt4j.core.domain.PageResult;
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.crm.entity.CrmCustomer;
 import cn.yt4j.crm.service.CrmCustomerService;
 import cn.yt4j.log.annotation.SysLog;
@@ -38,8 +38,8 @@ public class CrmCustomerController {
 	 */
 	@SysLog("分页查询客户表所有数据")
 	@PostMapping("page")
-	public R<PageResult<CrmCustomer>> listPage(@Valid @RequestBody PageRequest<CrmCustomer> request) {
-		return R.ok(this.crmCustomerService.page(request.page(), request.wrapper()));
+	public Result<PageResult<CrmCustomer>> listPage(@Valid @RequestBody PageRequest<CrmCustomer> request) {
+		return Result.ok(this.crmCustomerService.page(request.page(), request.wrapper()));
 	}
 
 	/**
@@ -49,8 +49,8 @@ public class CrmCustomerController {
 	 */
 	@SysLog("通过主键查询客户表单条数据")
 	@GetMapping("get/{id}")
-	public R<CrmCustomer> selectOne(@PathVariable Serializable id) {
-		return R.ok(this.crmCustomerService.getById(id));
+	public Result<CrmCustomer> selectOne(@PathVariable Serializable id) {
+		return Result.ok(this.crmCustomerService.getById(id));
 	}
 
 	/**
@@ -60,8 +60,8 @@ public class CrmCustomerController {
 	 */
 	@SysLog("新增客户表数据")
 	@PostMapping("insert")
-	public R insert(@RequestBody CrmCustomer crmCustomer) {
-		return R.ok(this.crmCustomerService.save(crmCustomer));
+	public Result insert(@RequestBody CrmCustomer crmCustomer) {
+		return Result.ok(this.crmCustomerService.save(crmCustomer));
 	}
 
 	/**
@@ -71,8 +71,8 @@ public class CrmCustomerController {
 	 */
 	@SysLog("修改客户表数据")
 	@PutMapping("update")
-	public R update(@RequestBody CrmCustomer crmCustomer) {
-		return R.ok(this.crmCustomerService.updateById(crmCustomer));
+	public Result update(@RequestBody CrmCustomer crmCustomer) {
+		return Result.ok(this.crmCustomerService.updateById(crmCustomer));
 	}
 
 	/**
@@ -82,8 +82,8 @@ public class CrmCustomerController {
 	 */
 	@SysLog("删除客户表数据")
 	@DeleteMapping("delete/{id}")
-	public R delete(@PathVariable Long id) {
-		return R.ok(this.crmCustomerService.removeById(id));
+	public Result delete(@PathVariable Long id) {
+		return Result.ok(this.crmCustomerService.removeById(id));
 	}
 
 }

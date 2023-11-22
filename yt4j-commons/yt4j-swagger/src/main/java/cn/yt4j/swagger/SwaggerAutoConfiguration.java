@@ -21,10 +21,10 @@ import org.springframework.context.annotation.Configuration;
 public class SwaggerAutoConfiguration {
 
 	@Bean
-	public OpenAPI customOpenAPI(SwaggerProperties swaggerProperties) {
-		OpenAPI openAPI = new OpenAPI();
-		openAPI.setInfo(swaggerProperties.getInfo());
-		return openAPI;
+	public OpenAPI customOpenApi(SwaggerProperties swaggerProperties) {
+		OpenAPI openApi = new OpenAPI();
+		openApi.setInfo(swaggerProperties.getInfo());
+		return openApi;
 	}
 
 }

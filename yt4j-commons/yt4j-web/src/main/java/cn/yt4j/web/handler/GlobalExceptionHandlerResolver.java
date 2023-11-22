@@ -1,7 +1,7 @@
 
 package cn.yt4j.web.handler;
 
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.core.exception.Yt4jException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindException;
@@ -26,9 +26,9 @@ public class GlobalExceptionHandlerResolver {
 	 * @return R
 	 */
 	@ExceptionHandler(Exception.class)
-	public R handleGlobalException(Exception e) {
+	public Result<Void> handleGlobalException(Exception e) {
 		log.error("异常信息 ex={}", e.getMessage(), e);
-		return R.failed(e.getLocalizedMessage());
+		return Result.failed(e.getLocalizedMessage());
 	}
 
 	/**
@@ -37,35 +37,35 @@ public class GlobalExceptionHandlerResolver {
 	 * @return R
 	 */
 	@ExceptionHandler(AccessDeniedException.class)
-	public R handleAccessDeniedException(AccessDeniedException e) {
+	public Result<Void> handleAccessDeniedException(AccessDeniedException e) {
 		log.error("拒绝授权异常信息 ex={}", e.getMessage(), e);
-		return R.failed(e.getLocalizedMessage());
+		return Result.failed(e.getLocalizedMessage());
 	}
 
 	/**
 	 * validation Exception
-	 * @param exception
+	 * @param exception 异常
 	 * @return R
 	 */
 	@ExceptionHandler({ MethodArgumentNotValidException.class })
-	public R handleBodyValidException(MethodArgumentNotValidException exception) {
+	public Result<Void> handleBodyValidException(MethodArgumentNotValidException exception) {
 		List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
 		log.warn("参数绑定异常,ex = {}", fieldErrors.get(0).getDefaultMessage());
 		log.error(exception.getMessage(), exception);
-		return R.failed(fieldErrors.get(0).getDefaultMessage());
+		return Result.failed(fieldErrors.get(0).getDefaultMessage());
 	}
 
 	/**
 	 * validation Exception (以form-data形式传参)
-	 * @param exception
+	 * @param exception 异常
 	 * @return R
 	 */
 	@ExceptionHandler({ BindException.class })
-	public R bindExceptionHandler(BindException exception) {
+	public Result<Void> bindExceptionHandler(BindException exception) {
 		List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
 		log.warn("参数绑定异常,ex = {}", fieldErrors.get(0).getDefaultMessage());
 		log.error(exception.getMessage(), exception);
-		return R.failed(fieldErrors.get(0).getDefaultMessage());
+		return Result.failed(fieldErrors.get(0).getDefaultMessage());
 	}
 
 	/**
@@ -74,9 +74,9 @@ public class GlobalExceptionHandlerResolver {
 	 * @return R
 	 */
 	@ExceptionHandler(Yt4jException.class)
-	public R ysgExceptionHandler(Yt4jException e) {
+	public Result ysgExceptionHandler(Yt4jException e) {
 		log.error("业务异常信息 ex={}", e.getMessage(), e);
-		return R.failed(e.getMessageStatus());
+		return Result.failed(e.getMessageStatus());
 	}
 
 }

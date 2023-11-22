@@ -55,8 +55,7 @@ public class DataScopeInterceptor extends JsqlParserSupport implements InnerInte
 		if (selectBody instanceof PlainSelect selectBodyConvert) {
 			this.setWhere(selectBodyConvert, (DataScope) obj);
 		}
-		else if (selectBody instanceof SetOperationList) {
-			SetOperationList setOperationList = (SetOperationList) selectBody;
+		else if (selectBody instanceof SetOperationList setOperationList) {
 			List<SelectBody> selectBodyList = setOperationList.getSelects();
 			selectBodyList.forEach(s -> this.setWhere((PlainSelect) s, (DataScope) obj));
 		}

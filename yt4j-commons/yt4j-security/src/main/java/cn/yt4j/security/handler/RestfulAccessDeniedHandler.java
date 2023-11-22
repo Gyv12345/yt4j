@@ -1,7 +1,7 @@
 
 package cn.yt4j.security.handler;
 
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.core.enums.MessageStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,7 +31,7 @@ public class RestfulAccessDeniedHandler implements AccessDeniedHandler {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		response.setStatus(HttpStatus.OK.value());
-		response.getWriter().println(objectMapper.writeValueAsString(R.failed(MessageStatus.ACCESS_FAILED)));
+		response.getWriter().println(objectMapper.writeValueAsString(Result.failed(MessageStatus.ACCESS_FAILED)));
 		response.getWriter().flush();
 	}
 

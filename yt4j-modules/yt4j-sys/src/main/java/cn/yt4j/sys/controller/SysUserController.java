@@ -4,7 +4,7 @@ package cn.yt4j.sys.controller;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.yt4j.core.domain.PageRequest;
 import cn.yt4j.core.domain.PageResult;
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.api.entity.SysUser;
 import cn.yt4j.sys.api.entity.dto.LoginDTO;
@@ -46,8 +46,8 @@ public class SysUserController {
 	 */
 	@SysLog("登录")
 	@PostMapping("login")
-	public R<String> login(@RequestBody @Valid LoginDTO dto) {
-		return R.ok(this.sysUserService.login(dto), "登录成功");
+	public Result<String> login(@RequestBody @Valid LoginDTO dto) {
+		return Result.ok(this.sysUserService.login(dto), "登录成功");
 	}
 
 	/**
@@ -55,9 +55,9 @@ public class SysUserController {
 	 * @return
 	 */
 	@GetMapping("logout")
-	public R logout() {
+	public Result logout() {
 		this.sysUserService.logout();
-		return R.ok("退出成功");
+		return Result.ok("退出成功");
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class SysUserController {
 	 * @return
 	 */
 	@PostMapping("update/password")
-	public R<Boolean> updatePassword(@RequestBody @Valid PasswordDTO dto) {
-		return R.ok(this.sysUserService.updatePassword(dto));
+	public Result<Boolean> updatePassword(@RequestBody @Valid PasswordDTO dto) {
+		return Result.ok(this.sysUserService.updatePassword(dto));
 	}
 
 	/**
@@ -76,8 +76,8 @@ public class SysUserController {
 	 */
 	@SysLog("获取用户信息")
 	@GetMapping("info")
-	public R<UserInfo> getInfo() {
-		return R.ok(this.sysUserService.getInfo(StpUtil.getLoginIdAsLong()));
+	public Result<UserInfo> getInfo() {
+		return Result.ok(this.sysUserService.getInfo(StpUtil.getLoginIdAsLong()));
 	}
 
 	/**
@@ -86,8 +86,8 @@ public class SysUserController {
 	 * @return 所有数据
 	 */
 	@PostMapping("page")
-	public R<PageResult<SysUser>> listPage(@Valid @RequestBody PageRequest<SysUser> request) {
-		return R.ok(this.sysUserService.page(request.page(), request.wrapper()));
+	public Result<PageResult<SysUser>> listPage(@Valid @RequestBody PageRequest<SysUser> request) {
+		return Result.ok(this.sysUserService.page(request.page(), request.wrapper()));
 	}
 
 	/**
@@ -96,8 +96,8 @@ public class SysUserController {
 	 * @return 单条数据
 	 */
 	@GetMapping("get/{id}")
-	public R<SysUser> selectOne(@PathVariable Long id) {
-		return R.ok(this.sysUserService.one(id));
+	public Result<SysUser> selectOne(@PathVariable Long id) {
+		return Result.ok(this.sysUserService.one(id));
 	}
 
 	/**
@@ -106,8 +106,8 @@ public class SysUserController {
 	 * @return 新增结果
 	 */
 	@PostMapping("insert")
-	public R insert(@RequestBody SysUser sysUser) {
-		return R.ok(this.sysUserService.insert(sysUser));
+	public Result insert(@RequestBody SysUser sysUser) {
+		return Result.ok(this.sysUserService.insert(sysUser));
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class SysUserController {
 	 * @return
 	 */
 	@PostMapping("reset/password/{id}")
-	public R resetPassword(@PathVariable Long id) {
-		return R.ok(this.sysUserService.resetPassword(id));
+	public Result resetPassword(@PathVariable Long id) {
+		return Result.ok(this.sysUserService.resetPassword(id));
 	}
 
 	/**
@@ -126,8 +126,8 @@ public class SysUserController {
 	 * @return 修改结果
 	 */
 	@PutMapping("update")
-	public R update(@RequestBody SysUser sysUser) {
-		return R.ok(this.sysUserService.update(sysUser));
+	public Result update(@RequestBody SysUser sysUser) {
+		return Result.ok(this.sysUserService.update(sysUser));
 	}
 
 	/**
@@ -136,8 +136,8 @@ public class SysUserController {
 	 * @return 删除结果
 	 */
 	@DeleteMapping("delete/{id}")
-	public R delete(@PathVariable Long id) {
-		return R.ok(this.sysUserService.removeById(id));
+	public Result delete(@PathVariable Long id) {
+		return Result.ok(this.sysUserService.removeById(id));
 	}
 
 	/**
@@ -147,8 +147,9 @@ public class SysUserController {
 	 */
 	@SysLog("根据用户名获取用户信息")
 	@PostMapping("/info/username")
-	public R<SysUser> getUserByUsername(@RequestParam String username) {
-		return R.ok(this.sysUserService.getOne(Wrappers.<SysUser>lambdaQuery().eq(SysUser::getUsername, username)));
+	public Result<SysUser> getUserByUsername(@RequestParam String username) {
+		return Result
+				.ok(this.sysUserService.getOne(Wrappers.<SysUser>lambdaQuery().eq(SysUser::getUsername, username)));
 	}
 
 	/**
@@ -157,9 +158,9 @@ public class SysUserController {
 	 */
 	@SysLog("在线用户")
 	@PostMapping("/online")
-	public R online() {
+	public Result online() {
 		List<String> list = StpUtil.searchSessionId("", 0, 1000, true);
-		return R.ok(list);
+		return Result.ok(list);
 	}
 
 }

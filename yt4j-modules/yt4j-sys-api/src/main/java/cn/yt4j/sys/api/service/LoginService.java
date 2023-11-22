@@ -1,6 +1,6 @@
 package cn.yt4j.sys.api.service;
 
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.sa.config.FeignInterceptor;
 import cn.yt4j.sys.api.entity.SysUser;
 import cn.yt4j.sys.api.service.impl.LoginServiceImpl;
@@ -26,7 +26,7 @@ public interface LoginService {
 	 * @return
 	 */
 	@PostMapping("/user/info/username")
-	R<SysUser> getUserByUsername(@RequestParam("username") String username);
+	Result<SysUser> getUserByUsername(@RequestParam("username") String username);
 
 	/**
 	 * 根据用户ID查询
@@ -34,7 +34,7 @@ public interface LoginService {
 	 * @return
 	 */
 	@GetMapping("/role/auth/list")
-	R<List<String>> listRoleByUserId(@RequestParam("userId") Long userId);
+	Result<List<String>> listRoleByUserId(@RequestParam("userId") Long userId);
 
 	/**
 	 * 根据用户ID查询
@@ -42,6 +42,6 @@ public interface LoginService {
 	 * @return
 	 */
 	@GetMapping("/menu/auth/list")
-	R<List<String>> listMenuByUserId(@RequestParam("userId") Long userId);
+	Result<List<String>> listMenuByUserId(@RequestParam("userId") Long userId);
 
 }

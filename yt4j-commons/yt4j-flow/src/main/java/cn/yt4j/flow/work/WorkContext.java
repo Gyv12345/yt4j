@@ -1,28 +1,23 @@
 
 package cn.yt4j.flow.work;
 
+import lombok.Getter;
+
 /**
  * 流程上下文
  *
  * @author gyv12345@163.com
  */
-public class WorkContext<T extends Object, E extends Object> {
+@Getter
+public class WorkContext<T, E> {
 
-	private T request;
+	private final T request;
 
-	private E response;
+	private final E response;
 
 	public WorkContext(T request, E response) {
 		this.request = request;
 		this.response = response;
-	}
-
-	public T getRequest() {
-		return request;
-	}
-
-	public E getResponse() {
-		return response;
 	}
 
 }

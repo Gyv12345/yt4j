@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class FlowTool {
 
-	private Map<String, RuleWorkFlow> flows = new ConcurrentHashMap<>();
+	private final Map<String, RuleWorkFlow> flows = new ConcurrentHashMap<>();
 
 	public RuleWorkFlow getByName(String name) {
 		if (flows.containsKey(name)) {
@@ -50,8 +50,8 @@ public class FlowTool {
 	 * // NodeEntity startNode = entity.getNodes().stream().filter(node ->
 	 * "start".equals(node.getType())).findFirst().get(); // RuleWorkFlow startFlow =
 	 * RuleWorkFlow.builder().id(startNode.getId()).name(startNode.getName()).beanId(startNode.getBeanId()).build();
-	 * @param entity
-	 * @return
+	 * @param entity 流程实例
+	 * @return 流程
 	 */
 	private RuleWorkFlow buildByEntity(FlowEntity entity) {
 		RuleWorkFlow rootFlow = RuleWorkFlow.builder().id(entity.getId()).name(entity.getName()).build();

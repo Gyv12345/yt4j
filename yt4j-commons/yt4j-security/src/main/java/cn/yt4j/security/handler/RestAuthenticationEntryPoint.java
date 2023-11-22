@@ -1,7 +1,7 @@
 
 package cn.yt4j.security.handler;
 
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.core.enums.MessageStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
@@ -35,7 +35,7 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		response.setStatus(HttpStatus.OK.value());
-		response.getWriter().println(objectMapper.writeValueAsString(R.failed(MessageStatus.LOGIN_FAILED)));
+		response.getWriter().println(objectMapper.writeValueAsString(Result.failed(MessageStatus.LOGIN_FAILED)));
 		response.getWriter().flush();
 	}
 

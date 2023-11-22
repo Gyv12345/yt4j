@@ -12,8 +12,8 @@ public enum BasicEnum {
 
 	PARENT(0L, "顶级父级");
 
-	private Long id;
+	private final Long id;
 
-	private String desc;
+	private final String desc;
 
 }

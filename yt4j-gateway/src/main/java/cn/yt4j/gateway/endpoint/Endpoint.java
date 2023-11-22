@@ -30,7 +30,7 @@ public class Endpoint {
 
 	@OnOpen
 	public void onOpen(Session session, HttpHeaders headers, @RequestParam String userKey) {
-		if (!StringUtils.hasText(userKey) && concurrentHashMap.containsKey(userKey)) {
+		if (!StringUtils.hasText(userKey)) {
 			concurrentHashMap.remove(userKey);
 		}
 		concurrentHashMap.put(userKey, session);
@@ -63,8 +63,7 @@ public class Endpoint {
 
 	@OnEvent
 	public void onEvent(Session session, Object evt) {
-		if (evt instanceof IdleStateEvent) {
-			IdleStateEvent idleStateEvent = (IdleStateEvent) evt;
+		if (evt instanceof IdleStateEvent idleStateEvent) {
 			switch (idleStateEvent.state()) {
 			case READER_IDLE:
 				log.info("read idle");
@@ -88,7 +87,7 @@ public class Endpoint {
 				concurrentHashMap.get(userKey).sendText(mapper.writeValueAsString(message));
 			}
 			catch (JsonProcessingException e) {
-				e.printStackTrace();
+				log.error(e.getMessage(), e);
 			}
 		}
 	}

@@ -2,7 +2,7 @@
 package cn.yt4j.sys.controller;
 
 import cn.yt4j.core.domain.PageResult;
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.sys.api.entity.SysDictItem;
 import cn.yt4j.sys.service.SysDictItemService;
@@ -37,8 +37,8 @@ public class SysDictItemController {
 	 * @return 所有数据
 	 */
 	@GetMapping
-	public R<PageResult<SysDictItem>> selectAll(SysDictItem sysDictItem) {
-		return R.ok(this.sysDictItemService.page(PageUtil.page(), new QueryWrapper<>(sysDictItem)));
+	public Result<PageResult<SysDictItem>> selectAll(SysDictItem sysDictItem) {
+		return Result.ok(this.sysDictItemService.page(PageUtil.page(), new QueryWrapper<>(sysDictItem)));
 	}
 
 	/**
@@ -47,8 +47,8 @@ public class SysDictItemController {
 	 * @return 单条数据
 	 */
 	@GetMapping("{id}")
-	public R selectOne(@PathVariable Serializable id) {
-		return R.ok(this.sysDictItemService.getById(id));
+	public Result selectOne(@PathVariable Serializable id) {
+		return Result.ok(this.sysDictItemService.getById(id));
 	}
 
 	/**
@@ -57,8 +57,8 @@ public class SysDictItemController {
 	 * @return 新增结果
 	 */
 	@PostMapping
-	public R insert(@RequestBody SysDictItem sysDictItem) {
-		return R.ok(this.sysDictItemService.save(sysDictItem));
+	public Result insert(@RequestBody SysDictItem sysDictItem) {
+		return Result.ok(this.sysDictItemService.save(sysDictItem));
 	}
 
 	/**
@@ -67,8 +67,8 @@ public class SysDictItemController {
 	 * @return
 	 */
 	@PostMapping("batch/insert")
-	public R<Boolean> batchInsert(@RequestBody List<SysDictItem> list) {
-		return R.ok(this.sysDictItemService.saveBatch(list));
+	public Result<Boolean> batchInsert(@RequestBody List<SysDictItem> list) {
+		return Result.ok(this.sysDictItemService.saveBatch(list));
 	}
 
 	/**
@@ -77,8 +77,8 @@ public class SysDictItemController {
 	 * @return 修改结果
 	 */
 	@PutMapping
-	public R update(@RequestBody SysDictItem sysDictItem) {
-		return R.ok(this.sysDictItemService.updateById(sysDictItem));
+	public Result update(@RequestBody SysDictItem sysDictItem) {
+		return Result.ok(this.sysDictItemService.updateById(sysDictItem));
 	}
 
 	/**
@@ -87,8 +87,8 @@ public class SysDictItemController {
 	 * @return 删除结果
 	 */
 	@DeleteMapping("delete/{id}")
-	public R delete(@PathVariable Long id) {
-		return R.ok(this.sysDictItemService.removeById(id));
+	public Result delete(@PathVariable Long id) {
+		return Result.ok(this.sysDictItemService.removeById(id));
 	}
 
 }

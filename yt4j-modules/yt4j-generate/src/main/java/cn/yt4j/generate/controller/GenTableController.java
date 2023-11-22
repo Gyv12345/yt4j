@@ -2,7 +2,7 @@ package cn.yt4j.generate.controller;
 
 import cn.yt4j.core.domain.PageRequest;
 import cn.yt4j.core.domain.PageResult;
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.generate.entity.GenTable;
 import cn.yt4j.generate.service.GenTableService;
 import cn.yt4j.log.annotation.SysLog;
@@ -34,8 +34,8 @@ public class GenTableController {
 	 */
 	@SysLog("分页查询数据源表")
 	@PostMapping("page")
-	public R<PageResult<GenTable>> listPage(@Valid @RequestBody PageRequest<GenTable> request) {
-		return R.ok(this.genTableService.selectTablePage(request.page(), request.getData()));
+	public Result<PageResult<GenTable>> listPage(@Valid @RequestBody PageRequest<GenTable> request) {
+		return Result.ok(this.genTableService.selectTablePage(request.page(), request.getData()));
 	}
 
 	/**
@@ -45,9 +45,9 @@ public class GenTableController {
 	 */
 	@SysLog("导入某张表")
 	@PostMapping("page")
-	public R importTable(@RequestBody GenTable genTable) {
+	public Result importTable(@RequestBody GenTable genTable) {
 
-		return R.ok();
+		return Result.ok();
 	}
 
 }

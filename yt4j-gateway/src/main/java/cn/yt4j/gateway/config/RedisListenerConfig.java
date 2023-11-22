@@ -20,7 +20,7 @@ public class RedisListenerConfig {
 	/**
 	 * redis 监听配置
 	 * @param redisConnectionFactory redis 配置
-	 * @return
+	 * @return 监听
 	 */
 	@Bean
 	public RedisMessageListenerContainer redisContainer(RedisConnectionFactory redisConnectionFactory) {

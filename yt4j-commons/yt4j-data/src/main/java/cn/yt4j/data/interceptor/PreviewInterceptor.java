@@ -12,7 +12,7 @@ import org.apache.ibatis.mapping.MappedStatement;
  */
 public class PreviewInterceptor implements InnerInterceptor {
 
-	private Boolean preview;
+	private final Boolean preview;
 
 	public PreviewInterceptor(Boolean preview) {
 		this.preview = preview;

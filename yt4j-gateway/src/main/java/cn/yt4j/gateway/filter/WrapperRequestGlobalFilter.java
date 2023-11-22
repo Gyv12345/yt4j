@@ -35,16 +35,16 @@ public class WrapperRequestGlobalFilter implements GlobalFilter, Ordered {
 	@Override
 	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
 		ServerHttpRequest request = exchange.getRequest();
-		URI URIPath = request.getURI();
+		URI uriPath = request.getURI();
 		String path = request.getPath().value();
 		String method = request.getMethod().name();
 		HttpHeaders header = request.getHeaders();
 		String ip = WebFluxUtil.getIpAddress(exchange.getRequest());
 
 		log.info("***********************************请求信息**********************************");
-		log.info("请求request信息：URI = {}, path = {}，method = {}，header = {}，ip = {} 。", URIPath, path, method, header,
+		log.info("请求request信息：URI = {}, path = {}，method = {}，header = {}，ip = {} 。", uriPath, path, method, header,
 				ip);
-		log.info("****************************************************************************\n");
+		log.info("****************************************************************************");
 		return chain.filter(exchange);
 	}
 

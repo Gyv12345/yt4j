@@ -2,7 +2,7 @@ package cn.yt4j.flowserver.controller;
 
 import cn.yt4j.core.domain.PageRequest;
 import cn.yt4j.core.domain.PageResult;
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.flowserver.entity.FlowInfo;
 import cn.yt4j.flowserver.service.FlowInfoService;
 import cn.yt4j.log.annotation.SysLog;
@@ -37,8 +37,8 @@ public class FlowInfoController {
 	 */
 	@SysLog("分页查询流程信息所有数据")
 	@PostMapping("page")
-	public R<PageResult<FlowInfo>> listPage(@Valid @RequestBody PageRequest<FlowInfo> request) {
-		return R.ok(this.flowInfoService.page(request.page(), request.wrapper()));
+	public Result<PageResult<FlowInfo>> listPage(@Valid @RequestBody PageRequest<FlowInfo> request) {
+		return Result.ok(this.flowInfoService.page(request.page(), request.wrapper()));
 	}
 
 	/**
@@ -48,8 +48,8 @@ public class FlowInfoController {
 	 */
 	@SysLog("通过主键查询流程信息单条数据")
 	@GetMapping("get/{id}")
-	public R<FlowInfo> selectOne(@PathVariable Serializable id) {
-		return R.ok(this.flowInfoService.getById(id));
+	public Result<FlowInfo> selectOne(@PathVariable Serializable id) {
+		return Result.ok(this.flowInfoService.getById(id));
 	}
 
 	/**
@@ -59,8 +59,8 @@ public class FlowInfoController {
 	 */
 	@SysLog("新增客户表数据")
 	@PostMapping("insert")
-	public R insert(@RequestBody FlowInfo flowInfo) {
-		return R.ok(this.flowInfoService.save(flowInfo));
+	public Result insert(@RequestBody FlowInfo flowInfo) {
+		return Result.ok(this.flowInfoService.save(flowInfo));
 	}
 
 	/**
@@ -70,8 +70,8 @@ public class FlowInfoController {
 	 */
 	@SysLog("修改流程信息数据")
 	@PutMapping("update")
-	public R update(@RequestBody FlowInfo flowInfo) {
-		return R.ok(this.flowInfoService.updateById(flowInfo));
+	public Result update(@RequestBody FlowInfo flowInfo) {
+		return Result.ok(this.flowInfoService.updateById(flowInfo));
 	}
 
 	/**
@@ -81,8 +81,8 @@ public class FlowInfoController {
 	 */
 	@SysLog("删除流程信息数据")
 	@DeleteMapping("delete/{id}")
-	public R delete(@PathVariable Long id) {
-		return R.ok(this.flowInfoService.removeById(id));
+	public Result delete(@PathVariable Long id) {
+		return Result.ok(this.flowInfoService.removeById(id));
 	}
 
 }

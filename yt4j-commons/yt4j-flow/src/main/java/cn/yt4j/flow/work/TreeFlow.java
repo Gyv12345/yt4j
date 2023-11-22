@@ -4,6 +4,7 @@ package cn.yt4j.flow.work;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -14,6 +15,9 @@ import java.io.Serializable;
 @Data
 @ToString
 public class TreeFlow implements Serializable {
+
+	@Serial
+	private static final long serialVersionUID = -5512024826798480157L;
 
 	private String id;
 

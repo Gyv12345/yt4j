@@ -22,7 +22,7 @@ public class Yt4jWebConfig implements WebMvcConfigurer {
 	 * <li>yyyy-MM-dd -> LocalDate</li>
 	 * <li>yyyy-MM-dd HH:mm:ss -> LocalDateTime</li>
 	 * </ul>
-	 * @param registry
+	 * @param registry 格式化注册器
 	 */
 	@Override
 	public void addFormatters(FormatterRegistry registry) {

@@ -4,7 +4,7 @@ package cn.yt4j.sys.controller;
 import cn.yt4j.core.domain.BaseTree;
 import cn.yt4j.core.domain.PageRequest;
 import cn.yt4j.core.domain.PageResult;
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.api.entity.SysDept;
 import cn.yt4j.sys.service.SysDeptService;
@@ -40,8 +40,8 @@ public class SysDeptController {
 	 */
 	@SysLog("获取部门机构树")
 	@GetMapping("tree")
-	public R<List<BaseTree>> treeDept() {
-		return R.ok(this.sysDeptService.treeDept());
+	public Result<List<BaseTree>> treeDept() {
+		return Result.ok(this.sysDeptService.treeDept());
 	}
 
 	/**
@@ -51,8 +51,8 @@ public class SysDeptController {
 	 */
 	@SysLog("部门分页查询")
 	@PostMapping("page")
-	public R<PageResult<SysDept>> selectAll(@RequestBody PageRequest<SysDept> pageRequest) {
-		return R.ok(this.sysDeptService.page(pageRequest.page(), pageRequest.wrapper()));
+	public Result<PageResult<SysDept>> selectAll(@RequestBody PageRequest<SysDept> pageRequest) {
+		return Result.ok(this.sysDeptService.page(pageRequest.page(), pageRequest.wrapper()));
 	}
 
 	/**
@@ -61,8 +61,8 @@ public class SysDeptController {
 	 * @return 单条数据
 	 */
 	@GetMapping("get/{id}")
-	public R<SysDept> selectOne(@PathVariable Serializable id) {
-		return R.ok(this.sysDeptService.getById(id));
+	public Result<SysDept> selectOne(@PathVariable Serializable id) {
+		return Result.ok(this.sysDeptService.getById(id));
 	}
 
 	/**
@@ -71,8 +71,8 @@ public class SysDeptController {
 	 * @return 新增结果
 	 */
 	@PostMapping("insert")
-	public R insert(@RequestBody SysDept sysDept) {
-		return R.ok(this.sysDeptService.save(sysDept));
+	public Result insert(@RequestBody SysDept sysDept) {
+		return Result.ok(this.sysDeptService.save(sysDept));
 	}
 
 	/**
@@ -81,8 +81,8 @@ public class SysDeptController {
 	 * @return 修改结果
 	 */
 	@PutMapping("update")
-	public R update(@RequestBody SysDept sysDept) {
-		return R.ok(this.sysDeptService.updateById(sysDept));
+	public Result update(@RequestBody SysDept sysDept) {
+		return Result.ok(this.sysDeptService.updateById(sysDept));
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class SysDeptController {
 	 * @return 删除结果
 	 */
 	@DeleteMapping("delete/{id}")
-	public R delete(@PathVariable Long id) {
-		return R.ok(this.sysDeptService.removeById(id));
+	public Result delete(@PathVariable Long id) {
+		return Result.ok(this.sysDeptService.removeById(id));
 	}
 
 }

@@ -2,7 +2,7 @@
 package cn.yt4j.sys.controller;
 
 import cn.yt4j.core.domain.PageResult;
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.api.entity.SysDict;
@@ -41,8 +41,8 @@ public class SysDictController {
 	 */
 	@SysLog("获取远程字典")
 	@GetMapping("remote/{code}")
-	public R<List<DictVO>> listByCode(@PathVariable String code) {
-		return R.ok(this.sysDictService.listByCode(code).stream().map(sysDictItem -> {
+	public Result<List<DictVO>> listByCode(@PathVariable String code) {
+		return Result.ok(this.sysDictService.listByCode(code).stream().map(sysDictItem -> {
 			DictVO vo = new DictVO();
 			vo.setLabel(sysDictItem.getLabel());
 			vo.setValue(sysDictItem.getValue());
@@ -56,8 +56,8 @@ public class SysDictController {
 	 * @return 所有数据
 	 */
 	@GetMapping
-	public R<PageResult<SysDict>> selectAll(SysDict sysDict) {
-		return R.ok(this.sysDictService.page(PageUtil.page(), new QueryWrapper<>(sysDict)));
+	public Result<PageResult<SysDict>> selectAll(SysDict sysDict) {
+		return Result.ok(this.sysDictService.page(PageUtil.page(), new QueryWrapper<>(sysDict)));
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class SysDictController {
 	 * @return 单条数据
 	 */
 	@GetMapping("{id}")
-	public R<SysDict> selectOne(@PathVariable Serializable id) {
-		return R.ok(this.sysDictService.getById(id));
+	public Result<SysDict> selectOne(@PathVariable Serializable id) {
+		return Result.ok(this.sysDictService.getById(id));
 	}
 
 	/**
@@ -76,8 +76,8 @@ public class SysDictController {
 	 * @return 新增结果
 	 */
 	@PostMapping("insert")
-	public R insert(@RequestBody SysDict sysDict) {
-		return R.ok(this.sysDictService.save(sysDict));
+	public Result insert(@RequestBody SysDict sysDict) {
+		return Result.ok(this.sysDictService.save(sysDict));
 	}
 
 	/**
@@ -86,8 +86,8 @@ public class SysDictController {
 	 * @return 修改结果
 	 */
 	@PutMapping("update")
-	public R update(@RequestBody SysDict sysDict) {
-		return R.ok(this.sysDictService.updateById(sysDict));
+	public Result update(@RequestBody SysDict sysDict) {
+		return Result.ok(this.sysDictService.updateById(sysDict));
 	}
 
 	/**
@@ -96,8 +96,8 @@ public class SysDictController {
 	 * @return 删除结果
 	 */
 	@DeleteMapping("delete/{id}")
-	public R delete(@PathVariable Long id) {
-		return R.ok(this.sysDictService.removeById(id));
+	public Result delete(@PathVariable Long id) {
+		return Result.ok(this.sysDictService.removeById(id));
 	}
 
 }

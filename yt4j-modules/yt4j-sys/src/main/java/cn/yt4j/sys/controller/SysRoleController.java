@@ -2,7 +2,7 @@
 package cn.yt4j.sys.controller;
 
 import cn.yt4j.core.domain.PageResult;
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.api.entity.SysRole;
@@ -40,8 +40,8 @@ public class SysRoleController {
 	 * @return
 	 */
 	@GetMapping("get/menus/{id}")
-	public R<List<Long>> getMenuIds(@PathVariable Long id) {
-		return R.ok(this.sysRoleService.listMenuIds(id));
+	public Result<List<Long>> getMenuIds(@PathVariable Long id) {
+		return Result.ok(this.sysRoleService.listMenuIds(id));
 	}
 
 	/**
@@ -49,8 +49,8 @@ public class SysRoleController {
 	 * @return
 	 */
 	@GetMapping("select")
-	public R<List<DictVO>> dropDown() {
-		return R.ok(this.sysRoleService.dropDown());
+	public Result<List<DictVO>> dropDown() {
+		return Result.ok(this.sysRoleService.dropDown());
 	}
 
 	/**
@@ -59,8 +59,8 @@ public class SysRoleController {
 	 * @return
 	 */
 	@PostMapping("setting")
-	public R<Boolean> setting(@RequestBody RoleMenuDTO dto) {
-		return R.ok(this.sysRoleService.setting(dto));
+	public Result<Boolean> setting(@RequestBody RoleMenuDTO dto) {
+		return Result.ok(this.sysRoleService.setting(dto));
 	}
 
 	/**
@@ -69,8 +69,8 @@ public class SysRoleController {
 	 * @return 所有数据
 	 */
 	@GetMapping("list")
-	public R<PageResult<SysRole>> selectAll(SysRole sysRole) {
-		return R.ok(this.sysRoleService.page(PageUtil.page(), new QueryWrapper<>(sysRole)));
+	public Result<PageResult<SysRole>> selectAll(SysRole sysRole) {
+		return Result.ok(this.sysRoleService.page(PageUtil.page(), new QueryWrapper<>(sysRole)));
 	}
 
 	/**
@@ -79,8 +79,8 @@ public class SysRoleController {
 	 * @return 单条数据
 	 */
 	@GetMapping("get/{id}")
-	public R<SysRole> selectOne(@PathVariable Serializable id) {
-		return R.ok(this.sysRoleService.getById(id));
+	public Result<SysRole> selectOne(@PathVariable Serializable id) {
+		return Result.ok(this.sysRoleService.getById(id));
 	}
 
 	/**
@@ -89,8 +89,8 @@ public class SysRoleController {
 	 * @return 新增结果
 	 */
 	@PostMapping("insert")
-	public R insert(@RequestBody SysRole sysRole) {
-		return R.ok(this.sysRoleService.save(sysRole));
+	public Result insert(@RequestBody SysRole sysRole) {
+		return Result.ok(this.sysRoleService.save(sysRole));
 	}
 
 	/**
@@ -99,8 +99,8 @@ public class SysRoleController {
 	 * @return 修改结果
 	 */
 	@PutMapping("update")
-	public R update(@RequestBody SysRole sysRole) {
-		return R.ok(this.sysRoleService.updateById(sysRole));
+	public Result update(@RequestBody SysRole sysRole) {
+		return Result.ok(this.sysRoleService.updateById(sysRole));
 	}
 
 	/**
@@ -109,8 +109,8 @@ public class SysRoleController {
 	 * @return 删除结果
 	 */
 	@DeleteMapping("delete/{id}")
-	public R delete(@PathVariable Long id) {
-		return R.ok(this.sysRoleService.removeById(id));
+	public Result delete(@PathVariable Long id) {
+		return Result.ok(this.sysRoleService.removeById(id));
 	}
 
 	/**
@@ -120,8 +120,8 @@ public class SysRoleController {
 	 */
 	@SysLog("根据用户Id查询用户角色列表")
 	@GetMapping("/auth/list")
-	public R<List<String>> listByUserId(@RequestParam Long userId) {
-		return R.ok(this.sysRoleService.listByUserId(userId));
+	public Result<List<String>> listByUserId(@RequestParam Long userId) {
+		return Result.ok(this.sysRoleService.listByUserId(userId));
 	}
 
 }

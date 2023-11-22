@@ -3,7 +3,7 @@ package cn.yt4j.sys.controller;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.yt4j.core.constant.RedisConstants;
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.flow.work.FlowTool;
 import cn.yt4j.sys.entity.dto.FlowTestDTO;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -40,10 +40,10 @@ public class FlowDemoController {
 	 * @return
 	 */
 	@GetMapping("test")
-	public R test(FlowTestDTO info, HttpServletRequest request) {
+	public Result test(FlowTestDTO info, HttpServletRequest request) {
 		Map<String, Object> context = BeanUtil.beanToMap(info);
 		flowTool.getByName("test").execute(context);
-		return R.ok(context);
+		return Result.ok(context);
 	}
 
 	/**
@@ -51,9 +51,9 @@ public class FlowDemoController {
 	 * @return
 	 */
 	@GetMapping("message")
-	public R message() {
+	public Result message() {
 		redisTemplate.convertAndSend(RedisConstants.MESSAGE_TOPIC, "hello world");
-		return R.ok();
+		return Result.ok();
 	}
 
 }

@@ -3,7 +3,7 @@ package cn.yt4j.sys.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
 import cn.yt4j.core.domain.PageResult;
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import cn.yt4j.core.util.PageUtil;
 import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.api.entity.SysMenu;
@@ -42,8 +42,8 @@ public class SysMenuController {
 	 * @return
 	 */
 	@GetMapping("nav/{id}")
-	public R<List<Route>> nav(@PathVariable("id") Long applicationId) {
-		return R.ok(this.sysMenuService.nav(StpUtil.getLoginIdAsLong(), applicationId));
+	public Result<List<Route>> nav(@PathVariable("id") Long applicationId) {
+		return Result.ok(this.sysMenuService.nav(StpUtil.getLoginIdAsLong(), applicationId));
 	}
 
 	/**
@@ -51,8 +51,8 @@ public class SysMenuController {
 	 * @return
 	 */
 	@GetMapping("top")
-	public R<List<TopMenuVO>> topMenu() {
-		return R.ok(this.sysMenuService.topMenu());
+	public Result<List<TopMenuVO>> topMenu() {
+		return Result.ok(this.sysMenuService.topMenu());
 	}
 
 	/**
@@ -60,8 +60,8 @@ public class SysMenuController {
 	 * @return
 	 */
 	@GetMapping("tree")
-	public R<List<MenuTreeVO>> menuTree() {
-		return R.ok(this.sysMenuService.menuTree());
+	public Result<List<MenuTreeVO>> menuTree() {
+		return Result.ok(this.sysMenuService.menuTree());
 	}
 
 	/**
@@ -70,8 +70,8 @@ public class SysMenuController {
 	 * @return 所有数据
 	 */
 	@GetMapping("list")
-	public R<PageResult<SysMenu>> selectAll(SysMenu sysMenu) {
-		return R.ok(this.sysMenuService.page(PageUtil.page(), new QueryWrapper<>(sysMenu)));
+	public Result<PageResult<SysMenu>> selectAll(SysMenu sysMenu) {
+		return Result.ok(this.sysMenuService.page(PageUtil.page(), new QueryWrapper<>(sysMenu)));
 	}
 
 	/**
@@ -80,8 +80,8 @@ public class SysMenuController {
 	 * @return 单条数据
 	 */
 	@GetMapping("{id}")
-	public R<SysMenu> selectOne(@PathVariable Serializable id) {
-		return R.ok(this.sysMenuService.getById(id));
+	public Result<SysMenu> selectOne(@PathVariable Serializable id) {
+		return Result.ok(this.sysMenuService.getById(id));
 	}
 
 	/**
@@ -90,8 +90,8 @@ public class SysMenuController {
 	 * @return 新增结果
 	 */
 	@PostMapping("insert")
-	public R insert(@RequestBody SysMenu sysMenu) {
-		return R.ok(this.sysMenuService.save(sysMenu));
+	public Result insert(@RequestBody SysMenu sysMenu) {
+		return Result.ok(this.sysMenuService.save(sysMenu));
 	}
 
 	/**
@@ -100,8 +100,8 @@ public class SysMenuController {
 	 * @return 修改结果
 	 */
 	@PutMapping("update")
-	public R update(@RequestBody SysMenu sysMenu) {
-		return R.ok(this.sysMenuService.updateById(sysMenu));
+	public Result update(@RequestBody SysMenu sysMenu) {
+		return Result.ok(this.sysMenuService.updateById(sysMenu));
 	}
 
 	/**
@@ -110,8 +110,8 @@ public class SysMenuController {
 	 * @return 删除结果
 	 */
 	@DeleteMapping("delete/{id}")
-	public R delete(@PathVariable Long id) {
-		return R.ok(this.sysMenuService.removeById(id));
+	public Result delete(@PathVariable Long id) {
+		return Result.ok(this.sysMenuService.removeById(id));
 	}
 
 	/**
@@ -121,8 +121,8 @@ public class SysMenuController {
 	 */
 	@SysLog("根据用户Id查询用户权限列表")
 	@GetMapping("/auth/list")
-	public R<List<String>> listByUserId(@RequestParam Long userId) {
-		return R.ok(this.sysMenuService.listByUserId(userId));
+	public Result<List<String>> listByUserId(@RequestParam Long userId) {
+		return Result.ok(this.sysMenuService.listByUserId(userId));
 	}
 
 }

@@ -32,8 +32,7 @@ public class StpInterfaceImpl implements StpInterface {
 	private SaUserCache getSaUserCache(Object loginId) {
 		String token = StpUtil.getTokenValueByLoginId(loginId);
 		SaSession session = StpUtil.getTokenSessionByToken(token);
-		SaUserCache userCache = session.getModel(SecurityConstants.SECURITY_PREFIX, SaUserCache.class);
-		return userCache;
+		return session.getModel(SecurityConstants.SECURITY_PREFIX, SaUserCache.class);
 	}
 
 }

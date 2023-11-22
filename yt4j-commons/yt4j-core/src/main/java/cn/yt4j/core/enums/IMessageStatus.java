@@ -8,13 +8,13 @@ public interface IMessageStatus {
 
 	/**
 	 * 返回code
-	 * @return
+	 * @return code
 	 */
 	int getCode();
 
 	/**
 	 * 返回信息
-	 * @return
+	 * @return 信息
 	 */
 	String getMessage();
 

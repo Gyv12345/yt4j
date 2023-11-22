@@ -6,7 +6,8 @@ import org.springframework.context.annotation.ComponentScan;
 /**
  * @author gyv12345@163.com
  */
-@ComponentScan("cn.yt4j.flow")
+
+@ComponentScan(basePackages = { "cn.yt4j.flow", "cn.hutool.extra.spring" })
 public class FlowAutoConfiguration {
 
 }

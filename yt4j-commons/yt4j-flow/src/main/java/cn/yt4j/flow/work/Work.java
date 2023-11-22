@@ -14,8 +14,8 @@ public interface Work {
 
 	/**
 	 * 执行
-	 * @param context
-	 * @return
+	 * @param context 上下文
+	 * @return 执行成功结果
 	 */
 	int execute(Map<String, Object> context);
 
