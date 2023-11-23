@@ -30,6 +30,7 @@ public class AuthServiceImpl implements AuthService {
 
 	@Override
 	public String login(LoginDTO dto) {
+		log.info("登录");
 		SysUser user = this.loginService.getUserByUsername(dto.getUsername()).getData();
 		if (ObjectUtil.isNull(user)) {
 			throw new Yt4jException(MessageStatus.LOGIN_FAILED);

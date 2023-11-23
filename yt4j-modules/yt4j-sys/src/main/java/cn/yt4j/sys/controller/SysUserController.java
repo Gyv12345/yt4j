@@ -15,7 +15,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.redis.core.RedisTemplate;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +26,7 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-08-07 17:11:45
  */
+@Slf4j
 @Tag(name = "用户")
 @RequiredArgsConstructor
 @RestController
@@ -36,8 +37,6 @@ public class SysUserController {
 	 * 服务对象
 	 */
 	private final SysUserService sysUserService;
-
-	private final RedisTemplate redisTemplate;
 
 	/**
 	 * 登录已经废弃
@@ -148,6 +147,7 @@ public class SysUserController {
 	@SysLog("根据用户名获取用户信息")
 	@PostMapping("/info/username")
 	public Result<SysUser> getUserByUsername(@RequestParam String username) {
+		log.info("根据用户名获取用户信息");
 		return Result
 				.ok(this.sysUserService.getOne(Wrappers.<SysUser>lambdaQuery().eq(SysUser::getUsername, username)));
 	}
