@@ -34,7 +34,7 @@ public class ForwardAuthFilter implements GlobalFilter {
 				.header(TracingConstants.TRACE_ID, traceId)
 				.build();
 		ServerWebExchange newExchange = exchange.mutate().request(newRequest).build();
-		return chain.filter(newExchange);
+		return chain.filter(newExchange).doFinally(signalType -> MDC.remove(TracingConstants.TRACE_ID));
 	}
 
 }
