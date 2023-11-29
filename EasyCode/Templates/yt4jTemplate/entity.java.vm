@@ -1,0 +1,51 @@
+##导入宏定义
+$!{define.vm}
+$!{mybatisCodehelper.vm}
+
+#set($entitySavePath = $tool.append(${javamodelSrcFolder},"/",${modelPackageName.replace(".","/")}))
+
+$!callback.setSavePath($entitySavePath)
+$!callback.setFileName($tool.append($tableInfo.name, ".java"))
+
+##自动导入包（全局变量）
+package ${modelPackageName};
+$!autoImport
+import lombok.Data;
+import lombok.ToString;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
+
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+##表注释（宏定义）
+#tableComment("表实体类")
+@Data
+@ToString
+public class $!{tableInfo.name} implements Serializable{
+private static final long serialVersionUID= $!tool.serial();
+
+#foreach($column in $tableInfo.fullColumn)
+    #if(${column.comment})
+    /**
+     * ${column.comment}
+     */
+    #end
+    #foreach($columnPk in $tableInfo.pkColumn)
+        #if($!{column.name} == $!{columnPk.name})
+        @TableId(value = "id", type = IdType.ASSIGN_ID)
+        #end
+    #end
+    #if($!{column.name} == 'createUserId' or $!{column.name} == 'createTime')
+    @TableField(fill = FieldFill.INSERT)
+    #end
+    #if($!{column.name} == 'updateUserId' or $!{column.name} == 'updateTime')
+    @TableField(fill = FieldFill.UPDATE)
+    #end
+    private $!{tool.getClsNameByFullName($column.type)} $!{column.name};
+
+#end
+}
