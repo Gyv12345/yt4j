@@ -31,6 +31,7 @@ public interface GenTableService extends IService<GenTable> {
 	List<Map<String, Object>> tables(String tableName);
 
 	/**
+	 * 导入表结构
 	 * @param genTable
 	 */
 	void importTable(GenTable genTable);

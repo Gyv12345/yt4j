@@ -13,16 +13,18 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 
 /**
- *
  * @author gyv12345@163.com
  */
 @RequiredArgsConstructor
 @Component
-public class TracingFilter  extends OncePerRequestFilter {
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        String traceId=request.getHeader(TracingConstants.TRACE_ID);
-        MDC.put(TracingConstants.TRACE_ID, traceId);
-        filterChain.doFilter(request, response);
-    }
+public class TracingFilter extends OncePerRequestFilter {
+
+	@Override
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+			throws ServletException, IOException {
+		String traceId = request.getHeader(TracingConstants.TRACE_ID);
+		MDC.put(TracingConstants.TRACE_ID, traceId);
+		filterChain.doFilter(request, response);
+	}
+
 }

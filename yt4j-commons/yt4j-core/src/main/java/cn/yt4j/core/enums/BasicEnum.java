@@ -10,6 +10,9 @@ import lombok.Getter;
 @Getter
 public enum BasicEnum {
 
+	/**
+	 * 顶级父级
+	 */
 	PARENT(0L, "顶级父级");
 
 	private final Long id;

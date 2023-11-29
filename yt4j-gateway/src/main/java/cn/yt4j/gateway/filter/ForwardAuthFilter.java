@@ -30,8 +30,7 @@ public class ForwardAuthFilter implements GlobalFilter {
 
 		ServerHttpRequest newRequest = exchange.getRequest().mutate()
 				// 为请求追加 Id-Token 参数
-				.header(SaSameUtil.SAME_TOKEN, SaSameUtil.getToken())
-				.header(TracingConstants.TRACE_ID, traceId)
+				.header(SaSameUtil.SAME_TOKEN, SaSameUtil.getToken()).header(TracingConstants.TRACE_ID, traceId)
 				.build();
 		ServerWebExchange newExchange = exchange.mutate().request(newRequest).build();
 		return chain.filter(newExchange).doFinally(signalType -> MDC.remove(TracingConstants.TRACE_ID));

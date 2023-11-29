@@ -17,6 +17,7 @@
         <module>yt4j-crm</module>
         <module>yt4j-generate</module>
         <module>yt4j-flow-server</module>
+        <module>yt4j-monitor</module>
     </modules>
 
     <artifactId>yt4j-modules</artifactId>
