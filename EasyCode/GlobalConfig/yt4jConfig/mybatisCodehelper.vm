@@ -27,5 +27,5 @@
 #end
 
 ##去掉表的t_前缀
-$!tableInfo.setName($tool.getClassName($tableInfo.obj.name.replaceFirst("wk_","")))
+$!tableInfo.setName($tool.getClassName($tableInfo.obj.name.replaceFirst("yt4j_","")))
 

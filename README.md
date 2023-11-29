@@ -16,7 +16,7 @@ ui部分 放弃了，前端太难了
 - ~~基于ant design pro vue模板，构建前端界面~~
 - 提供对docker支持
 ## 计划功能
-- [ ] 增加代码生成
+- [X] 增加代码生成
 - [ ] 增加自己写的流程编排前端页面
 - [ ] 审批流
 - [ ] OAuth2平台
@@ -35,7 +35,7 @@ ui部分 放弃了，前端太难了
 | sa-token           | 1.34.0     |
 | plumelog           | 3.5.3      |
 | xxl-job            | 2.4.0      |
-| knife4j            | 4.1.0      |
+| knife4j            | 4.3.0      |
 
 ## 模块说明
 
@@ -62,7 +62,7 @@ yt4j
 ```
 
 ## 代码生成
-easycode插件服务断了，准备增加代码生成模块，没有easycode的功能强大 ，毕竟easycode按理来说只要database支持的它都支持
+使用EasyCode-MybatisCodeHelper,进行代码生成，可以参考[这里](doc/code.md)
 
 ## 部署
 部署的时候，需要设置一下host

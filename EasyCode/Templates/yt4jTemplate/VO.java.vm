@@ -1,0 +1,41 @@
+##导入宏定义
+$!{define.vm}
+$!{mybatisCodehelper.vm}
+
+#set($entitySavePath = $tool.append(${javamodelSrcFolder},"/",${modelPackageName.replace(".","/")},"/vo/"))
+
+$!callback.setSavePath($entitySavePath)
+$!callback.setFileName($tool.append($tableInfo.name, "VO.java"))
+
+##自动导入包（全局变量）
+package ${modelPackageName}.vo;
+$!autoImport
+import lombok.Data;
+import lombok.ToString;
+import ${modelPackageName}.$!{tableInfo.name};
+import io.github.linpeilie.annotations.AutoMapper;
+
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+##表注释（宏定义）
+#tableComment("表实体类")
+@Data
+@ToString
+@AutoMapper(target = $!{tableInfo.name}.class)
+public class $!{tableInfo.name}VO implements Serializable{
+    @Serial
+private static final long serialVersionUID= $!tool.serial();
+
+#foreach($column in $tableInfo.fullColumn)
+    #if(${column.comment})
+    /**
+     * ${column.comment}
+     */
+    #end
+    private $!{tool.getClsNameByFullName($column.type)} $!{column.name};
+
+#end
+}

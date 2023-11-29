@@ -1,7 +1,7 @@
 ##初始化区域
 
 ##去掉表的t_前缀
-$!tableInfo.setName($tool.getClassName($tableInfo.obj.name.replaceFirst("wk_","")))
+$!tableInfo.setName($tool.getClassName($tableInfo.obj.name.replaceFirst("yt4j_","")))
 
 ##参考阿里巴巴开发手册，POJO 类中布尔类型的变量，都不要加 is 前缀，否则部分框架解析会引起序列化错误
 ## when use actual columns name, should set this.
