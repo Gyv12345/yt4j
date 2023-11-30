@@ -14,4 +14,3 @@ import org.apache.ibatis.annotations.Mapper;
 public interface CrmCustomerMapper extends BaseMapper<CrmCustomer> {
 
 }
-

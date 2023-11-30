@@ -16,4 +16,3 @@ import org.springframework.stereotype.Service;
 public class CrmCustomerServiceImpl extends ServiceImpl<CrmCustomerMapper, CrmCustomer> implements CrmCustomerService {
 
 }
-

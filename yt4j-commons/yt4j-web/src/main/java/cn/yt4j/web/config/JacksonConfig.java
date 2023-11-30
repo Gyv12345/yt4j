@@ -34,7 +34,7 @@ public class JacksonConfig {
 			builder.locale(Locale.CHINA);
 			builder.timeZone(TimeZone.getTimeZone(ZoneId.systemDefault()));
 			builder.simpleDateFormat(DatePattern.NORM_DATETIME_PATTERN);
-			builder.modules(new PigJavaTimeModule(),new BigNumberModule());
+			builder.modules(new PigJavaTimeModule(), new BigNumberModule());
 		};
 	}
 

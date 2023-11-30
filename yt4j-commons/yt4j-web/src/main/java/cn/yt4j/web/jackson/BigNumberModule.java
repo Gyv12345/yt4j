@@ -10,15 +10,17 @@ import java.math.BigInteger;
 
 /**
  * 序列化
+ *
  * @author gyv12345@163.com
  */
 public class BigNumberModule extends SimpleModule {
 
-    public BigNumberModule() {
-        super(PackageVersion.VERSION);
-        this.addSerializer(Long.class, BigNumberSerializer.INSTANCE);
-        this.addSerializer(Long.TYPE, BigNumberSerializer.INSTANCE);
-        this.addSerializer(BigInteger.class, BigNumberSerializer.INSTANCE);
-        this.addSerializer(BigDecimal.class, ToStringSerializer.instance);
-    }
+	public BigNumberModule() {
+		super(PackageVersion.VERSION);
+		this.addSerializer(Long.class, BigNumberSerializer.INSTANCE);
+		this.addSerializer(Long.TYPE, BigNumberSerializer.INSTANCE);
+		this.addSerializer(BigInteger.class, BigNumberSerializer.INSTANCE);
+		this.addSerializer(BigDecimal.class, ToStringSerializer.instance);
+	}
+
 }

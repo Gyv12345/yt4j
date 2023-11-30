@@ -19,48 +19,48 @@ import java.time.LocalDateTime;
 @ToString
 @AutoMapper(target = CrmCustomer.class)
 public class CrmCustomerVO implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 254671947204340407L;
 
-    /**
-     * 主键
-     */
-    private Long id;
+	@Serial
+	private static final long serialVersionUID = 254671947204340407L;
 
-    /**
-     * 客户名称
-     */
-    private String customerName;
+	/**
+	 * 主键
+	 */
+	private Long id;
 
-    /**
-     * 联系方式
-     */
-    private String phone;
+	/**
+	 * 客户名称
+	 */
+	private String customerName;
 
-    /**
-     * 创建人
-     */
-    private Long createUserId;
+	/**
+	 * 联系方式
+	 */
+	private String phone;
 
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
+	/**
+	 * 创建人
+	 */
+	private Long createUserId;
 
-    /**
-     * 修改人
-     */
-    private Long updateUserId;
+	/**
+	 * 创建时间
+	 */
+	private LocalDateTime createTime;
 
-    /**
-     * 修改时间
-     */
-    private LocalDateTime updateTime;
+	/**
+	 * 修改人
+	 */
+	private Long updateUserId;
 
-    /**
-     * 部门
-     */
-    private Long deptId;
+	/**
+	 * 修改时间
+	 */
+	private LocalDateTime updateTime;
+
+	/**
+	 * 部门
+	 */
+	private Long deptId;
 
 }
-
