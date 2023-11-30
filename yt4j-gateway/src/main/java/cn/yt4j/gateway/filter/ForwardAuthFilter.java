@@ -26,7 +26,6 @@ public class ForwardAuthFilter implements GlobalFilter {
 	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
 		String traceId = UUID.randomUUID().toString();
 		MDC.put(TracingConstants.TRACE_ID, traceId);
-		log.info("ForwardAuthFilter");
 
 		ServerHttpRequest newRequest = exchange.getRequest().mutate()
 				// 为请求追加 Id-Token 参数

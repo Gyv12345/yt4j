@@ -20,7 +20,7 @@ package ${controllerPackageName};
 import cn.dev33.satoken.stp.StpUtil;
 import cn.yt4j.core.domain.PageRequest;
 import cn.yt4j.core.domain.PageResult;
-import cn.yt4j.core.domain.R;
+import cn.yt4j.core.domain.Result;
 import $!{modelPackageName}.$!{tableInfo.name};
 import ${servicePackageName}.$!{tableInfo.name}Service;
 import cn.yt4j.log.annotation.SysLog;
@@ -51,8 +51,8 @@ private final $!{tableInfo.name}Service $!{serviceName};
 */
 @SysLog("分页查询$!{tableInfo.comment}所有数据")
 @PostMapping("page")
-public R<PageResult<$!tableInfo.name>>listPage(@Valid @RequestBody PageRequest<$!tableInfo.name> request){
-        return R.ok(this.$!{serviceName}.page(request.page(),request.wrapper()));
+public Result<PageResult<$!tableInfo.name>>listPage(@Valid @RequestBody PageRequest<$!tableInfo.name> request){
+        return Result.ok(this.$!{serviceName}.page(request.page(),request.wrapper()));
         }
 
 /**
@@ -62,8 +62,8 @@ public R<PageResult<$!tableInfo.name>>listPage(@Valid @RequestBody PageRequest<$
  */
 @SysLog("通过主键查询$!{tableInfo.comment}单条数据")
 @GetMapping("get/{id}")
-public R<$!tableInfo.name> selectOne(@PathVariable Long id){
-        return R.ok(this.$!{serviceName}.getById(id));
+public Result<$!tableInfo.name> selectOne(@PathVariable Long id){
+        return Result.ok(this.$!{serviceName}.getById(id));
         }
 
 /**
@@ -73,8 +73,8 @@ public R<$!tableInfo.name> selectOne(@PathVariable Long id){
  */
 @SysLog("新增客户表数据")
 @PostMapping("insert")
-public R insert(@RequestBody $!tableInfo.name $!entityName){
-        return R.ok(this.$!{serviceName}.save($!entityName));
+public Result<Boolean> insert(@RequestBody $!tableInfo.name $!entityName){
+        return Result.ok(this.$!{serviceName}.save($!entityName));
         }
 
 /**
@@ -84,8 +84,8 @@ public R insert(@RequestBody $!tableInfo.name $!entityName){
  */
 @SysLog("修改$!{tableInfo.comment}数据")
 @PutMapping("update")
-public R update(@RequestBody $!tableInfo.name $!entityName){
-        return R.ok(this.$!{serviceName}.updateById($!entityName));
+public Result<Boolean> update(@RequestBody $!tableInfo.name $!entityName){
+        return Result.ok(this.$!{serviceName}.updateById($!entityName));
         }
 
 /**
@@ -95,8 +95,8 @@ public R update(@RequestBody $!tableInfo.name $!entityName){
  */
 @SysLog("删除$!{tableInfo.comment}数据")
 @DeleteMapping("delete/{id}")
-public R delete(@PathVariable Long id){
-        return R.ok(this.$!{serviceName}.removeById(id));
+public Result<Boolean> delete(@PathVariable Long id){
+        return Result.ok(this.$!{serviceName}.removeById(id));
         }
 
 }

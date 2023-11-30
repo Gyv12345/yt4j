@@ -1,6 +1,7 @@
 package cn.yt4j.web.config;
 
 import cn.hutool.core.date.DatePattern;
+import cn.yt4j.web.jackson.BigNumberModule;
 import cn.yt4j.web.jackson.PigJavaTimeModule;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
@@ -33,7 +34,7 @@ public class JacksonConfig {
 			builder.locale(Locale.CHINA);
 			builder.timeZone(TimeZone.getTimeZone(ZoneId.systemDefault()));
 			builder.simpleDateFormat(DatePattern.NORM_DATETIME_PATTERN);
-			builder.modules(new PigJavaTimeModule());
+			builder.modules(new PigJavaTimeModule(),new BigNumberModule());
 		};
 	}
 
