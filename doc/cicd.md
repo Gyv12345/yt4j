@@ -45,19 +45,19 @@ docker run -u root -itd -p 8080:8080 -p 50000:50000 \
 
 
 
-![job](../img/3.png)
+![job](img/3.png)
 
 
 
-![job](../img/1.png)
+![job](img/1.png)
 
 
 
-![job](../img/2.png)
+![job](img/2.png)
 
 
 
-![job](../img/4.png)
+![job](img/4.png)
 
 
 

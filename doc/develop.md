@@ -45,13 +45,13 @@ docker/db/nacos_config.sql nacos配置数据
 
 ## 四、启动nacos
 
-![nacos](..\img\5.png)
+![nacos](img/5.png)
 
 application.yml中是一些公用的配置，你只需要修改yt4j-sys.yml中的数据库连接地址，账号和密码
 
 ## 五、不开启Plumelog
 
-![Plumelog](..\img\6.png)
+![Plumelog](img/6.png)
 
 将配置文件中配置项注释掉即可
 
