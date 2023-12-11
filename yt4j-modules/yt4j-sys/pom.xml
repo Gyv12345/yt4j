@@ -49,10 +49,6 @@
         </dependency>
         <dependency>
             <groupId>cn.yt4j</groupId>
-            <artifactId>yt4j-sa-token</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.yt4j</groupId>
             <artifactId>yt4j-data</artifactId>
         </dependency>
         <dependency>

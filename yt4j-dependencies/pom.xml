@@ -12,7 +12,8 @@
 
     <properties>
         <revision>1.0.5</revision>
-        <mybatis-plus.version>3.5.4</mybatis-plus.version>
+        <mybatis-plus.version>3.5.4.1</mybatis-plus.version>
+        <mybatis-spring.version>3.0.3</mybatis-spring.version>
         <hutool.version>5.8.23</hutool.version>
         <easy-excel.version>3.2.1</easy-excel.version>
         <jjwt.version>0.11.2</jjwt.version>
@@ -53,6 +54,13 @@
                 <artifactId>mybatis-plus-extension</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
+            <!--mybatis-spring-->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+
             <!-- hutool -->
             <dependency>
                 <groupId>cn.hutool</groupId>
