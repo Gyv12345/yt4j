@@ -15,4 +15,5 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "yt4j.flow.env")
 public class FlowEnvProperty {
 
+    private String type;
 }
