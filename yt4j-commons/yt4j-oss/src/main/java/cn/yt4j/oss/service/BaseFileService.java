@@ -6,7 +6,7 @@ public interface BaseFileService {
     /**
      * 检查是否存在bucket，如果是本地存储，则创建bucket
      * 如果是云存储，则检查是否存在bucket，不存在直接报错
-     * @param bucketName
+     * @param bucketName 存储桶名称
      */
     void checkBucket(String bucketName);
 
