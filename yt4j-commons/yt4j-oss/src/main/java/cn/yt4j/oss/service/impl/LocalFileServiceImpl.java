@@ -14,23 +14,24 @@ import java.io.File;
 @Slf4j
 public class LocalFileServiceImpl implements BaseFileService {
 
-    private FileProperty fileProperty;
+	private FileProperty fileProperty;
 
-    @Override
-    public void checkBucket(String bucketName) {
-        log.info("检查bucket:{}", bucketName);
-        if (!FileUtil.isDirectory(fileProperty.getBasePath() + File.separator + fileProperty.getBucketName())) {
-            FileUtil.mkdir(fileProperty.getBasePath() + File.separator + fileProperty.getBucketName());
-        }
-    }
+	@Override
+	public void checkBucket(String bucketName) {
+		log.info("检查bucket:{}", bucketName);
+		if (!FileUtil.isDirectory(fileProperty.getBasePath() + File.separator + fileProperty.getBucketName())) {
+			FileUtil.mkdir(fileProperty.getBasePath() + File.separator + fileProperty.getBucketName());
+		}
+	}
 
-    @Override
-    public String uploadFileUrl(FileUploadParam param) {
-        return fileProperty.getDomain()+"/upload";
-    }
+	@Override
+	public String uploadFileUrl(FileUploadParam param) {
+		return fileProperty.getDomain() + "/upload";
+	}
 
-    @Override
-    public String downloadFileUrl(String pathAndName) {
-        return fileProperty.getDomain()+"/download";
-    }
+	@Override
+	public String downloadFileUrl(String pathAndName) {
+		return fileProperty.getDomain() + "/download";
+	}
+
 }

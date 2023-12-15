@@ -12,15 +12,16 @@ import java.io.Serializable;
 @ToString
 public class FileUploadParam implements Serializable {
 
-    private static final long serialVersionUID = 2410794363869714416L;
-    /**
-     * 文件名称
-     */
-    private String fileName;
-    /**
-     * 文件大小
-     */
-    private Long size;
+	private static final long serialVersionUID = 2410794363869714416L;
 
+	/**
+	 * 文件名称
+	 */
+	private String fileName;
+
+	/**
+	 * 文件大小
+	 */
+	private Long size;
 
 }

@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * 3.2版本后这个配置有了两个实例，也就是说ConfigurationProperties 会构建一个实例
+ *
  * @author gyv12345@163.com
  */
 @RefreshScope

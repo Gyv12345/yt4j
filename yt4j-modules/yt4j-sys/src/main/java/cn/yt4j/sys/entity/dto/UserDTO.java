@@ -1,7 +1,6 @@
 
 package cn.yt4j.sys.entity.dto;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.ToString;
@@ -9,9 +8,10 @@ import lombok.ToString;
 import java.io.Serializable;
 
 /**
+ * 用户信息
+ *
  * @author gyv12345@163.com
  */
-@Schema(description = "用户信息")
 @Data
 @ToString
 public class UserDTO implements Serializable {
@@ -21,14 +21,12 @@ public class UserDTO implements Serializable {
 	/**
 	 * 用户名
 	 */
-	@Schema(description = "用户名")
 	@NotBlank
 	private String username;
 
 	/**
 	 * 密码
 	 */
-	@Schema(description = "密码")
 	@NotBlank
 	private String password;
 

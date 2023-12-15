@@ -14,6 +14,6 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = { "cn.yt4j.flow", "cn.hutool.extra.spring" })
 public class FlowAutoConfiguration {
 
-   private final FlowEnvProperty flowEnvProperty;
+	private final FlowEnvProperty flowEnvProperty;
 
 }
