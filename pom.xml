@@ -229,6 +229,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.verison}</version>
                 <configuration>
+                    <parameters>true</parameters>
                     <target>${maven.compiler.target}</target>
                     <source>${maven.compiler.source}</source>
                     <encoding>${project.build.sourceEncoding}</encoding>

@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import java.time.ZoneId;
 import java.util.Locale;
@@ -23,7 +22,6 @@ import java.util.TimeZone;
  * @author: lishangbu
  * @date: 2018/10/22
  */
-@Configuration
 @ConditionalOnClass(ObjectMapper.class)
 @AutoConfigureBefore(JacksonAutoConfiguration.class)
 public class JacksonConfig {
