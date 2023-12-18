@@ -12,140 +12,140 @@ import java.time.LocalDateTime;
 /**
  * 文件记录表(SysOssFile)表实体类
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2023-12-18 22:19:48
  */
 @Data
 @ToString
 @AutoMapper(target = SysOssFile.class)
 public class SysOssFileVO implements Serializable {
-    @Serial
-    private static final long serialVersionUID = -26211491085080528L;
 
-    /**
-     * 文件id
-     */
-    private Long id;
+	@Serial
+	private static final long serialVersionUID = -26211491085080528L;
 
-    /**
-     * 文件访问地址
-     */
-    private String url;
+	/**
+	 * 文件id
+	 */
+	private Long id;
 
-    /**
-     * 文件大小，单位字节
-     */
-    private Long size;
+	/**
+	 * 文件访问地址
+	 */
+	private String url;
 
-    /**
-     * 文件名称
-     */
-    private String filename;
+	/**
+	 * 文件大小，单位字节
+	 */
+	private Long size;
 
-    /**
-     * 原始文件名
-     */
-    private String originalFilename;
+	/**
+	 * 文件名称
+	 */
+	private String filename;
 
-    /**
-     * 基础存储路径
-     */
-    private String basePath;
+	/**
+	 * 原始文件名
+	 */
+	private String originalFilename;
 
-    /**
-     * 存储路径
-     */
-    private String path;
+	/**
+	 * 基础存储路径
+	 */
+	private String basePath;
 
-    /**
-     * 文件扩展名
-     */
-    private String ext;
+	/**
+	 * 存储路径
+	 */
+	private String path;
 
-    /**
-     * MIME类型
-     */
-    private String contentType;
+	/**
+	 * 文件扩展名
+	 */
+	private String ext;
 
-    /**
-     * 存储平台
-     */
-    private String platform;
+	/**
+	 * MIME类型
+	 */
+	private String contentType;
 
-    /**
-     * 缩略图访问路径
-     */
-    private String thUrl;
+	/**
+	 * 存储平台
+	 */
+	private String platform;
 
-    /**
-     * 缩略图名称
-     */
-    private String thFilename;
+	/**
+	 * 缩略图访问路径
+	 */
+	private String thUrl;
 
-    /**
-     * 缩略图大小，单位字节
-     */
-    private Long thSize;
+	/**
+	 * 缩略图名称
+	 */
+	private String thFilename;
 
-    /**
-     * 缩略图MIME类型
-     */
-    private String thContentType;
+	/**
+	 * 缩略图大小，单位字节
+	 */
+	private Long thSize;
 
-    /**
-     * 文件所属对象id
-     */
-    private String objectId;
+	/**
+	 * 缩略图MIME类型
+	 */
+	private String thContentType;
 
-    /**
-     * 文件所属对象类型，例如用户头像，评价图片
-     */
-    private String objectType;
+	/**
+	 * 文件所属对象id
+	 */
+	private String objectId;
 
-    /**
-     * 文件元数据
-     */
-    private String metadata;
+	/**
+	 * 文件所属对象类型，例如用户头像，评价图片
+	 */
+	private String objectType;
 
-    /**
-     * 文件用户元数据
-     */
-    private String userMetadata;
+	/**
+	 * 文件元数据
+	 */
+	private String metadata;
 
-    /**
-     * 缩略图元数据
-     */
-    private String thMetadata;
+	/**
+	 * 文件用户元数据
+	 */
+	private String userMetadata;
 
-    /**
-     * 缩略图用户元数据
-     */
-    private String thUserMetadata;
+	/**
+	 * 缩略图元数据
+	 */
+	private String thMetadata;
 
-    /**
-     * 附加属性
-     */
-    private String attr;
+	/**
+	 * 缩略图用户元数据
+	 */
+	private String thUserMetadata;
 
-    /**
-     * 文件ACL
-     */
-    private String fileAcl;
+	/**
+	 * 附加属性
+	 */
+	private String attr;
 
-    /**
-     * 缩略图文件ACL
-     */
-    private String thFileAcl;
+	/**
+	 * 文件ACL
+	 */
+	private String fileAcl;
 
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
+	/**
+	 * 缩略图文件ACL
+	 */
+	private String thFileAcl;
 
-    /**
-     * 修改时间
-     */
-    private LocalDateTime updateTime;
+	/**
+	 * 创建时间
+	 */
+	private LocalDateTime createTime;
+
+	/**
+	 * 修改时间
+	 */
+	private LocalDateTime updateTime;
 
 }
-

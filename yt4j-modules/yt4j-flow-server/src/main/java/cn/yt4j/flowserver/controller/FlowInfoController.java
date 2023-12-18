@@ -16,7 +16,7 @@ import java.io.Serializable;
 /**
  * 流程信息(FlowInfo)表控制层
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2023-08-11 11:26:39
  */
 @Tag(name = "流程信息")

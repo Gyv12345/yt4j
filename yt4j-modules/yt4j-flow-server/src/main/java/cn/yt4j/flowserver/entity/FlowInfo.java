@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 /**
  * 流程信息(FlowInfo)表实体类
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2023-08-11 11:26:41
  */
 @Data

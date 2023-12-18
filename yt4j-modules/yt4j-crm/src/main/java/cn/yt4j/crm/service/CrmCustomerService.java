@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 客户表(CrmCustomer)表服务接口
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2023-11-30 14:55:39
  */
 public interface CrmCustomerService extends IService<CrmCustomer> {

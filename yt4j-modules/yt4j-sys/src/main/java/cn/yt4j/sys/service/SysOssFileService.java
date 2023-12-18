@@ -6,10 +6,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 文件记录表(SysOssFile)表服务接口
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2023-12-18 22:19:48
  */
 public interface SysOssFileService extends IService<SysOssFile> {
 
 }
-

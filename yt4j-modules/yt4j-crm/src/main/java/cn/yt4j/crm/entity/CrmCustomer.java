@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 /**
  * 客户表(CrmCustomer)表实体类
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2023-11-30 14:55:41
  */
 @Data

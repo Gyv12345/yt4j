@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 /**
  * 客户表(CrmCustomer)表数据库访问层
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2023-11-30 14:55:40
  */
 @Mapper

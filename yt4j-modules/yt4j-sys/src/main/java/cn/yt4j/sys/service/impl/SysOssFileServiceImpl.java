@@ -9,11 +9,10 @@ import org.springframework.stereotype.Service;
 /**
  * 文件记录表(SysOssFile)表服务实现类
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2023-12-18 22:19:48
  */
 @Service
 public class SysOssFileServiceImpl extends ServiceImpl<SysOssFileMapper, SysOssFile> implements SysOssFileService {
 
 }
-

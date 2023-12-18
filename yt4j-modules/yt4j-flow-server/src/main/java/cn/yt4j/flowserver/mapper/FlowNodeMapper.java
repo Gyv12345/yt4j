@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 /**
  * 流程节点(FlowNode)表数据库访问层
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2023-08-11 11:35:14
  */
 @Mapper

@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 /**
  * (SysDictItem)表实体类
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2020-08-18 16:44:07
  */
 @Getter

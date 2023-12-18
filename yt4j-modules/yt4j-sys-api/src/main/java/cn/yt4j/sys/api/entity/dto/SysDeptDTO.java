@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 /**
  * 部门(SysDept)表实体类
  *
- * @author makejava
+ * @author gyv12345@163.com
  * @since 2023-11-29 12:07:35
  */
 @Data
