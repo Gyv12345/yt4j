@@ -100,7 +100,7 @@ public class SearchUtil<T> {
 	 * @param column 列
 	 * @return 转成数据库列名
 	 */
-	private  String humpToLine(String column) {
+	private String humpToLine(String column) {
 		Matcher matcher = HUMP_PATTERN.matcher(column);
 		StringBuilder sb = new StringBuilder();
 		while (matcher.find()) {

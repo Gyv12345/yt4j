@@ -5,9 +5,6 @@ spring:
   application:
     name: @artifactId@
   cloud:
-    loadbalancer:
-      ribbon:
-        enabled: false
     nacos:
       discovery:
         server-addr: yt4j-nacos:8848

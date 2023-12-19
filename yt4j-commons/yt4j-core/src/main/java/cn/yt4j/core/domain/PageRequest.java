@@ -22,42 +22,42 @@ import java.util.Map;
 @ToString
 public class PageRequest<T> implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = -2788877367261112273L;
+	@Serial
+	private static final long serialVersionUID = -2788877367261112273L;
 
-    /**
-     * 第几页
-     */
-    @Schema(description = "页码")
-    private Long pageNo;
+	/**
+	 * 第几页
+	 */
+	@Schema(description = "页码")
+	private Long pageNo;
 
-    /**
-     * 每页条数
-     */
-    @Schema(description = "条数")
-    private Long pageSize;
+	/**
+	 * 每页条数
+	 */
+	@Schema(description = "条数")
+	private Long pageSize;
 
-    /**
-     * 查询条件
-     */
-    @Schema(description = "查询条件 like_name:wang")
-    private Map<String, Object> condition;
+	/**
+	 * 查询条件
+	 */
+	@Schema(description = "查询条件 like_name:wang")
+	private Map<String, Object> condition;
 
-    /**
-     * 实体类
-     */
-    private T data;
+	/**
+	 * 实体类
+	 */
+	private T data;
 
-    public IPage<T> page() {
-        return new Page<>(this.pageNo, this.pageSize);
-    }
+	public IPage<T> page() {
+		return new Page<>(this.pageNo, this.pageSize);
+	}
 
-    public Wrapper<T> wrapper() {
-        if (MapUtil.isEmpty(this.condition)) {
-            return Wrappers.emptyWrapper();
-        }
-        SearchUtil<T> searchUtil = new SearchUtil<>();
-        return searchUtil.parseWhereSql(this.condition);
-    }
+	public Wrapper<T> wrapper() {
+		if (MapUtil.isEmpty(this.condition)) {
+			return Wrappers.emptyWrapper();
+		}
+		SearchUtil<T> searchUtil = new SearchUtil<>();
+		return searchUtil.parseWhereSql(this.condition);
+	}
 
 }
