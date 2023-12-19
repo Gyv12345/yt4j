@@ -19,16 +19,16 @@ public interface SysMenuDao extends BaseMapper<SysMenu> {
 
 	/**
 	 * 获取权限
-	 * @param id
-	 * @return
+	 * @param id 用户ID
+	 * @return 结果
 	 */
 	List<String> listByUserId(Long id);
 
 	/**
 	 * 查询菜单，不涉及顶级菜单，和按钮
-	 * @param id
-	 * @param applicationId
-	 * @return
+	 * @param id 用户ID
+	 * @param applicationId 应用ID
+	 * @return 结果
 	 */
 	List<SysMenu> listMenuByUserIdAndApplicationId(@Param("id") Long id, @Param("applicationId") Long applicationId);
 

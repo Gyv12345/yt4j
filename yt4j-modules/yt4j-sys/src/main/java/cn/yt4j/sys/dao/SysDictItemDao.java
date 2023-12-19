@@ -19,8 +19,8 @@ public interface SysDictItemDao extends Yt4jBaseMapper<SysDictItem> {
 
 	/**
 	 * 批量添加
-	 * @param items
-	 * @return
+	 * @param items 实体集合
+	 * @return 结果
 	 */
 	int batchInsert(@Param("items") List<SysDictItem> items);
 

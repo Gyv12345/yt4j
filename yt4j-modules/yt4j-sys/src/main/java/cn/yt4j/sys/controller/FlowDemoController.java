@@ -32,11 +32,11 @@ public class FlowDemoController {
 
 	/**
 	 * 测试流程
-	 * @param info
-	 * @return
+	 * @param info 信息
+	 * @return 结果
 	 */
 	@PostMapping("test")
-	public Result test(@RequestBody FlowTestDTO info) {
+	public Result<Map<String, Object>> test(@RequestBody FlowTestDTO info) {
 		Map<String, Object> context = BeanUtil.beanToMap(info);
 		flowTool.getByName("test").execute(context);
 		return Result.ok(context);
@@ -44,10 +44,10 @@ public class FlowDemoController {
 
 	/**
 	 * 测试推送消息
-	 * @return
+	 * @return 结果
 	 */
 	@GetMapping("message")
-	public Result message() {
+	public Result<Void> message() {
 		redisTemplate.convertAndSend(RedisConstants.MESSAGE_TOPIC, "hello world");
 		return Result.ok();
 	}
