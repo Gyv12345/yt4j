@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  *
  * @author Lu Ze
  **/
-public class SearchUtil {
+public class SearchUtil<T> {
 
 	private static final Pattern HUMP_PATTERN = Pattern.compile("[A-Z]");
 
@@ -37,8 +37,8 @@ public class SearchUtil {
 	 * @param condition 查询条件
 	 * @return 返回
 	 */
-	public static QueryWrapper parseWhereSql(Map<String, Object> condition) {
-		QueryWrapper queryWrapper = Wrappers.query();
+	public QueryWrapper<T> parseWhereSql(Map<String, Object> condition) {
+		QueryWrapper<T> queryWrapper = Wrappers.query();
 		if (MapUtil.isNotEmpty(condition)) {
 			condition.forEach((k, v) -> {
 				if (k.contains(LINE) && StrUtil.isNotBlank(v.toString())) {
@@ -100,7 +100,7 @@ public class SearchUtil {
 	 * @param column 列
 	 * @return 转成数据库列名
 	 */
-	private static String humpToLine(String column) {
+	private  String humpToLine(String column) {
 		Matcher matcher = HUMP_PATTERN.matcher(column);
 		StringBuilder sb = new StringBuilder();
 		while (matcher.find()) {
