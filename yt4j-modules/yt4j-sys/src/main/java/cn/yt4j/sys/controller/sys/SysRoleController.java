@@ -1,5 +1,5 @@
 
-package cn.yt4j.sys.controller;
+package cn.yt4j.sys.controller.sys;
 
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.Result;
@@ -37,7 +37,7 @@ public class SysRoleController {
 	/**
 	 * 根据角色ID获取菜单
 	 * @param id 角色ID
-	 * @return
+	 * @return 结果
 	 */
 	@GetMapping("get/menus/{id}")
 	public Result<List<Long>> getMenuIds(@PathVariable Long id) {
@@ -46,7 +46,7 @@ public class SysRoleController {
 
 	/**
 	 * 角色下拉
-	 * @return
+	 * @return 结果
 	 */
 	@GetMapping("select")
 	public Result<List<DictVO>> dropDown() {
@@ -55,8 +55,8 @@ public class SysRoleController {
 
 	/**
 	 * 角色设置
-	 * @param dto
-	 * @return
+	 * @param dto 角色菜单
+	 * @return 结果
 	 */
 	@PostMapping("setting")
 	public Result<Boolean> setting(@RequestBody RoleMenuDTO dto) {
@@ -89,7 +89,7 @@ public class SysRoleController {
 	 * @return 新增结果
 	 */
 	@PostMapping("insert")
-	public Result insert(@RequestBody SysRole sysRole) {
+	public Result<Boolean> insert(@RequestBody SysRole sysRole) {
 		return Result.ok(this.sysRoleService.save(sysRole));
 	}
 
@@ -99,7 +99,7 @@ public class SysRoleController {
 	 * @return 修改结果
 	 */
 	@PutMapping("update")
-	public Result update(@RequestBody SysRole sysRole) {
+	public Result<Boolean> update(@RequestBody SysRole sysRole) {
 		return Result.ok(this.sysRoleService.updateById(sysRole));
 	}
 
@@ -109,14 +109,14 @@ public class SysRoleController {
 	 * @return 删除结果
 	 */
 	@DeleteMapping("delete/{id}")
-	public Result delete(@PathVariable Long id) {
+	public Result<Boolean> delete(@PathVariable Long id) {
 		return Result.ok(this.sysRoleService.removeById(id));
 	}
 
 	/**
 	 * 根据用户Id查询用户角色列表
-	 * @param userId
-	 * @return
+	 * @param userId 用户Id
+	 * @return 结果
 	 */
 	@SysLog("根据用户Id查询用户角色列表")
 	@GetMapping("/auth/list")

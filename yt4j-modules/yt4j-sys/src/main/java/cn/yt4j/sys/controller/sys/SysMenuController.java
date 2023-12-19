@@ -1,5 +1,5 @@
 
-package cn.yt4j.sys.controller;
+package cn.yt4j.sys.controller.sys;
 
 import cn.dev33.satoken.stp.StpUtil;
 import cn.yt4j.core.domain.PageResult;
@@ -38,8 +38,8 @@ public class SysMenuController {
 
 	/**
 	 * 通过应用ID获取菜单
-	 * @param applicationId
-	 * @return
+	 * @param applicationId 应用ID
+	 * @return 结果
 	 */
 	@GetMapping("nav/{id}")
 	public Result<List<Route>> nav(@PathVariable("id") Long applicationId) {
@@ -48,7 +48,7 @@ public class SysMenuController {
 
 	/**
 	 * 获取顶部菜单
-	 * @return
+	 * @return 结果
 	 */
 	@GetMapping("top")
 	public Result<List<TopMenuVO>> topMenu() {
@@ -57,7 +57,7 @@ public class SysMenuController {
 
 	/**
 	 * 获取菜单树
-	 * @return
+	 * @return 结果
 	 */
 	@GetMapping("tree")
 	public Result<List<MenuTreeVO>> menuTree() {
@@ -90,7 +90,7 @@ public class SysMenuController {
 	 * @return 新增结果
 	 */
 	@PostMapping("insert")
-	public Result insert(@RequestBody SysMenu sysMenu) {
+	public Result<Boolean> insert(@RequestBody SysMenu sysMenu) {
 		return Result.ok(this.sysMenuService.save(sysMenu));
 	}
 
@@ -100,7 +100,7 @@ public class SysMenuController {
 	 * @return 修改结果
 	 */
 	@PutMapping("update")
-	public Result update(@RequestBody SysMenu sysMenu) {
+	public Result<Boolean> update(@RequestBody SysMenu sysMenu) {
 		return Result.ok(this.sysMenuService.updateById(sysMenu));
 	}
 
@@ -110,14 +110,14 @@ public class SysMenuController {
 	 * @return 删除结果
 	 */
 	@DeleteMapping("delete/{id}")
-	public Result delete(@PathVariable Long id) {
+	public Result<Boolean> delete(@PathVariable Long id) {
 		return Result.ok(this.sysMenuService.removeById(id));
 	}
 
 	/**
 	 * 根据用户Id查询用户权限列表
-	 * @param userId
-	 * @return
+	 * @param userId 用户Id
+	 * @return 结果
 	 */
 	@SysLog("根据用户Id查询用户权限列表")
 	@GetMapping("/auth/list")

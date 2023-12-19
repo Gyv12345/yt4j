@@ -1,5 +1,5 @@
 
-package cn.yt4j.sys.controller;
+package cn.yt4j.sys.controller.sys;
 
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.Result;
@@ -47,7 +47,7 @@ public class SysDictItemController {
 	 * @return 单条数据
 	 */
 	@GetMapping("{id}")
-	public Result selectOne(@PathVariable Serializable id) {
+	public Result<SysDictItem> selectOne(@PathVariable Serializable id) {
 		return Result.ok(this.sysDictItemService.getById(id));
 	}
 
@@ -57,14 +57,14 @@ public class SysDictItemController {
 	 * @return 新增结果
 	 */
 	@PostMapping
-	public Result insert(@RequestBody SysDictItem sysDictItem) {
+	public Result<Boolean> insert(@RequestBody SysDictItem sysDictItem) {
 		return Result.ok(this.sysDictItemService.save(sysDictItem));
 	}
 
 	/**
 	 * 批量添加
-	 * @param list
-	 * @return
+	 * @param list 实体对象
+	 * @return 结果
 	 */
 	@PostMapping("batch/insert")
 	public Result<Boolean> batchInsert(@RequestBody List<SysDictItem> list) {
@@ -77,7 +77,7 @@ public class SysDictItemController {
 	 * @return 修改结果
 	 */
 	@PutMapping
-	public Result update(@RequestBody SysDictItem sysDictItem) {
+	public Result<Boolean> update(@RequestBody SysDictItem sysDictItem) {
 		return Result.ok(this.sysDictItemService.updateById(sysDictItem));
 	}
 
@@ -87,7 +87,7 @@ public class SysDictItemController {
 	 * @return 删除结果
 	 */
 	@DeleteMapping("delete/{id}")
-	public Result delete(@PathVariable Long id) {
+	public Result<Boolean> delete(@PathVariable Long id) {
 		return Result.ok(this.sysDictItemService.removeById(id));
 	}
 

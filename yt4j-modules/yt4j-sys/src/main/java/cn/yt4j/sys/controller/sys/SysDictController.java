@@ -1,5 +1,5 @@
 
-package cn.yt4j.sys.controller;
+package cn.yt4j.sys.controller.sys;
 
 import cn.yt4j.core.domain.PageResult;
 import cn.yt4j.core.domain.Result;
@@ -36,8 +36,8 @@ public class SysDictController {
 
 	/**
 	 * 获取远程字典
-	 * @param code
-	 * @return
+	 * @param code 字典编码
+	 * @return 结果
 	 */
 	@SysLog("获取远程字典")
 	@GetMapping("remote/{code}")
@@ -76,7 +76,7 @@ public class SysDictController {
 	 * @return 新增结果
 	 */
 	@PostMapping("insert")
-	public Result insert(@RequestBody SysDict sysDict) {
+	public Result<Boolean> insert(@RequestBody SysDict sysDict) {
 		return Result.ok(this.sysDictService.save(sysDict));
 	}
 
@@ -86,7 +86,7 @@ public class SysDictController {
 	 * @return 修改结果
 	 */
 	@PutMapping("update")
-	public Result update(@RequestBody SysDict sysDict) {
+	public Result<Boolean> update(@RequestBody SysDict sysDict) {
 		return Result.ok(this.sysDictService.updateById(sysDict));
 	}
 
@@ -96,7 +96,7 @@ public class SysDictController {
 	 * @return 删除结果
 	 */
 	@DeleteMapping("delete/{id}")
-	public Result delete(@PathVariable Long id) {
+	public Result<Boolean> delete(@PathVariable Long id) {
 		return Result.ok(this.sysDictService.removeById(id));
 	}
 

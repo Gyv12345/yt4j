@@ -1,5 +1,5 @@
 
-package cn.yt4j.sys.controller;
+package cn.yt4j.sys.controller.sys;
 
 import cn.yt4j.core.domain.BaseTree;
 import cn.yt4j.core.domain.PageRequest;
@@ -36,7 +36,7 @@ public class SysDeptController {
 
 	/**
 	 * 机构树
-	 * @return
+	 * @return 结果
 	 */
 	@SysLog("获取部门机构树")
 	@GetMapping("tree")
@@ -46,8 +46,8 @@ public class SysDeptController {
 
 	/**
 	 * 部门分页查询
-	 * @param pageRequest
-	 * @return
+	 * @param pageRequest 分页请求对象
+	 * @return 结果
 	 */
 	@SysLog("部门分页查询")
 	@PostMapping("page")
@@ -71,7 +71,7 @@ public class SysDeptController {
 	 * @return 新增结果
 	 */
 	@PostMapping("insert")
-	public Result insert(@RequestBody SysDept sysDept) {
+	public Result<Boolean> insert(@RequestBody SysDept sysDept) {
 		return Result.ok(this.sysDeptService.save(sysDept));
 	}
 
@@ -81,7 +81,7 @@ public class SysDeptController {
 	 * @return 修改结果
 	 */
 	@PutMapping("update")
-	public Result update(@RequestBody SysDept sysDept) {
+	public Result<Boolean> update(@RequestBody SysDept sysDept) {
 		return Result.ok(this.sysDeptService.updateById(sysDept));
 	}
 
@@ -91,7 +91,7 @@ public class SysDeptController {
 	 * @return 删除结果
 	 */
 	@DeleteMapping("delete/{id}")
-	public Result delete(@PathVariable Long id) {
+	public Result<Boolean> delete(@PathVariable Long id) {
 		return Result.ok(this.sysDeptService.removeById(id));
 	}
 

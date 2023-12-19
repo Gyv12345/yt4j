@@ -1,5 +1,5 @@
 
-package cn.yt4j.sys.controller;
+package cn.yt4j.sys.controller.sys;
 
 import cn.dev33.satoken.stp.StpUtil;
 import cn.yt4j.core.domain.PageRequest;
@@ -40,8 +40,8 @@ public class SysUserController {
 
 	/**
 	 * 登录已经废弃
-	 * @param dto
-	 * @return
+	 * @param dto 登录信息
+	 * @return 登录返回
 	 */
 	@SysLog("登录")
 	@PostMapping("login")
@@ -51,18 +51,18 @@ public class SysUserController {
 
 	/**
 	 * 退出
-	 * @return
+	 * @return 退出返回
 	 */
 	@GetMapping("logout")
-	public Result logout() {
+	public Result<Void> logout() {
 		this.sysUserService.logout();
 		return Result.ok("退出成功");
 	}
 
 	/**
 	 * 修改密码
-	 * @param dto
-	 * @return
+	 * @param dto 密码信息
+	 * @return 结果
 	 */
 	@PostMapping("update/password")
 	public Result<Boolean> updatePassword(@RequestBody @Valid PasswordDTO dto) {
@@ -71,7 +71,7 @@ public class SysUserController {
 
 	/**
 	 * 获取用户信息
-	 * @return
+	 * @return 结果
 	 */
 	@SysLog("获取用户信息")
 	@GetMapping("info")
@@ -105,17 +105,17 @@ public class SysUserController {
 	 * @return 新增结果
 	 */
 	@PostMapping("insert")
-	public Result insert(@RequestBody SysUser sysUser) {
+	public Result<Boolean> insert(@RequestBody SysUser sysUser) {
 		return Result.ok(this.sysUserService.insert(sysUser));
 	}
 
 	/**
 	 * 重置用户密码
 	 * @param id 用户ID
-	 * @return
+	 * @return 结果
 	 */
 	@PostMapping("reset/password/{id}")
-	public Result resetPassword(@PathVariable Long id) {
+	public Result<Boolean> resetPassword(@PathVariable Long id) {
 		return Result.ok(this.sysUserService.resetPassword(id));
 	}
 
@@ -125,7 +125,7 @@ public class SysUserController {
 	 * @return 修改结果
 	 */
 	@PutMapping("update")
-	public Result update(@RequestBody SysUser sysUser) {
+	public Result<Boolean> update(@RequestBody SysUser sysUser) {
 		return Result.ok(this.sysUserService.update(sysUser));
 	}
 
@@ -135,14 +135,14 @@ public class SysUserController {
 	 * @return 删除结果
 	 */
 	@DeleteMapping("delete/{id}")
-	public Result delete(@PathVariable Long id) {
+	public Result<Boolean> delete(@PathVariable Long id) {
 		return Result.ok(this.sysUserService.removeById(id));
 	}
 
 	/**
 	 * 根据用户名获取用户信息
-	 * @param username
-	 * @return
+	 * @param username 用户名
+	 * @return 结果
 	 */
 	@SysLog("根据用户名获取用户信息")
 	@PostMapping("/info/username")
@@ -154,11 +154,11 @@ public class SysUserController {
 
 	/**
 	 * 在线用户
-	 * @return
+	 * @return 结果
 	 */
 	@SysLog("在线用户")
 	@PostMapping("/online")
-	public Result online() {
+	public Result<List<String>> online() {
 		List<String> list = StpUtil.searchSessionId("", 0, 1000, true);
 		return Result.ok(list);
 	}

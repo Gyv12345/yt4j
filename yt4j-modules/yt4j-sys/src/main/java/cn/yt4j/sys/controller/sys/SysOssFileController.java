@@ -1,4 +1,4 @@
-package cn.yt4j.sys.controller;
+package cn.yt4j.sys.controller.sys;
 
 import cn.yt4j.core.domain.PageRequest;
 import cn.yt4j.core.domain.PageResult;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "文件记录表")
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("sysOssFile")
+@RequestMapping("oss")
 public class SysOssFileController {
 
 	/**
