@@ -7,18 +7,16 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 /**
+ * 代码生成业务字段表
  * @author gyv12345@163.com
- * @description 针对表【gen_table_column(代码生成业务表字段)】的数据库操作Mapper
- * @createDate 2023-03-28 09:38:00
- * @Entity generator.entity.GenTableColumn
  */
 @Mapper
 public interface GenTableColumnMapper extends BaseMapper<GenTableColumn> {
 
 	/**
 	 * 按表名查询字段信息
-	 * @param tableName
-	 * @return
+	 * @param tableName 表名
+	 * @return 结果
 	 */
 	List<GenTableColumn> selectDbTableColumnsByName(String tableName);
 

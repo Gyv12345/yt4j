@@ -3,6 +3,7 @@ package cn.yt4j.generate.entity.dto;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -12,6 +13,7 @@ import java.io.Serializable;
 @ToString
 public class QueryTablesDatasourceDTO implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 2991819666482682671L;
 
 	private Long datasourceId;

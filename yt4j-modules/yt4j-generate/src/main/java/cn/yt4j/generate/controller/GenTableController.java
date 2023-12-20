@@ -40,12 +40,12 @@ public class GenTableController {
 
 	/**
 	 * 导入某个数据源某张表
-	 * @param genTable
-	 * @return
+	 * @param genTable 表信息
+	 * @return 结果
 	 */
 	@SysLog("导入某张表")
 	@PostMapping("page")
-	public Result importTable(@RequestBody GenTable genTable) {
+	public Result<Void> importTable(@RequestBody GenTable genTable) {
 
 		return Result.ok();
 	}

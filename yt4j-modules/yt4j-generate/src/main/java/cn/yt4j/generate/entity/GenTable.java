@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -14,19 +15,18 @@ import java.time.LocalDateTime;
  * 代码生成业务表
  *
  * @author gyv12345@163.com
- * @TableName gen_table
  */
 @TableName(value = "gen_table")
 @Data
 public class GenTable implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 3278187740949370191L;
 
 	/**
 	 * 编号
 	 */
 	@TableId(type = IdType.ASSIGN_ID)
-	@JsonSerialize(using = ToStringSerializer.class)
 	private Long tableId;
 
 	/**

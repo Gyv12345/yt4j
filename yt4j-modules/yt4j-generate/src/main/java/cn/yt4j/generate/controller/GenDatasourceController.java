@@ -25,7 +25,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("datasource")
-
 public class GenDatasourceController {
 
 	private final GenDatasourceService genDatasourceService;
@@ -59,7 +58,7 @@ public class GenDatasourceController {
 	 */
 	@SysLog("新增数据源表数据")
 	@PostMapping("insert")
-	public Result insert(@RequestBody GenDatasource datasource) {
+	public Result<Void> insert(@RequestBody GenDatasource datasource) {
 		this.genDatasourceService.addOrUpdate(datasource);
 		return Result.ok();
 	}
@@ -71,7 +70,7 @@ public class GenDatasourceController {
 	 */
 	@SysLog("修改数据源表数据")
 	@PutMapping("update")
-	public Result update(@RequestBody GenDatasource datasource) {
+	public Result<Void> update(@RequestBody GenDatasource datasource) {
 		this.genDatasourceService.addOrUpdate(datasource);
 		return Result.ok();
 	}
@@ -83,13 +82,13 @@ public class GenDatasourceController {
 	 */
 	@SysLog("删除数据源表数据")
 	@DeleteMapping("delete/{id}")
-	public Result delete(@PathVariable Long id) {
+	public Result<Boolean> delete(@PathVariable Long id) {
 		return Result.ok(this.genDatasourceService.removeById(id));
 	}
 
 	/**
 	 * 获取数据源下拉
-	 * @return
+	 * @return 结果
 	 */
 	@SysLog("获取数据源下拉")
 	@GetMapping("dropDown")

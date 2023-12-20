@@ -6,16 +6,15 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import java.util.List;
 
 /**
+ * 代码生成业务表字段
  * @author gyv12345@163.com
- * @description 针对表【gen_table_column(代码生成业务表字段)】的数据库操作Service
- * @createDate 2023-03-28 09:38:00
  */
 public interface GenTableColumnService extends IService<GenTableColumn> {
 
 	/**
 	 * 根据表名称
-	 * @param tableName
-	 * @return
+	 * @param tableName 表名称
+	 * @return 结果
 	 */
 	List<GenTableColumn> selectDbTableColumnsByName(String tableName);
 

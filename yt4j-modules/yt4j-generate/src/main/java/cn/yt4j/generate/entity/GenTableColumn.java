@@ -3,10 +3,9 @@ package cn.yt4j.generate.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -14,19 +13,18 @@ import java.time.LocalDateTime;
  * 代码生成业务表字段
  *
  * @author gyv12345@163.com
- * @TableName gen_table_column
  */
 @TableName(value = "gen_table_column")
 @Data
 public class GenTableColumn implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 4856624367120382987L;
 
 	/**
 	 * 编号
 	 */
 	@TableId(type = IdType.ASSIGN_ID)
-	@JsonSerialize(using = ToStringSerializer.class)
 	private Long columnId;
 
 	/**
