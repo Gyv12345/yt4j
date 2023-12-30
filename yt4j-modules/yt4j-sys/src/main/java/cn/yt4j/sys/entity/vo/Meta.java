@@ -3,6 +3,7 @@ package cn.yt4j.sys.entity.vo;
 
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @Data
 public class Meta implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = -872474557893915444L;
 
 	private String title;

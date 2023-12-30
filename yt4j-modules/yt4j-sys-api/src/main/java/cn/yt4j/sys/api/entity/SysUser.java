@@ -4,13 +4,12 @@ package cn.yt4j.sys.api.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -23,12 +22,14 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class SysUser extends Model<SysUser> {
+public class SysUser implements Serializable {
+
+	@Serial
+	private static final long serialVersionUID = 6628098594509119002L;
 
 	/**
 	 * 主键
 	 */
-	@JsonSerialize(using = ToStringSerializer.class)
 	@TableId(value = "id", type = IdType.ASSIGN_ID)
 	private Long id;
 

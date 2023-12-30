@@ -1,8 +1,6 @@
 
 package cn.yt4j.sys.entity.vo;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -20,7 +18,6 @@ public class Route implements Serializable {
 	/**
 	 * id
 	 */
-	@JsonSerialize(using = ToStringSerializer.class)
 	private Long id;
 
 	/**
@@ -48,6 +45,9 @@ public class Route implements Serializable {
 	 */
 	private String component;
 
+	/**
+	 * 组件路径
+	 */
 	private String path;
 
 	/**
@@ -55,6 +55,9 @@ public class Route implements Serializable {
 	 */
 	private Meta meta;
 
+	/**
+	 * 是否隐藏子菜单
+	 */
 	private Boolean hideChildrenInMenu;
 
 }

@@ -12,12 +12,12 @@ import cn.yt4j.core.exception.Yt4jException;
 import cn.yt4j.sys.api.entity.SysUser;
 import cn.yt4j.sys.api.entity.SysUserRole;
 import cn.yt4j.sys.api.entity.dto.LoginDTO;
-import cn.yt4j.sys.dao.SysMenuDao;
-import cn.yt4j.sys.dao.SysRoleDao;
-import cn.yt4j.sys.dao.SysUserDao;
-import cn.yt4j.sys.dao.SysUserRoleDao;
 import cn.yt4j.sys.entity.dto.PasswordDTO;
 import cn.yt4j.sys.entity.vo.UserInfo;
+import cn.yt4j.sys.mapper.SysMenuMapper;
+import cn.yt4j.sys.mapper.SysRoleMapper;
+import cn.yt4j.sys.mapper.SysUserMapper;
+import cn.yt4j.sys.mapper.SysUserRoleMapper;
 import cn.yt4j.sys.service.SysUserService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -40,13 +40,13 @@ import static cn.yt4j.core.enums.MessageStatus.PASSWORD_FAILED;
 @Slf4j
 @RequiredArgsConstructor
 @Service("sysUserService")
-public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> implements SysUserService {
+public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
 
-	private final SysUserRoleDao sysUserRoleDao;
+	private final SysUserRoleMapper sysUserRoleMapper;
 
-	private final SysRoleDao sysRoleDao;
+	private final SysRoleMapper sysRoleMapper;
 
-	private final SysMenuDao sysMenuDao;
+	private final SysMenuMapper sysMenuMapper;
 
 	@Override
 	public String login(LoginDTO dto) {
@@ -64,8 +64,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 				userCache.setId(user.getId());
 				userCache.setUsername(user.getUsername());
 				userCache.setRealName(user.getNickName());
-				userCache.setRoles(this.sysRoleDao.listByUserId(user.getId()));
-				userCache.setPermissions(this.sysMenuDao.listByUserId(user.getId()));
+				userCache.setRoles(this.sysRoleMapper.listByUserId(user.getId()));
+				userCache.setPermissions(this.sysMenuMapper.listByUserId(user.getId()));
 				session.set(SecurityConstants.SECURITY_PREFIX, userCache);
 				return token;
 			}
@@ -112,7 +112,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 		user.setState(true);
 		this.save(user);
 		if (ObjectUtil.isNotNull(user.getRoleIds())) {
-			this.sysUserRoleDao.batchAdd(user.getId(), user.getRoleIds());
+			this.sysUserRoleMapper.batchAdd(user.getId(), user.getRoleIds());
 		}
 		return Boolean.TRUE;
 	}
@@ -120,9 +120,9 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Boolean update(SysUser user) {
-		this.sysUserRoleDao.delete(new LambdaQueryWrapper<SysUserRole>().eq(SysUserRole::getUserId, user.getId()));
+		this.sysUserRoleMapper.delete(new LambdaQueryWrapper<SysUserRole>().eq(SysUserRole::getUserId, user.getId()));
 		if (ObjectUtil.isNotNull(user.getRoleIds())) {
-			this.sysUserRoleDao.batchAdd(user.getId(), user.getRoleIds());
+			this.sysUserRoleMapper.batchAdd(user.getId(), user.getRoleIds());
 		}
 		this.updateById(user);
 		return Boolean.TRUE;
@@ -132,7 +132,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 	public SysUser one(Long id) {
 		SysUser user = this.getById(id);
 		user.setRoleIds(
-				this.sysUserRoleDao.selectList(Wrappers.<SysUserRole>lambdaQuery().eq(SysUserRole::getUserId, id))
+				this.sysUserRoleMapper.selectList(Wrappers.<SysUserRole>lambdaQuery().eq(SysUserRole::getUserId, id))
 						.stream().map(SysUserRole::getRoleId).collect(Collectors.toList()));
 		return user;
 	}

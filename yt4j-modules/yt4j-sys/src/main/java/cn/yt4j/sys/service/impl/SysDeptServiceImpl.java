@@ -5,7 +5,7 @@ import cn.yt4j.core.domain.BaseTree;
 import cn.yt4j.core.enums.BasicEnum;
 import cn.yt4j.core.util.TreeUtil;
 import cn.yt4j.sys.api.entity.SysDept;
-import cn.yt4j.sys.dao.SysDeptDao;
+import cn.yt4j.sys.mapper.SysDeptMapper;
 import cn.yt4j.sys.service.SysDeptService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
  * @since 2020-08-10 08:43:51
  */
 @Service("sysDeptService")
-public class SysDeptServiceImpl extends ServiceImpl<SysDeptDao, SysDept> implements SysDeptService {
+public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> implements SysDeptService {
 
 	@Override
 	public List<BaseTree> treeDept() {

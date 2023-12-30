@@ -1,5 +1,5 @@
 
-package cn.yt4j.sys.dao;
+package cn.yt4j.sys.mapper;
 
 import cn.yt4j.sys.api.entity.SysDept;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -12,6 +12,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2020-08-10 08:43:51
  */
 @Mapper
-public interface SysDeptDao extends BaseMapper<SysDept> {
+public interface SysDeptMapper extends BaseMapper<SysDept> {
 
 }

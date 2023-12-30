@@ -1,5 +1,5 @@
 
-package cn.yt4j.sys.dao;
+package cn.yt4j.sys.mapper;
 
 import cn.yt4j.sys.api.entity.SysRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -14,7 +14,7 @@ import java.util.List;
  * @since 2020-08-10 08:43:34
  */
 @Mapper
-public interface SysRoleDao extends BaseMapper<SysRole> {
+public interface SysRoleMapper extends BaseMapper<SysRole> {
 
 	/**
 	 * 获取用户所有角色信息

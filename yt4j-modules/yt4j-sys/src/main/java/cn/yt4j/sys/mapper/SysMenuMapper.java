@@ -1,5 +1,5 @@
 
-package cn.yt4j.sys.dao;
+package cn.yt4j.sys.mapper;
 
 import cn.yt4j.sys.api.entity.SysMenu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -15,7 +15,7 @@ import java.util.List;
  * @since 2020-08-10 08:43:33
  */
 @Mapper
-public interface SysMenuDao extends BaseMapper<SysMenu> {
+public interface SysMenuMapper extends BaseMapper<SysMenu> {
 
 	/**
 	 * 获取权限

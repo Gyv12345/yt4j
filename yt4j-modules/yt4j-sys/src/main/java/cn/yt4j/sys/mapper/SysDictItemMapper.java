@@ -1,5 +1,5 @@
 
-package cn.yt4j.sys.dao;
+package cn.yt4j.sys.mapper;
 
 import cn.yt4j.data.batch.Yt4jBaseMapper;
 import cn.yt4j.sys.api.entity.SysDictItem;
@@ -15,7 +15,7 @@ import java.util.List;
  * @since 2020-08-18 16:44:07
  */
 @Mapper
-public interface SysDictItemDao extends Yt4jBaseMapper<SysDictItem> {
+public interface SysDictItemMapper extends Yt4jBaseMapper<SysDictItem> {
 
 	/**
 	 * 批量添加

@@ -4,11 +4,11 @@ package cn.yt4j.sys.service.impl;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.yt4j.core.util.TreeUtil;
 import cn.yt4j.sys.api.entity.SysMenu;
-import cn.yt4j.sys.dao.SysMenuDao;
 import cn.yt4j.sys.entity.vo.MenuTreeVO;
 import cn.yt4j.sys.entity.vo.Meta;
 import cn.yt4j.sys.entity.vo.Route;
 import cn.yt4j.sys.entity.vo.TopMenuVO;
+import cn.yt4j.sys.mapper.SysMenuMapper;
 import cn.yt4j.sys.service.SysMenuService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
  * @since 2020-08-10 08:43:33
  */
 @Service("sysMenuService")
-public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenu> implements SysMenuService {
+public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> implements SysMenuService {
 
 	@Override
 	public List<Route> nav(Long id, Long applicationId) {

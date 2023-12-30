@@ -2,7 +2,7 @@
 package cn.yt4j.sys.service.impl;
 
 import cn.yt4j.sys.api.entity.SysRoleMenu;
-import cn.yt4j.sys.dao.SysRoleMenuDao;
+import cn.yt4j.sys.mapper.SysRoleMenuMapper;
 import cn.yt4j.sys.service.SysRoleMenuService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-08-10 08:44:10
  */
 @Service("sysRoleMenuService")
-public class SysRoleMenuServiceImpl extends ServiceImpl<SysRoleMenuDao, SysRoleMenu> implements SysRoleMenuService {
+public class SysRoleMenuServiceImpl extends ServiceImpl<SysRoleMenuMapper, SysRoleMenu> implements SysRoleMenuService {
 
 }

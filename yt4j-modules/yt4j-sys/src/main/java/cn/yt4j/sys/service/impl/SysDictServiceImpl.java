@@ -3,8 +3,8 @@ package cn.yt4j.sys.service.impl;
 
 import cn.yt4j.sys.api.entity.SysDict;
 import cn.yt4j.sys.api.entity.SysDictItem;
-import cn.yt4j.sys.dao.SysDictDao;
-import cn.yt4j.sys.dao.SysDictItemDao;
+import cn.yt4j.sys.mapper.SysDictItemMapper;
+import cn.yt4j.sys.mapper.SysDictMapper;
 import cn.yt4j.sys.service.SysDictService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -21,13 +21,13 @@ import java.util.List;
  */
 @RequiredArgsConstructor
 @Service("sysDictService")
-public class SysDictServiceImpl extends ServiceImpl<SysDictDao, SysDict> implements SysDictService {
+public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> implements SysDictService {
 
-	private final SysDictItemDao sysDictItemDao;
+	private final SysDictItemMapper sysDictItemMapper;
 
 	@Override
 	public List<SysDictItem> listByCode(String code) {
-		return sysDictItemDao.selectList(Wrappers.<SysDictItem>lambdaQuery().eq(SysDictItem::getCode, code));
+		return sysDictItemMapper.selectList(Wrappers.<SysDictItem>lambdaQuery().eq(SysDictItem::getCode, code));
 	}
 
 }

@@ -2,7 +2,7 @@
 package cn.yt4j.sys.entity.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.io.Serial;
@@ -23,13 +23,13 @@ public class PasswordDTO implements Serializable {
 	/**
 	 * 旧密码
 	 */
-	@NotNull
+	@NotBlank
 	private String oldPwd;
 
 	/**
 	 * 新密码
 	 */
-	@NotNull
+	@NotBlank
 	private String newPwd;
 
 }

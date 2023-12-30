@@ -1,5 +1,5 @@
 
-package cn.yt4j.sys.dao;
+package cn.yt4j.sys.mapper;
 
 import cn.yt4j.sys.api.entity.SysUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -12,6 +12,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2020-08-07 17:11:43
  */
 @Mapper
-public interface SysUserDao extends BaseMapper<SysUser> {
+public interface SysUserMapper extends BaseMapper<SysUser> {
 
 }

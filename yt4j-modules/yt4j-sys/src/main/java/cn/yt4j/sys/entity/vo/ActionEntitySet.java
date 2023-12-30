@@ -3,6 +3,7 @@ package cn.yt4j.sys.entity.vo;
 
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -11,6 +12,7 @@ import java.io.Serializable;
 @Data
 public class ActionEntitySet implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = -252746105353599918L;
 
 	private String action;

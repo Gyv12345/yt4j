@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 
 /**
  * 代码生成表结构
+ *
  * @author gyv12345@163.com
  */
 @Mapper

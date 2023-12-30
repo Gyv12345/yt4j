@@ -3,10 +3,10 @@ package cn.yt4j.sys.service.impl;
 
 import cn.yt4j.sys.api.entity.SysRole;
 import cn.yt4j.sys.api.entity.SysRoleMenu;
-import cn.yt4j.sys.dao.SysRoleDao;
-import cn.yt4j.sys.dao.SysRoleMenuDao;
 import cn.yt4j.sys.entity.dto.RoleMenuDTO;
 import cn.yt4j.sys.entity.vo.DictVO;
+import cn.yt4j.sys.mapper.SysRoleMapper;
+import cn.yt4j.sys.mapper.SysRoleMenuMapper;
 import cn.yt4j.sys.service.SysRoleService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -25,21 +25,21 @@ import java.util.stream.Collectors;
  */
 @RequiredArgsConstructor
 @Service("sysRoleService")
-public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRole> implements SysRoleService {
+public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> implements SysRoleService {
 
-	private final SysRoleMenuDao sysRoleMenuDao;
+	private final SysRoleMenuMapper sysRoleMenuMapper;
 
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Boolean setting(RoleMenuDTO dto) {
-		this.sysRoleMenuDao.delete(Wrappers.<SysRoleMenu>lambdaQuery().eq(SysRoleMenu::getRoleId, dto.getRoleId()));
-		this.sysRoleMenuDao.batchAdd(dto.getMenuIds(), dto.getRoleId());
+		this.sysRoleMenuMapper.delete(Wrappers.<SysRoleMenu>lambdaQuery().eq(SysRoleMenu::getRoleId, dto.getRoleId()));
+		this.sysRoleMenuMapper.batchAdd(dto.getMenuIds(), dto.getRoleId());
 		return Boolean.TRUE;
 	}
 
 	@Override
 	public List<Long> listMenuIds(Long id) {
-		return this.sysRoleMenuDao.selectList(Wrappers.<SysRoleMenu>query().lambda().eq(SysRoleMenu::getRoleId, id))
+		return this.sysRoleMenuMapper.selectList(Wrappers.<SysRoleMenu>query().lambda().eq(SysRoleMenu::getRoleId, id))
 				.stream().map(SysRoleMenu::getMenuId).collect(Collectors.toList());
 	}
 

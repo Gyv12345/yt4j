@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * 代码生成业务表字段
+ *
  * @author gyv12345@163.com
  */
 public interface GenTableColumnService extends IService<GenTableColumn> {

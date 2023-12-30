@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.yt4j.sys.dao.SysDictItemDao">
+<mapper namespace="cn.yt4j.sys.mapper.SysDictItemMapper">
 
     <resultMap type="cn.yt4j.sys.api.entity.SysDictItem" id="SysDictItemMap">
         <id property="id" column="id"/>
