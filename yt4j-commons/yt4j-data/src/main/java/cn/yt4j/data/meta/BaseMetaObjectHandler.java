@@ -1,5 +1,6 @@
 package cn.yt4j.data.meta;
 
+import cn.hutool.core.util.ObjectUtil;
 import cn.yt4j.sa.util.AuthUtil;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
@@ -37,7 +38,9 @@ public class BaseMetaObjectHandler implements MetaObjectHandler {
 	public void insertFill(MetaObject metaObject) {
 		LocalDateTime localDateTime = LocalDateTime.now();
 		this.strictInsertFill(metaObject, FIELD_CREATE_TIME, LocalDateTime.class, localDateTime);
-		this.strictInsertFill(metaObject, FIELD_CREATE_USER, Long.class, AuthUtil.getUserId());
+		if (ObjectUtil.isNotEmpty(AuthUtil.getUserId())){
+			this.strictInsertFill(metaObject, FIELD_CREATE_USER, Long.class, AuthUtil.getUserId());
+		}
 	}
 
 	@Override

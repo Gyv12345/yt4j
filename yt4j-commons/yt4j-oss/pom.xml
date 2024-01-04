@@ -11,6 +11,7 @@
 
     <artifactId>yt4j-oss</artifactId>
     <packaging>jar</packaging>
+    <description>夭折了</description>
 
     <dependencies>
         <dependency>
