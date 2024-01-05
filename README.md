@@ -27,10 +27,10 @@ ui部分 放弃了，前端太难了
 
 | 依赖                 | 版本         |
 |--------------------|------------|
-| SpringBoot         | 3.1.5      |
-| MybatisPlus        | 3.5.4      |
+| SpringBoot         | 3.2.0      |
+| MybatisPlus        | 3.5.5      |
 | hutool             | 5.8.16     |
-| SpringCloud        | 2022.0.4   |
+| SpringCloud        | 2023.0.0   |
 | SpringCloudAlibaba | 2022.0.0.0 |
 | sa-token           | 1.34.0     |
 | plumelog           | 3.5.3      |

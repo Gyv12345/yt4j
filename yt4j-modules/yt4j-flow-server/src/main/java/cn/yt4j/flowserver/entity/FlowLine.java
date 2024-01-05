@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -20,6 +21,7 @@ import java.time.LocalDateTime;
 @ToString
 public class FlowLine implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = -11922974144558817L;
 
 	/**

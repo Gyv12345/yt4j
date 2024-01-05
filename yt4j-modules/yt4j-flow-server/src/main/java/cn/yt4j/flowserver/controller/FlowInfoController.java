@@ -22,7 +22,7 @@ import java.io.Serializable;
 @Tag(name = "流程信息")
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("flowInfo")
+@RequestMapping("flow/info")
 public class FlowInfoController {
 
 	/**

@@ -42,6 +42,10 @@ public class AuthController {
 		return Result.ok(map);
 	}
 
+	public String callBack(LoginDTO dto) {
+		return authService.login(dto);
+	}
+
 	/**
 	 * 退出登录
 	 * @return 成功

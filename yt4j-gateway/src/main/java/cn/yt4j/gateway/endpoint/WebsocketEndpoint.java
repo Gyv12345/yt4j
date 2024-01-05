@@ -19,7 +19,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Slf4j
 @ServerEndpoint(value = "/websocket/endpoint", port = "11111")
-public class Endpoint {
+public class WebsocketEndpoint {
 
 	public static ConcurrentHashMap<String, Session> concurrentHashMap = new ConcurrentHashMap<>();
 
