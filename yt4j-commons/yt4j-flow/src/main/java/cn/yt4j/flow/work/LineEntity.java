@@ -2,16 +2,15 @@
 package cn.yt4j.flow.work;
 
 import lombok.Data;
-import lombok.ToString;
 
 import java.io.Serial;
 import java.io.Serializable;
 
 /**
+ * 连线
  * @author gyv12345@163.com
  */
 @Data
-@ToString
 public class LineEntity implements Serializable {
 
 	@Serial

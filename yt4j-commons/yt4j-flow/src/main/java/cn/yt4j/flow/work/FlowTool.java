@@ -21,7 +21,9 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 @Component
 public class FlowTool {
-
+	/**
+	 * 流程实例存储
+	 */
 	private final Map<String, RuleWorkFlow> flows = new ConcurrentHashMap<>();
 
 	public RuleWorkFlow getByName(String name) {

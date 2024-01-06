@@ -11,8 +11,14 @@ import lombok.Getter;
 @Getter
 public class WorkContext<T, E> {
 
+	/**
+	 * 请求对象
+	 */
 	private final T request;
 
+	/**
+	 * 响应对象
+	 */
 	private final E response;
 
 	public WorkContext(T request, E response) {

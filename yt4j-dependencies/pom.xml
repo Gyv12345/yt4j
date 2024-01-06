@@ -35,11 +35,20 @@
         <x-file-storage.version>2.0.0</x-file-storage.version>
         <aws-java-sdk-s3.version>1.12.610</aws-java-sdk-s3.version>
         <aliyun-sdk-oss>3.17.3</aliyun-sdk-oss>
+        <oapi-sdk.version>2.1.1</oapi-sdk.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <!-- 3方库 -->
+
+            <!--企业IM-->
+            <!--飞书-->
+            <dependency>
+                <groupId>com.larksuite.oapi</groupId>
+                <artifactId>oapi-sdk</artifactId>
+                <version>${oapi-sdk.version}</version>
+            </dependency>
 
             <!--mybatis-->
             <dependency>

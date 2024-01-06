@@ -27,9 +27,9 @@ public enum DataScopeType {
 	 */
 	MY_SELF(4, "本人"),;
 
-	private int code;
+	private final int code;
 
-	private String description;
+	private final String description;
 
 	public static DataScopeType parse(int code) {
 		for (DataScopeType value : DataScopeType.values()) {
@@ -37,7 +37,7 @@ public enum DataScopeType {
 				return value;
 			}
 		}
-		return null;
+		return MY_SELF;
 	}
 
 }

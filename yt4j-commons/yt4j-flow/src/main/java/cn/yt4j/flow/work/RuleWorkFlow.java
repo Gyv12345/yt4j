@@ -1,6 +1,7 @@
 
 package cn.yt4j.flow.work;
 
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.yt4j.flow.util.ElUtil;
 import lombok.Getter;
@@ -46,7 +47,7 @@ public class RuleWorkFlow extends AbstractWorkFlow {
 			status = work.execute(context);
 		}
 		for (RuleWorkFlow flow : nextNodes) {
-			if (!StringUtils.hasText(flow.getCondition())) {
+			if (StrUtil.isEmpty(flow.getCondition())) {
 				status = flow.execute(context);
 			}
 			if (StringUtils.hasText(flow.getCondition()) && ElUtil.condition(context, flow.getCondition())) {

@@ -19,7 +19,6 @@ import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -37,7 +36,7 @@ public class DataScopeInterceptor extends JsqlParserSupport implements InnerInte
 
 	@Override
 	public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds,
-			ResultHandler resultHandler, BoundSql boundSql) throws SQLException {
+			ResultHandler resultHandler, BoundSql boundSql) {
 		// 判断是否包含dataScope实体
 		DataScope dataScope = findDataScopeObject(parameter);
 		if (null == dataScope) {
