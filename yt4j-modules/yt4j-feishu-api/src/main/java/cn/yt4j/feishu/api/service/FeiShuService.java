@@ -5,5 +5,4 @@ package cn.yt4j.feishu.api.service;
  */
 public interface FeiShuService {
 
-
 }
