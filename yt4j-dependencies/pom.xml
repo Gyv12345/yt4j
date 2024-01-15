@@ -293,6 +293,11 @@
                 <artifactId>yt4j-plumelog</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.yt4j</groupId>
+                <artifactId>yt4j-feishu-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
