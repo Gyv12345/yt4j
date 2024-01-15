@@ -1,7 +1,7 @@
 package cn.yt4j.gateway.config;
 
 import cn.yt4j.core.constant.RedisConstants;
-import cn.yt4j.gateway.endpoint.Endpoint;
+import cn.yt4j.gateway.endpoint.WebsocketEndpoint;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,7 +32,7 @@ public class RedisListenerConfig {
 			String bs = new String(bytes);
 			log.info("body:[{}]", body);
 			log.info("bytes:[{}]", bs);
-			Endpoint.concurrentHashMap.get("1").sendText(body);
+			WebsocketEndpoint.concurrentHashMap.get("1").sendText(body);
 		}, new ChannelTopic(RedisConstants.MESSAGE_TOPIC));
 		return container;
 	}

@@ -5,13 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.yt4j</groupId>
-        <artifactId>yt4j-modules</artifactId>
+        <artifactId>yt4j-feishu</artifactId>
         <version>${revision}</version>
     </parent>
-
-    <artifactId>yt4j-feishu</artifactId>
     <packaging>jar</packaging>
 
+    <artifactId>yt4j-feishu-svc</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.larksuite.oapi</groupId>
@@ -91,4 +90,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

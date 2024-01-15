@@ -1,4 +1,4 @@
-package cn.yt4j.feishu.controller;
+package cn.yt4j.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

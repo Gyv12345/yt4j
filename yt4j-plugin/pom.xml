@@ -5,17 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.yt4j</groupId>
-        <artifactId>yt4j-modules</artifactId>
+        <artifactId>yt4j</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>yt4j-feishu-api</artifactId>
-    <packaging>jar</packaging>
-
-    <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
+    <artifactId>yt4j-plugin</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>yt4j-feishu</module>
+    </modules>
 </project>

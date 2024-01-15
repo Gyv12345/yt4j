@@ -1,4 +1,4 @@
-package cn.yt4j.feishu.util;
+package cn.yt4j.util;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.extra.spring.SpringUtil;

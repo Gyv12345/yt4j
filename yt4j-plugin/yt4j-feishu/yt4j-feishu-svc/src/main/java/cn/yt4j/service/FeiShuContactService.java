@@ -1,4 +1,4 @@
-package cn.yt4j.feishu.service;
+package cn.yt4j.service;
 
 import org.springframework.stereotype.Service;
 
