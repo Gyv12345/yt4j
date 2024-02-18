@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yt4j.sys.mapper.SysUserMapper">
+
+    <resultMap type="cn.yt4j.sys.entity.SysUser" id="UserMap">
+        <id property="id" column="id"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="idCard" column="id_card"/>
+        <result property="avatar" column="avatar"/>
+        <result property="sex" column="sex"/>
+        <result property="email" column="email"/>
+        <result property="phone" column="phone"/>
+        <result property="state" column="state"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+</mapper>

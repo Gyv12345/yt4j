@@ -11,7 +11,7 @@
     <artifactId>yt4j-dependencies</artifactId>
 
     <properties>
-        <revision>1.0.5</revision>
+        <revision>2024.0.1</revision>
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
         <mybatis-spring.version>3.0.3</mybatis-spring.version>
         <hutool.version>5.8.23</hutool.version>

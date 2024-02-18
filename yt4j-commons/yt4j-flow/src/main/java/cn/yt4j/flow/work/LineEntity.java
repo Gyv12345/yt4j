@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 /**
  * 连线
+ *
  * @author gyv12345@163.com
  */
 @Data

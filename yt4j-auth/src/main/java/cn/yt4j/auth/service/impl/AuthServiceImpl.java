@@ -9,9 +9,9 @@ import cn.yt4j.core.constant.SecurityConstants;
 import cn.yt4j.core.domain.SaUserCache;
 import cn.yt4j.core.enums.MessageStatus;
 import cn.yt4j.core.exception.Yt4jException;
-import cn.yt4j.sys.api.entity.SysUser;
 import cn.yt4j.sys.api.entity.dto.LoginDTO;
-import cn.yt4j.sys.api.service.LoginService;
+import cn.yt4j.sys.api.entity.vo.SysUserVO;
+import cn.yt4j.sys.api.service.LoginClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -26,12 +26,12 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class AuthServiceImpl implements AuthService {
 
-	private final LoginService loginService;
+	private final LoginClient loginClient;
 
 	@Override
 	public String login(LoginDTO dto) {
 		log.info("登录");
-		SysUser user = this.loginService.getUserByUsername(dto.getUsername()).getData();
+		SysUserVO user = this.loginClient.getUserByUsername(dto.getUsername()).getData();
 		if (ObjectUtil.isNull(user)) {
 			throw new Yt4jException(MessageStatus.LOGIN_FAILED);
 		}
@@ -47,8 +47,8 @@ public class AuthServiceImpl implements AuthService {
 				userCache.setUsername(user.getUsername());
 				userCache.setRealName(user.getNickName());
 				userCache.setDeptId(user.getDeptId());
-				userCache.setRoles(this.loginService.listRoleByUserId(user.getId()).getData());
-				userCache.setPermissions(this.loginService.listMenuByUserId(user.getId()).getData());
+				userCache.setRoles(this.loginClient.listRoleByUserId(user.getId()).getData());
+				userCache.setPermissions(this.loginClient.listMenuByUserId(user.getId()).getData());
 				session.set(SecurityConstants.SECURITY_PREFIX, userCache);
 				return token;
 			}
