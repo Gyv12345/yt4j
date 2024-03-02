@@ -5,7 +5,7 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.yt4j.core.domain.Result;
 import cn.yt4j.core.exception.Yt4jException;
 import cn.yt4j.feishu.common.FeiShuCodeEnum;
-import cn.yt4j.sys.api.entity.vo.SysConfigVO;
+import cn.yt4j.sys.api.entity.vo.SysConfigByKeyVO;
 import cn.yt4j.sys.api.service.SysConfigClient;
 import com.lark.oapi.Client;
 import lombok.experimental.UtilityClass;
@@ -25,11 +25,11 @@ public class FeiShuUtil {
 	public Client getClient() {
 		SysConfigClient sysConfigClient = SpringUtil.getBean(SysConfigClient.class);
 		if (ObjectUtil.isEmpty(client)) {
-			Result<SysConfigVO> appIdResult = sysConfigClient.getSysConfigByKey(APP_ID_KEY);
+			Result<SysConfigByKeyVO> appIdResult = sysConfigClient.getSysConfigByKey(APP_ID_KEY);
 			if (ObjectUtil.isEmpty(appIdResult.getData())) {
 				throw new Yt4jException(FeiShuCodeEnum.NO_APP_ID);
 			}
-			Result<SysConfigVO> appSecretResult = sysConfigClient.getSysConfigByKey(APP_SECRET_KEY);
+			Result<SysConfigByKeyVO> appSecretResult = sysConfigClient.getSysConfigByKey(APP_SECRET_KEY);
 			if (ObjectUtil.isEmpty(appSecretResult.getData())) {
 				throw new Yt4jException(FeiShuCodeEnum.NO_APP_SECRET);
 			}

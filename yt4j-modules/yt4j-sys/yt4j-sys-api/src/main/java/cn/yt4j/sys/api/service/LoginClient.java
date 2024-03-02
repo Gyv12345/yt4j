@@ -3,7 +3,6 @@ package cn.yt4j.sys.api.service;
 import cn.yt4j.core.domain.Result;
 import cn.yt4j.sa.config.FeignInterceptor;
 import cn.yt4j.sys.api.entity.vo.SysUserVO;
-import cn.yt4j.sys.api.service.impl.LoginClientImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,8 +15,7 @@ import java.util.List;
  *
  * @author gyv12345@163.com
  */
-@FeignClient(name = "yt4j-sys", contextId = "login", configuration = FeignInterceptor.class,
-		fallback = LoginClientImpl.class)
+@FeignClient(name = "yt4j-sys", contextId = "login", configuration = FeignInterceptor.class)
 public interface LoginClient {
 
 	/**

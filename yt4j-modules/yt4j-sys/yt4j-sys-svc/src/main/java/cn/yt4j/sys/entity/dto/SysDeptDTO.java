@@ -1,6 +1,6 @@
-package cn.yt4j.sys.api.entity.vo;
+package cn.yt4j.sys.entity.dto;
 
-import cn.yt4j.sys.api.entity.SysDept;
+import cn.yt4j.sys.entity.SysDept;
 import io.github.linpeilie.annotations.AutoMapper;
 import lombok.Data;
 import lombok.ToString;
@@ -13,15 +13,15 @@ import java.time.LocalDateTime;
  * 部门(SysDept)表实体类
  *
  * @author gyv12345@163.com
- * @since 2023-11-29 12:07:40
+ * @since 2023-11-29 12:07:35
  */
 @Data
 @ToString
-@AutoMapper(target = SysDept.class)
-public class SysDeptVO implements Serializable {
+@AutoMapper(target = SysDept.class, reverseConvertGenerate = false)
+public class SysDeptDTO implements Serializable {
 
 	@Serial
-	private static final long serialVersionUID = 250476234318087416L;
+	private static final long serialVersionUID = -80802246559128206L;
 
 	/**
 	 * id

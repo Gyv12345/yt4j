@@ -1,6 +1,6 @@
-package cn.yt4j.sys.api.entity.vo;
+package cn.yt4j.sys.entity.dto;
 
-import cn.yt4j.sys.api.entity.SysConfig;
+import cn.yt4j.sys.entity.SysConfig;
 import io.github.linpeilie.annotations.AutoMapper;
 import lombok.Data;
 import lombok.ToString;
@@ -17,11 +17,11 @@ import java.time.LocalDateTime;
  */
 @Data
 @ToString
-@AutoMapper(target = SysConfig.class)
-public class SysConfigVO implements Serializable {
+@AutoMapper(target = SysConfig.class, reverseConvertGenerate = false)
+public class SysConfigDTO implements Serializable {
 
 	@Serial
-	private static final long serialVersionUID = 105694738567100570L;
+	private static final long serialVersionUID = 332455636313170716L;
 
 	/**
 	 * ID

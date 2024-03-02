@@ -18,7 +18,7 @@ services:
     command:
       --lower_case_table_names=1
   yt4j-nacos:
-    image: nacos/nacos-server:v2.2.3
+    image: nacos/nacos-server:v2.3.0
     container_name: yt4j-nacos
     environment:
       - JVM_XMS=256m
@@ -56,7 +56,33 @@ services:
     command: [ "redis-server", "/etc/redis.conf" ]
     restart: always
     privileged: true
-
+  yt4j-minio:
+    image: minio/minio:latest
+    container_name: minio
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      # 管理后台用户名
+      MINIO_ROOT_USER: admin
+      # 管理后台密码，最小8个字符
+      MINIO_ROOT_PASSWORD: admin123
+      # https需要指定域名
+      #MINIO_SERVER_URL: "https://xxx.com:9000"
+      #MINIO_BROWSER_REDIRECT_URL: "https://xxx.com:9001"
+      # 开启压缩 on 开启 off 关闭
+      MINIO_COMPRESS: "off"
+      # 扩展名 .pdf,.doc 为空 所有类型均压缩
+      MINIO_COMPRESS_EXTENSIONS: ""
+      # mime 类型 application/pdf 为空 所有类型均压缩
+      MINIO_COMPRESS_MIME_TYPES: ""
+    volumes:
+      # 映射当前目录下的data目录至容器内/data目录
+      - ./data/minio:/data
+      # 映射配置目录
+      - ./conf/minio:/root/.minio/
+    command: server --address ':9000' --console-address ':9001' /data  # 指定容器中的目录 /data
+    privileged: true
+    network_mode: "host"
 
 
 

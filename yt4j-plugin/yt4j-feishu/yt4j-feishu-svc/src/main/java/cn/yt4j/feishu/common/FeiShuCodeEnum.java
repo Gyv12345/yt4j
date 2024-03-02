@@ -10,8 +10,15 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum FeiShuCodeEnum implements IMessageStatus {
-
-	NO_APP_ID(11000, "请配置 app_id"), NO_APP_SECRET(11001, "请配置 app_secret"), NO_ACCESS_TOKEN(11002, "请配置 access_token"),;
+	/**
+	 * appid需要填写
+	 */
+	NO_APP_ID(11000, "请配置 app_id"),
+	/**
+	 * secret需要填写
+	 */
+	NO_APP_SECRET(11001, "请配置 app_secret")
+	, NO_ACCESS_TOKEN(11002, "请配置 access_token"),;
 
 	private final int code;
 
