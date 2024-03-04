@@ -36,6 +36,10 @@
             <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>cn.yt4j</groupId>
+            <artifactId>yt4j-plugin-common</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

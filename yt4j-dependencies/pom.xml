@@ -14,8 +14,8 @@
         <revision>2024.0.1</revision>
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
         <mybatis-spring.version>3.0.3</mybatis-spring.version>
-        <hutool.version>5.8.23</hutool.version>
-        <easy-excel.version>3.2.1</easy-excel.version>
+        <hutool.version>5.8.26</hutool.version>
+        <easy-excel.version>3.3.3</easy-excel.version>
         <jjwt.version>0.11.2</jjwt.version>
         <jasypt.version>2.1.1</jasypt.version>
         <wx.java.version>4.0.0</wx.java.version>
@@ -296,6 +296,11 @@
             <dependency>
                 <groupId>cn.yt4j</groupId>
                 <artifactId>yt4j-feishu-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.yt4j</groupId>
+                <artifactId>yt4j-plugin-common</artifactId>
                 <version>${revision}</version>
             </dependency>
         </dependencies>

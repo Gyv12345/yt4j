@@ -90,6 +90,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- 飞书插件 -->
+        <dependency>
+            <groupId>cn.yt4j</groupId>
+            <artifactId>yt4j-feishu-api</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

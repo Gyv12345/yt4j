@@ -23,15 +23,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <spring-boot.version>3.2.2</spring-boot.version>
+        <spring-boot.version>3.2.3</spring-boot.version>
         <spring-cloud.version>2023.0.0</spring-cloud.version>
         <spring-cloud-alibaba.version>2023.0.0.0-RC1</spring-cloud-alibaba.version>
         <spring.checkstyle.version>0.0.31</spring.checkstyle.version>
         <spring-boot-admin.version>3.2.2</spring-boot-admin.version>
         <dubbo.version>3.1.10</dubbo.version>
 
-        <docker.registry>192.168.0.195</docker.registry>
-        <docker.host>http://192.168.0.195:2375</docker.host>
+        <docker.registry>192.168.31.101</docker.registry>
+        <docker.host>http://192.168.31.101:2375</docker.host>
         <docker.namespace>library</docker.namespace>
         <docker.username>admin</docker.username>
         <docker.password>Harbor12345</docker.password>

@@ -7,7 +7,7 @@ import cn.yt4j.core.domain.SaUserCache;
 import lombok.experimental.UtilityClass;
 
 /**
- * 帮助
+ * 用户工具
  *
  * @author gyv12345@163.com
  */
