@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.ToString;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -20,7 +19,6 @@ import java.util.List;
  * @since 2020-08-10 08:43:31
  */
 @Data
-@ToString
 public class SysDict implements Serializable {
 
 	@Serial

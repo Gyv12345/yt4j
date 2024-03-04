@@ -6,9 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
@@ -18,9 +16,7 @@ import java.time.LocalDateTime;
  * @author gyv12345@163.com
  * @since 2020-08-14 15:29:53
  */
-@Getter
-@Setter
-@ToString
+@Data
 public class SysMenu extends Model<SysMenu> {
 
 	/**

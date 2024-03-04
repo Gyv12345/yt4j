@@ -4,9 +4,7 @@ package cn.yt4j.sys.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -19,9 +17,7 @@ import java.util.List;
  * @author gyv12345@163.com
  * @since 2020-08-07 17:11:42
  */
-@Getter
-@Setter
-@ToString
+@Data
 public class SysUser implements Serializable {
 
 	@Serial

@@ -3,7 +3,6 @@ package cn.yt4j.sys.entity;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
-import lombok.ToString;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -16,7 +15,6 @@ import java.time.LocalDateTime;
  * @since 2024-03-04 10:04:42
  */
 @Data
-@ToString
 public class SysDeptUser implements Serializable {
     @Serial
     private static final long serialVersionUID = 211941104908382491L;

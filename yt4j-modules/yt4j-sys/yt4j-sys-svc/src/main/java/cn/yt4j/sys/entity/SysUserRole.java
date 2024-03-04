@@ -4,9 +4,7 @@ package cn.yt4j.sys.entity;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 /**
  * (SysUserRole)表实体类
@@ -14,9 +12,7 @@ import lombok.ToString;
  * @author gyv12345@163.com
  * @since 2020-08-10 08:44:10
  */
-@Getter
-@Setter
-@ToString
+@Data
 public class SysUserRole extends Model<SysUserRole> {
 
 	/**
