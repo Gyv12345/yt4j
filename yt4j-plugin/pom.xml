@@ -13,6 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>yt4j-feishu</module>
-        <module>yt4j-plugin-common</module>
+        <module>yt4j-im</module>
     </modules>
 </project>

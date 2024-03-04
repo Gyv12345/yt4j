@@ -9,6 +9,6 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>yt4j-plugin-common</artifactId>
+    <artifactId>yt4j-im</artifactId>
     <packaging>jar</packaging>
 </project>

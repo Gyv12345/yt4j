@@ -38,7 +38,7 @@
         </dependency>
         <dependency>
             <groupId>cn.yt4j</groupId>
-            <artifactId>yt4j-plugin-common</artifactId>
+            <artifactId>yt4j-im</artifactId>
         </dependency>
     </dependencies>
 

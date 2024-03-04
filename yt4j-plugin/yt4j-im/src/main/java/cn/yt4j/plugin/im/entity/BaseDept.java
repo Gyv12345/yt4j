@@ -1,4 +1,4 @@
-package cn.yt4j.plugin.common.entity;
+package cn.yt4j.plugin.im.entity;
 
 import lombok.Data;
 

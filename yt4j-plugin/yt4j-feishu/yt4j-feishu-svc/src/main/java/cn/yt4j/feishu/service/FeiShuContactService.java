@@ -2,8 +2,8 @@ package cn.yt4j.feishu.service;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.yt4j.feishu.util.FeiShuUtil;
-import cn.yt4j.plugin.common.entity.BaseDept;
-import cn.yt4j.plugin.common.entity.BaseUser;
+import cn.yt4j.plugin.im.entity.BaseDept;
+import cn.yt4j.plugin.im.entity.BaseUser;
 import com.lark.oapi.service.contact.v3.model.*;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,8 @@
 package cn.yt4j.feishu.client;
 
 import cn.yt4j.core.domain.Result;
-import cn.yt4j.plugin.common.entity.BaseDept;
-import cn.yt4j.plugin.common.entity.BaseUser;
+import cn.yt4j.plugin.im.entity.BaseDept;
+import cn.yt4j.plugin.im.entity.BaseUser;
 import cn.yt4j.sa.config.FeignInterceptor;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

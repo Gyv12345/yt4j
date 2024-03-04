@@ -2,8 +2,8 @@ package cn.yt4j.feishu.controller;
 
 import cn.yt4j.core.domain.Result;
 import cn.yt4j.feishu.service.FeiShuContactService;
-import cn.yt4j.plugin.common.entity.BaseDept;
-import cn.yt4j.plugin.common.entity.BaseUser;
+import cn.yt4j.plugin.im.entity.BaseDept;
+import cn.yt4j.plugin.im.entity.BaseUser;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

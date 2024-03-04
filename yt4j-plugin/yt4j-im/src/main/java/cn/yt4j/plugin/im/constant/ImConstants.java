@@ -1,5 +1,5 @@
 
-package cn.yt4j.plugin.common.constant;
+package cn.yt4j.plugin.im.constant;
 
 /**
  * @author gyv12345@163.com
