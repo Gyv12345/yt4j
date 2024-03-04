@@ -95,4 +95,9 @@ public class SysDeptController {
 		return Result.ok(this.sysDeptService.removeById(id));
 	}
 
+	@GetMapping("sync")
+	public Result<Boolean> syncDept() {
+		return Result.ok(this.sysDeptService.syncDept());
+	}
+
 }

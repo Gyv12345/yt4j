@@ -12,50 +12,55 @@ import java.time.LocalDateTime;
 /**
  * 部门(SysDept)表实体类
  *
- * @author gyv12345@163.com
- * @since 2023-11-29 12:07:40
+ * @author makejava
+ * @since 2024-03-04 10:10:00
  */
 @Data
 @ToString
 @AutoMapper(target = SysDept.class)
 public class SysDeptVO implements Serializable {
+    @Serial
+    private static final long serialVersionUID = -61643406804879536L;
 
-	@Serial
-	private static final long serialVersionUID = 250476234318087416L;
+    /**
+     * id
+     */
+    private Long id;
 
-	/**
-	 * id
-	 */
-	private Long id;
+    /**
+     * 父级ID
+     */
+    private Long parentId;
 
-	/**
-	 * 父级ID
-	 */
-	private Long parentId;
+    /**
+     * 部门名称
+     */
+    private String name;
 
-	/**
-	 * 部门名称
-	 */
-	private String label;
+    /**
+     * 排序
+     */
+    private Integer orderNo;
 
-	/**
-	 * 排序
-	 */
-	private Integer orderNo;
+    /**
+     * 状态
+     */
+    private Integer status;
 
-	/**
-	 * 状态
-	 */
-	private Integer state;
+    /**
+     * 第三方部门ID
+     */
+    private String departmentId;
 
-	/**
-	 * 创建时间
-	 */
-	private LocalDateTime createTime;
+    /**
+     * 创建时间
+     */
+    private LocalDateTime createTime;
 
-	/**
-	 * 修改时间
-	 */
-	private LocalDateTime updateTime;
+    /**
+     * 修改时间
+     */
+    private LocalDateTime updateTime;
 
 }
+

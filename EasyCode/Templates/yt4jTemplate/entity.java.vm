@@ -11,7 +11,6 @@ $!callback.setFileName($tool.append($tableInfo.name, ".java"))
 package ${modelPackageName};
 $!autoImport
 import lombok.Data;
-import lombok.ToString;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -25,7 +24,6 @@ import java.time.LocalDateTime;
 ##表注释（宏定义）
 #tableComment("表实体类")
 @Data
-@ToString
 public class $!{tableInfo.name} implements Serializable{
 @Serial
 private static final long serialVersionUID= $!tool.serial();

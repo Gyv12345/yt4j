@@ -36,4 +36,10 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
 				}).collect(Collectors.toList()), BasicEnum.PARENT.getId());
 	}
 
+	@Override
+	public String syncDept() {
+
+		return null;
+	}
+
 }

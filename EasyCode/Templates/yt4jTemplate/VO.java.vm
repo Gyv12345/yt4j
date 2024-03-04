@@ -11,7 +11,6 @@ $!callback.setFileName($tool.append($tableInfo.name, "VO.java"))
 package ${modelPackageName}.vo;
 $!autoImport
 import lombok.Data;
-import lombok.ToString;
 import ${modelPackageName}.$!{tableInfo.name};
 import io.github.linpeilie.annotations.AutoMapper;
 
@@ -23,7 +22,6 @@ import java.time.LocalDateTime;
 ##表注释（宏定义）
 #tableComment("表实体类")
 @Data
-@ToString
 @AutoMapper(target = $!{tableInfo.name}.class)
 public class $!{tableInfo.name}VO implements Serializable{
     @Serial

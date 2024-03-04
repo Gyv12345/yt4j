@@ -1,10 +1,10 @@
-package cn.yt4j.sys.entity;
+package cn.yt4j.sys.entity.dto;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
+import lombok.ToString;
+import cn.yt4j.sys.entity.SysDept;
+import io.github.linpeilie.annotations.AutoMapper;
+
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -14,17 +14,18 @@ import java.time.LocalDateTime;
  * 部门(SysDept)表实体类
  *
  * @author makejava
- * @since 2024-03-04 10:09:59
+ * @since 2024-03-04 10:09:55
  */
 @Data
-public class SysDept implements Serializable {
+@ToString
+@AutoMapper(target = SysDept.class, reverseConvertGenerate = false)
+public class SysDeptDTO implements Serializable {
     @Serial
-    private static final long serialVersionUID = -17122847518674801L;
+    private static final long serialVersionUID = 444488828097154558L;
 
     /**
      * id
      */
-    @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
 
     /**
@@ -55,13 +56,11 @@ public class SysDept implements Serializable {
     /**
      * 创建时间
      */
-    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
     /**
      * 修改时间
      */
-    @TableField(fill = FieldFill.UPDATE)
     private LocalDateTime updateTime;
 
 }

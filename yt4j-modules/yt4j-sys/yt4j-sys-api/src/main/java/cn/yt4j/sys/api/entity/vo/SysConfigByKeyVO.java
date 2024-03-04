@@ -8,8 +8,9 @@ import lombok.Data;
 @Data
 public class SysConfigByKeyVO {
 
-    /**
-     * 配置值
-     */
-    private String value;
+	/**
+	 * 配置值
+	 */
+	private String value;
+
 }

@@ -21,4 +21,9 @@ public interface SysDeptService extends IService<SysDept> {
 	 */
 	List<BaseTree> treeDept();
 
+	/**
+	 * 同步部门
+	 * @return
+	 */
+    String syncDept();
 }
