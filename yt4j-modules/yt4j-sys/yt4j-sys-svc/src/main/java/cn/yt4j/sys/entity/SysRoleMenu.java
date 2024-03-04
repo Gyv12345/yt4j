@@ -1,10 +1,10 @@
 
 package cn.yt4j.sys.entity;
 
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
  * 角色权限(SysRoleMenu)表实体类
@@ -13,18 +13,18 @@ import lombok.Data;
  * @since 2020-08-10 08:44:09
  */
 @Data
-public class SysRoleMenu extends Model<SysRoleMenu> {
+public class SysRoleMenu implements Serializable {
 
+	@Serial
+	private static final long serialVersionUID = -7796141701917016773L;
 	/**
 	 * 角色ID
 	 */
-	@JsonSerialize(using = ToStringSerializer.class)
 	private Long roleId;
 
 	/**
 	 * 菜单ID
 	 */
-	@JsonSerialize(using = ToStringSerializer.class)
 	private Long menuId;
 
 }
