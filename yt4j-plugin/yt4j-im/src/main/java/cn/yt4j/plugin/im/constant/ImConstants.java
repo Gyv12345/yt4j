@@ -8,6 +8,4 @@ public interface ImConstants {
 
 	String FEISHU_PARENT_ID = "0";
 
-	String MESSAGE_TOPIC = "channel:message";
-
 }

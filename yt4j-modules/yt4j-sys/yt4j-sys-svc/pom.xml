@@ -10,7 +10,6 @@
     </parent>
 
     <artifactId>yt4j-sys-svc</artifactId>
-
     <packaging>jar</packaging>
 
     <dependencies>

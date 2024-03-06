@@ -2,7 +2,6 @@
 package cn.yt4j.core.domain;
 
 import lombok.Data;
-import lombok.ToString;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -14,7 +13,6 @@ import java.util.List;
  * @author gyv12345@163.com
  */
 @Data
-@ToString
 public class SaUserCache implements Serializable {
 
 	@Serial

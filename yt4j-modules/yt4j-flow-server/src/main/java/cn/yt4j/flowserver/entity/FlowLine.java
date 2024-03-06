@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
-import lombok.ToString;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -18,7 +17,6 @@ import java.time.LocalDateTime;
  * @since 2023-08-11 11:35:12
  */
 @Data
-@ToString
 public class FlowLine implements Serializable {
 
 	@Serial

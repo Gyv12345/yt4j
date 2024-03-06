@@ -9,17 +9,16 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import lombok.ToString;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Map;
 
 /**
+ * 分页结果
  * @author gyv12345@163.com
  */
 @Data
-@ToString
 public class PageRequest<T> implements Serializable {
 
 	@Serial

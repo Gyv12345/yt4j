@@ -3,7 +3,6 @@ package cn.yt4j.core.domain;
 
 import cn.yt4j.core.enums.IMessageStatus;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -25,13 +24,19 @@ public class Result<T> implements Serializable {
 	@Serial
 	private static final long serialVersionUID = -6101337183914807339L;
 
-	@Schema(description = "编码")
+	/**
+	 * 编码
+	 */
 	private int code;
 
-	@Schema(description = "返回信息")
+	/**
+	 * 消息
+	 */
 	private String message;
 
-	@Schema(description = "结果")
+	/**
+	 * 数据
+	 */
 	private T data;
 
 	public static <T> Result<T> ok() {
