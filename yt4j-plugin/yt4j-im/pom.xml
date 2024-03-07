@@ -10,5 +10,10 @@
     </parent>
 
     <artifactId>yt4j-im</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>yt4j-im-api</module>
+        <module>yt4j-feishu</module>
+    </modules>
 </project>

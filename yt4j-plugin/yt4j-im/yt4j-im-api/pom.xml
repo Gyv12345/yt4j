@@ -5,13 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.yt4j</groupId>
-        <artifactId>yt4j</artifactId>
+        <artifactId>yt4j-im</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>yt4j-plugin</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>yt4j-im</module>
-    </modules>
+    <artifactId>yt4j-im-api</artifactId>
+    <packaging>jar</packaging>
+
 </project>

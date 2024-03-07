@@ -31,7 +31,7 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
 					BaseTree tree = new BaseTree();
 					tree.setId(sysDept.getId());
 					tree.setParentId(sysDept.getParentId());
-					tree.setName(sysDept.getLabel());
+					tree.setName(sysDept.getName());
 					return tree;
 				}).collect(Collectors.toList()), BasicEnum.PARENT.getId());
 	}
