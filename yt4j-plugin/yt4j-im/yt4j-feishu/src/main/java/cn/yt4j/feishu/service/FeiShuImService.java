@@ -1,11 +1,13 @@
 package cn.yt4j.feishu.service;
 
 import cn.hutool.core.collection.CollectionUtil;
-import cn.yt4j.feishu.util.FeiShuUtil;
 import cn.yt4j.im.client.BaseImClient;
+import cn.yt4j.im.constant.ImConstants;
 import cn.yt4j.im.entity.BaseDept;
 import cn.yt4j.im.entity.BaseUser;
+import com.lark.oapi.Client;
 import com.lark.oapi.service.contact.v3.model.*;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
@@ -20,11 +22,14 @@ import java.util.stream.Collectors;
  * @author gyv12345@163.com
  */
 @Service
+@RequiredArgsConstructor
 public class FeiShuImService implements BaseImClient {
 
+	private final Client client;
+
 	@Override
-	public Boolean check() {
-		return true;
+	public String check() {
+		return ImConstants.FEISHU_PARENT_ID;
 	}
 
 	@Override
@@ -50,7 +55,7 @@ public class FeiShuImService implements BaseImClient {
 				.departmentIdType("open_department_id").pageSize(50).departmentId(deptId).pageToken(pageToken).build();
 
 		// 发起请求
-		ChildrenDepartmentResp resp = FeiShuUtil.getClient().contact().department().children(req);
+		ChildrenDepartmentResp resp = client.contact().department().children(req);
 
 		if (resp.success()) {
 			if (CollectionUtil.isNotEmpty(Arrays.asList(resp.getData().getItems()))) {
@@ -85,7 +90,7 @@ public class FeiShuImService implements BaseImClient {
 				.build();
 
 		// 发起请求
-		FindByDepartmentUserResp resp = FeiShuUtil.getClient().contact().user().findByDepartment(req);
+		FindByDepartmentUserResp resp = client.contact().user().findByDepartment(req);
 
 		if (resp.success()) {
 			if (CollectionUtil.isNotEmpty(Arrays.asList(resp.getData().getItems()))) {

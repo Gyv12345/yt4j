@@ -4,10 +4,12 @@ package cn.yt4j.sys.service.impl;
 import cn.yt4j.core.domain.BaseTree;
 import cn.yt4j.core.enums.BasicEnum;
 import cn.yt4j.core.util.TreeUtil;
+import cn.yt4j.im.client.BaseImClient;
 import cn.yt4j.sys.entity.SysDept;
 import cn.yt4j.sys.mapper.SysDeptMapper;
 import cn.yt4j.sys.service.SysDeptService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,7 +24,10 @@ import java.util.stream.Collectors;
  * @since 2020-08-10 08:43:51
  */
 @Service("sysDeptService")
+@RequiredArgsConstructor
 public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> implements SysDeptService {
+
+	private final BaseImClient client;
 
 	@Override
 	public List<BaseTree> treeDept() {
@@ -38,7 +43,7 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
 
 	@Override
 	public String syncDept() {
-
+		client.check();
 		return null;
 	}
 

@@ -18,7 +18,7 @@ public interface BaseImClient {
 	 * 判断飞书模块是否存在
 	 * @return
 	 */
-	Boolean check();
+	String check();
 
 	/**
 	 * 获取部门信息
