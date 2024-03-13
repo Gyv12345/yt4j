@@ -38,7 +38,7 @@ public class FeiShuImService implements BaseImClient {
 		List<Department> allDept = new ArrayList<>();
 		recursionDept(allDept, deptId, null);
 
-        return allDept.stream().map(dept -> {
+		return allDept.stream().map(dept -> {
 			BaseDept baseDept = new BaseDept();
 			baseDept.setName(dept.getName());
 			baseDept.setDeptId(dept.getDepartmentId());
@@ -71,7 +71,7 @@ public class FeiShuImService implements BaseImClient {
 	public List<BaseUser> getUser(String deptId) {
 		List<User> allUser = new ArrayList<>();
 		recursionUser(allUser, deptId, null);
-        return allUser.stream().map(item -> {
+		return allUser.stream().map(item -> {
 			BaseUser baseUser = new BaseUser();
 			baseUser.setName(item.getName());
 			baseUser.setLeader(item.getLeaderUserId());

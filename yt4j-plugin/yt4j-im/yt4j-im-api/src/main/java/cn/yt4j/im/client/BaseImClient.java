@@ -1,7 +1,5 @@
 package cn.yt4j.im.client;
 
-
-
 import cn.yt4j.im.entity.BaseDept;
 import cn.yt4j.im.entity.BaseUser;
 

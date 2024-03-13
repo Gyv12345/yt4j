@@ -17,6 +17,7 @@ public class SysUserRole implements Serializable {
 
 	@Serial
 	private static final long serialVersionUID = -6201247689742607651L;
+
 	/**
 	 * 用户ID
 	 */

@@ -9,18 +9,22 @@ import lombok.Data;
  */
 @Data
 public class BaseUser {
+
 	/**
 	 * 姓名
 	 */
 	private String name;
+
 	/**
 	 * 上级
 	 */
 	private String leader;
+
 	/**
 	 * 性别
 	 */
 	private String gender;
+
 	/**
 	 * openId
 	 */

@@ -16,4 +16,3 @@ import org.springframework.stereotype.Service;
 public class SysDeptUserServiceImpl extends ServiceImpl<SysDeptUserMapper, SysDeptUser> implements SysDeptUserService {
 
 }
-

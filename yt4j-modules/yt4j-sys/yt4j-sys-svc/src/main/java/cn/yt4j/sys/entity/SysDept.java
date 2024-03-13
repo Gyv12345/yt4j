@@ -18,51 +18,51 @@ import java.time.LocalDateTime;
  */
 @Data
 public class SysDept implements Serializable {
-    @Serial
-    private static final long serialVersionUID = -17122847518674801L;
 
-    /**
-     * id
-     */
-    @TableId(value = "id", type = IdType.ASSIGN_ID)
-    private Long id;
+	@Serial
+	private static final long serialVersionUID = -17122847518674801L;
 
-    /**
-     * 父级ID
-     */
-    private Long parentId;
+	/**
+	 * id
+	 */
+	@TableId(value = "id", type = IdType.ASSIGN_ID)
+	private Long id;
 
-    /**
-     * 部门名称
-     */
-    private String name;
+	/**
+	 * 父级ID
+	 */
+	private Long parentId;
 
-    /**
-     * 排序
-     */
-    private Integer orderNo;
+	/**
+	 * 部门名称
+	 */
+	private String name;
 
-    /**
-     * 状态
-     */
-    private Integer status;
+	/**
+	 * 排序
+	 */
+	private Integer orderNo;
 
-    /**
-     * 第三方部门ID
-     */
-    private String departmentId;
+	/**
+	 * 状态
+	 */
+	private Integer status;
 
-    /**
-     * 创建时间
-     */
-    @TableField(fill = FieldFill.INSERT)
-    private LocalDateTime createTime;
+	/**
+	 * 第三方部门ID
+	 */
+	private String departmentId;
 
-    /**
-     * 修改时间
-     */
-    @TableField(fill = FieldFill.UPDATE)
-    private LocalDateTime updateTime;
+	/**
+	 * 创建时间
+	 */
+	@TableField(fill = FieldFill.INSERT)
+	private LocalDateTime createTime;
+
+	/**
+	 * 修改时间
+	 */
+	@TableField(fill = FieldFill.UPDATE)
+	private LocalDateTime updateTime;
 
 }
-

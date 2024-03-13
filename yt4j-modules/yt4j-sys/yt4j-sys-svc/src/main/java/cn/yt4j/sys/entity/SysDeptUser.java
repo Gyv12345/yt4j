@@ -16,35 +16,35 @@ import java.time.LocalDateTime;
  */
 @Data
 public class SysDeptUser implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 211941104908382491L;
 
-    /**
-     * ID
-     */
-    private Long id;
+	@Serial
+	private static final long serialVersionUID = 211941104908382491L;
 
-    /**
-     * 部门ID
-     */
-    private Long deptId;
+	/**
+	 * ID
+	 */
+	private Long id;
 
-    /**
-     * 用户ID
-     */
-    private Long userId;
+	/**
+	 * 部门ID
+	 */
+	private Long deptId;
 
-    /**
-     * 创建时间
-     */
-    @TableField(fill = FieldFill.INSERT)
-    private LocalDateTime createTime;
+	/**
+	 * 用户ID
+	 */
+	private Long userId;
 
-    /**
-     * 修改时间
-     */
-    @TableField(fill = FieldFill.UPDATE)
-    private LocalDateTime updateTime;
+	/**
+	 * 创建时间
+	 */
+	@TableField(fill = FieldFill.INSERT)
+	private LocalDateTime createTime;
+
+	/**
+	 * 修改时间
+	 */
+	@TableField(fill = FieldFill.UPDATE)
+	private LocalDateTime updateTime;
 
 }
-

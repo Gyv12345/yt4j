@@ -22,6 +22,7 @@ public class SysDictItem implements Serializable {
 
 	@Serial
 	private static final long serialVersionUID = 1623449844905109580L;
+
 	/**
 	 * 主键
 	 */

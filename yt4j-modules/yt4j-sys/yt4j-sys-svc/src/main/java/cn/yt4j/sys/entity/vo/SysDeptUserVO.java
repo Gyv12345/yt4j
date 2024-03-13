@@ -19,33 +19,33 @@ import java.time.LocalDateTime;
 @ToString
 @AutoMapper(target = SysDeptUser.class)
 public class SysDeptUserVO implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 743155944838774251L;
 
-    /**
-     * ID
-     */
-    private Long id;
+	@Serial
+	private static final long serialVersionUID = 743155944838774251L;
 
-    /**
-     * 部门ID
-     */
-    private Long deptId;
+	/**
+	 * ID
+	 */
+	private Long id;
 
-    /**
-     * 用户ID
-     */
-    private Long userId;
+	/**
+	 * 部门ID
+	 */
+	private Long deptId;
 
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
+	/**
+	 * 用户ID
+	 */
+	private Long userId;
 
-    /**
-     * 修改时间
-     */
-    private LocalDateTime updateTime;
+	/**
+	 * 创建时间
+	 */
+	private LocalDateTime createTime;
+
+	/**
+	 * 修改时间
+	 */
+	private LocalDateTime updateTime;
 
 }
-

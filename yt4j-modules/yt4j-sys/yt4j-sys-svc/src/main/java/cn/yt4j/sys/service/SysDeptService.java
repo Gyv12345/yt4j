@@ -25,5 +25,6 @@ public interface SysDeptService extends IService<SysDept> {
 	 * 同步部门
 	 * @return
 	 */
-    String syncDept();
+	String syncDept();
+
 }

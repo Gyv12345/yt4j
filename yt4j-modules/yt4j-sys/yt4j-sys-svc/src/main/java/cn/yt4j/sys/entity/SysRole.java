@@ -20,6 +20,7 @@ public class SysRole implements Serializable {
 
 	@Serial
 	private static final long serialVersionUID = 7673599942232273069L;
+
 	/**
 	 * 主键
 	 */

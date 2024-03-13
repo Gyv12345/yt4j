@@ -17,6 +17,7 @@ public class SysRoleMenu implements Serializable {
 
 	@Serial
 	private static final long serialVersionUID = -7796141701917016773L;
+
 	/**
 	 * 角色ID
 	 */

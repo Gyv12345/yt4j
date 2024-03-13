@@ -22,6 +22,7 @@ public class SysMenu implements Serializable {
 
 	@Serial
 	private static final long serialVersionUID = -6824305033149672525L;
+
 	/**
 	 * 主键
 	 */

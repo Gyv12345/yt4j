@@ -19,48 +19,48 @@ import java.time.LocalDateTime;
 @ToString
 @AutoMapper(target = SysDept.class, reverseConvertGenerate = false)
 public class SysDeptDTO implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 444488828097154558L;
 
-    /**
-     * id
-     */
-    private Long id;
+	@Serial
+	private static final long serialVersionUID = 444488828097154558L;
 
-    /**
-     * 父级ID
-     */
-    private Long parentId;
+	/**
+	 * id
+	 */
+	private Long id;
 
-    /**
-     * 部门名称
-     */
-    private String name;
+	/**
+	 * 父级ID
+	 */
+	private Long parentId;
 
-    /**
-     * 排序
-     */
-    private Integer orderNo;
+	/**
+	 * 部门名称
+	 */
+	private String name;
 
-    /**
-     * 状态
-     */
-    private Integer status;
+	/**
+	 * 排序
+	 */
+	private Integer orderNo;
 
-    /**
-     * 第三方部门ID
-     */
-    private String departmentId;
+	/**
+	 * 状态
+	 */
+	private Integer status;
 
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
+	/**
+	 * 第三方部门ID
+	 */
+	private String departmentId;
 
-    /**
-     * 修改时间
-     */
-    private LocalDateTime updateTime;
+	/**
+	 * 创建时间
+	 */
+	private LocalDateTime createTime;
+
+	/**
+	 * 修改时间
+	 */
+	private LocalDateTime updateTime;
 
 }
-
