@@ -3,11 +3,12 @@ package cn.yt4j.sys.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -17,8 +18,10 @@ import java.time.LocalDateTime;
  * @since 2020-08-18 16:44:07
  */
 @Data
-public class SysDictItem extends Model<SysDictItem> {
+public class SysDictItem implements Serializable {
 
+	@Serial
+	private static final long serialVersionUID = 1623449844905109580L;
 	/**
 	 * 主键
 	 */

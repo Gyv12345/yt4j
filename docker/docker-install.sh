@@ -14,7 +14,7 @@ yum install -y docker-ce;
 systemctl start docker;
 systemctl enable docker;
 docker version;
-curl -L https://github.com/docker/compose/releases/download/v2.23.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose;
+curl -L https://mirror.ghproxy.com/https://github.com/docker/compose/releases/download/v2.23.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose;
 sudo chmod +x /usr/local/bin/docker-compose;
 docker-compose version;
 echo " ------------ docker服务安装完毕 ------------ ";

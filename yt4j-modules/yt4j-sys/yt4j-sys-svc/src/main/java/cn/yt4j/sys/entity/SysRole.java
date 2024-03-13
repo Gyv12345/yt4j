@@ -3,11 +3,10 @@ package cn.yt4j.sys.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -17,12 +16,13 @@ import java.time.LocalDateTime;
  * @since 2020-08-10 08:43:33
  */
 @Data
-public class SysRole extends Model<SysRole> {
+public class SysRole implements Serializable {
 
+	@Serial
+	private static final long serialVersionUID = 7673599942232273069L;
 	/**
 	 * 主键
 	 */
-	@JsonSerialize(using = ToStringSerializer.class)
 	@TableId(value = "id", type = IdType.ASSIGN_ID)
 	private Long id;
 
