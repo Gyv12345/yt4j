@@ -15,12 +15,17 @@ ui部分 放弃了，前端太难了
 - 基于spring boot、spring cloud、sa-token的RBAC权限管理系统
 - ~~基于ant design pro vue模板，构建前端界面~~
 - 提供对docker支持
+
+## 打个广告
+
+灵活就业状态，接一切兼职
 ## 计划功能
 - [X] 增加代码生成
 - [ ] 增加自己写的流程编排前端页面
 - [ ] 审批流
 - [ ] OAuth2平台
 - [X] 改成无侵入的springdoc，用注释生成
+- [ ] 增加企业IM同步部门用户
 
 ## 依赖
 
@@ -56,8 +61,16 @@ yt4j
 ├─yt4j-gateway 项目网关 【8888】
 ├─yt4j-modules 业务模块
 │  └─yt4j-crm crm
-│  └─yt4j-sys 基础系统
-│  └─yt4j-sys-api feign调用
+│  └─yt4j-flow-server 暂时没有前端，配套流程编排实现的后端，可以将编排信息存放在数据库
+│  └─yt4j-generator generator 代码生成模块，但是不用了
+│  └─yt4j-monitor springboot监控
+│  └─yt4j-sys RBAC模块
+│    └───yt4j-sys-api RBAC模块feign
+│    └───yt4j-sys-svc RBAC模块服务
+├─yt4j-plugin 插件模块
+│  └─yt4j-im 企业IM插件
+│    └───yt4j-im-api IM接口定义
+│    └───yt4j-feishu 飞书IM实现
 
 ```
 
