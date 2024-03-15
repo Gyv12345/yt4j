@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author gyv12345@163.com
  */
 @Tag(name = "配置feign")
-@FeignClient(name = "yt4j-sys", contextId = "sys-config", configuration = FeignInterceptor.class)
+@FeignClient(name = "yt4j-sys-svc", contextId = "sys-config", configuration = FeignInterceptor.class)
 public interface SysConfigClient {
 
 	/**

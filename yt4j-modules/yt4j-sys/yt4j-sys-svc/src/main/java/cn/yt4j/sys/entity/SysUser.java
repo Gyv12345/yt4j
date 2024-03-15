@@ -30,11 +30,6 @@ public class SysUser implements Serializable {
 	private Long id;
 
 	/**
-	 * 部门ID
-	 */
-	private Long deptId;
-
-	/**
 	 * 昵称
 	 */
 	private String nickName;
