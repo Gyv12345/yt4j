@@ -19,4 +19,3 @@ sudo chmod +x /usr/local/bin/docker-compose;
 docker-compose version;
 echo " ------------ docker服务安装完毕 ------------ ";
 
-wget -q https://mirror.ghproxy.com/https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh
