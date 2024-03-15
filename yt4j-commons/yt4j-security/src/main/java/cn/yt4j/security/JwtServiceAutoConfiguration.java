@@ -65,7 +65,7 @@ public class JwtServiceAutoConfiguration {
 		objectMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance, ObjectMapper.DefaultTyping.NON_FINAL);
 		Jackson2JsonRedisSerializer<Object> serializer = new Jackson2JsonRedisSerializer<>(objectMapper, Object.class);
 		return RedisCacheConfiguration.defaultCacheConfig()
-				.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(serializer));
+			.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(serializer));
 	}
 
 }

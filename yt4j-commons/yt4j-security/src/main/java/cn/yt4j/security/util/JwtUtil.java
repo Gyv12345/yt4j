@@ -30,8 +30,11 @@ public class JwtUtil {
 	 * @return 数据声明
 	 */
 	private Claims getClaimsFromToken(String token) {
-		return Jwts.parserBuilder().setSigningKey(DatatypeConverter.parseBase64Binary(jwtPayloadProperty.getSecret()))
-				.build().parseClaimsJws(token).getBody();
+		return Jwts.parserBuilder()
+			.setSigningKey(DatatypeConverter.parseBase64Binary(jwtPayloadProperty.getSecret()))
+			.build()
+			.parseClaimsJws(token)
+			.getBody();
 	}
 
 	/**
@@ -80,17 +83,17 @@ public class JwtUtil {
 		byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(jwtPayloadProperty.getSecret());
 		Key key = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
 		return Jwts.builder()
-				// jwt签发者
-				.setIssuer(jwtPayloadProperty.getIssuer())
-				// jwt所面向的用户
-				.setSubject(username)
-				// 接收jwt的一方
-				.setAudience(jwtPayloadProperty.getAudience())
-				.setExpiration(
-						new Date(System.currentTimeMillis() + jwtPayloadProperty.getExpirationMinute() * 60 * 1000))
-				.setNotBefore(
-						new Date(System.currentTimeMillis() - jwtPayloadProperty.getNotBeforeMinute() * 60 * 1000))
-				.setIssuedAt(new Date()).signWith(key).compact();
+			// jwt签发者
+			.setIssuer(jwtPayloadProperty.getIssuer())
+			// jwt所面向的用户
+			.setSubject(username)
+			// 接收jwt的一方
+			.setAudience(jwtPayloadProperty.getAudience())
+			.setExpiration(new Date(System.currentTimeMillis() + jwtPayloadProperty.getExpirationMinute() * 60 * 1000))
+			.setNotBefore(new Date(System.currentTimeMillis() - jwtPayloadProperty.getNotBeforeMinute() * 60 * 1000))
+			.setIssuedAt(new Date())
+			.signWith(key)
+			.compact();
 	}
 
 }

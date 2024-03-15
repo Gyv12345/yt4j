@@ -32,13 +32,13 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
 	@Override
 	public List<BaseTree> treeDept() {
 		return TreeUtil
-				.buildByRecursive(Optional.ofNullable(this.list()).orElse(new ArrayList<>()).stream().map(sysDept -> {
-					BaseTree tree = new BaseTree();
-					tree.setId(sysDept.getId());
-					tree.setParentId(sysDept.getParentId());
-					tree.setName(sysDept.getName());
-					return tree;
-				}).collect(Collectors.toList()), BasicEnum.PARENT.getId());
+			.buildByRecursive(Optional.ofNullable(this.list()).orElse(new ArrayList<>()).stream().map(sysDept -> {
+				BaseTree tree = new BaseTree();
+				tree.setId(sysDept.getId());
+				tree.setParentId(sysDept.getParentId());
+				tree.setName(sysDept.getName());
+				return tree;
+			}).collect(Collectors.toList()), BasicEnum.PARENT.getId());
 	}
 
 	@Override

@@ -51,8 +51,13 @@ public class FeiShuImService implements BaseImClient {
 	@SneakyThrows
 	private void recursionDept(List<Department> allDept, String deptId, String pageToken) {
 		// 创建请求对象
-		ChildrenDepartmentReq req = ChildrenDepartmentReq.newBuilder().userIdType("open_id")
-				.departmentIdType("open_department_id").pageSize(50).departmentId(deptId).pageToken(pageToken).build();
+		ChildrenDepartmentReq req = ChildrenDepartmentReq.newBuilder()
+			.userIdType("open_id")
+			.departmentIdType("open_department_id")
+			.pageSize(50)
+			.departmentId(deptId)
+			.pageToken(pageToken)
+			.build();
 
 		// 发起请求
 		ChildrenDepartmentResp resp = client.contact().department().children(req);
@@ -85,9 +90,14 @@ public class FeiShuImService implements BaseImClient {
 	@SneakyThrows
 	private void recursionUser(List<User> allUser, String deptId, String pageToken) {
 		// 创建请求对象
-		FindByDepartmentUserReq req = FindByDepartmentUserReq.newBuilder().userIdType("open_id").pageSize(50)
-				.departmentId(deptId).departmentId("0").departmentIdType("open_department_id").pageToken(pageToken)
-				.build();
+		FindByDepartmentUserReq req = FindByDepartmentUserReq.newBuilder()
+			.userIdType("open_id")
+			.pageSize(50)
+			.departmentId(deptId)
+			.departmentId("0")
+			.departmentIdType("open_department_id")
+			.pageToken(pageToken)
+			.build();
 
 		// 发起请求
 		FindByDepartmentUserResp resp = client.contact().user().findByDepartment(req);

@@ -45,7 +45,8 @@ public class WebFluxUtil {
 		}
 		if (ipAddress == null || ipAddress.isEmpty() || IP_UNKNOWN.equalsIgnoreCase(ipAddress)) {
 			ipAddress = Optional.ofNullable(request.getRemoteAddress())
-					.map(address -> address.getAddress().getHostAddress()).orElse("");
+				.map(address -> address.getAddress().getHostAddress())
+				.orElse("");
 			if (IP_LOCAL.equals(ipAddress) || IPV6_LOCAL.equals(ipAddress)) {
 				// 根据网卡取本机配置的IP
 				try {

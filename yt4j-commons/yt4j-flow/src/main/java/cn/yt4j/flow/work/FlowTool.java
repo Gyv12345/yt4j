@@ -65,8 +65,12 @@ public class FlowTool {
 	private RuleWorkFlow buildByRecursive(RuleWorkFlow parentFlow, List<TreeFlow> list) {
 		for (TreeFlow item : list) {
 			if (item.getParentId().equals(parentFlow.getId())) {
-				RuleWorkFlow child = RuleWorkFlow.builder().id(item.getId()).beanId(item.getBeanId())
-						.name(item.getName()).condition(item.getCondition()).build();
+				RuleWorkFlow child = RuleWorkFlow.builder()
+					.id(item.getId())
+					.beanId(item.getBeanId())
+					.name(item.getName())
+					.condition(item.getCondition())
+					.build();
 				parentFlow.getNextNodes().add(buildByRecursive(child, list));
 			}
 		}

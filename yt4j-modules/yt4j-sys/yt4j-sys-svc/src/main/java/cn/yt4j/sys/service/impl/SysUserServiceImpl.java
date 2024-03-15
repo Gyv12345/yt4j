@@ -133,7 +133,9 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 		SysUser user = this.getById(id);
 		user.setRoleIds(
 				this.sysUserRoleMapper.selectList(Wrappers.<SysUserRole>lambdaQuery().eq(SysUserRole::getUserId, id))
-						.stream().map(SysUserRole::getRoleId).collect(Collectors.toList()));
+					.stream()
+					.map(SysUserRole::getRoleId)
+					.collect(Collectors.toList()));
 		return user;
 	}
 

@@ -65,17 +65,17 @@ public class WebsocketEndpoint {
 	public void onEvent(Session session, Object evt) {
 		if (evt instanceof IdleStateEvent idleStateEvent) {
 			switch (idleStateEvent.state()) {
-			case READER_IDLE:
-				log.info("read idle");
-				break;
-			case WRITER_IDLE:
-				log.info("write idle");
-				break;
-			case ALL_IDLE:
-				log.info("all idle");
-				break;
-			default:
-				break;
+				case READER_IDLE:
+					log.info("read idle");
+					break;
+				case WRITER_IDLE:
+					log.info("write idle");
+					break;
+				case ALL_IDLE:
+					log.info("all idle");
+					break;
+				default:
+					break;
 			}
 		}
 	}

@@ -42,22 +42,33 @@ public class Yt4jSecurityConfig {
 	@Bean
 	public SecurityFilterChain apiFilterChain(HttpSecurity http) throws Exception {
 		ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http
-				.authorizeRequests();
+			.authorizeRequests();
 		// 不需要保护的资源路径允许访问
-		Optional.ofNullable(jwtAuthFilterProperty.getIgnoredUrl()).orElse(new ArrayList<>())
-				.forEach(url -> registry.requestMatchers(url).permitAll());
+		Optional.ofNullable(jwtAuthFilterProperty.getIgnoredUrl())
+			.orElse(new ArrayList<>())
+			.forEach(url -> registry.requestMatchers(url).permitAll());
 
 		// 允许跨域请求的OPTIONS请求
 		registry.requestMatchers(HttpMethod.OPTIONS).permitAll();
 		// 任何请求需要身份认证
-		registry.and().authorizeRequests().anyRequest().authenticated()
-				// 关闭跨站请求防护及不使用session
-				.and().csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-				// 自定义权限拒绝处理类
-				.and().exceptionHandling().accessDeniedHandler(restfulAccessDeniedHandler)
-				.authenticationEntryPoint(restAuthenticationEntryPoint)
-				// 自定义权限拦截器JWT过滤器
-				.and().addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+		registry.and()
+			.authorizeRequests()
+			.anyRequest()
+			.authenticated()
+			// 关闭跨站请求防护及不使用session
+			.and()
+			.csrf()
+			.disable()
+			.sessionManagement()
+			.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+			// 自定义权限拒绝处理类
+			.and()
+			.exceptionHandling()
+			.accessDeniedHandler(restfulAccessDeniedHandler)
+			.authenticationEntryPoint(restAuthenticationEntryPoint)
+			// 自定义权限拦截器JWT过滤器
+			.and()
+			.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
 		return http.build();
 	}
 

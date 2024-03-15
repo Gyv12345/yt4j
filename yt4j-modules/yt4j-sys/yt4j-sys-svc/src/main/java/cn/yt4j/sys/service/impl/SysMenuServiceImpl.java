@@ -32,35 +32,40 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 	@Override
 	public List<Route> nav(Long id, Long applicationId) {
 		return Optional.ofNullable(this.baseMapper.listMenuByUserIdAndApplicationId(id, applicationId))
-				.orElse(new ArrayList<>()).stream().map(sysMenu -> {
-					Route route = new Route();
-					route.setPath(sysMenu.getPath());
-					route.setId(sysMenu.getId());
-					route.setParentId(sysMenu.getParentId());
-					route.setName(sysMenu.getLabel());
-					route.setHidden(sysMenu.getHidden());
-					route.setComponent(sysMenu.getComponent());
-					route.setHideChildrenInMenu(false);
-					Meta meta = new Meta();
-					meta.setIcon(sysMenu.getIcon());
-					meta.setTitle(sysMenu.getTitle());
-					meta.setShow(sysMenu.getHidden());
-					meta.setPermission(
-							Arrays.asList(Optional.ofNullable(sysMenu.getPermission()).orElse("").split(",")));
-					route.setMeta(meta);
-					return route;
-				}).collect(Collectors.toList());
+			.orElse(new ArrayList<>())
+			.stream()
+			.map(sysMenu -> {
+				Route route = new Route();
+				route.setPath(sysMenu.getPath());
+				route.setId(sysMenu.getId());
+				route.setParentId(sysMenu.getParentId());
+				route.setName(sysMenu.getLabel());
+				route.setHidden(sysMenu.getHidden());
+				route.setComponent(sysMenu.getComponent());
+				route.setHideChildrenInMenu(false);
+				Meta meta = new Meta();
+				meta.setIcon(sysMenu.getIcon());
+				meta.setTitle(sysMenu.getTitle());
+				meta.setShow(sysMenu.getHidden());
+				meta.setPermission(Arrays.asList(Optional.ofNullable(sysMenu.getPermission()).orElse("").split(",")));
+				route.setMeta(meta);
+				return route;
+			})
+			.collect(Collectors.toList());
 	}
 
 	@Override
 	public List<MenuTreeVO> menuTree() {
 		return TreeUtil.buildByRecursive(Optional.ofNullable(this.baseMapper.selectList(Wrappers.emptyWrapper()))
-				.orElse(new ArrayList<>()).stream().map(sysMenu -> {
-					MenuTreeVO vo = new MenuTreeVO(sysMenu.getId(), sysMenu.getParentId(), sysMenu.getTitle(),
-							sysMenu.getTitle(), sysMenu.getIcon(), sysMenu.getOrderNo(), sysMenu.getPath(),
-							sysMenu.getComponent());
-					return vo;
-				}).collect(Collectors.toList()), 0L);
+			.orElse(new ArrayList<>())
+			.stream()
+			.map(sysMenu -> {
+				MenuTreeVO vo = new MenuTreeVO(sysMenu.getId(), sysMenu.getParentId(), sysMenu.getTitle(),
+						sysMenu.getTitle(), sysMenu.getIcon(), sysMenu.getOrderNo(), sysMenu.getPath(),
+						sysMenu.getComponent());
+				return vo;
+			})
+			.collect(Collectors.toList()), 0L);
 	}
 
 	@Override

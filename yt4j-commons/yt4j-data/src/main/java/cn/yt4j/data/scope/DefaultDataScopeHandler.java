@@ -25,30 +25,30 @@ public class DefaultDataScopeHandler implements DataScopeHandler {
 		String sql;
 		Expression sqlSegmentExpression;
 		switch (DataScopeType.parse(saUserCache.getDataScope())) {
-		case ALL:
-			log.debug("不做权限处理");
-			break;
-		case MY_SELF:
-			sql = StringUtils.hasText(dataScope.getAlias()) ? dataScope.getAlias() + ".create_user_id=%s"
-					: "create_user_id=%s";
-			sql = String.format(sql, saUserCache.getId());
-			sqlSegmentExpression = CCJSqlParserUtil.parseCondExpression(sql);
-			return new AndExpression(where, sqlSegmentExpression);
-		case MY_DEPARTMENT:
-			sql = StringUtils.hasText(dataScope.getAlias())
-					? dataScope.getAlias() + "." + dataScope.getColumnName() + " =%s"
-					: dataScope.getColumnName() + " =%s";
-			sql = String.format(sql, saUserCache.getDeptId());
-			sqlSegmentExpression = CCJSqlParserUtil.parseCondExpression(sql);
-			return new AndExpression(where, sqlSegmentExpression);
-		case SUBORDINATE:
-			sql = StringUtils.hasText(dataScope.getAlias())
-					? dataScope.getAlias() + "." + dataScope.getColumnName() + " in(%s)"
-					: dataScope.getColumnName() + " in(%s)";
-			sqlSegmentExpression = CCJSqlParserUtil.parseCondExpression(sql);
-			return new AndExpression(where, sqlSegmentExpression);
-		default:
-			break;
+			case ALL:
+				log.debug("不做权限处理");
+				break;
+			case MY_SELF:
+				sql = StringUtils.hasText(dataScope.getAlias()) ? dataScope.getAlias() + ".create_user_id=%s"
+						: "create_user_id=%s";
+				sql = String.format(sql, saUserCache.getId());
+				sqlSegmentExpression = CCJSqlParserUtil.parseCondExpression(sql);
+				return new AndExpression(where, sqlSegmentExpression);
+			case MY_DEPARTMENT:
+				sql = StringUtils.hasText(dataScope.getAlias())
+						? dataScope.getAlias() + "." + dataScope.getColumnName() + " =%s"
+						: dataScope.getColumnName() + " =%s";
+				sql = String.format(sql, saUserCache.getDeptId());
+				sqlSegmentExpression = CCJSqlParserUtil.parseCondExpression(sql);
+				return new AndExpression(where, sqlSegmentExpression);
+			case SUBORDINATE:
+				sql = StringUtils.hasText(dataScope.getAlias())
+						? dataScope.getAlias() + "." + dataScope.getColumnName() + " in(%s)"
+						: dataScope.getColumnName() + " in(%s)";
+				sqlSegmentExpression = CCJSqlParserUtil.parseCondExpression(sql);
+				return new AndExpression(where, sqlSegmentExpression);
+			default:
+				break;
 		}
 		return where;
 	}

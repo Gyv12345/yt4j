@@ -40,7 +40,9 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 	@Override
 	public List<Long> listMenuIds(Long id) {
 		return this.sysRoleMenuMapper.selectList(Wrappers.<SysRoleMenu>query().lambda().eq(SysRoleMenu::getRoleId, id))
-				.stream().map(SysRoleMenu::getMenuId).collect(Collectors.toList());
+			.stream()
+			.map(SysRoleMenu::getMenuId)
+			.collect(Collectors.toList());
 	}
 
 	@Override

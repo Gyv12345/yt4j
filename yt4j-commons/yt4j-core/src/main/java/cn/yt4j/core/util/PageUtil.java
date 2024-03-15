@@ -22,7 +22,7 @@ public class PageUtil {
 		int pageSize = 10;
 		int pageNo = 1;
 		HttpServletRequest request = ((ServletRequestAttributes) (RequestContextHolder.currentRequestAttributes()))
-				.getRequest();
+			.getRequest();
 
 		// 每页条数
 		String pageSizeString = request.getParameter(PAGE_SIZE);
