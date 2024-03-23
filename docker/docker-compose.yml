@@ -75,6 +75,7 @@ services:
       MINIO_COMPRESS_EXTENSIONS: ""
       # mime 类型 application/pdf 为空 所有类型均压缩
       MINIO_COMPRESS_MIME_TYPES: ""
+      restart: always
     volumes:
       # 映射当前目录下的data目录至容器内/data目录
       - ./data/minio:/data
@@ -100,5 +101,5 @@ services:
       - ./nginx/log:/var/log/nginx
     privileged: true
     network_mode: "host"
-
+    restart: always
 

@@ -19,3 +19,4 @@ sudo chmod +x /usr/local/bin/docker-compose;
 docker-compose version;
 echo " ------------ docker服务安装完毕 ------------ ";
 
+

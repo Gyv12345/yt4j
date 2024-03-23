@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  gitlab-ce:
+    container_name: gitlab
+    image: "gitlab/gitlab-ce:latest"
+    ports:
+      - "8888:8888"
+      - "5000:5000"
+    environment:
+      # 此处 ip 须与上面 hostname 一致，端口号自定义
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://192.168.31.101:8888' 
+        gitlab_rails['gitlab_shell_ssh_port'] = 5000
+    restart: always
+    volumes:
+      - "/home/gitlab/etc:/etc/gitlab"
+      - "/home/gitlab/log:/var/log/gitlab"
+      - "/home/gitlab/data:/var/opt/gitlab"
+    privileged: true
