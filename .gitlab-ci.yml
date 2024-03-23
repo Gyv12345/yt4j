@@ -27,7 +27,7 @@ build-job:       # This job runs in the build stage, which runs first.
   script:
     - echo "Compiling the code..."
     - echo "Compile complete."
-    - mvnd install
+    - sudo mvnd install
 
 
 deploy-job:      # This job runs in the deploy stage.
