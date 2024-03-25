@@ -3,7 +3,6 @@ package cn.yt4j.sys.api.entity.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
-import lombok.ToString;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -14,7 +13,6 @@ import java.io.Serializable;
  * @author gyv12345@163.com
  */
 @Data
-@ToString
 public class LoginDTO implements Serializable {
 
 	@Serial

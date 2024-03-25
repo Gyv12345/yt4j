@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class FeignInterceptor implements RequestInterceptor {
 
 	/**
-	 * 为 Feign 的 RCP调用 添加请求头Id-Token
+	 * 为 Feign 的 RCP调用 添加请求头SA-SAME-TOKEN
 	 */
 	@Override
 	public void apply(RequestTemplate requestTemplate) {
