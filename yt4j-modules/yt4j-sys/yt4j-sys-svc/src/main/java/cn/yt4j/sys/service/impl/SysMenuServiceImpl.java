@@ -15,7 +15,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -39,15 +38,22 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 				route.setPath(sysMenu.getPath());
 				route.setId(sysMenu.getId());
 				route.setParentId(sysMenu.getParentId());
-				route.setName(sysMenu.getLabel());
-				route.setHidden(sysMenu.getHidden());
+				route.setName(sysMenu.getName());
 				route.setComponent(sysMenu.getComponent());
-				route.setHideChildrenInMenu(false);
 				Meta meta = new Meta();
-				meta.setIcon(sysMenu.getIcon());
 				meta.setTitle(sysMenu.getTitle());
-				meta.setShow(sysMenu.getHidden());
-				meta.setPermission(Arrays.asList(Optional.ofNullable(sysMenu.getPermission()).orElse("").split(",")));
+				meta.setIcon(sysMenu.getIcon());
+				meta.setExtraIcon(sysMenu.getExtraIcon());
+				meta.setShowLink(sysMenu.getShowLink());
+				meta.setShowParent(sysMenu.getShowParent());
+				meta.setRoles(List.of(Optional.ofNullable(sysMenu.getRoles()).orElse("").split(",")));
+				meta.setAuths(List.of(Optional.ofNullable(sysMenu.getAuths()).orElse("").split(",")));
+				meta.setKeepAlive(sysMenu.getKeepAlive());
+				meta.setFrameSrc(sysMenu.getFrameSrc());
+				meta.setFrameLoading(sysMenu.getFrameLoading());
+				meta.setHiddenTag(sysMenu.getHiddenTag());
+				meta.setActivePath(sysMenu.getPath());
+				meta.setRank(sysMenu.getRank());
 				route.setMeta(meta);
 				return route;
 			})
@@ -61,7 +67,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 			.stream()
 			.map(sysMenu -> {
 				MenuTreeVO vo = new MenuTreeVO(sysMenu.getId(), sysMenu.getParentId(), sysMenu.getTitle(),
-						sysMenu.getTitle(), sysMenu.getIcon(), sysMenu.getOrderNo(), sysMenu.getPath(),
+						sysMenu.getTitle(), sysMenu.getIcon(), sysMenu.getRank(), sysMenu.getPath(),
 						sysMenu.getComponent());
 				return vo;
 			})

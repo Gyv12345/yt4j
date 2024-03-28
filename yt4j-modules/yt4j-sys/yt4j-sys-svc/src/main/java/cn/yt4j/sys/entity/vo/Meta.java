@@ -1,6 +1,7 @@
 
 package cn.yt4j.sys.entity.vo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import java.io.Serial;
@@ -13,6 +14,7 @@ import java.util.List;
  * @author gyv12345@163.com
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Meta implements Serializable {
 
 	@Serial
@@ -22,14 +24,26 @@ public class Meta implements Serializable {
 
 	private String icon;
 
-	private String target;
+	private String extraIcon;
 
-	private List<String> permission;
+	private Boolean showLink;
 
-	private Boolean hiddenHeaderContent;
+	private Boolean showParent;
 
-	private Boolean hideChildren;
+	private List<String> roles;
 
-	private Boolean show;
+	private List<String> auths;
+
+	private Boolean keepAlive;
+
+	private String frameSrc;
+
+	private Boolean frameLoading;
+
+	private Boolean hiddenTag;
+
+	private String activePath;
+
+	private Integer rank;
 
 }

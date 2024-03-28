@@ -1,9 +1,7 @@
-package cn.yt4j.sys.entity;
+package cn.yt4j.sys.entity.vo;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
+import cn.yt4j.sys.entity.SysMenu;
+import io.github.linpeilie.annotations.AutoMapper;
 import lombok.Data;
 
 import java.io.Serial;
@@ -17,14 +15,14 @@ import java.time.LocalDateTime;
  * @since 2024-03-27 09:29:25
  */
 @Data
-public class SysMenu implements Serializable {
+@AutoMapper(target = SysMenu.class)
+public class SysMenuVO implements Serializable {
     @Serial
-    private static final long serialVersionUID = -27119110077071869L;
+    private static final long serialVersionUID = -72222054959675287L;
 
     /**
      * id
      */
-    @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
 
     /**
@@ -140,13 +138,11 @@ public class SysMenu implements Serializable {
     /**
      * 创建时间
      */
-    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
     /**
      * 修改时间
      */
-    @TableField(fill = FieldFill.UPDATE)
     private LocalDateTime updateTime;
 
 }

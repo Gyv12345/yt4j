@@ -1,8 +1,10 @@
 
 package cn.yt4j.sys.entity.vo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -11,8 +13,10 @@ import java.io.Serializable;
  * @author gyv12345@163.com
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Route implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 4000715486515628336L;
 
 	/**

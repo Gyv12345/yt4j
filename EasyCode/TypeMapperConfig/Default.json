@@ -73,5 +73,10 @@
     "matchType": "ORDINARY",
     "columnType": "boolean",
     "javaType": "java.lang.Boolean"
-  }
+  },
+    {
+      "matchType": "ORDINARY",
+      "columnType": "bit",
+      "javaType": "java.lang.Boolean"
+    }
 ]
