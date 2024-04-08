@@ -44,4 +44,10 @@ public interface SysMenuService extends IService<SysMenu> {
 	 */
 	List<String> listByUserId(Long userId);
 
+	/**
+	 * 通过用户ID获取路由信息
+	 * @param loginIdAsLong
+	 * @return
+	 */
+	List<Route> getAsyncRoutes(long loginIdAsLong);
 }

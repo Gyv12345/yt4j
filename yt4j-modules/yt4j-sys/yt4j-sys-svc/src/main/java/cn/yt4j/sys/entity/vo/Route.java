@@ -1,8 +1,10 @@
 
 package cn.yt4j.sys.entity.vo;
 
+import cn.yt4j.core.domain.BaseTree;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -12,22 +14,14 @@ import java.io.Serializable;
  *
  * @author gyv12345@163.com
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Route implements Serializable {
+public class Route extends BaseTree implements Serializable {
 
 	@Serial
 	private static final long serialVersionUID = 4000715486515628336L;
 
-	/**
-	 * id
-	 */
-	private Long id;
-
-	/**
-	 * 父级
-	 */
-	private Long parentId;
 
 	/**
 	 * 是否显示在左侧
@@ -38,11 +32,6 @@ public class Route implements Serializable {
 	 * 重定向
 	 */
 	private String redirect;
-
-	/**
-	 * 路由名称 不能重复
-	 */
-	private String name;
 
 	/**
 	 * 组件

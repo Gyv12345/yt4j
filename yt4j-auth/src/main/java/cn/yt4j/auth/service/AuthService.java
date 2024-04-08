@@ -1,6 +1,7 @@
 package cn.yt4j.auth.service;
 
 import cn.yt4j.sys.api.entity.dto.LoginDTO;
+import cn.yt4j.sys.api.entity.vo.LoginVO;
 
 /**
  * 鉴权服务
@@ -14,6 +15,6 @@ public interface AuthService {
 	 * @param dto 登录参数
 	 * @return token
 	 */
-	String login(LoginDTO dto);
+	LoginVO login(LoginDTO dto);
 
 }

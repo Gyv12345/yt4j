@@ -5,6 +5,7 @@ import cn.yt4j.auth.service.AuthService;
 import cn.yt4j.core.domain.Result;
 import cn.yt4j.log.annotation.SysLog;
 import cn.yt4j.sys.api.entity.dto.LoginDTO;
+import cn.yt4j.sys.api.entity.vo.LoginVO;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -12,9 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 鉴权
@@ -35,15 +33,8 @@ public class AuthController {
 	 */
 	@SysLog("登录")
 	@PostMapping("login")
-	public Result<Map<String, String>> login(@RequestBody @Validated LoginDTO dto) {
-		Map<String, String> map = new HashMap<>(8);
-		String token = authService.login(dto);
-		map.put("token", token);
-		return Result.ok(map);
-	}
-
-	public String callBack(LoginDTO dto) {
-		return authService.login(dto);
+	public Result<LoginVO> login(@RequestBody @Validated LoginDTO dto) {
+		return Result.ok(authService.login(dto));
 	}
 
 	/**

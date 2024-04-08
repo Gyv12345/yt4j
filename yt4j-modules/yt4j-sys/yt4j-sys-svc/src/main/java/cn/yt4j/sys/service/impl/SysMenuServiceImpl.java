@@ -90,4 +90,38 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 		return this.baseMapper.listByUserId(userId);
 	}
 
+	@Override
+	public List<Route> getAsyncRoutes(long loginIdAsLong) {
+		List<SysMenu> sysMenus = this.baseMapper.listMenuByUserId(loginIdAsLong);
+		List<Route> collect = Optional.ofNullable(sysMenus)
+				.orElse(new ArrayList<>())
+				.stream()
+				.map(sysMenu -> {
+					Route route = new Route();
+					route.setPath(sysMenu.getPath());
+					route.setId(sysMenu.getId());
+					route.setParentId(sysMenu.getParentId());
+					route.setName(sysMenu.getName());
+					route.setComponent(sysMenu.getComponent());
+					Meta meta = new Meta();
+					meta.setTitle(sysMenu.getTitle());
+					meta.setIcon(sysMenu.getIcon());
+					meta.setExtraIcon(sysMenu.getExtraIcon());
+					meta.setShowLink(sysMenu.getShowLink());
+					meta.setShowParent(sysMenu.getShowParent());
+					meta.setRoles(List.of(Optional.ofNullable(sysMenu.getRoles()).orElse("").split(",")));
+					meta.setAuths(List.of(Optional.ofNullable(sysMenu.getAuths()).orElse("").split(",")));
+					meta.setKeepAlive(sysMenu.getKeepAlive());
+					meta.setFrameSrc(sysMenu.getFrameSrc());
+					meta.setFrameLoading(sysMenu.getFrameLoading());
+					meta.setHiddenTag(sysMenu.getHiddenTag());
+					meta.setActivePath(sysMenu.getPath());
+					meta.setRank(sysMenu.getRank());
+					route.setMeta(meta);
+					return route;
+				})
+				.collect(Collectors.toList());
+        return TreeUtil.buildByRecursive(collect, 0L);
+	}
+
 }

@@ -39,6 +39,11 @@ public class Result<T> implements Serializable {
 	 */
 	private T data;
 
+	/**
+	 * 正常与否
+	 */
+	private Boolean success;
+
 	public static <T> Result<T> ok() {
 		return result(null, HttpStatus.OK.value(), null);
 	}
@@ -98,6 +103,7 @@ public class Result<T> implements Serializable {
 		apiResult.setCode(code);
 		apiResult.setData(data);
 		apiResult.setMessage(message);
+		apiResult.setSuccess(true);
 		return apiResult;
 	}
 

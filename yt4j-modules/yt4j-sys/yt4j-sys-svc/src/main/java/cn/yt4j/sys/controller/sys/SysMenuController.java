@@ -46,6 +46,12 @@ public class SysMenuController {
 		return Result.ok(this.sysMenuService.nav(StpUtil.getLoginIdAsLong(), applicationId));
 	}
 
+	@GetMapping("async/routes")
+	public Result<List<Route>> getAsyncRoutes(){
+		List<Route> list=this.sysMenuService.getAsyncRoutes(StpUtil.getLoginIdAsLong());
+		return Result.ok(list);
+	}
+
 	/**
 	 * 获取顶部菜单
 	 * @return 结果
