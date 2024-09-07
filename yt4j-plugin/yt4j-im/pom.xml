@@ -15,5 +15,6 @@
     <modules>
         <module>yt4j-im-api</module>
         <module>yt4j-feishu</module>
+        <module>yt4j-qywx</module>
     </modules>
 </project>
