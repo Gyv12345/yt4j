@@ -18,7 +18,11 @@ public enum FeiShuCodeEnum implements IMessageStatus {
 	/**
 	 * secret需要填写
 	 */
-	NO_APP_SECRET(11001, "请配置 app_secret"), NO_ACCESS_TOKEN(11002, "请配置 access_token"),;
+	NO_APP_SECRET(11001, "请配置 app_secret"),
+	/**
+	 * access_token需要填写
+	 */
+	NO_ACCESS_TOKEN(11002, "请配置 access_token"),;
 
 	private final int code;
 
