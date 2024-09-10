@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.statement.select.PlainSelect;
 import net.sf.jsqlparser.statement.select.Select;
-import net.sf.jsqlparser.statement.select.SelectBody;
 import net.sf.jsqlparser.statement.select.SetOperationList;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
@@ -50,12 +49,10 @@ public class DataScopeInterceptor extends JsqlParserSupport implements InnerInte
 
 	@Override
 	protected void processSelect(Select select, int index, String sql, Object obj) {
-		SelectBody selectBody = select.getSelectBody();
-		if (selectBody instanceof PlainSelect selectBodyConvert) {
-			this.setWhere(selectBodyConvert, (DataScope) obj);
-		}
-		else if (selectBody instanceof SetOperationList setOperationList) {
-			List<SelectBody> selectBodyList = setOperationList.getSelects();
+		if (select instanceof PlainSelect) {
+			this.setWhere((PlainSelect) select, (DataScope) obj);
+		} else if (select instanceof SetOperationList setOperationList) {
+            List<Select> selectBodyList = setOperationList.getSelects();
 			selectBodyList.forEach(s -> this.setWhere((PlainSelect) s, (DataScope) obj));
 		}
 	}
