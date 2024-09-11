@@ -50,4 +50,5 @@ public interface SysMenuService extends IService<SysMenu> {
 	 * @return
 	 */
 	List<Route> getAsyncRoutes(long loginIdAsLong);
+
 }

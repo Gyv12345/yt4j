@@ -22,7 +22,6 @@ public class Route extends BaseTree implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 4000715486515628336L;
 
-
 	/**
 	 * 是否显示在左侧
 	 */

@@ -51,8 +51,9 @@ public class DataScopeInterceptor extends JsqlParserSupport implements InnerInte
 	protected void processSelect(Select select, int index, String sql, Object obj) {
 		if (select instanceof PlainSelect) {
 			this.setWhere((PlainSelect) select, (DataScope) obj);
-		} else if (select instanceof SetOperationList setOperationList) {
-            List<Select> selectBodyList = setOperationList.getSelects();
+		}
+		else if (select instanceof SetOperationList setOperationList) {
+			List<Select> selectBodyList = setOperationList.getSelects();
 			selectBodyList.forEach(s -> this.setWhere((PlainSelect) s, (DataScope) obj));
 		}
 	}

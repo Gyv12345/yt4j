@@ -56,14 +56,14 @@ public class AuthServiceImpl implements AuthService {
 				userCache.setPermissions(this.loginClient.listMenuByUserId(user.getId()).getData());
 				session.set(SecurityConstants.SECURITY_PREFIX, userCache);
 				// 返回给前端
-				LoginVO loginVO=new LoginVO();
+				LoginVO loginVO = new LoginVO();
 				loginVO.setUsername(user.getUsername());
 				loginVO.setRoles(userCache.getRoles());
 				loginVO.setAccessToken(token);
 				loginVO.setRefreshToken(token);
-				Date now=new Date();
+				Date now = new Date();
 				DateTime dateTime = DateUtil.offsetDay(now, 30);
-				loginVO.setExpires(DateUtil.format(dateTime,"yyyy/MM/dd HH:mm:ss"));
+				loginVO.setExpires(DateUtil.format(dateTime, "yyyy/MM/dd HH:mm:ss"));
 				return loginVO;
 			}
 			else {
