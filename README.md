@@ -32,11 +32,11 @@ ui部分 放弃了，前端太难了
 
 | 依赖                 | 版本         |
 |--------------------|------------|
-| SpringBoot         | 3.2.0      |
-| MybatisPlus        | 3.5.5      |
-| hutool             | 5.8.16     |
-| SpringCloud        | 2023.0.0   |
-| SpringCloudAlibaba | 2022.0.0.0 |
+| SpringBoot         | 3.3.4      |
+| MybatisPlus        | 3.5.7      |
+| hutool             | 5.8.26     |
+| SpringCloud        | 2023.0.3   |
+| SpringCloudAlibaba | 2023.0.1.0 |
 | sa-token           | 1.34.0     |
 | plumelog           | 3.5.3      |
 | xxl-job            | 2.4.0      |
