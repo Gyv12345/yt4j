@@ -55,11 +55,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
         <!-- jdk8以后java se 和java ee拆分了，使用javax.xml.bind需要进行单独引入 -->
         <dependency>
             <groupId>javax.xml.bind</groupId>
