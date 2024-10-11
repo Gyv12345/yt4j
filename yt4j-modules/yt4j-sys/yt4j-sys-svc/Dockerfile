@@ -12,6 +12,6 @@ RUN mkdir -p /app
 
 WORKDIR /app
 
-ADD ./target/yt4j-auth.jar ./
+ADD ./target/yt4j-sys-svc.jar ./
 
-CMD java $JAVA_OPTS -jar yt4j-auth.jar
+CMD java $JAVA_OPTS -jar yt4j-sys-svc.jar

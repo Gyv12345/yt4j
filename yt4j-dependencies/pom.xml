@@ -15,7 +15,7 @@
         <mybatis-plus.version>3.5.7</mybatis-plus.version>
         <mybatis-spring.version>3.0.3</mybatis-spring.version>
         <hutool.version>5.8.26</hutool.version>
-        <easy-excel.version>3.3.3</easy-excel.version>
+        <easy-excel.version>4.0.2</easy-excel.version>
         <jjwt.version>0.11.2</jjwt.version>
         <jasypt.version>2.1.1</jasypt.version>
         <wx.java.version>4.6.0</wx.java.version>
@@ -31,7 +31,7 @@
         <ip2region.version>2.6.5</ip2region.version>
         <dynamic-datasource.version>3.6.1</dynamic-datasource.version>
         <therapi-javadoc.version>0.15.0</therapi-javadoc.version>
-        <dynamic-tp.version>1.1.7-3.x</dynamic-tp.version>
+        <dynamic-tp.version>1.1.9-3.x</dynamic-tp.version>
         <x-file-storage.version>2.0.0</x-file-storage.version>
         <aws-java-sdk-s3.version>1.12.610</aws-java-sdk-s3.version>
         <aliyun-sdk-oss>3.17.3</aliyun-sdk-oss>
@@ -216,9 +216,10 @@
             <!-- 动态线程池 -->
             <dependency>
                 <groupId>org.dromara.dynamictp</groupId>
-                <artifactId>dynamic-tp-spring-boot-starter-nacos</artifactId>
+                <artifactId>dynamic-tp-spring-cloud-starter-nacos</artifactId>
                 <version>${dynamic-tp.version}</version>
             </dependency>
+
             <!-- OSS -->
             <dependency>
                 <groupId>com.amazonaws</groupId>

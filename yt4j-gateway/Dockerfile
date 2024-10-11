@@ -1,4 +1,4 @@
-FROM alibabadragonwell/dragonwell:17-anolis
+FROM registry.cn-heyuan.aliyuncs.com/yt4j/jdk21:21.0.4.0.4.7
 
 MAINTAINER shichenyang89
 

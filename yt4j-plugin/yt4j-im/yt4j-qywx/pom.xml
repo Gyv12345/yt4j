@@ -6,10 +6,11 @@
     <parent>
         <groupId>cn.yt4j</groupId>
         <artifactId>yt4j-im</artifactId>
-        <version>2024.0.1</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>yt4j-qywx</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
