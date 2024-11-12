@@ -21,6 +21,7 @@
         <module>yt4j-swagger</module>
         <module>yt4j-plumelog</module>
         <module>yt4j-oss</module>
+        <module>yt4j-ai</module>
     </modules>
 
     <artifactId>yt4j-commons</artifactId>
